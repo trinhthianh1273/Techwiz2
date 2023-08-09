@@ -11,11 +11,11 @@ namespace Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class addressesController : ControllerBase
+    public class AddressesController : ControllerBase
     {
         private readonly SoccerContext _context;
 
-        public addressesController(SoccerContext context)
+        public AddressesController(SoccerContext context)
         {
             _context = context;
         }
