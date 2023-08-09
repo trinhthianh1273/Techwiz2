@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Api.Models;
-using Microsoft.AspNetCore.Cors;
+using Api.IRepository;
 
 namespace Api.Controllers
 {
@@ -15,10 +15,12 @@ namespace Api.Controllers
     public class StatusController : ControllerBase
     {
         private readonly SoccerContext _context;
+        private readonly IStatusRepository _statusRepository;
 
-        public StatusController(SoccerContext context)
+        public StatusController(SoccerContext context, IStatusRepository statusRepository)
         {
             _context = context;
+            _statusRepository = statusRepository;
         }
 
         // GET: api/Status
