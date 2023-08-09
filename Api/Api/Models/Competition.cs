@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Api.Models;
 
-public class Competition
+public partial class Competition
 {
     public int CompetitionID { get; set; }
 

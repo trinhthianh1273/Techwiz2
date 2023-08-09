@@ -1,4 +1,8 @@
+using Api.IRepository;
+using Api.IService;
 using Api.Models;
+using Api.Repository;
+using Api.Services;
 using Microsoft.EntityFrameworkCore;
 using System;
 
@@ -16,16 +20,8 @@ builder.Services.AddDbContext<SoccerContext>(option =>
     option.UseSqlServer(builder.Configuration.GetConnectionString("SoccerContext") ?? throw new InvalidOperationException("Connect String AppDbContext is not found"));
 });
 
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("default", builder =>
-    {
-        builder.AllowAnyOrigin()
-               .AllowAnyMethod()
-               .AllowAnyHeader();
-    });
-});
-
+builder.Services.AddTransient<IStatusRepository, StatusRepository>();
+builder.Services.AddTransient<ICustomerAuthenticationService, CustomerAuthenticationService>();
 
 var app = builder.Build();
 
@@ -41,7 +37,5 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
-
-app.UseCors("default");
 
 app.Run();
