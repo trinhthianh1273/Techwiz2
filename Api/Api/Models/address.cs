@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Api.Models;
 
-public  class address
+public partial class Address
 {
     public int AddressID { get; set; }
 

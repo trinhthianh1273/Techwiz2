@@ -253,3 +253,9 @@ C:\Users\MSI Modern\Techwiz2\Api\Api\obj\Debug\net7.0\refint\Api.dll
 C:\Users\MSI Modern\Techwiz2\Api\Api\obj\Debug\net7.0\Api.pdb
 C:\Users\MSI Modern\Techwiz2\Api\Api\obj\Debug\net7.0\Api.genruntimeconfig.cache
 C:\Users\MSI Modern\Techwiz2\Api\Api\obj\Debug\net7.0\ref\Api.dll
+C:\Users\MSI Modern\Techwiz2\Api\Api\bin\Debug\net7.0\BouncyCastle.Cryptography.dll
+C:\Users\MSI Modern\Techwiz2\Api\Api\bin\Debug\net7.0\MailKit.dll
+C:\Users\MSI Modern\Techwiz2\Api\Api\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\MSI Modern\Techwiz2\Api\Api\bin\Debug\net7.0\MimeKit.dll
+C:\Users\MSI Modern\Techwiz2\Api\Api\bin\Debug\net7.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\MSI Modern\Techwiz2\Api\Api\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Security.Cryptography.Pkcs.dll

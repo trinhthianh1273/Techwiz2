@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Api.Models;
 
-public class Cart
+public partial class Cart
 {
     public int CartID { get; set; }
 

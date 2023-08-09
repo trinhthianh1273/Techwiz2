@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Api.Models;
 
-public class Customer
+public partial class Customer
 {
     public int CustomerID { get; set; }
 
@@ -19,11 +19,13 @@ public class Customer
 
     public string Phone { get; set; }
 
+    public string Token { get; set; }
+
+    public virtual ICollection<Address> Address { get; set; } = new List<Address>();
+
     public virtual ICollection<Cart> Cart { get; set; } = new List<Cart>();
 
     public virtual ICollection<Feedback> Feedback { get; set; } = new List<Feedback>();
 
     public virtual ICollection<Orders> Orders { get; set; } = new List<Orders>();
-
-    public virtual ICollection<address> address { get; set; } = new List<address>();
 }

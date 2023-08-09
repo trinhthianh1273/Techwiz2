@@ -6,18 +6,24 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Api.Models;
+using Api.DTO.Request;
+using Api.Helpers;
+using Api.DTO.Common;
+using Api.IService;
 
 namespace Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class CustomersController : ControllerBase
     {
         private readonly SoccerContext _context;
+        private readonly ICustomerAuthenticationService _service;
 
-        public CustomersController(SoccerContext context)
+        public CustomersController(SoccerContext context, ICustomerAuthenticationService service)
         {
             _context = context;
+            _service = service;
         }
 
         // GET: api/Customers
@@ -118,6 +124,75 @@ namespace Api.Controllers
         private bool CustomerExists(int id)
         {
             return (_context.Customer?.Any(e => e.CustomerID == id)).GetValueOrDefault();
+        }
+
+        [HttpPost("authenticate")]
+        public async Task<IActionResult> Authenticate([FromBody] LoginDto userObj)
+        {
+            var check = userObj == null;
+            if (userObj == null) return BadRequest();
+            var user = await _context.Customer.FirstOrDefaultAsync(x => x.Username == userObj.UserName);
+            if (user == null) return NotFound(new { Message = "User Not Found" });
+
+            if (!PasswordHasher.VerifyPassword(userObj.Password, user.Password))
+            {
+                return BadRequest(new { Message = "Password is Incorredt!" });
+            }
+            
+            user.Token = this._service.CreateJwt(user);
+
+            user.Token = this._service.CreateJwt(user);
+           
+            var newAccessToken = user.Token;
+            var newRefreshToken = this._service.CreateRefreshToken();
+            //user.RefreshToken = newRefreshToken;
+            
+            await _context.SaveChangesAsync();
+
+            return Ok(new TokenApiDto()
+            {
+                AccessToken = newAccessToken
+                //RefeshToken = newRefreshToken
+            });
+        }
+
+        [HttpPost("register")]
+        public async Task<IActionResult> RegisterUser([FromBody] RegisterDTO userObj)
+        {
+            if (userObj == null) return BadRequest();
+
+            // check username
+            if (await this._service.CheckUserNameExistAsync(userObj.Username))
+            {
+                return BadRequest(new { Message = "Username Already Exist!" });
+            }
+
+            // Check email
+            if (await this._service.CheckEmailExistAsync(userObj.Email))
+            {
+                return BadRequest(new { Message = "Email Already Exist!" });
+            }
+
+            userObj.Password = PasswordHasher.HassPassword(userObj.Password);
+            //userObj.Role = "User";
+            userObj.Token = "";
+
+            var newCustomer = new Customer()
+            {
+                Fullname = userObj.Fullname ,
+                Username = userObj.Username ,
+                Password = userObj.Password ,
+                Email = userObj.Email ,
+                Phone = userObj.Phone ,
+                Token = userObj.Token
+            };
+
+            await _context.Customer.AddAsync(newCustomer);
+            await _context.SaveChangesAsync();
+            return Ok(new
+            {
+                Message = "Customer Registered!"
+            });
         }
     }
 }
