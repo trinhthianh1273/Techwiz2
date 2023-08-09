@@ -1,113 +1,113 @@
 ﻿{
-   "CodeGenerationMode": 3,
-   "ContextClassName": "SoccerContext",
-   "ContextNamespace": null,
-   "DefaultDacpacSchema": null,
-   "FilterSchemas": false,
-   "IncludeConnectionString": false,
-   "ModelNamespace": null,
-   "OutputContextPath": null,
-   "OutputPath": "Models",
-   "PreserveCasingWithRegex": true,
-   "ProjectRootNamespace": "Api",
-   "Schemas": null,
-   "SelectedHandlebarsLanguage": 0,
-   "SelectedToBeGenerated": 0,
-   "Tables": [
-      {
-         "Name": "[dbo].[address]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[Cart]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[Category]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[Competition]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[Customer]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[Employee]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[Feedback]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[Match]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[OrderContent]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[Orders]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[PaymentMethod]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[Player]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[PlayerImage]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[ProductImage]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[Products]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[Status]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[Team]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[TeamImage]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[TeamPlayerHistory]",
-         "ObjectType": 0
-      }
-   ],
-   "UiHint": "(localdb)\\MSSQLLocalDB.Soccer",
-   "UncountableWords": null,
-   "UseBoolPropertiesWithoutDefaultSql": false,
-   "UseDatabaseNames": true,
-   "UseDateOnlyTimeOnly": false,
-   "UseDbContextSplitting": false,
-   "UseFluentApiOnly": true,
-   "UseHandleBars": false,
-   "UseHierarchyId": false,
-   "UseInflector": false,
-   "UseLegacyPluralizer": false,
-   "UseManyToManyEntity": false,
-   "UseNoDefaultConstructor": false,
-   "UseNoObjectFilter": false,
-   "UseNodaTime": false,
-   "UseNullableReferences": false,
-   "UseSchemaFolders": false,
-   "UseSpatial": false,
-   "UseT4": false
+  "CodeGenerationMode": 3,
+  "ContextClassName": "SoccerContext",
+  "ContextNamespace": null,
+  "DefaultDacpacSchema": null,
+  "FilterSchemas": false,
+  "IncludeConnectionString": false,
+  "ModelNamespace": null,
+  "OutputContextPath": null,
+  "OutputPath": "Models",
+  "PreserveCasingWithRegex": true,
+  "ProjectRootNamespace": "Api",
+  "Schemas": null,
+  "SelectedHandlebarsLanguage": 0,
+  "SelectedToBeGenerated": 0,
+  "Tables": [
+    {
+      "Name": "[dbo].[address]",
+      "ObjectType": 0
+    },
+    {
+      "Name": "[dbo].[Cart]",
+      "ObjectType": 0
+    },
+    {
+      "Name": "[dbo].[Category]",
+      "ObjectType": 0
+    },
+    {
+      "Name": "[dbo].[Competition]",
+      "ObjectType": 0
+    },
+    {
+      "Name": "[dbo].[Customer]",
+      "ObjectType": 0
+    },
+    {
+      "Name": "[dbo].[Employee]",
+      "ObjectType": 0
+    },
+    {
+      "Name": "[dbo].[Feedback]",
+      "ObjectType": 0
+    },
+    {
+      "Name": "[dbo].[Match]",
+      "ObjectType": 0
+    },
+    {
+      "Name": "[dbo].[OrderContent]",
+      "ObjectType": 0
+    },
+    {
+      "Name": "[dbo].[Orders]",
+      "ObjectType": 0
+    },
+    {
+      "Name": "[dbo].[PaymentMethod]",
+      "ObjectType": 0
+    },
+    {
+      "Name": "[dbo].[Player]",
+      "ObjectType": 0
+    },
+    {
+      "Name": "[dbo].[PlayerImage]",
+      "ObjectType": 0
+    },
+    {
+      "Name": "[dbo].[ProductImage]",
+      "ObjectType": 0
+    },
+    {
+      "Name": "[dbo].[Products]",
+      "ObjectType": 0
+    },
+    {
+      "Name": "[dbo].[Status]",
+      "ObjectType": 0
+    },
+    {
+      "Name": "[dbo].[Team]",
+      "ObjectType": 0
+    },
+    {
+      "Name": "[dbo].[TeamImage]",
+      "ObjectType": 0
+    },
+    {
+      "Name": "[dbo].[TeamPlayerHistory]",
+      "ObjectType": 0
+    }
+  ],
+  "UiHint": "DESKTOP-UVB7O5I.Soccer",
+  "UncountableWords": null,
+  "UseBoolPropertiesWithoutDefaultSql": false,
+  "UseDatabaseNames": true,
+  "UseDateOnlyTimeOnly": false,
+  "UseDbContextSplitting": false,
+  "UseFluentApiOnly": true,
+  "UseHandleBars": false,
+  "UseHierarchyId": false,
+  "UseInflector": false,
+  "UseLegacyPluralizer": false,
+  "UseManyToManyEntity": false,
+  "UseNoDefaultConstructor": false,
+  "UseNoObjectFilter": false,
+  "UseNodaTime": false,
+  "UseNullableReferences": false,
+  "UseSchemaFolders": false,
+  "UseSpatial": false,
+  "UseT4": false
 }
