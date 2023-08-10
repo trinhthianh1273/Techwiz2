@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SoccerManager.Models.Orders>
+﻿@model IEnumerable<SoccerManager.DTO.Response.OrderRespone>
 
 @{
     ViewData["Title"] = "Index";
@@ -23,16 +23,22 @@
                 Customer
             </th>
             <th>
-                Shipped Date
+                Address
             </th>
             <th>
-                Address
+                Product Amount
+            </th>
+            <th>
+                Price Amount
             </th>
             <th>
                 Status
             </th>
             <th>
                 Employee
+            </th>
+            <th>
+                Shipped Date
             </th>
             <th>
                 Payment Method
@@ -71,17 +77,23 @@
                     @Html.DisplayFor(modelItem => item.Customer.Fullname)
                 </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ShippedDate)
-            </td>
-            <td>
                     @Html.DisplayFor(modelItem => item.Address.Address1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalProduct)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalAmount)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Status.StatusName)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Employee.FullName)
-            </td>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ShippedDate)
+                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.PaymentMethod.PaymentMethod1)
                 </td>

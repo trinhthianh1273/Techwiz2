@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using SoccerManager.DTO.Response;
 using SoccerManager.Models;
 
 namespace SoccerManager.Controllers
@@ -21,8 +22,14 @@ namespace SoccerManager.Controllers
         // GET: Orders
         public async Task<IActionResult> Index()
         {
+            List<OrderRespone> results = new List<OrderRespone>();
             var soccerContext = _context.Orders.Include(o => o.Address).Include(o => o.Customer).Include(o => o.Employee).Include(o => o.PaymentMethod).Include(o => o.Status);
-            return View(await soccerContext.ToListAsync());
+            foreach(var order in soccerContext)
+            {
+                order.OrderContent = _context.OrderContent.Where(o => o.OrderId == order.OrderId).ToList();
+                results.Add(OrderRespone.ConvertToOrderResponse(order));
+            }
+            return View(results);
         }
 
         // GET: Orders/Details/5
