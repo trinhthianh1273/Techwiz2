@@ -64,8 +64,7 @@ namespace SoccerManager.Controllers
                 try
                 {
                     var f = file.ElementAt(0);
-                    string ImageName = await _fileUploadService.UploadFile(f, "team");
-                    team.TeamImage
+                    team.LogoURL = await _fileUploadService.UploadFile(f, "team");
                 }
                 catch (Exception ex)
                 {
@@ -77,7 +76,6 @@ namespace SoccerManager.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-
 
             return View(team);
         }
