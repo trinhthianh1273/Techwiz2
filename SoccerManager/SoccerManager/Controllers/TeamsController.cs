@@ -11,6 +11,9 @@ namespace SoccerManager.Controllers
 
         private readonly IFileUploadService _fileUploadService;
 
+        private readonly string ImgDir = "TeamLogos";
+        private readonly string ImgType = "team";
+
         public TeamsController(SoccerContext context, IFileUploadService fileUploadService)
         {
             _context = context;
@@ -52,20 +55,18 @@ namespace SoccerManager.Controllers
             return View();
         }
 
-
-
-        // POST: Teams/Create
+        // POST
+        // Handle Team POST Request
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("TeamId,FullName,ShortName,Nickname,FoundedYear,FoundedPosition,Owner,Manager,Website")] Team team, List<IFormFile> file)
+        public async Task<IActionResult> Create([Bind("TeamId,FullName,ShortName,Nickname,FoundedYear,FoundedPosition,Owner,Manager,Website")] Team team, IFormFile file)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    var f = file.ElementAt(0);
-                    team.LogoURL = await _fileUploadService.UploadFile(f, "team");
-                    //team.TeamImage = file;
+                    //upload image and get file name
+                    team.LogoURL = ImgDir + "/" + await _fileUploadService.UploadFile(file, ImgDir, ImgType);
                 }
                 catch (Exception ex)
                 {
@@ -73,6 +74,7 @@ namespace SoccerManager.Controllers
                     ViewBag.Message = "File Upload Failed";
                 }
 
+                //insert to database
                 _context.Add(team);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -99,49 +101,63 @@ namespace SoccerManager.Controllers
         }
 
         // POST: Teams/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // Handle Team PUT Request
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("TeamId,FullName,ShortName,Nickname,FoundedYear,FoundedPosition,Owner,Manager,Website")] Team team, IFormFile file)
+        public async Task<IActionResult> Edit(int id, string LogoURL, [Bind("TeamId,FullName,ShortName,Nickname,FoundedYear,FoundedPosition,Owner,Manager,Website")] Team team, IFormFile file)
         {
             if (id != team.TeamId)
             {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            try
             {
+
+                //get current logo url
+                var currentImg = LogoURL;
+
+                //if logo is changed, delete old one from folder
+                if (file != null)
+                {
+                    //delete current image from folder
+                    if (currentImg != null)
+                        await _fileUploadService.DeleteFile(currentImg);
+
+                    //set new LogoUrl
+                    team.LogoURL = ImgDir + "/" + await _fileUploadService.UploadFile(file, ImgDir, ImgType);
+
+                }
+                else
+                {
+                    team.LogoURL = currentImg;  //logo is still remain
+                }
+
+                //update database
                 try
                 {
-                    var f = file;
-                    team.LogoURL = await _fileUploadService.UploadFile(f, "team");
-                    //team.TeamImage = file;
-                    try
-                    {
-                        _context.Update(team);
-                        await _context.SaveChangesAsync();
-                    }
-                    catch (DbUpdateConcurrencyException)
-                    {
-                        if (!TeamExists(team.TeamId))
-                        {
-                            return NotFound();
-                        }
-                        else
-                        {
-                            throw;
-                        }
-                    }
+                    _context.Update(team);
+                    await _context.SaveChangesAsync();
                 }
-                catch (Exception ex)
+                catch (DbUpdateConcurrencyException)
                 {
-                    //Log ex
-                    ViewBag.Message = "File Upload Failed";
+                    if (!TeamExists(team.TeamId))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
                 }
-                return RedirectToAction(nameof(Index));
             }
-            return View(team);
+
+            catch (Exception ex)
+            {
+                return View(team);
+            }
+            return RedirectToAction(nameof(Index));
+
         }
 
         // GET: Teams/Delete/5
