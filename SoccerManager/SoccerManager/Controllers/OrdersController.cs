@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using SoccerManager.DTO.Response;
+using SoccerManager.IRepository;
 using SoccerManager.Models;
 
 namespace SoccerManager.Controllers
@@ -12,17 +14,28 @@ namespace SoccerManager.Controllers
     public class OrdersController : Controller
     {
         private readonly SoccerContext _context;
+        private readonly IOrderRepository _orderRepository;
 
-        public OrdersController(SoccerContext context)
+        public OrdersController(SoccerContext context, IOrderRepository orderRepository)
         {
             _context = context;
+            _orderRepository = orderRepository;
         }
 
         // GET: Orders
         public async Task<IActionResult> Index()
         {
+            return View(_orderRepository.GetAllResponse());
+            /*
+            List<OrderRespone> results = new List<OrderRespone>();
             var soccerContext = _context.Orders.Include(o => o.Address).Include(o => o.Customer).Include(o => o.Employee).Include(o => o.PaymentMethod).Include(o => o.Status);
-            return View(await soccerContext.ToListAsync());
+            foreach(var order in soccerContext)
+            {
+                order.OrderContent = _context.OrderContent.Where(o => o.OrderId == order.OrderId).ToList();
+                results.Add(OrderRespone.ConvertToOrderResponse(order));
+            }
+            return View(results);
+            */
         }
 
         // GET: Orders/Details/5
@@ -32,29 +45,16 @@ namespace SoccerManager.Controllers
             {
                 return NotFound();
             }
-
-            var orders = await _context.Orders
-                .Include(o => o.Address)
-                .Include(o => o.Customer)
-                .Include(o => o.Employee)
-                .Include(o => o.PaymentMethod)
-                .Include(o => o.Status)
-                .FirstOrDefaultAsync(m => m.OrderId == id);
-            if (orders == null)
-            {
-                return NotFound();
-            }
-
-            return View(orders);
+            return View(_orderRepository.GetResponseById(id));
         }
 
         // GET: Orders/Create
         public IActionResult Create()
         {
             ViewData["AddressId"] = new SelectList(_context.Address, "AddressId", "Address1");
-            ViewData["CustomerId"] = new SelectList(_context.Customer, "CustomerId", "Password");
-            ViewData["EmployeeId"] = new SelectList(_context.Employee, "EmployeeId", "Email");
-            ViewData["PaymentMethodId"] = new SelectList(_context.PaymentMethod, "PaymentMethodId", "PaymentMethodId");
+            ViewData["CustomerId"] = new SelectList(_context.Customer, "CustomerId", "Fullname");
+            ViewData["EmployeeId"] = new SelectList(_context.Employee, "EmployeeId", "FullName");
+            ViewData["PaymentMethodId"] = new SelectList(_context.PaymentMethod, "PaymentMethodId", "PaymentMethod1");
             ViewData["StatusId"] = new SelectList(_context.Status, "StatusId", "StatusName");
             return View();
         }
@@ -73,9 +73,9 @@ namespace SoccerManager.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["AddressId"] = new SelectList(_context.Address, "AddressId", "Address1", orders.AddressId);
-            ViewData["CustomerId"] = new SelectList(_context.Customer, "CustomerId", "Password", orders.CustomerId);
-            ViewData["EmployeeId"] = new SelectList(_context.Employee, "EmployeeId", "Email", orders.EmployeeId);
-            ViewData["PaymentMethodId"] = new SelectList(_context.PaymentMethod, "PaymentMethodId", "PaymentMethodId", orders.PaymentMethodId);
+            ViewData["CustomerId"] = new SelectList(_context.Customer, "CustomerId", "Fullname", orders.CustomerId);
+            ViewData["EmployeeId"] = new SelectList(_context.Employee, "EmployeeId", "FullName", orders.EmployeeId);
+            ViewData["PaymentMethodId"] = new SelectList(_context.PaymentMethod, "PaymentMethodId", "PaymentMethod1", orders.PaymentMethodId);
             ViewData["StatusId"] = new SelectList(_context.Status, "StatusId", "StatusName", orders.StatusId);
             return View(orders);
         }
@@ -94,9 +94,9 @@ namespace SoccerManager.Controllers
                 return NotFound();
             }
             ViewData["AddressId"] = new SelectList(_context.Address, "AddressId", "Address1", orders.AddressId);
-            ViewData["CustomerId"] = new SelectList(_context.Customer, "CustomerId", "Password", orders.CustomerId);
-            ViewData["EmployeeId"] = new SelectList(_context.Employee, "EmployeeId", "Email", orders.EmployeeId);
-            ViewData["PaymentMethodId"] = new SelectList(_context.PaymentMethod, "PaymentMethodId", "PaymentMethodId", orders.PaymentMethodId);
+            ViewData["CustomerId"] = new SelectList(_context.Customer, "CustomerId", "Fullname", orders.CustomerId);
+            ViewData["EmployeeId"] = new SelectList(_context.Employee, "EmployeeId", "FullName", orders.EmployeeId);
+            ViewData["PaymentMethodId"] = new SelectList(_context.PaymentMethod, "PaymentMethodId", "PaymentMethod1", orders.PaymentMethodId);
             ViewData["StatusId"] = new SelectList(_context.Status, "StatusId", "StatusName", orders.StatusId);
             return View(orders);
         }

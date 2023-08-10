@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "OH3c4UbboRfwjuFMitLeyIMQRQ2mVQwJ4lGoEUxcLCF/Jesu2t/h6m+mOs+j151gK8L6BRpVQ04IwGPDRlozFw==",
+  "dgSpecHash": "6xqKpldtX3yp5wWAXwhMN0yeW8/dr3SiUlnk2uDSREOyW4/Hdo3GwvgBG40SwHA7u9nFdwCThQ+N63Ia0GPcOw==",
   "success": true,
   "projectFilePath": "C:\\Users\\MSI Modern\\Techwiz2\\Api\\Api\\Api.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\MSI Modern\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\MSI Modern\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\MSI Modern\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\MSI Modern\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\MSI Modern\\.nuget\\packages\\bouncycastle.cryptography\\2.2.1\\bouncycastle.cryptography.2.2.1.nupkg.sha512",
@@ -75,7 +77,7 @@
     "C:\\Users\\MSI Modern\\.nuget\\packages\\microsoft.codeanalysis.razor\\6.0.11\\microsoft.codeanalysis.razor.6.0.11.nupkg.sha512",
     "C:\\Users\\MSI Modern\\.nuget\\packages\\microsoft.codeanalysis.scripting.common\\4.4.0\\microsoft.codeanalysis.scripting.common.4.4.0.nupkg.sha512",
     "C:\\Users\\MSI Modern\\.nuget\\packages\\microsoft.codeanalysis.workspaces.common\\4.4.0\\microsoft.codeanalysis.workspaces.common.4.4.0.nupkg.sha512",
-    "C:\\Users\\MSI Modern\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\MSI Modern\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\MSI Modern\\.nuget\\packages\\microsoft.data.sqlclient\\5.0.2\\microsoft.data.sqlclient.5.0.2.nupkg.sha512",
     "C:\\Users\\MSI Modern\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\5.0.1\\microsoft.data.sqlclient.sni.runtime.5.0.1.nupkg.sha512",
     "C:\\Users\\MSI Modern\\.nuget\\packages\\microsoft.diasymreader\\1.4.0\\microsoft.diasymreader.1.4.0.nupkg.sha512",

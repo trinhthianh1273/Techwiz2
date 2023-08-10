@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using Api.DTO.Request;
+using Api.Helpers;
+using Api.IService;
+using Api.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Api.Models;
 
 namespace Api.Controllers
 {
@@ -15,30 +13,35 @@ namespace Api.Controllers
     {
         private readonly SoccerContext _context;
 
-        public EmployeesController(SoccerContext context)
+        private readonly IAuthenticationService _service;
+
+        public EmployeesController(SoccerContext context, IAuthenticationService service)
         {
             _context = context;
+            _service = service;
         }
 
         // GET: api/Employees
+        // List of Employee
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Employee>>> GetEmployee()
         {
-          if (_context.Employee == null)
-          {
-              return NotFound();
-          }
+            if (_context.Employee == null)
+            {
+                return NotFound();
+            }
             return await _context.Employee.ToListAsync();
         }
 
         // GET: api/Employees/5
+        // Employee detail
         [HttpGet("{id}")]
         public async Task<ActionResult<Employee>> GetEmployee(int id)
         {
-          if (_context.Employee == null)
-          {
-              return NotFound();
-          }
+            if (_context.Employee == null)
+            {
+                return NotFound();
+            }
             var employee = await _context.Employee.FindAsync(id);
 
             if (employee == null)
@@ -50,7 +53,7 @@ namespace Api.Controllers
         }
 
         // PUT: api/Employees/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        // Edit Employee
         [HttpPut("{id}")]
         public async Task<IActionResult> PutEmployee(int id, Employee employee)
         {
@@ -80,20 +83,46 @@ namespace Api.Controllers
             return NoContent();
         }
 
-        // POST: api/Employees
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
-        public async Task<ActionResult<Employee>> PostEmployee(Employee employee)
-        {
-          if (_context.Employee == null)
-          {
-              return Problem("Entity set 'SoccerContext.Employee'  is null.");
-          }
-            _context.Employee.Add(employee);
-            await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetEmployee", new { id = employee.EmployeeID }, employee);
+        [HttpPost("register")]
+        public async Task<IActionResult> RegisterUser([FromBody] RegisterDTO userObj)
+        {
+            if (userObj == null) return BadRequest();
+
+            // check username
+            if (await this._service.CheckUserNameExistAsync(userObj.Username))
+            {
+                return BadRequest(new { Message = "Username Already Exist!" });
+            }
+
+            // Check email
+            if (await this._service.CheckEmailExistAsync(userObj.Email))
+            {
+                return BadRequest(new { Message = "Email Already Exist!" });
+            }
+
+            userObj.Password = PasswordHasher.HassPassword(userObj.Password);
+            //userObj.Role = "User";
+            userObj.Token = "";
+
+            var newCustomer = new Customer()
+            {
+                Fullname = userObj.Fullname,
+                Username = userObj.Username,
+                Password = userObj.Password,
+                Email = userObj.Email,
+                Phone = userObj.Phone,
+                Token = userObj.Token
+            };
+
+            await _context.Customer.AddAsync(newCustomer);
+            await _context.SaveChangesAsync();
+            return Ok(new
+            {
+                Message = "Customer Registered!"
+            });
         }
+
 
         // DELETE: api/Employees/5
         [HttpDelete("{id}")]

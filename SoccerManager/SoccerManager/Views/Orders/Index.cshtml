@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SoccerManager.Models.Orders>
+﻿@model IEnumerable<SoccerManager.DTO.Response.OrderRespone>
 
 @{
     ViewData["Title"] = "Index";
@@ -14,43 +14,52 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.OrderDate)
+                Order Code
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ShippedDate)
+                Order Date
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CardName)
+                Customer
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CardNumber)
+                Address
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Expire)
+                Product Amount
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.SecurityCode)
+                Price Amount
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PaymentStatus)
+                Status
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PaymentDate)
+                Employee
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Address)
+                Shipped Date
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Customer)
+                Payment Method
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Employee)
+                Payment Status
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PaymentMethod)
+                PaymentDate
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Status)
+                Card Name
+            </th>
+            <th>
+                Card Number
+            </th>
+            <th>
+                Expire
+            </th>
+            <th>
+                Security Code
             </th>
             <th></th>
         </tr>
@@ -58,12 +67,42 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderId)
+                </td>
             <td>
                 @Html.DisplayFor(modelItem => item.OrderDate)
-            </td>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Customer.Fullname)
+                </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ShippedDate)
-            </td>
+                    @Html.DisplayFor(modelItem => item.Address.Address1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalProduct)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalAmount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status.StatusName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Employee.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ShippedDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PaymentMethod.PaymentMethod1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PaymentStatus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PaymentDate)
+                </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CardName)
             </td>
@@ -76,27 +115,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.SecurityCode)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PaymentStatus)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PaymentDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address.Address1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Customer.Password)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Employee.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PaymentMethod.PaymentMethodId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status.StatusName)
-            </td>
+            
             <td>
                 <a asp-action="Edit" asp-route-id="@item.OrderId">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.OrderId">Details</a> |

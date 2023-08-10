@@ -12,5 +12,17 @@ namespace SoccerManager.Models
         public string ImageUrl { get; set; }
 
         public virtual Products Product { get; set; }
+
+        public ProductImage()
+        {
+        }
+
+        public ProductImage(int productImageId, int productId, string imageUrl, Products product)
+        {
+            ProductImageId = productImageId;
+            ProductId = productId;
+            ImageUrl = imageUrl;
+            Product = product;
+        }
     }
 }

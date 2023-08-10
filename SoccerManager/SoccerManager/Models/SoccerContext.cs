@@ -371,7 +371,6 @@ namespace SoccerManager.Models
                 entity.HasKey(e => e.ProductId);
 
                 entity.Property(e => e.ProductId)
-                    .ValueGeneratedNever()
                     .HasColumnName("ProductID");
 
                 entity.Property(e => e.CategoryId).HasColumnName("CategoryID");
