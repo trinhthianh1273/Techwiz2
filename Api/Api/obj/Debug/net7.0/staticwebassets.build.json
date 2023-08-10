@@ -1,19 +1,11 @@
 {
   "Version": 1,
-  "Hash": "ZH+5DdL/SePzrNhGMfcAlT+OSZfO2Pdfoh6KW3Ob6Ow=",
+  "Hash": "llrbuzIYQAIzOVzCT1dMYbgtako286gVg/Pj7offB04=",
   "Source": "Api",
   "BasePath": "_content/Api",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [
-    {
-      "Name": "Api\\wwwroot",
-      "Source": "Api",
-      "ContentRoot": "C:\\Users\\viper\\Desktop\\Techwiz2\\Api\\Api\\wwwroot\\",
-      "BasePath": "_content/Api",
-      "Pattern": "**"
-    }
-  ],
+  "DiscoveryPatterns": [],
   "Assets": []
 }
