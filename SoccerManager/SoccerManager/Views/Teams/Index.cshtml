@@ -14,19 +14,19 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.FullName)
+                Full Name
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ShortName)
+                Short Name
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Nickname)
+                Nickname
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FoundedYear)
+                Founded Year
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FoundedPosition)
+                Founded Position
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Owner)
@@ -36,6 +36,9 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Website)
+            </th>
+            <th>
+                Logo
             </th>
             <th></th>
         </tr>
@@ -66,7 +69,10 @@
                 @Html.DisplayFor(modelItem => item.Manager)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Website)
+                    <a target="_blank" href="@Html.DisplayFor(modelItem => item.Website)">@Html.DisplayFor(modelItem => item.Website)</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LogoURL)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.TeamId">Edit</a> |

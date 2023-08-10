@@ -52,9 +52,9 @@ namespace SoccerManager.Controllers
         public IActionResult Create()
         {
             ViewData["AddressId"] = new SelectList(_context.Address, "AddressId", "Address1");
-            ViewData["CustomerId"] = new SelectList(_context.Customer, "CustomerId", "Password");
-            ViewData["EmployeeId"] = new SelectList(_context.Employee, "EmployeeId", "Email");
-            ViewData["PaymentMethodId"] = new SelectList(_context.PaymentMethod, "PaymentMethodId", "PaymentMethodId");
+            ViewData["CustomerId"] = new SelectList(_context.Customer, "CustomerId", "Fullname");
+            ViewData["EmployeeId"] = new SelectList(_context.Employee, "EmployeeId", "FullName");
+            ViewData["PaymentMethodId"] = new SelectList(_context.PaymentMethod, "PaymentMethodId", "PaymentMethod1");
             ViewData["StatusId"] = new SelectList(_context.Status, "StatusId", "StatusName");
             return View();
         }
@@ -73,9 +73,9 @@ namespace SoccerManager.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["AddressId"] = new SelectList(_context.Address, "AddressId", "Address1", orders.AddressId);
-            ViewData["CustomerId"] = new SelectList(_context.Customer, "CustomerId", "Password", orders.CustomerId);
-            ViewData["EmployeeId"] = new SelectList(_context.Employee, "EmployeeId", "Email", orders.EmployeeId);
-            ViewData["PaymentMethodId"] = new SelectList(_context.PaymentMethod, "PaymentMethodId", "PaymentMethodId", orders.PaymentMethodId);
+            ViewData["CustomerId"] = new SelectList(_context.Customer, "CustomerId", "Fullname", orders.CustomerId);
+            ViewData["EmployeeId"] = new SelectList(_context.Employee, "EmployeeId", "FullName", orders.EmployeeId);
+            ViewData["PaymentMethodId"] = new SelectList(_context.PaymentMethod, "PaymentMethodId", "PaymentMethod1", orders.PaymentMethodId);
             ViewData["StatusId"] = new SelectList(_context.Status, "StatusId", "StatusName", orders.StatusId);
             return View(orders);
         }
@@ -94,9 +94,9 @@ namespace SoccerManager.Controllers
                 return NotFound();
             }
             ViewData["AddressId"] = new SelectList(_context.Address, "AddressId", "Address1", orders.AddressId);
-            ViewData["CustomerId"] = new SelectList(_context.Customer, "CustomerId", "Password", orders.CustomerId);
-            ViewData["EmployeeId"] = new SelectList(_context.Employee, "EmployeeId", "Email", orders.EmployeeId);
-            ViewData["PaymentMethodId"] = new SelectList(_context.PaymentMethod, "PaymentMethodId", "PaymentMethodId", orders.PaymentMethodId);
+            ViewData["CustomerId"] = new SelectList(_context.Customer, "CustomerId", "Fullname", orders.CustomerId);
+            ViewData["EmployeeId"] = new SelectList(_context.Employee, "EmployeeId", "FullName", orders.EmployeeId);
+            ViewData["PaymentMethodId"] = new SelectList(_context.PaymentMethod, "PaymentMethodId", "PaymentMethod1", orders.PaymentMethodId);
             ViewData["StatusId"] = new SelectList(_context.Status, "StatusId", "StatusName", orders.StatusId);
             return View(orders);
         }
