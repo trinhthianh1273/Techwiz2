@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using SoccerManager.Interfaces;
 using SoccerManager.Models;
 
 namespace SoccerManager.Controllers
@@ -12,28 +8,26 @@ namespace SoccerManager.Controllers
     public class TeamsController : Controller
     {
         private readonly SoccerContext _context;
-        private readonly IWebHostEnvironment _hostingEnvironment;
-        private readonly IConfiguration _config;
 
-        public TeamsController(
-            SoccerContext context, 
-            IWebHostEnvironment hostingEnvironment,
-            IConfiguration config)
+        private readonly IFileUploadService _fileUploadService;
+
+        public TeamsController(SoccerContext context, IFileUploadService fileUploadService)
         {
             _context = context;
-            _hostingEnvironment = hostingEnvironment;
-            _config = config;
+            _fileUploadService = fileUploadService;
         }
 
         // GET: Teams
+        // Get all Teams
         public async Task<IActionResult> Index()
         {
-              return _context.Team != null ? 
-                          View(await _context.Team.ToListAsync()) :
-                          Problem("Entity set 'SoccerContext.Team'  is null.");
+            return _context.Team != null ?
+                        View(await _context.Team.ToListAsync()) :
+                        Problem("Entity set 'SoccerContext.Team'  is null.");
         }
 
         // GET: Teams/Details/5
+        // Get Team detail
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Team == null)
@@ -51,36 +45,40 @@ namespace SoccerManager.Controllers
             return View(team);
         }
 
+
         // GET: Teams/Create
         public IActionResult Create()
         {
             return View();
         }
 
+
+
         // POST: Teams/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("TeamId,FullName,ShortName,Nickname,FoundedYear,FoundedPosition,Owner,Manager,Website")] Team team, IFormFile logoFile)
+        public async Task<IActionResult> Create([Bind("TeamId,FullName,ShortName,Nickname,FoundedYear,FoundedPosition,Owner,Manager,Website")] Team team, List<IFormFile> file)
         {
             if (ModelState.IsValid)
             {
-                if(logoFile != null)
+                try
                 {
-                    var uniqueFileName = Guid.NewGuid().ToString() + "_" + logoFile.FileName;
-                    var logoPath = Path.Combine(_hostingEnvironment.WebRootPath, _config.GetValue<string>("ImageStorage:TeamLogo"), uniqueFileName);
-
-                    using (var stream = new FileStream(logoPath, FileMode.Create))
-                    {
-                        await logoFile.CopyToAsync(stream);
-                    }
-                    team.LogoURL = uniqueFileName;
+                    var f = file.ElementAt(0);
+                    string ImageName = await _fileUploadService.UploadFile(f, "team");
+                    team.TeamImage
                 }
+                catch (Exception ex)
+                {
+                    //Log ex
+                    ViewBag.Message = "File Upload Failed";
+                }
+
                 _context.Add(team);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
+
             return View(team);
         }
 
@@ -167,14 +165,46 @@ namespace SoccerManager.Controllers
             {
                 _context.Team.Remove(team);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool TeamExists(int id)
         {
-          return (_context.Team?.Any(e => e.TeamId == id)).GetValueOrDefault();
+            return (_context.Team?.Any(e => e.TeamId == id)).GetValueOrDefault();
         }
+
+
+        //upload file to 
+        private async Task<bool> UploadFile(IFormFile file)
+        {
+            string path = "";
+            try
+            {
+                if (file.Length > 0)
+                {
+                    path = Path.GetFullPath(Path.Combine(Environment.CurrentDirectory, "UploadedFiles"));
+                    if (!Directory.Exists(path))
+                    {
+                        Directory.CreateDirectory(path);
+                    }
+                    using (var fileStream = new FileStream(Path.Combine(path, file.FileName), FileMode.Create))
+                    {
+                        await file.CopyToAsync(fileStream);
+                    }
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("File Copy Failed", ex);
+            }
+        }
+
     }
 }
