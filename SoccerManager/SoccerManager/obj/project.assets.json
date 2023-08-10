@@ -11277,19 +11277,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\viper\\.nuget\\packages\\": {}
+    "C:\\Users\\MSI Modern\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\viper\\Desktop\\Techwiz2\\SoccerManager\\SoccerManager\\SoccerManager.csproj",
+      "projectUniqueName": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\SoccerManager.csproj",
       "projectName": "SoccerManager",
-      "projectPath": "C:\\Users\\viper\\Desktop\\Techwiz2\\SoccerManager\\SoccerManager\\SoccerManager.csproj",
-      "packagesPath": "C:\\Users\\viper\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\viper\\Desktop\\Techwiz2\\SoccerManager\\SoccerManager\\obj\\",
+      "projectPath": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\SoccerManager.csproj",
+      "packagesPath": "C:\\Users\\MSI Modern\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\viper\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\MSI Modern\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -11297,7 +11302,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -11350,7 +11355,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -65,6 +65,7 @@ namespace SoccerManager.Controllers
                 {
                     var f = file.ElementAt(0);
                     team.LogoURL = await _fileUploadService.UploadFile(f, "team");
+                    //team.TeamImage = file;
                 }
                 catch (Exception ex)
                 {
@@ -76,6 +77,7 @@ namespace SoccerManager.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
 
             return View(team);
         }
@@ -101,7 +103,7 @@ namespace SoccerManager.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("TeamId,FullName,ShortName,Nickname,FoundedYear,FoundedPosition,Owner,Manager,Website")] Team team)
+        public async Task<IActionResult> Edit(int id, [Bind("TeamId,FullName,ShortName,Nickname,FoundedYear,FoundedPosition,Owner,Manager,Website")] Team team, IFormFile file)
         {
             if (id != team.TeamId)
             {
@@ -112,19 +114,30 @@ namespace SoccerManager.Controllers
             {
                 try
                 {
-                    _context.Update(team);
-                    await _context.SaveChangesAsync();
+                    var f = file;
+                    team.LogoURL = await _fileUploadService.UploadFile(f, "team");
+                    //team.TeamImage = file;
+                    try
+                    {
+                        _context.Update(team);
+                        await _context.SaveChangesAsync();
+                    }
+                    catch (DbUpdateConcurrencyException)
+                    {
+                        if (!TeamExists(team.TeamId))
+                        {
+                            return NotFound();
+                        }
+                        else
+                        {
+                            throw;
+                        }
+                    }
                 }
-                catch (DbUpdateConcurrencyException)
+                catch (Exception ex)
                 {
-                    if (!TeamExists(team.TeamId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    //Log ex
+                    ViewBag.Message = "File Upload Failed";
                 }
                 return RedirectToAction(nameof(Index));
             }
