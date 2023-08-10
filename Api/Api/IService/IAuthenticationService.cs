@@ -3,7 +3,7 @@ using System.Security.Claims;
 
 namespace Api.IService;
 
-public interface ICustomerAuthenticationService
+public interface IAuthenticationService
 {
     string CreateJwt(Customer user);
     ClaimsPrincipal GetPrincipalFromExpiredToken(string token);

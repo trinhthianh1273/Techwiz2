@@ -9,11 +9,11 @@ using System.Text;
 
 namespace Api.Services;
 
-public class CustomerAuthenticationService : ICustomerAuthenticationService
+public class AuthenticationService : IAuthenticationService
 {
     protected readonly SoccerContext _context;
 
-    public CustomerAuthenticationService(SoccerContext context)
+    public AuthenticationService(SoccerContext context)
     {
         _context = context;
     }
@@ -64,7 +64,7 @@ public class CustomerAuthenticationService : ICustomerAuthenticationService
         return principal;
     }
 
-    
+
     public string CreateRefreshToken()
     {
         var tokenBytes = RandomNumberGenerator.GetBytes(64);
