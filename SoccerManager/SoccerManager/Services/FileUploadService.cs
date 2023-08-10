@@ -12,12 +12,11 @@ namespace SoccerManager.Services
             _webHostEnvironment = webHostEnvironment;
         }
 
-        public async Task<string> UploadFile(IFormFile file, String pattern)
+        public async Task<string> UploadFile(IFormFile file, string dir, string pattern)
         {
-            string path = "";
             try
             {
-                path = Path.GetFullPath(Path.Combine(_webHostEnvironment.WebRootPath, "images"));
+                var path = Path.GetFullPath(Path.Combine(_webHostEnvironment.WebRootPath, "images/" + dir));
                 if (!Directory.Exists(path))
                 {
                     Directory.CreateDirectory(path);
@@ -39,6 +38,28 @@ namespace SoccerManager.Services
             catch (Exception ex)
             {
                 throw new Exception("File Copy Failed", ex);
+            }
+        }
+        
+        public async Task<bool> DeleteFile(string fileName)
+        {
+            try
+            {
+                var filePath = Path.Combine(_webHostEnvironment.WebRootPath, "images", fileName);
+        
+                if (File.Exists(filePath))
+                {
+                    File.Delete(filePath);
+                    return true;
+                }
+                else
+                {
+                    return false; // File doesn't exist
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("File Delete Failed", ex);
             }
         }
     }
