@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SoccerModelStoreContainer" CdmEntityContainer="SoccerEntities">
+    <EntitySetMapping Name="addresses">
+      <EntityTypeMapping TypeName="SoccerModel.address">
+        <MappingFragment StoreEntitySet="address">
+          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="ReceiverName" ColumnName="ReceiverName" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Address1" ColumnName="Address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Carts">
+      <EntityTypeMapping TypeName="SoccerModel.Cart">
+        <MappingFragment StoreEntitySet="Cart">
+          <ScalarProperty Name="CartID" ColumnName="CartID" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="SoccerModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="CategoryDescription" ColumnName="CategoryDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Competitions">
+      <EntityTypeMapping TypeName="SoccerModel.Competition">
+        <MappingFragment StoreEntitySet="Competition">
+          <ScalarProperty Name="CompetitionID" ColumnName="CompetitionID" />
+          <ScalarProperty Name="CompetitionName" ColumnName="CompetitionName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="SoccerModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Fullname" ColumnName="Fullname" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="SoccerModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Feedbacks">
+      <EntityTypeMapping TypeName="SoccerModel.Feedback">
+        <MappingFragment StoreEntitySet="Feedback">
+          <ScalarProperty Name="FeedbackID" ColumnName="FeedbackID" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Matches">
+      <EntityTypeMapping TypeName="SoccerModel.Match">
+        <MappingFragment StoreEntitySet="Match">
+          <ScalarProperty Name="MatchID" ColumnName="MatchID" />
+          <ScalarProperty Name="MatchName" ColumnName="MatchName" />
+          <ScalarProperty Name="HomeTeamID" ColumnName="HomeTeamID" />
+          <ScalarProperty Name="GuestTeamID" ColumnName="GuestTeamID" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="Stadium" ColumnName="Stadium" />
+          <ScalarProperty Name="HomeTeamScore" ColumnName="HomeTeamScore" />
+          <ScalarProperty Name="GuestTeamScore" ColumnName="GuestTeamScore" />
+          <ScalarProperty Name="CompetitionID" ColumnName="CompetitionID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderContents">
+      <EntityTypeMapping TypeName="SoccerModel.OrderContent">
+        <MappingFragment StoreEntitySet="OrderContent">
+          <ScalarProperty Name="OrderContentID" ColumnName="OrderContentID" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="SoccerModel.Order">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="ShippedDate" ColumnName="ShippedDate" />
+          <ScalarProperty Name="PaymentMethodID" ColumnName="PaymentMethodID" />
+          <ScalarProperty Name="CardName" ColumnName="CardName" />
+          <ScalarProperty Name="CardNumber" ColumnName="CardNumber" />
+          <ScalarProperty Name="Expire" ColumnName="Expire" />
+          <ScalarProperty Name="SecurityCode" ColumnName="SecurityCode" />
+          <ScalarProperty Name="PaymentStatus" ColumnName="PaymentStatus" />
+          <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaymentMethods">
+      <EntityTypeMapping TypeName="SoccerModel.PaymentMethod">
+        <MappingFragment StoreEntitySet="PaymentMethod">
+          <ScalarProperty Name="PaymentMethodID" ColumnName="PaymentMethodID" />
+          <ScalarProperty Name="PaymentMethod1" ColumnName="PaymentMethod" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Players">
+      <EntityTypeMapping TypeName="SoccerModel.Player">
+        <MappingFragment StoreEntitySet="Player">
+          <ScalarProperty Name="PlayerID" ColumnName="PlayerID" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Dob" ColumnName="Dob" />
+          <ScalarProperty Name="Pob" ColumnName="Pob" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="CurrentTeam" ColumnName="CurrentTeam" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PlayerImages">
+      <EntityTypeMapping TypeName="SoccerModel.PlayerImage">
+        <MappingFragment StoreEntitySet="PlayerImage">
+          <ScalarProperty Name="PlayerImageID" ColumnName="PlayerImageID" />
+          <ScalarProperty Name="PlayerID" ColumnName="PlayerID" />
+          <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductImages">
+      <EntityTypeMapping TypeName="SoccerModel.ProductImage">
+        <MappingFragment StoreEntitySet="ProductImage">
+          <ScalarProperty Name="ProductImageID" ColumnName="ProductImageID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="SoccerModel.Product">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="InStock" ColumnName="InStock" />
+          <ScalarProperty Name="OnOrder" ColumnName="OnOrder" />
+          <ScalarProperty Name="Discontinued" ColumnName="Discontinued" />
+          <ScalarProperty Name="TeamID" ColumnName="TeamID" />
+          <ScalarProperty Name="PlayerID" ColumnName="PlayerID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Status">
+      <EntityTypeMapping TypeName="SoccerModel.Status">
+        <MappingFragment StoreEntitySet="Status">
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Teams">
+      <EntityTypeMapping TypeName="SoccerModel.Team">
+        <MappingFragment StoreEntitySet="Team">
+          <ScalarProperty Name="TeamID" ColumnName="TeamID" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="Nickname" ColumnName="Nickname" />
+          <ScalarProperty Name="FoundedYear" ColumnName="FoundedYear" />
+          <ScalarProperty Name="FoundedPosition" ColumnName="FoundedPosition" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="Manager" ColumnName="Manager" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TeamImages">
+      <EntityTypeMapping TypeName="SoccerModel.TeamImage">
+        <MappingFragment StoreEntitySet="TeamImage">
+          <ScalarProperty Name="TeamImageID" ColumnName="TeamImageID" />
+          <ScalarProperty Name="TeamID" ColumnName="TeamID" />
+          <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TeamPlayerHistories">
+      <EntityTypeMapping TypeName="SoccerModel.TeamPlayerHistory">
+        <MappingFragment StoreEntitySet="TeamPlayerHistory">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TeamID" ColumnName="TeamID" />
+          <ScalarProperty Name="PlayerID" ColumnName="PlayerID" />
+          <ScalarProperty Name="JoinDate" ColumnName="JoinDate" />
+          <ScalarProperty Name="LeaveDate" ColumnName="LeaveDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
