@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "kxvtzjGiFcjyGq3j9UlCXcY7nFV/fVWYqPirsL1xer8=",
+  "Hash": "tpz20flJ8EAH6CNi1PldSaul60qzJDw3YX8Z0A8sPTs=",
   "Source": "SoccerManager",
   "BasePath": "_content/SoccerManager",
   "Mode": "Default",
@@ -117,6 +117,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\Screenshot 2023-07-29 034844.png"
+    },
+    {
+      "Identity": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\team_78907faf8f3e23904b8987ec83a59891_4e279cce-a053-4455-9b48-8e3ab0c7b91c.jpg",
+      "SourceId": "SoccerManager",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\",
+      "BasePath": "_content/SoccerManager",
+      "RelativePath": "images/team_78907faf8f3e23904b8987ec83a59891_4e279cce-a053-4455-9b48-8e3ab0c7b91c.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\team_78907faf8f3e23904b8987ec83a59891_4e279cce-a053-4455-9b48-8e3ab0c7b91c.jpg"
     },
     {
       "Identity": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\js\\site.js",

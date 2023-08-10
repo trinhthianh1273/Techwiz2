@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SoccerManager.DTO.Response;
+using SoccerManager.IRepository;
 using SoccerManager.Models;
 
 namespace SoccerManager.Controllers
@@ -13,15 +14,19 @@ namespace SoccerManager.Controllers
     public class OrdersController : Controller
     {
         private readonly SoccerContext _context;
+        private readonly IOrderRepository _orderRepository;
 
-        public OrdersController(SoccerContext context)
+        public OrdersController(SoccerContext context, IOrderRepository orderRepository)
         {
             _context = context;
+            _orderRepository = orderRepository;
         }
 
         // GET: Orders
         public async Task<IActionResult> Index()
         {
+            return View(_orderRepository.GetAllResponse());
+            /*
             List<OrderRespone> results = new List<OrderRespone>();
             var soccerContext = _context.Orders.Include(o => o.Address).Include(o => o.Customer).Include(o => o.Employee).Include(o => o.PaymentMethod).Include(o => o.Status);
             foreach(var order in soccerContext)
@@ -30,6 +35,7 @@ namespace SoccerManager.Controllers
                 results.Add(OrderRespone.ConvertToOrderResponse(order));
             }
             return View(results);
+            */
         }
 
         // GET: Orders/Details/5
@@ -39,20 +45,7 @@ namespace SoccerManager.Controllers
             {
                 return NotFound();
             }
-
-            var orders = await _context.Orders
-                .Include(o => o.Address)
-                .Include(o => o.Customer)
-                .Include(o => o.Employee)
-                .Include(o => o.PaymentMethod)
-                .Include(o => o.Status)
-                .FirstOrDefaultAsync(m => m.OrderId == id);
-            if (orders == null)
-            {
-                return NotFound();
-            }
-
-            return View(orders);
+            return View(_orderRepository.GetResponseById(id));
         }
 
         // GET: Orders/Create
