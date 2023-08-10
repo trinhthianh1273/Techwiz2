@@ -76,12 +76,10 @@ namespace Api.Controllers
                     throw;
                 }
             }
-
             return NoContent();
         }
 
         // POST: api/Addresses
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Address>> PostAddress(Address Address)
         {
