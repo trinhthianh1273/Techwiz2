@@ -12,10 +12,17 @@ namespace SoccerManager.Controllers
     public class TeamsController : Controller
     {
         private readonly SoccerContext _context;
+        private readonly IWebHostEnvironment _hostingEnvironment;
+        private readonly IConfiguration _config;
 
-        public TeamsController(SoccerContext context)
+        public TeamsController(
+            SoccerContext context, 
+            IWebHostEnvironment hostingEnvironment,
+            IConfiguration config)
         {
             _context = context;
+            _hostingEnvironment = hostingEnvironment;
+            _config = config;
         }
 
         // GET: Teams
@@ -55,10 +62,21 @@ namespace SoccerManager.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("TeamId,FullName,ShortName,Nickname,FoundedYear,FoundedPosition,Owner,Manager,Website")] Team team)
+        public async Task<IActionResult> Create([Bind("TeamId,FullName,ShortName,Nickname,FoundedYear,FoundedPosition,Owner,Manager,Website")] Team team, IFormFile logoFile)
         {
             if (ModelState.IsValid)
             {
+                if(logoFile != null)
+                {
+                    var uniqueFileName = Guid.NewGuid().ToString() + "_" + logoFile.FileName;
+                    var logoPath = Path.Combine(_hostingEnvironment.WebRootPath, _config.GetValue<string>("ImageStorage:TeamLogo"), uniqueFileName);
+
+                    using (var stream = new FileStream(logoPath, FileMode.Create))
+                    {
+                        await logoFile.CopyToAsync(stream);
+                    }
+                    team.LogoURL = uniqueFileName;
+                }
                 _context.Add(team);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

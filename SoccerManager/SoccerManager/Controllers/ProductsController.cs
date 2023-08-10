@@ -60,7 +60,7 @@ namespace SoccerManager.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProductId,ProductName,Description,CategoryId,Price,InStock,OnOrder,Discontinued,TeamId,PlayerId")] Products products)
+        public async Task<IActionResult> Create([Bind("ProductName,Description,CategoryId,Price,InStock,OnOrder,Discontinued,TeamId,PlayerId")] Products products)
         {
             if (ModelState.IsValid)
             {
