@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Api.Models;
 
-public class Orders
+public partial class Orders
 {
     public int OrderID { get; set; }
 
@@ -35,7 +35,7 @@ public class Orders
 
     public DateTime? PaymentDate { get; set; }
 
-    public virtual address Address { get; set; }
+    public virtual Address Address { get; set; }
 
     public virtual Customer Customer { get; set; }
 

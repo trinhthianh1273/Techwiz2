@@ -11,55 +11,55 @@ namespace Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class addressesController : ControllerBase
+    public class AddressesController : ControllerBase
     {
         private readonly SoccerContext _context;
 
-        public addressesController(SoccerContext context)
+        public AddressesController(SoccerContext context)
         {
             _context = context;
         }
 
-        // GET: api/addresses
+        // GET: api/Addresses
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<address>>> Getaddress()
+        public async Task<ActionResult<IEnumerable<Address>>> GetAddress()
         {
-          if (_context.address == null)
+          if (_context.Address == null)
           {
               return NotFound();
           }
-            return await _context.address.ToListAsync();
+            return await _context.Address.ToListAsync();
         }
 
-        // GET: api/addresses/5
+        // GET: api/Addresses/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<address>> Getaddress(int id)
+        public async Task<ActionResult<Address>> GetAddress(int id)
         {
-          if (_context.address == null)
+          if (_context.Address == null)
           {
               return NotFound();
           }
-            var address = await _context.address.FindAsync(id);
+            var Address = await _context.Address.FindAsync(id);
 
-            if (address == null)
+            if (Address == null)
             {
                 return NotFound();
             }
 
-            return address;
+            return Address;
         }
 
-        // PUT: api/addresses/5
+        // PUT: api/Addresses/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> Putaddress(int id, address address)
+        public async Task<IActionResult> PutAddress(int id, Address Address)
         {
-            if (id != address.AddressID)
+            if (id != Address.AddressID)
             {
                 return BadRequest();
             }
 
-            _context.Entry(address).State = EntityState.Modified;
+            _context.Entry(Address).State = EntityState.Modified;
 
             try
             {
@@ -67,7 +67,7 @@ namespace Api.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!addressExists(id))
+                if (!AddressExists(id))
                 {
                     return NotFound();
                 }
@@ -76,48 +76,46 @@ namespace Api.Controllers
                     throw;
                 }
             }
-
             return NoContent();
         }
 
-        // POST: api/addresses
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        // POST: api/Addresses
         [HttpPost]
-        public async Task<ActionResult<address>> Postaddress(address address)
+        public async Task<ActionResult<Address>> PostAddress(Address Address)
         {
-          if (_context.address == null)
+          if (_context.Address == null)
           {
-              return Problem("Entity set 'SoccerContext.address'  is null.");
+              return Problem("Entity set 'SoccerContext.Address'  is null.");
           }
-            _context.address.Add(address);
+            _context.Address.Add(Address);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("Getaddress", new { id = address.AddressID }, address);
+            return CreatedAtAction("GetAddress", new { id = Address.AddressID }, Address);
         }
 
-        // DELETE: api/addresses/5
+        // DELETE: api/Addresses/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Deleteaddress(int id)
+        public async Task<IActionResult> DeleteAddress(int id)
         {
-            if (_context.address == null)
+            if (_context.Address == null)
             {
                 return NotFound();
             }
-            var address = await _context.address.FindAsync(id);
-            if (address == null)
+            var Address = await _context.Address.FindAsync(id);
+            if (Address == null)
             {
                 return NotFound();
             }
 
-            _context.address.Remove(address);
+            _context.Address.Remove(Address);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool addressExists(int id)
+        private bool AddressExists(int id)
         {
-            return (_context.address?.Any(e => e.AddressID == id)).GetValueOrDefault();
+            return (_context.Address?.Any(e => e.AddressID == id)).GetValueOrDefault();
         }
     }
 }

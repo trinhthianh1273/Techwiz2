@@ -1,0 +1,131 @@
+﻿@model SoccerManager.DTO.Response.OrderRespone
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div class="row">
+    <h4>Orders</h4>
+    <hr />
+    <dl class="row col-6">
+        <dt class="col-sm-4">
+            Order Code
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.OrderId)
+        </dd>
+        <dt class = "col-sm-4">
+            Order Date
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.OrderDate)
+        </dd>
+        <dt class="col-sm-4">
+            Customer
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Customer.Fullname)
+        </dd>
+        <dt class="col-sm-4">
+            Address
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Address.Address1)
+        </dd>
+        <dt class="col-sm-4">
+            Product Amount
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.TotalProduct)
+        </dd>
+        <dt class="col-sm-4">
+            Price Amount
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.TotalAmount)
+        </dd>
+        <dt class="col-sm-4">
+            Status
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Status.StatusName)
+        </dd>
+        <dt class="col-sm-4">
+            Employee
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Employee.Email)
+        </dd>
+        <dt class="col-sm-4">
+            Shipped Date
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.ShippedDate)
+        </dd>
+        <dt class="col-sm-4">
+            Payment Method
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.PaymentMethod.PaymentMethod1)
+        </dd>
+        <dt class="col-sm-4">
+            Payment Status
+        </dt>
+        <dd class="col-sm-8">
+            @{
+                string paymentStatusText = Model.PaymentStatus == 1 ? "Done" : "Wait...";
+            }
+            @paymentStatusText
+        </dd>
+        <dt class="col-sm-4">
+            Payment Date
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.PaymentDate)
+        </dd>
+        <dt class = "col-sm-4">
+            Card Name
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.CardName)
+        </dd>
+        <dt class = "col-sm-4">
+            Card Number
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.CardNumber)
+        </dd>
+        <dt class = "col-sm-4">
+            Expire
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Expire)
+        </dd>
+        <dt class = "col-sm-4">
+            Security Code
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.SecurityCode)
+        </dd>
+    </dl>
+    <div class="row col-6">
+        @foreach (var item in Model.ListProduct)
+        {
+            <div class="col-6">
+                <img src="~/images/products/" />
+                <div class="row d-flex">
+                    <p class="col-auto">@item.ProductName</p>
+                    <p class="col-auto">100</p>
+                </div>
+            </div>
+        }
+        
+    </div>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.OrderId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

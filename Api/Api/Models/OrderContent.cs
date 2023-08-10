@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Api.Models;
 
-public class OrderContent
+public partial class OrderContent
 {
     public int OrderContentID { get; set; }
 
