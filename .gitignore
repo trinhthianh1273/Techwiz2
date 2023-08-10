@@ -1,0 +1,10 @@
+# .gitignore
+# Các thư mục và tệp được loại bỏ khỏi Git
+bin/
+obj/
+.vscode/
+.idea/
+*.suo
+*.user
+*.vspscc
+*.sln.docstates

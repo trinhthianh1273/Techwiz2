@@ -14,6 +14,9 @@
     <thead>
         <tr>
             <th>
+                Image
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.ProductName)
             </th>
             <th>
@@ -49,6 +52,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.ProductName)
             </td>
+                <td>
+                    <img src="~/images/ProductImage/@Html.DisplayFor(modelItem => item.ProductImage.FirstOrDefault().ImageUrl)" style="width: 100px; height: 100px;"/>
+                </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
@@ -65,13 +71,13 @@
                 @Html.DisplayFor(modelItem => item.Discontinued)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Category.CategoryDescription)
+                @Html.DisplayFor(modelItem => item.Category.CategoryName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Player.FullName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Team.FoundedPosition)
+                @Html.DisplayFor(modelItem => item.Team.ShortName)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ProductId">Edit</a> |
