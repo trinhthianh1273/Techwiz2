@@ -17,8 +17,12 @@
 
   <ItemGroup>
     <Folder Include="DTO\Request\" />
+<<<<<<< HEAD
+    <Folder Include="wwwroot\images\ProductImage\" />
+=======
     <Folder Include="wwwroot\images\" />
     <Folder Include="wwwroot\images\TeamLogos\" />
+>>>>>>> Tuan
   </ItemGroup>
 
 </Project>
