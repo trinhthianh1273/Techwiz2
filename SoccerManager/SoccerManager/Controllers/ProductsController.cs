@@ -10,8 +10,6 @@ namespace SoccerManager.Controllers
         private readonly SoccerContext _context;
         private readonly IWebHostEnvironment _env;
 
-
-
         public ProductsController(SoccerContext context, IWebHostEnvironment env)
         {
             _context = context;
@@ -22,7 +20,7 @@ namespace SoccerManager.Controllers
         // Get list of Products with player and team information
         public async Task<IActionResult> Index()
         {
-            var soccerContext = _context.Products.Include(p => p.Category).Include(p => p.Player).Include(p => p.Team);
+            var soccerContext = _context.Products.Include(p => p.Category).Include(p => p.Player).Include(p => p.Team).Include(p => p.ProductImage);
             return View(await soccerContext.ToListAsync());
         }
 
@@ -83,7 +81,7 @@ namespace SoccerManager.Controllers
                         string fileExtension = Path.GetExtension(item.FileName);
                         string uniqueFileName = $"{fileNameWithoutExtension}_{Guid.NewGuid()}{fileExtension}";
 
-                        var path = Path.Combine(_env.WebRootPath, "images/", uniqueFileName);
+                        var path = Path.Combine(_env.WebRootPath, "images/ProductImage", uniqueFileName);
 
                         //save file to folder
                         using (FileStream stream = new FileStream(path, FileMode.Create))
