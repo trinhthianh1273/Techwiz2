@@ -523,3 +523,6 @@ C:\Users\viper\Desktop\Techwiz2\Api\Api\obj\Debug\net7.0\Api.genruntimeconfig.ca
 C:\Users\viper\Desktop\Techwiz2\Api\Api\obj\Debug\net7.0\ref\Api.dll
 C:\Users\viper\Desktop\Techwiz2\Api\Api\bin\Debug\net7.0\AutoMapper.dll
 C:\Users\viper\Desktop\Techwiz2\Api\Api\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\MSI Modern\Techwiz2\Api\Api\bin\Debug\net7.0\Api.staticwebassets.runtime.json
+C:\Users\MSI Modern\Techwiz2\Api\Api\bin\Debug\net7.0\AutoMapper.dll
+C:\Users\MSI Modern\Techwiz2\Api\Api\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

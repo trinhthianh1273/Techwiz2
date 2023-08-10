@@ -26,6 +26,7 @@ namespace SoccerManager.Models
         public string Owner { get; set; }
         public string Manager { get; set; }
         public string Website { get; set; }
+        public string LogoURL { get; set; }
 
         public virtual ICollection<Match> MatchGuestTeam { get; set; }
         public virtual ICollection<Match> MatchHomeTeam { get; set; }
