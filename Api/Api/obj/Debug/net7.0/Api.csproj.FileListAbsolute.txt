@@ -259,3 +259,4 @@ C:\Users\MSI Modern\Techwiz2\Api\Api\bin\Debug\net7.0\Microsoft.AspNetCore.Authe
 C:\Users\MSI Modern\Techwiz2\Api\Api\bin\Debug\net7.0\MimeKit.dll
 C:\Users\MSI Modern\Techwiz2\Api\Api\bin\Debug\net7.0\System.Security.Cryptography.Pkcs.dll
 C:\Users\MSI Modern\Techwiz2\Api\Api\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\MSI Modern\Techwiz2\Api\Api\bin\Debug\net7.0\Api.staticwebassets.runtime.json

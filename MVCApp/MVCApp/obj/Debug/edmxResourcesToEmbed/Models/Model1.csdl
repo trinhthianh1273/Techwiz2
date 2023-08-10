@@ -1,0 +1,638 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SoccerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="address">
+    <Key>
+      <PropertyRef Name="AddressID" />
+    </Key>
+    <Property Name="AddressID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerID" Type="Int32" Nullable="false" />
+    <Property Name="ReceiverName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK_address_Customer" FromRole="address" ToRole="Customer" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_address" FromRole="address" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="Cart">
+    <Key>
+      <PropertyRef Name="CartID" />
+    </Key>
+    <Property Name="CartID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerID" Type="Int32" Nullable="false" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK_Cart_Customer" FromRole="Cart" ToRole="Customer" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_CartContent_Products" FromRole="Cart" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="Int32" Nullable="false" />
+    <Property Name="CategoryName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CategoryDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_Products_Category" FromRole="Category" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="Competition">
+    <Key>
+      <PropertyRef Name="CompetitionID" />
+    </Key>
+    <Property Name="CompetitionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompetitionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Matches" Relationship="Self.FK_Match_Competition" FromRole="Competition" ToRole="Match" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Fullname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="addresses" Relationship="Self.FK_address_Customer" FromRole="Customer" ToRole="address" />
+    <NavigationProperty Name="Carts" Relationship="Self.FK_Cart_Customer" FromRole="Customer" ToRole="Cart" />
+    <NavigationProperty Name="Feedbacks" Relationship="Self.FK_Feedback_Customer" FromRole="Customer" ToRole="Feedback" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Customer" FromRole="Customer" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Name="EmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Employee" FromRole="Employee" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="Feedback">
+    <Key>
+      <PropertyRef Name="FeedbackID" />
+    </Key>
+    <Property Name="FeedbackID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerID" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Content" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK_Feedback_Customer" FromRole="Feedback" ToRole="Customer" />
+  </EntityType>
+  <EntityType Name="Match">
+    <Key>
+      <PropertyRef Name="MatchID" />
+    </Key>
+    <Property Name="MatchID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MatchName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="HomeTeamID" Type="Int32" Nullable="false" />
+    <Property Name="GuestTeamID" Type="Int32" Nullable="false" />
+    <Property Name="StartTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EndTime" Type="DateTime" Precision="3" />
+    <Property Name="Stadium" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HomeTeamScore" Type="Int32" />
+    <Property Name="GuestTeamScore" Type="Int32" />
+    <Property Name="CompetitionID" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Competition" Relationship="Self.FK_Match_Competition" FromRole="Match" ToRole="Competition" />
+    <NavigationProperty Name="Team" Relationship="Self.FK_Match_Team" FromRole="Match" ToRole="Team" />
+    <NavigationProperty Name="Team1" Relationship="Self.FK_Match_Team1" FromRole="Match" ToRole="Team" />
+  </EntityType>
+  <EntityType Name="OrderContent">
+    <Key>
+      <PropertyRef Name="OrderContentID" />
+    </Key>
+    <Property Name="OrderContentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderID" Type="Int32" Nullable="false" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Double" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_OrderContent_Orders" FromRole="OrderContent" ToRole="Orders" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_OrderContent_Products" FromRole="OrderContent" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerID" Type="Int32" Nullable="false" />
+    <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+    <Property Name="AddressID" Type="Int32" Nullable="false" />
+    <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="StatusID" Type="Int32" Nullable="false" />
+    <Property Name="ShippedDate" Type="DateTime" Precision="3" />
+    <Property Name="PaymentMethodID" Type="Int32" />
+    <Property Name="CardName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CardNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Expire" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityCode" Type="Int32" />
+    <Property Name="PaymentStatus" Type="Int32" />
+    <Property Name="PaymentDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="address" Relationship="Self.FK_Orders_address" FromRole="Orders" ToRole="address" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK_Orders_Customer" FromRole="Orders" ToRole="Customer" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_Orders_Employee" FromRole="Orders" ToRole="Employee" />
+    <NavigationProperty Name="OrderContents" Relationship="Self.FK_OrderContent_Orders" FromRole="Orders" ToRole="OrderContent" />
+    <NavigationProperty Name="PaymentMethod" Relationship="Self.FK_Orders_PaymentMethod" FromRole="Orders" ToRole="PaymentMethod" />
+    <NavigationProperty Name="Status" Relationship="Self.FK_Orders_Status" FromRole="Orders" ToRole="Status" />
+  </EntityType>
+  <EntityType Name="PaymentMethod">
+    <Key>
+      <PropertyRef Name="PaymentMethodID" />
+    </Key>
+    <Property Name="PaymentMethodID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PaymentMethod1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_PaymentMethod" FromRole="PaymentMethod" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="Player">
+    <Key>
+      <PropertyRef Name="PlayerID" />
+    </Key>
+    <Property Name="PlayerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FullName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Dob" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Pob" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Height" Type="Int32" Nullable="false" />
+    <Property Name="Position" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CurrentTeam" Type="Int32" />
+    <Property Name="Number" Type="Int32" />
+    <NavigationProperty Name="Team" Relationship="Self.FK_Player_Team" FromRole="Player" ToRole="Team" />
+    <NavigationProperty Name="PlayerImages" Relationship="Self.FK_PlayerImage_Player" FromRole="Player" ToRole="PlayerImage" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_Products_Player" FromRole="Player" ToRole="Products" />
+    <NavigationProperty Name="TeamPlayerHistories" Relationship="Self.FK_TeamPlayerHistory_Player" FromRole="Player" ToRole="TeamPlayerHistory" />
+  </EntityType>
+  <EntityType Name="PlayerImage">
+    <Key>
+      <PropertyRef Name="PlayerImageID" />
+    </Key>
+    <Property Name="PlayerImageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PlayerID" Type="Int32" Nullable="false" />
+    <Property Name="ImageURL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Player" Relationship="Self.FK_PlayerImage_Player" FromRole="PlayerImage" ToRole="Player" />
+  </EntityType>
+  <EntityType Name="ProductImage">
+    <Key>
+      <PropertyRef Name="ProductImageID" />
+    </Key>
+    <Property Name="ProductImageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="ImageURL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_ProductImage_Products" FromRole="ProductImage" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CategoryID" Type="Int32" />
+    <Property Name="Price" Type="Double" />
+    <Property Name="InStock" Type="Int32" />
+    <Property Name="OnOrder" Type="Int32" />
+    <Property Name="Discontinued" Type="Int32" Nullable="false" />
+    <Property Name="TeamID" Type="Int32" Nullable="false" />
+    <Property Name="PlayerID" Type="Int32" />
+    <NavigationProperty Name="Carts" Relationship="Self.FK_CartContent_Products" FromRole="Products" ToRole="Cart" />
+    <NavigationProperty Name="Category" Relationship="Self.FK_Products_Category" FromRole="Products" ToRole="Category" />
+    <NavigationProperty Name="OrderContents" Relationship="Self.FK_OrderContent_Products" FromRole="Products" ToRole="OrderContent" />
+    <NavigationProperty Name="Player" Relationship="Self.FK_Products_Player" FromRole="Products" ToRole="Player" />
+    <NavigationProperty Name="ProductImages" Relationship="Self.FK_ProductImage_Products" FromRole="Products" ToRole="ProductImage" />
+    <NavigationProperty Name="Team" Relationship="Self.FK_Products_Team" FromRole="Products" ToRole="Team" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="StatusID" />
+    </Key>
+    <Property Name="StatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StatusName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Status" FromRole="Status" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="Team">
+    <Key>
+      <PropertyRef Name="TeamID" />
+    </Key>
+    <Property Name="TeamID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FullName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ShortName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nickname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FoundedYear" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FoundedPosition" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Owner" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Manager" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Website" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Matches" Relationship="Self.FK_Match_Team" FromRole="Team" ToRole="Match" />
+    <NavigationProperty Name="Matches1" Relationship="Self.FK_Match_Team1" FromRole="Team" ToRole="Match" />
+    <NavigationProperty Name="Players" Relationship="Self.FK_Player_Team" FromRole="Team" ToRole="Player" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_Products_Team" FromRole="Team" ToRole="Products" />
+    <NavigationProperty Name="TeamImages" Relationship="Self.FK_TeamImage_Team" FromRole="Team" ToRole="TeamImage" />
+    <NavigationProperty Name="TeamPlayerHistories" Relationship="Self.FK_TeamPlayerHistory_Team" FromRole="Team" ToRole="TeamPlayerHistory" />
+  </EntityType>
+  <EntityType Name="TeamImage">
+    <Key>
+      <PropertyRef Name="TeamImageID" />
+    </Key>
+    <Property Name="TeamImageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TeamID" Type="Int32" Nullable="false" />
+    <Property Name="ImageURL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Team" Relationship="Self.FK_TeamImage_Team" FromRole="TeamImage" ToRole="Team" />
+  </EntityType>
+  <EntityType Name="TeamPlayerHistory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TeamID" Type="Int32" Nullable="false" />
+    <Property Name="PlayerID" Type="Int32" Nullable="false" />
+    <Property Name="JoinDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="LeaveDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Player" Relationship="Self.FK_TeamPlayerHistory_Player" FromRole="TeamPlayerHistory" ToRole="Player" />
+    <NavigationProperty Name="Team" Relationship="Self.FK_TeamPlayerHistory_Team" FromRole="TeamPlayerHistory" ToRole="Team" />
+  </EntityType>
+  <Association Name="FK_address_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="address" Type="Self.address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="address">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_address">
+    <End Role="address" Type="Self.address" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="address">
+        <PropertyRef Name="AddressID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="AddressID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cart_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="Cart">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CartContent_Products">
+    <End Role="Products" Type="Self.Product" Multiplicity="1" />
+    <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="Cart">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Products_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="Products" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Match_Competition">
+    <End Role="Competition" Type="Self.Competition" Multiplicity="1" />
+    <End Role="Match" Type="Self.Match" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Competition">
+        <PropertyRef Name="CompetitionID" />
+      </Principal>
+      <Dependent Role="Match">
+        <PropertyRef Name="CompetitionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Feedback_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="Feedback" Type="Self.Feedback" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="Feedback">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Match_Team">
+    <End Role="Team" Type="Self.Team" Multiplicity="1" />
+    <End Role="Match" Type="Self.Match" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="TeamID" />
+      </Principal>
+      <Dependent Role="Match">
+        <PropertyRef Name="HomeTeamID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Match_Team1">
+    <End Role="Team" Type="Self.Team" Multiplicity="1" />
+    <End Role="Match" Type="Self.Match" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="TeamID" />
+      </Principal>
+      <Dependent Role="Match">
+        <PropertyRef Name="GuestTeamID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderContent_Orders">
+    <End Role="Orders" Type="Self.Order" Multiplicity="1" />
+    <End Role="OrderContent" Type="Self.OrderContent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="OrderID" />
+      </Principal>
+      <Dependent Role="OrderContent">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderContent_Products">
+    <End Role="Products" Type="Self.Product" Multiplicity="1" />
+    <End Role="OrderContent" Type="Self.OrderContent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="OrderContent">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_PaymentMethod">
+    <End Role="PaymentMethod" Type="Self.PaymentMethod" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentMethod">
+        <PropertyRef Name="PaymentMethodID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="PaymentMethodID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Status">
+    <End Role="Status" Type="Self.Status" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="StatusID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="StatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Player_Team">
+    <End Role="Team" Type="Self.Team" Multiplicity="0..1" />
+    <End Role="Player" Type="Self.Player" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="TeamID" />
+      </Principal>
+      <Dependent Role="Player">
+        <PropertyRef Name="CurrentTeam" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlayerImage_Player">
+    <End Role="Player" Type="Self.Player" Multiplicity="1" />
+    <End Role="PlayerImage" Type="Self.PlayerImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Player">
+        <PropertyRef Name="PlayerID" />
+      </Principal>
+      <Dependent Role="PlayerImage">
+        <PropertyRef Name="PlayerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Products_Player">
+    <End Role="Player" Type="Self.Player" Multiplicity="0..1" />
+    <End Role="Products" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Player">
+        <PropertyRef Name="PlayerID" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="PlayerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TeamPlayerHistory_Player">
+    <End Role="Player" Type="Self.Player" Multiplicity="1" />
+    <End Role="TeamPlayerHistory" Type="Self.TeamPlayerHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Player">
+        <PropertyRef Name="PlayerID" />
+      </Principal>
+      <Dependent Role="TeamPlayerHistory">
+        <PropertyRef Name="PlayerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductImage_Products">
+    <End Role="Products" Type="Self.Product" Multiplicity="1" />
+    <End Role="ProductImage" Type="Self.ProductImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="ProductImage">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Products_Team">
+    <End Role="Team" Type="Self.Team" Multiplicity="1" />
+    <End Role="Products" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="TeamID" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="TeamID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TeamImage_Team">
+    <End Role="Team" Type="Self.Team" Multiplicity="1" />
+    <End Role="TeamImage" Type="Self.TeamImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="TeamID" />
+      </Principal>
+      <Dependent Role="TeamImage">
+        <PropertyRef Name="TeamID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TeamPlayerHistory_Team">
+    <End Role="Team" Type="Self.Team" Multiplicity="1" />
+    <End Role="TeamPlayerHistory" Type="Self.TeamPlayerHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="TeamID" />
+      </Principal>
+      <Dependent Role="TeamPlayerHistory">
+        <PropertyRef Name="TeamID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SoccerEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="addresses" EntityType="Self.address" />
+    <EntitySet Name="Carts" EntityType="Self.Cart" />
+    <EntitySet Name="Categories" EntityType="Self.Category" />
+    <EntitySet Name="Competitions" EntityType="Self.Competition" />
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="Employees" EntityType="Self.Employee" />
+    <EntitySet Name="Feedbacks" EntityType="Self.Feedback" />
+    <EntitySet Name="Matches" EntityType="Self.Match" />
+    <EntitySet Name="OrderContents" EntityType="Self.OrderContent" />
+    <EntitySet Name="Orders" EntityType="Self.Order" />
+    <EntitySet Name="PaymentMethods" EntityType="Self.PaymentMethod" />
+    <EntitySet Name="Players" EntityType="Self.Player" />
+    <EntitySet Name="PlayerImages" EntityType="Self.PlayerImage" />
+    <EntitySet Name="ProductImages" EntityType="Self.ProductImage" />
+    <EntitySet Name="Products" EntityType="Self.Product" />
+    <EntitySet Name="Status" EntityType="Self.Status" />
+    <EntitySet Name="Teams" EntityType="Self.Team" />
+    <EntitySet Name="TeamImages" EntityType="Self.TeamImage" />
+    <EntitySet Name="TeamPlayerHistories" EntityType="Self.TeamPlayerHistory" />
+    <AssociationSet Name="FK_address_Customer" Association="Self.FK_address_Customer">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="address" EntitySet="addresses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_address" Association="Self.FK_Orders_address">
+      <End Role="address" EntitySet="addresses" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cart_Customer" Association="Self.FK_Cart_Customer">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Cart" EntitySet="Carts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CartContent_Products" Association="Self.FK_CartContent_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Cart" EntitySet="Carts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Products_Category" Association="Self.FK_Products_Category">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Match_Competition" Association="Self.FK_Match_Competition">
+      <End Role="Competition" EntitySet="Competitions" />
+      <End Role="Match" EntitySet="Matches" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Feedback_Customer" Association="Self.FK_Feedback_Customer">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Feedback" EntitySet="Feedbacks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Customer" Association="Self.FK_Orders_Customer">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Employee" Association="Self.FK_Orders_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Match_Team" Association="Self.FK_Match_Team">
+      <End Role="Team" EntitySet="Teams" />
+      <End Role="Match" EntitySet="Matches" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Match_Team1" Association="Self.FK_Match_Team1">
+      <End Role="Team" EntitySet="Teams" />
+      <End Role="Match" EntitySet="Matches" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderContent_Orders" Association="Self.FK_OrderContent_Orders">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="OrderContent" EntitySet="OrderContents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderContent_Products" Association="Self.FK_OrderContent_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="OrderContent" EntitySet="OrderContents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_PaymentMethod" Association="Self.FK_Orders_PaymentMethod">
+      <End Role="PaymentMethod" EntitySet="PaymentMethods" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Status" Association="Self.FK_Orders_Status">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Player_Team" Association="Self.FK_Player_Team">
+      <End Role="Team" EntitySet="Teams" />
+      <End Role="Player" EntitySet="Players" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlayerImage_Player" Association="Self.FK_PlayerImage_Player">
+      <End Role="Player" EntitySet="Players" />
+      <End Role="PlayerImage" EntitySet="PlayerImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Products_Player" Association="Self.FK_Products_Player">
+      <End Role="Player" EntitySet="Players" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TeamPlayerHistory_Player" Association="Self.FK_TeamPlayerHistory_Player">
+      <End Role="Player" EntitySet="Players" />
+      <End Role="TeamPlayerHistory" EntitySet="TeamPlayerHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductImage_Products" Association="Self.FK_ProductImage_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="ProductImage" EntitySet="ProductImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Products_Team" Association="Self.FK_Products_Team">
+      <End Role="Team" EntitySet="Teams" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TeamImage_Team" Association="Self.FK_TeamImage_Team">
+      <End Role="Team" EntitySet="Teams" />
+      <End Role="TeamImage" EntitySet="TeamImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TeamPlayerHistory_Team" Association="Self.FK_TeamPlayerHistory_Team">
+      <End Role="Team" EntitySet="Teams" />
+      <End Role="TeamPlayerHistory" EntitySet="TeamPlayerHistories" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
