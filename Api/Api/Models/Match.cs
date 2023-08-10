@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Api.Models;
 
-public class Match
+public partial class Match
 {
     public int MatchID { get; set; }
 

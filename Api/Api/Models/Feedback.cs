@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Api.Models;
 
-public class Feedback
+public partial class Feedback
 {
     public int FeedbackID { get; set; }
 

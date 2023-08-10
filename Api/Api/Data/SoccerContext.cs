@@ -13,6 +13,8 @@ public partial class SoccerContext : DbContext
     {
     }
 
+    public virtual DbSet<Address> Address { get; set; }
+
     public virtual DbSet<Cart> Cart { get; set; }
 
     public virtual DbSet<Category> Category { get; set; }
@@ -49,10 +51,29 @@ public partial class SoccerContext : DbContext
 
     public virtual DbSet<TeamPlayerHistory> TeamPlayerHistory { get; set; }
 
-    public virtual DbSet<address> address { get; set; }
-
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Address>(entity =>
+        {
+            entity.HasKey(e => e.AddressID).HasName("PK__address__091C2A1B19AD29A0");
+
+            entity.Property(e => e.Address1)
+                .IsRequired()
+                .HasMaxLength(50)
+                .HasColumnName("Address");
+            entity.Property(e => e.PhoneNumber)
+                .IsRequired()
+                .HasMaxLength(20);
+            entity.Property(e => e.ReceiverName)
+                .IsRequired()
+                .HasMaxLength(150);
+
+            entity.HasOne(d => d.Customer).WithMany(p => p.Address)
+                .HasForeignKey(d => d.CustomerID)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_address_Customer");
+        });
+
         modelBuilder.Entity<Cart>(entity =>
         {
             entity.HasKey(e => e.CartID).HasName("PK__CartCont__8821D0E09D7FE47A");
@@ -92,22 +113,13 @@ public partial class SoccerContext : DbContext
 
             entity.HasIndex(e => e.Username, "UQ__Customer__536C85E4282B50A6").IsUnique();
 
-            entity.Property(e => e.Email)
-                .HasMaxLength(100)
-                .IsUnicode(false);
-            entity.Property(e => e.Fullname)
-                .HasMaxLength(100)
-                .IsUnicode(false);
-            entity.Property(e => e.Password)
-                .IsRequired()
-                .IsUnicode(false);
-            entity.Property(e => e.Phone)
-                .HasMaxLength(20)
-                .IsUnicode(false);
+            entity.Property(e => e.Email).HasMaxLength(100);
+            entity.Property(e => e.Fullname).HasMaxLength(100);
+            entity.Property(e => e.Password).IsRequired();
+            entity.Property(e => e.Phone).HasMaxLength(50);
             entity.Property(e => e.Username)
                 .IsRequired()
-                .HasMaxLength(30)
-                .IsUnicode(false);
+                .HasMaxLength(50);
         });
 
         modelBuilder.Entity<Employee>(entity =>
@@ -335,28 +347,6 @@ public partial class SoccerContext : DbContext
                 .HasForeignKey(d => d.TeamID)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_TeamPlayerHistory_Team");
-        });
-
-        modelBuilder.Entity<address>(entity =>
-        {
-            entity.HasKey(e => e.AddressID).HasName("PK__address__091C2A1B19AD29A0");
-
-            entity.Property(e => e.Address1)
-                .IsRequired()
-                .HasMaxLength(50)
-                .HasColumnName("Address");
-            entity.Property(e => e.PhoneNumber)
-                .IsRequired()
-                .HasMaxLength(20);
-            entity.Property(e => e.ReceiverName)
-                .IsRequired()
-                .HasMaxLength(150)
-                .IsUnicode(false);
-
-            entity.HasOne(d => d.Customer).WithMany(p => p.address)
-                .HasForeignKey(d => d.CustomerID)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_address_Customer");
         });
 
         OnModelCreatingPartial(modelBuilder);

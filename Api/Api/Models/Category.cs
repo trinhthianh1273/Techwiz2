@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Api.Models;
 
-public class Category
+public partial class Category
 {
     public int CategoryID { get; set; }
 
