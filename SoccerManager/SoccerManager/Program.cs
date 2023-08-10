@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using SoccerManager.Interfaces;
+using SoccerManager.IRepository;
 using SoccerManager.Models;
+using SoccerManager.Repository;
 using SoccerManager.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +16,8 @@ builder.Services.AddDbContext<SoccerContext>(option =>
 });
 
 builder.Services.AddSingleton<IFileUploadService, FileUploadService>();
+
+builder.Services.AddTransient<IOrderRepository, OrderRepository>();
 
 var app = builder.Build();
 

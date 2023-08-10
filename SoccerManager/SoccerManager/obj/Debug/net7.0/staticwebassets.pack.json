@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets\\images\\Screenshot 2023-07-29 034844.png"
     },
     {
+      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\team_78907faf8f3e23904b8987ec83a59891_4e279cce-a053-4455-9b48-8e3ab0c7b91c.jpg",
+      "PackagePath": "staticwebassets\\images\\team_78907faf8f3e23904b8987ec83a59891_4e279cce-a053-4455-9b48-8e3ab0c7b91c.jpg"
+    },
+    {
       "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
