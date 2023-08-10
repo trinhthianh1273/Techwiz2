@@ -11,10 +11,11 @@
 <hr />
 <div class="row">
     <div>
-        <form asp-action="Edit" class="row">
+        <form asp-action="Edit" class="row" enctype="multipart/form-data">
             <div class="col-md-4">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <input type="hidden" asp-for="TeamId" />
+                <input type="hidden" asp-for="LogoURL" />
                 <div class="form-group">
                     <label asp-for="FullName" class="control-label"></label>
                     <input asp-for="FullName" class="form-control" />
@@ -58,9 +59,10 @@
             </div>
             <div class="col-md-8">
                 <div class="form-group">
-                    <label class="control-label">Logo</label>
+                    <label asp-for="LogoURL" class="control-label"></label>
                     <img src="~/images/@Html.DisplayFor(model => model.LogoURL)" />
-                    <input asp-for="LogoURL" class="col-4 form-control" type="file" name="file" />
+
+                    <input asp-for="LogoURL" class="form-control" type="file" name="file" />
                 </div>
                 
             </div>

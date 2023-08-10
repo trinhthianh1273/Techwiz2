@@ -2,8 +2,8 @@
 {
     public interface IFileUploadService
     {
-        Task<string> UploadFile(IFormFile file, String pattern);
+        Task<string> UploadFile(IFormFile file, string dir, string pattern);
 
-        Task<string> DeleteFile(string fileName, String pattern);
+        Task<bool> DeleteFile(string fileName);
     }
 }
