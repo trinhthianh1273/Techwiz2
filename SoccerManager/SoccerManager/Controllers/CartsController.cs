@@ -48,8 +48,8 @@ namespace SoccerManager.Controllers
         // GET: Carts/Create
         public IActionResult Create()
         {
-            ViewData["CustomerId"] = new SelectList(_context.Customer, "CustomerId", "Password");
-            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductId");
+            ViewData["CustomerId"] = new SelectList(_context.Customer, "CustomerId", "Fullname");
+            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductName");
             return View();
         }
 
@@ -84,8 +84,8 @@ namespace SoccerManager.Controllers
             {
                 return NotFound();
             }
-            ViewData["CustomerId"] = new SelectList(_context.Customer, "CustomerId", "Password", cart.CustomerId);
-            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductId", cart.ProductId);
+            ViewData["CustomerId"] = new SelectList(_context.Customer, "CustomerId", "Fullname", cart.CustomerId);
+            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductName", cart.ProductId);
             return View(cart);
         }
 

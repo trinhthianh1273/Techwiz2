@@ -1,5 +1,9 @@
 using Microsoft.EntityFrameworkCore;
+using SoccerManager.Interfaces;
+using SoccerManager.IRepository;
 using SoccerManager.Models;
+using SoccerManager.Repository;
+using SoccerManager.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +14,10 @@ builder.Services.AddDbContext<SoccerContext>(option =>
 {
     option.UseSqlServer(builder.Configuration.GetConnectionString("SoccerContext") ?? throw new InvalidOperationException("Connect String AppDbContext is not found"));
 });
+
+builder.Services.AddSingleton<IFileUploadService, FileUploadService>();
+
+builder.Services.AddTransient<IOrderRepository, OrderRepository>();
 
 var app = builder.Build();
 
@@ -27,6 +35,8 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+app.UseStaticFiles();
 
 app.MapControllerRoute(
     name: "default",
