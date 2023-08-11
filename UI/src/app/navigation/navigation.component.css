@@ -31,5 +31,22 @@ mat-sidenav {
       margin-right: 8px;
     }
   }
+  .mat-tab-label{
+    color: white;
+  }
+  .authen{
+    display: flex;
+    flex-direction: row;
+    right: 0;
+  }
+  .authen p{
+    color: white;
+    margin: 10px;
+  }
+  /* src/styles.css */
+.mat-menu-content {
+  background-color: lightblue;
+}
+
   
   
