@@ -7,6 +7,7 @@
 
 	List<Match> UpcomingMatches = matches.Where(match => match.StartTime > DateTime.Now).ToList();
 
+	List<Player> Top10Players = ViewBag.Top10Players.ToList();
 }
 
 <div id="tg-wrapper" class="tg-wrapper tg-haslayout">
@@ -62,95 +63,6 @@
 							<div class="row">
 								<div class="col-md-8 col-sm-12 col-xs-12">
 									<div class="tab-content tg-tabscontent">
-										@*<div role="tabpanel" class="tab-pane active" id="one">
-											<div class="tg-matchresult">
-												<div class="tg-box">
-													<div class="tg-score">
-														<h3>@EarlierMatches[0].HomeTeamScore - @EarlierMatches[0].GuestTeamScore</h3>
-														<div style="color: white; text-align: center;">
-															@EarlierMatches[0].StartTime
-														</div>
-													</div>
-													<div class="tg-teamscore">
-														<strong class="tg-team-logo">
-															<a asp-controller="Teams" asp-action="Details" asp-route-id="@EarlierMatches[0].HomeTeam.TeamId">
-																<img src="@Url.Content("~/images/" + @EarlierMatches[0].HomeTeam.LogoUrl)" alt="@EarlierMatches[0].HomeTeam.ShortName">
-															</a>
-														</strong>
-														<div class="tg-team-nameplusstatus">
-															<h4>
-																<a asp-controller="Teams" asp-action="Details" asp-route-id="@EarlierMatches[0].HomeTeam.TeamId">
-																	@{
-																		if (@EarlierMatches[0].HomeTeamScore > @EarlierMatches[0].GuestTeamScore)
-																		{
-																			<span>@EarlierMatches[0].HomeTeam.ShortName ( Win )</span>
-																		}
-																		else if (@EarlierMatches[0].HomeTeamScore < @EarlierMatches[0].GuestTeamScore)
-																		{
-																			<span>@EarlierMatches[0].HomeTeam.ShortName ( Lose )</span>
-																		} else
-																		{
-																			<span>@EarlierMatches[0].HomeTeam.ShortName ( Tie )</span>
-																		}
-																	}
-																</a>
-															</h4>
-														</div>
-														<ul class="tg-playernameplusgoadtime">
-															@{
-																if (@EarlierMatches[0].HomeTeam.Player.Count > 0)
-																{
-																	<li>@EarlierMatches[0].HomeTeam.Player.ElementAt(0).FullName</li>
-																} else
-																{
-																	<li>Player Not Found</li>
-																}
-															}
-														</ul>
-													</div>
-													<div class="tg-teamscore">
-														<strong class="tg-team-logo">
-															<a asp-controller="Teams" asp-action="Details" asp-route-id="@EarlierMatches[0].GuestTeam.TeamId">
-																<img src="@Url.Content("~/images/" + @EarlierMatches[0].GuestTeam.LogoUrl)" alt="@EarlierMatches[0].GuestTeam.ShortName">
-															</a>
-														</strong>
-														<div class="tg-team-nameplusstatus">
-															<h4>
-																<a asp-controller="Teams" asp-action="Details" asp-route-id="@EarlierMatches[0].GuestTeam.TeamId">
-																	@{
-																		if (@EarlierMatches[0].GuestTeamScore > @EarlierMatches[0].HomeTeamScore)
-																		{
-																			<span>@EarlierMatches[0].GuestTeam.ShortName ( Win )</span>
-																		}
-																		else if (@EarlierMatches[0].GuestTeamScore < @EarlierMatches[0].HomeTeamScore)
-																		{
-																			<span>@EarlierMatches[0].GuestTeam.ShortName ( Lose )</span>
-																		}
-																		else
-																		{
-																			<span>@EarlierMatches[0].GuestTeam.ShortName ( Tie )</span>
-																		}
-																	}
-																</a>
-															</h4>
-														</div>
-														<ul class="tg-playernameplusgoadtime">
-															@{
-																if (@EarlierMatches[0].GuestTeam.Player.Count > 0)
-																{
-																	<li>@EarlierMatches[0].GuestTeam.Player.ElementAt(0).FullName</li>
-																}
-																else
-																{
-																	<li>Player Not Found</li>
-																}
-															}
-														</ul>
-													</div>
-												</div>
-											</div>
-										</div>
-										*@
 										@foreach (var item in EarlierMatches)
 										{
 											string active = "";
@@ -158,7 +70,7 @@
 											{
 												active = "active";
 											}
-											<div role="tabpanel" class="tab-pane @active" id="@item.MatchName">
+											<div role="tabpanel" class="tab-pane @active" id="@item.MatchId">
 												<div class="tg-matchresult">
 													<div class="tg-box">
 														<div class="tg-score">
@@ -234,9 +146,9 @@
 															</div>
 															<ul class="tg-playernameplusgoadtime">
 																@{
-																	if (@EarlierMatches[0].GuestTeam.Player.Count > 0)
+																	if (@item.GuestTeam.Player.Count > 0)
 																	{
-																		<li>@EarlierMatches[0].GuestTeam.Player.ElementAt(0).FullName</li>
+																		<li>@item.GuestTeam.Player.ElementAt(0).FullName</li>
 																	}
 																	else
 																	{
@@ -249,7 +161,6 @@
 												</div>
 											</div>
 										}
-										
 										</div>
 								</div>
 								<div class="col-md-4 col-sm-12 col-xs-12">
@@ -266,7 +177,7 @@
 
 												<li role="presentation" class="@active">
 
-													<a href="#@item.MatchName" aria-controls="@item.MatchName" role="tab" data-toggle="tab">
+													<a href="#@item.MatchId" aria-controls="@item.MatchName" role="tab" data-toggle="tab">
 														<div class="tg-match">
 															<div class="tg-box">
 																<strong class="tg-teamlogo">
@@ -319,7 +230,7 @@
 											</ul>
 									</div>
 									<div class="tg-btnbox">
-										<a class="tg-btn" href="#"><span>view all</span></a>
+										<a class="tg-btn" class="tg-btn" asp-area="" asp-controller="Matches" asp-action="EarlierMatch">view all</span></a>
 									</div>
 								</div>
 							</div>
@@ -330,14 +241,14 @@
 		</section>
 		<section class="tg-bgdark tg-haslayout " style="display: flex; flex-direction: row; justify-content: flex-start; width: 100%;">
 
-			<div style="background:url(images/shop/bayern_kit.png) no-repeat;background-size: cover; height: 580px; width: 100%;">
+			<div style="background:url(https://static-images.vnncdn.net/files/publish/2022/10/28/world-cup-2022-47.jpg) no-repeat;background-size: cover; height: 580px; width: 100%;">
 			</div>
-			<div style="background:url(images/shop/mu_kit.png) no-repeat;background-size: cover; height: 580px;width: 100%;">
+			@*<div style="background:url(images/shop/mu_kit.png) no-repeat;background-size: cover; height: 580px;width: 100%;">
 			</div>
 			<div style="background:url(images/shop/psg_kit.png) no-repeat;background-size: cover; height: 580px;width: 100%;">
 			</div>
 			<div style="background:url(images/shop/aston_kit.png) no-repeat;background-size: cover; height: 580px;width: 100%;">
-			</div>
+			</div>*@
 		</section>
 		<section class="tg-main-section tg-haslayout">
 			<div class="container">
@@ -355,148 +266,43 @@
 											<p>Get ready for an exhilarating lineup of football showdowns that are set to ignite the pitch in the coming weeks. As the anticipation builds, fans around the world are eagerly gearing up to witness the clash of titans, tactical brilliance, and the sheer passion that only football can deliver. </p>
 										</div>
 										<div class="tg-btnbox">
-											<a class="tg-btn" href="#"><span>view all</span></a>
+											<a class="tg-btn" asp-area="" asp-controller="Matches" asp-action="EarlierMatch"><span>view all</span></a>
 										</div>
 									</div>
 								</div>
 								<div class="col-md-7 col-sm-12 col-xs-12">
 									<div id="tg-upcomingmatch-slider" class="tg-upcomingmatch-slider tg-upcomingmatch">
 										<div class="swiper-wrapper">
-											<div class="swiper-slide">
-												<div class="tg-match">
-													<div class="tg-matchdetail">
-														<div class="tg-box">
-															<strong class="tg-teamlogo">
-																<img src="images/team-logo/burnley.png" alt="image description">
-															</strong>
-															<h3>Burnley</h3>
+											@foreach (Match item in UpcomingMatches)
+											{
+												<div class="swiper-slide">
+													<div class="tg-match">
+														<div class="tg-matchdetail">
+															<div class="tg-box">
+																<strong class="tg-teamlogo">
+																	<img src="@Url.Content("~/images/" + @item.HomeTeam.LogoUrl)" alt="@item.HomeTeam.ShortName">
+																</strong>
+																<h3>@item.HomeTeam.ShortName</h3>
+															</div>
+															<div class="tg-box">
+																<h3>vs</h3>
+															</div>
+															<div class="tg-box">
+																<strong class="tg-teamlogo">
+																	<img src="@Url.Content("~/images/" + @item.GuestTeam.LogoUrl)" alt="@item.GuestTeam.ShortName">
+																</strong>
+																<h3>@item.GuestTeam.ShortName</h3>
+															</div>
 														</div>
-														<div class="tg-box">
-															<h3>vs</h3>
-														</div>
-														<div class="tg-box">
-															<strong class="tg-teamlogo">
-																<img src="images/team-logo/mancity.png" alt="image description">
-															</strong>
-															<h3>Man City</h3>
-														</div>
-													</div>
-													<div class="tg-matchhover">
-														<address>Aug 12, 2023 02:00 PM Turf Moor Stadium, England</address>
-														<div class="tg-btnbox">
-															<a class="tg-btn" href="#"><span>read more</span></a>
-														</div>
-													</div>
-												</div>
-											</div>
-											<div class="swiper-slide">
-												<div class="tg-match">
-													<div class="tg-matchdetail">
-														<div class="tg-box">
-															<strong class="tg-teamlogo">
-																<img src="images/team-logo/arsenal.png" alt="image description">
-															</strong>
-															<h3>Arsenal</h3>
-														</div>
-														<div class="tg-box">
-															<h3>vs</h3>
-														</div>
-														<div class="tg-box">
-															<strong class="tg-teamlogo">
-																<img src="images/team-logo/nottforest.png" alt="image description">
-															</strong>
-															<h3>Nottm Forest</h3>
-														</div>
-													</div>
-													<div class="tg-matchhover">
-														<address>Aug 12, 2023 18:30 PM Emirates  Stadium, England</address>
-														<div class="tg-btnbox">
-															<a class="tg-btn" href="#"><span>read more</span></a>
+														<div class="tg-matchhover">
+															<address>@item.StartTime - @item.Stadium</address>
+															<div class="tg-btnbox">
+																<a class="tg-btn" asp-area="" asp-controller="Matches" asp-action="Details" asp-route-id="@item.MatchId"><span>read more</span></a>
+															</div>
 														</div>
 													</div>
 												</div>
-											</div>
-											<div class="swiper-slide">
-												<div class="tg-match">
-													<div class="tg-matchdetail">
-														<div class="tg-box">
-															<strong class="tg-teamlogo">
-																<img src="images/team-logo/getafe.png" alt="image description">
-															</strong>
-															<h3>Getafe</h3>
-														</div>
-														<div class="tg-box">
-															<h3>vs</h3>
-														</div>
-														<div class="tg-box">
-															<strong class="tg-teamlogo">
-																<img src="images/team-logo/barcelona.png" alt="image description">
-															</strong>
-															<h3>Barcelona</h3>
-														</div>
-													</div>
-													<div class="tg-matchhover">
-														<address>Aug 14, 2023 02:30 PM Coliseum Alfonso Pérez Stadium, Spain</address>
-														<div class="tg-btnbox">
-															<a class="tg-btn" href="#"><span>read more</span></a>
-														</div>
-													</div>
-												</div>
-											</div>
-											<div class="swiper-slide">
-												<div class="tg-match">
-													<div class="tg-matchdetail">
-														<div class="tg-box">
-															<strong class="tg-teamlogo">
-																<img src="images/team-logo/werder.png" alt="image description">
-															</strong>
-															<h3>Werder</h3>
-														</div>
-														<div class="tg-box">
-															<h3>vs</h3>
-														</div>
-														<div class="tg-box">
-															<strong class="tg-teamlogo">
-																<img src="images/team-logo/bayern.png" alt="image description">
-															</strong>
-															<h3>Bayern</h3>
-														</div>
-													</div>
-													<div class="tg-matchhover">
-														<address>Aug 19, 2023 01:30 PM Weserstadion Stadium, Dubai</address>
-														<div class="tg-btnbox">
-															<a class="tg-btn" href="#"><span>read more</span></a>
-														</div>
-													</div>
-												</div>
-											</div>
-											<div class="swiper-slide">
-												<div class="tg-match">
-													<div class="tg-matchdetail">
-														<div class="tg-box">
-															<strong class="tg-teamlogo">
-																<img src="images/team-logo/cincinnati.png" alt="image description">
-															</strong>
-															<h3>Cincinnati</h3>
-														</div>
-														<div class="tg-box">
-															<h3>vs</h3>
-														</div>
-														<div class="tg-box">
-															<strong class="tg-teamlogo">
-																<img src="images/team-logo/intermiami.png" alt="image description">
-															</strong>
-															<h3>Inter Miami</h3>
-														</div>
-													</div>
-													<div class="tg-matchhover">
-														<address>Aug 24, 2023 06:00PM TQL Stadium, USA</address>
-														<div class="tg-btnbox">
-															<a class="tg-btn" href="#"><span>read more</span></a>
-														</div>
-													</div>
-												</div>
-											</div>
+											}
 										</div>
 										<div class="tg-themebtnnext"><span class="fa fa-angle-down"></span></div>
 										<div class="tg-themebtnprev"><span class="fa fa-angle-up"></span></div>
@@ -525,106 +331,29 @@
 													<div class="tg-box" style="font-weight: bold;">No.</div>
 													<div class="tg-box" style="font-weight: bold;">Player</div>
 													<div class="tg-box" style="font-weight: bold;">Goals</div>
-													<div class="tg-box" style="font-weight: bold;">Games</div>
+													<div class="tg-box" style="font-weight: bold;">Team</div>
 													<div class="tg-box" style="font-weight: bold;">Average</div>
 												</div>
 											</div>
-											<div class="swiper-slide">
-												<div class="tg-pointtable">
-													<div class="tg-box">1</div>
-													<div class="tg-box">CR Ronaldo</div>
-													<div class="tg-box">842</div>
-													<div class="tg-box">1173</div>
-													<div class="tg-box">0.72</div>
+											@foreach(Player item in Top10Players)
+											{
+												<div class="swiper-slide">
+													<div class="tg-pointtable">
+														<div class="tg-box">@item.PlayerId</div>
+														<div class="tg-box">@item.FullName</div>
+														<div class="tg-box">@item.Scores</div>
+														<div class="tg-box">@item.CurrentTeamNavigation.ShortName</div>
+														<div class="tg-box">0.96</div>
+													</div>
 												</div>
-											</div>
-											<div class="swiper-slide">
-												<div class="tg-pointtable">
-													<div class="tg-box">2</div>
-													<div class="tg-box">Lionel Messi</div>
-													<div class="tg-box">814</div>
-													<div class="tg-box">1032</div>
-													<div class="tg-box">0.79</div>
-												</div>
-											</div>
-											<div class="swiper-slide">
-												<div class="tg-pointtable">
-													<div class="tg-box">3</div>
-													<div class="tg-box">Josef Bican</div>
-													<div class="tg-box">805</div>
-													<div class="tg-box">530</div>
-													<div class="tg-box">1.52</div>
-												</div>
-											</div>
-											<div class="swiper-slide">
-												<div class="tg-pointtable">
-													<div class="tg-box">4</div>
-													<div class="tg-box">Pelé</div>
-													<div class="tg-box">765</div>
-													<div class="tg-box">812</div>
-													<div class="tg-box">0.94</div>
-												</div>
-											</div>
-											<div class="swiper-slide">
-												<div class="tg-pointtable">
-													<div class="tg-box">5</div>
-													<div class="tg-box">Romário</div>
-													<div class="tg-box">753</div>
-													<div class="tg-box">963</div>
-													<div class="tg-box">0.78</div>
-												</div>
-											</div>
-											<div class="swiper-slide">
-												<div class="tg-pointtable">
-													<div class="tg-box">6</div>
-													<div class="tg-box">Ferenc Puskás</div>
-													<div class="tg-box">741</div>
-													<div class="tg-box">746</div>
-													<div class="tg-box">0.99</div>
-												</div>
-											</div>
-											<div class="swiper-slide">
-												<div class="tg-pointtable">
-													<div class="tg-box">7</div>
-													<div class="tg-box">Gerd Müller</div>
-													<div class="tg-box">735</div>
-													<div class="tg-box">793</div>
-													<div class="tg-box">0.93</div>
-												</div>
-											</div>
-											<div class="swiper-slide">
-												<div class="tg-pointtable">
-													<div class="tg-box">8</div>
-													<div class="tg-box">Jimmy Jones</div>
-													<div class="tg-box">647</div>
-													<div class="tg-box">614</div>
-													<div class="tg-box">1.05</div>
-												</div>
-											</div>
-											<div class="swiper-slide">
-												<div class="tg-pointtable">
-													<div class="tg-box">9</div>
-													<div class="tg-box">Abe Lenstra</div>
-													<div class="tg-box">645</div>
-													<div class="tg-box">650</div>
-													<div class="tg-box">0.99</div>
-												</div>
-											</div>
-											<div class="swiper-slide">
-												<div class="tg-pointtable">
-													<div class="tg-box">10</div>
-													<div class="tg-box">Eusébio</div>
-													<div class="tg-box">620</div>
-													<div class="tg-box">648</div>
-													<div class="tg-box">0.96</div>
-												</div>
-											</div>
+											}
+											
 										</div>
 										<div class="tg-themebtnnext"><span class="fa fa-angle-down"></span></div>
 										<div class="tg-themebtnprev"><span class="fa fa-angle-up"></span></div>
 									</div>
-									<div class="tg-btnbox">
-										<a class="tg-btn" href="#"><span>view all</span></a>
+									<div class="tg-btnbox mb-3">
+										<a class="tg-btn" asp-area="" asp-controller="Players" asp-action="Index"><span>view all</span></a>
 									</div>
 								</div>
 							</div>

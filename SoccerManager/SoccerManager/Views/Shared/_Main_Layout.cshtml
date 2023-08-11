@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="~/css/main.css">
     <link rel="stylesheet" href="~/css/color.css">
     <link rel="stylesheet" href="~/css/responsive.css">
+    <link rel="stylesheet" href="~/css/main_layout.css">
 
     <link rel="stylesheet"
         href="@Url.Content("https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta17/dist/css/tabler.min.css")">
@@ -51,34 +52,37 @@
                                                 var id = Context.Session.GetString("CustomerId");
                                                 var name = Context.Session.GetString("CusFullName");
 
-                                                if (name == null)
+                                                if (id == null)
                                                 {
                                                     <li>
-                                                        <a href="javascript().html" data-toggle="modal"
-                                                           data-target="#tg-register">Login</a>
+                                                        <a asp-area="" asp-controller="Customers" asp-action="Login">Login</a>
                                                     </li>
                                                     <li>
-                                                        <a href="javascript().html" data-toggle="modal"
-                                                           data-target="#tg-register">Register</a>
+                                                        <a asp-area="" asp-controller="Customers" asp-action="Register">Register</a>
+                                                    </li>
+                                                    <li>
+                                                        <a id="tg-btn-search" href="javascript:void(0)">
+                                                            <i class="fa fa-search"></i>
+                                                        </a>
                                                     </li>
                                                 } else
                                                 {
                                                     <li>
-                                                        <a href="javascript().html" data-toggle="modal"
-                                                           data-target="#tg-login">Account</a>
+                                                        <a asp-area="" asp-controller="Customers" asp-action="Account">@name</a>
                                                     </li>
                                                     <li>
-                                                        <a href="javascript().html" data-toggle="modal"
-                                                           data-target="#tg-register">@name</a>
+                                                        <a id="tg-btn-search" href="javascript:void(0)">
+                                                            <i class="fa fa-search"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="cart-icon">
+                                                        <a asp-area="" asp-controller="Customers" asp-action="Cart">
+                                                            <i class="fa fa-shopping-cart"></i>
+                                                            <span class="cart-count">0</span>
+                                                        </a>
                                                     </li>
                                                 }
                                             }
-                                            
-                                            <li>
-                                                <a id="tg-btn-search" href="javascript:void(0)">
-                                                    <i class="fa fa-search"></i>
-                                                </a>
-                                            </li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -147,7 +151,7 @@
                                         <a asp-area="" asp-controller="Products" asp-action="Shopping">Shopping</a>
                                     </li>
                                     <li>
-                                        <a asp-area="" asp-controller="Orders" asp-action="Index">Contacts</a>
+                                        <a asp-area="" asp-controller="Feedbacks" asp-action="Contact">Contacts</a>
                                     </li>
                                 </ul>
                             </div>
@@ -217,103 +221,6 @@
             </div>
         </div>
     </div>
-    
-    <div class="tg-modalbox modal fade" id="tg-login" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="tg-modal-content">
-                <div class="tg-formarea">
-                    <div class="tg-border-heading">
-                        <h3>Login</h3>
-                    </div>
-                    <form class="tg-loginform" method="post">
-                        <fieldset>
-                            <div class="form-group">
-                                <input type="text" name="userName/email" class="form-control"
-                                    placeholder="username/email">
-                            </div>
-                            <div class="form-group">
-                                <input type="password" name="password" class="form-control" placeholder="password">
-                            </div>
-                            <div class="form-group">
-                                <label>
-                                    <input type="checkbox" value="rememberme" class="checkbox">
-                                    <em>Remember Me</em>
-                                </label>
-                                <a href="#">
-                                    <em>Forgot Password</em>
-                                    <i class="fa fa-question-circle"></i>
-                                </a>
-                            </div>
-                            <div class="form-group">
-                                <button class="tg-btn tg-btn-lg" type="submit">Login Now</button>
-                            </div>
-                            <div class="tg-description">
-                                <p>Don't have an account? <a href="#">Signup</a></p>
-                            </div>
-                        </fieldset>
-                    </form>
-                </div>
-                <div class="tg-logintype">
-                    <div class="tg-border-heading">
-                        <h3>Login with</h3>
-                    </div>
-                    <ul>
-                        <li class="tg-facebook"><a href="#">facebook</a></li>
-                        <li class="tg-twitter"><a href="#">twitter</a></li>
-                        <li class="tg-googleplus"><a href="#">google+</a></li>
-                        <li class="tg-linkedin"><a href="#">linkedin</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="tg-modalbox modal fade" id="tg-register" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="tg-modal-content">
-                <div class="tg-formarea">
-                    <div class="tg-border-heading">
-                        <h3>Signup</h3>
-                    </div>
-                    <form class="tg-loginform" method="post">
-                        <fieldset>
-                            <div class="form-group">
-                                <input type="text" name="userName" class="form-control" placeholder="username">
-                            </div>
-                            <div class="form-group">
-                                <input type="email" name="email" class="form-control" placeholder="email">
-                            </div>
-                            <div class="form-group">
-                                <div class="tg-note">
-                                    <i class="fa fa-exclamation-circle"></i>
-                                    <span>We will email you your password.</span>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <button class="tg-btn tg-btn-lg" type="submit">Login Now</button>
-                            </div>
-                            <div class="tg-description">
-                                <p>Already have an account? <a href="#">Login</a></p>
-                            </div>
-                        </fieldset>
-                    </form>
-                </div>
-                <div class="tg-logintype">
-                    <div class="tg-border-heading">
-                        <h3>Signup with</h3>
-                    </div>
-                    <ul>
-                        <li class="tg-facebook"><a href="#">facebook</a></li>
-                        <li class="tg-twitter"><a href="#">twitter</a></li>
-                        <li class="tg-googleplus"><a href="#">google+</a></li>
-                        <li class="tg-linkedin"><a href="#">linkedin</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--************************************
-        LightBoxes End
-    *************************************-->
     <script src="~/js/vendor/jquery-library.js"></script>
     <script src="~/js/vendor/bootstrap.min.js"></script>
      <script src="~/js/customScrollbar.min.js"></script> 
