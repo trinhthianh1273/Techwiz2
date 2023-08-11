@@ -3,21 +3,17 @@
 using System;
 using System.Collections.Generic;
 
-namespace SoccerManager.Models;
-
-public partial class News
+namespace SoccerManager.Models
 {
-    public int NewsID { get; set; }
+    public partial class News
+    {
+        public int NewsId { get; set; }
+        public string Title { get; set; }
+        public string Summary { get; set; }
+        public string Contents { get; set; }
+        public string ImageUrl { get; set; }
+        public int? EmployeeId { get; set; }
 
-    public string Title { get; set; }
-
-    public string Summary { get; set; }
-
-    public string Contents { get; set; }
-
-    public string ImageURL { get; set; }
-
-    public int? EmployeeID { get; set; }
-
-    public virtual Employee Employee { get; set; }
+        public virtual Employee Employee { get; set; }
+    }
 }

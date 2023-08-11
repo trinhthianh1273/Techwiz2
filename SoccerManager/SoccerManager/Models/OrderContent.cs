@@ -3,21 +3,17 @@
 using System;
 using System.Collections.Generic;
 
-namespace SoccerManager.Models;
-
-public partial class OrderContent
+namespace SoccerManager.Models
 {
-    public int OrderContentID { get; set; }
+    public partial class OrderContent
+    {
+        public int OrderContentId { get; set; }
+        public int OrderId { get; set; }
+        public int ProductId { get; set; }
+        public int Quantity { get; set; }
+        public double? Price { get; set; }
 
-    public int OrderID { get; set; }
-
-    public int ProductID { get; set; }
-
-    public int Quantity { get; set; }
-
-    public double? Price { get; set; }
-
-    public virtual Orders Order { get; set; }
-
-    public virtual Products Product { get; set; }
+        public virtual Orders Order { get; set; }
+        public virtual Products Product { get; set; }
+    }
 }

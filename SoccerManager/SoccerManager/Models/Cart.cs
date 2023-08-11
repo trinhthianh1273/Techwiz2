@@ -3,19 +3,16 @@
 using System;
 using System.Collections.Generic;
 
-namespace SoccerManager.Models;
-
-public partial class Cart
+namespace SoccerManager.Models
 {
-    public int CartID { get; set; }
+    public partial class Cart
+    {
+        public int CartId { get; set; }
+        public int CustomerId { get; set; }
+        public int ProductId { get; set; }
+        public int Quantity { get; set; }
 
-    public int CustomerID { get; set; }
-
-    public int ProductID { get; set; }
-
-    public int Quantity { get; set; }
-
-    public virtual Customer Customer { get; set; }
-
-    public virtual Products Product { get; set; }
+        public virtual Customer Customer { get; set; }
+        public virtual Products Product { get; set; }
+    }
 }

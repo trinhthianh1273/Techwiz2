@@ -36,7 +36,7 @@ namespace SoccerManager.Controllers
             var teamPlayerHistory = await _context.TeamPlayerHistory
                 .Include(t => t.Player)
                 .Include(t => t.Team)
-                .FirstOrDefaultAsync(m => m.ID == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (teamPlayerHistory == null)
             {
                 return NotFound();
@@ -48,8 +48,8 @@ namespace SoccerManager.Controllers
         // GET: TeamPlayerHistories/Create
         public IActionResult Create()
         {
-            ViewData["PlayerID"] = new SelectList(_context.Player, "PlayerID", "FullName");
-            ViewData["TeamID"] = new SelectList(_context.Team, "TeamID", "FoundedPosition");
+            ViewData["PlayerId"] = new SelectList(_context.Player, "PlayerId", "FullName");
+            ViewData["TeamId"] = new SelectList(_context.Team, "TeamId", "FoundedPosition");
             return View();
         }
 
@@ -58,7 +58,7 @@ namespace SoccerManager.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,TeamID,PlayerID,JoinDate,LeaveDate")] TeamPlayerHistory teamPlayerHistory)
+        public async Task<IActionResult> Create([Bind("Id,TeamId,PlayerId,JoinDate,LeaveDate")] TeamPlayerHistory teamPlayerHistory)
         {
             if (ModelState.IsValid)
             {
@@ -66,8 +66,8 @@ namespace SoccerManager.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PlayerID"] = new SelectList(_context.Player, "PlayerID", "FullName", teamPlayerHistory.PlayerID);
-            ViewData["TeamID"] = new SelectList(_context.Team, "TeamID", "FoundedPosition", teamPlayerHistory.TeamID);
+            ViewData["PlayerId"] = new SelectList(_context.Player, "PlayerId", "FullName", teamPlayerHistory.PlayerId);
+            ViewData["TeamId"] = new SelectList(_context.Team, "TeamId", "FoundedPosition", teamPlayerHistory.TeamId);
             return View(teamPlayerHistory);
         }
 
@@ -84,8 +84,8 @@ namespace SoccerManager.Controllers
             {
                 return NotFound();
             }
-            ViewData["PlayerID"] = new SelectList(_context.Player, "PlayerID", "FullName", teamPlayerHistory.PlayerID);
-            ViewData["TeamID"] = new SelectList(_context.Team, "TeamID", "FoundedPosition", teamPlayerHistory.TeamID);
+            ViewData["PlayerId"] = new SelectList(_context.Player, "PlayerId", "FullName", teamPlayerHistory.PlayerId);
+            ViewData["TeamId"] = new SelectList(_context.Team, "TeamId", "FoundedPosition", teamPlayerHistory.TeamId);
             return View(teamPlayerHistory);
         }
 
@@ -94,9 +94,9 @@ namespace SoccerManager.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,TeamID,PlayerID,JoinDate,LeaveDate")] TeamPlayerHistory teamPlayerHistory)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,TeamId,PlayerId,JoinDate,LeaveDate")] TeamPlayerHistory teamPlayerHistory)
         {
-            if (id != teamPlayerHistory.ID)
+            if (id != teamPlayerHistory.Id)
             {
                 return NotFound();
             }
@@ -110,7 +110,7 @@ namespace SoccerManager.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!TeamPlayerHistoryExists(teamPlayerHistory.ID))
+                    if (!TeamPlayerHistoryExists(teamPlayerHistory.Id))
                     {
                         return NotFound();
                     }
@@ -121,8 +121,8 @@ namespace SoccerManager.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PlayerID"] = new SelectList(_context.Player, "PlayerID", "FullName", teamPlayerHistory.PlayerID);
-            ViewData["TeamID"] = new SelectList(_context.Team, "TeamID", "FoundedPosition", teamPlayerHistory.TeamID);
+            ViewData["PlayerId"] = new SelectList(_context.Player, "PlayerId", "FullName", teamPlayerHistory.PlayerId);
+            ViewData["TeamId"] = new SelectList(_context.Team, "TeamId", "FoundedPosition", teamPlayerHistory.TeamId);
             return View(teamPlayerHistory);
         }
 
@@ -137,7 +137,7 @@ namespace SoccerManager.Controllers
             var teamPlayerHistory = await _context.TeamPlayerHistory
                 .Include(t => t.Player)
                 .Include(t => t.Team)
-                .FirstOrDefaultAsync(m => m.ID == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (teamPlayerHistory == null)
             {
                 return NotFound();
@@ -167,7 +167,7 @@ namespace SoccerManager.Controllers
 
         private bool TeamPlayerHistoryExists(int id)
         {
-          return (_context.TeamPlayerHistory?.Any(e => e.ID == id)).GetValueOrDefault();
+          return (_context.TeamPlayerHistory?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

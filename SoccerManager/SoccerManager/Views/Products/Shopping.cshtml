@@ -43,8 +43,8 @@
 												@{
 													if (item.ProductImage.Count() > 0)
 													{
-														<img src="@Url.Content("~/images/ProductImage/" + item.ProductImage.ElementAt(0).ImageURL)" alt="image description" style="width: 300px; height: 300px;">
-														//<img src="@Url.Content("~/images/" + item.ProductImage.ElementAt(0).ImageURL)" alt="Image" style="width: 100px">
+														<img src="@Url.Content("~/images/ProductImage/" + item.ProductImage.ElementAt(0).ImageUrl)" alt="image description" style="width: 300px; height: 300px;">
+														//<img src="@Url.Content("~/images/" + item.ProductImage.ElementAt(0).ImageUrl)" alt="Image" style="width: 100px">
 													} else
 													{
 														<img src="https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg" alt="image description" style="width: 300px; height: 300px;">
@@ -95,7 +95,7 @@
 									@foreach (Category category in cates)
 									{
 										<li><a asp-area="" asp-controller="Products" asp-action="Shopping"
-										   asp-route-CategoryID="@category.CategoryID">
+										   asp-route-CategoryId="@category.CategoryId">
 										   <em>@category.CategoryName</em><i>389</i>
 									   </a>
 										</li>

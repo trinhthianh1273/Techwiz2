@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Product list</h1>
+<h1>Index</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -78,23 +78,19 @@
                 @Html.DisplayFor(modelItem => item.Team.ShortName)
             </td>
             <td>
-<<<<<<< HEAD
-                <img src="@Url.Content("~/images/" + item.ProductImage.ElementAt(0).ImageUrl)" alt="Image" style="width: 100px">
-=======
                     @{
                         if(item.ProductImage.Count() > 0)
                         {
-                            <img src="@Url.Content("~/images/" + item.ProductImage.ElementAt(0).ImageURL)" alt="Image" style="width: 100px">
+                            <img src="@Url.Content("~/images/" + item.ProductImage.ElementAt(0).ImageUrl)" alt="Image" style="width: 100px">
 
                         }
                     }
->>>>>>> Develop
             </td>
 
             <td>
-                <a asp-action="Edit" asp-route-id="@item.ProductID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ProductID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ProductID">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.ProductId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ProductId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ProductId">Delete</a>
             </td>
         </tr>
 }

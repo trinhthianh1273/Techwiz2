@@ -19,12 +19,12 @@
                 <span asp-validation-for="MatchName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="HomeTeamID" class="control-label"></label>
-                <select asp-for="HomeTeamID" class ="form-control" asp-items="ViewBag.HomeTeamID"></select>
+                <label asp-for="HomeTeamId" class="control-label"></label>
+                <select asp-for="HomeTeamId" class ="form-control" asp-items="ViewBag.HomeTeamId"></select>
             </div>
             <div class="form-group">
-                <label asp-for="GuestTeamID" class="control-label"></label>
-                <select asp-for="GuestTeamID" class ="form-control" asp-items="ViewBag.GuestTeamID"></select>
+                <label asp-for="GuestTeamId" class="control-label"></label>
+                <select asp-for="GuestTeamId" class ="form-control" asp-items="ViewBag.GuestTeamId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="StartTime" class="control-label"></label>
@@ -52,8 +52,8 @@
                 <span asp-validation-for="GuestTeamScore" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CompetitionID" class="control-label"></label>
-                <select asp-for="CompetitionID" class ="form-control" asp-items="ViewBag.CompetitionID"></select>
+                <label asp-for="CompetitionId" class="control-label"></label>
+                <select asp-for="CompetitionId" class ="form-control" asp-items="ViewBag.CompetitionId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="Description" class="control-label"></label>
@@ -70,7 +70,3 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}

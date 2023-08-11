@@ -3,17 +3,15 @@
 using System;
 using System.Collections.Generic;
 
-namespace SoccerManager.Models;
-
-public partial class PlayerScore
+namespace SoccerManager.Models
 {
-    public int MatchID { get; set; }
+    public partial class PlayerScore
+    {
+        public int MatchId { get; set; }
+        public int PlayerId { get; set; }
+        public int Scores { get; set; }
 
-    public int PlayerID { get; set; }
-
-    public int Scores { get; set; }
-
-    public virtual Match Match { get; set; }
-
-    public virtual Player Player { get; set; }
+        public virtual Match Match { get; set; }
+        public virtual Player Player { get; set; }
+    }
 }

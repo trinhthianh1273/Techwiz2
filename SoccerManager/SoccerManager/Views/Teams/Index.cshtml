@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Team list</h1>
+<h1>Index</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -73,12 +73,12 @@
                     <a target="_blank" href="@Html.DisplayFor(modelItem => item.Website)">@Html.DisplayFor(modelItem => item.Website)</a>
             </td>
             <td>
-                    <img src="@Url.Content("~/images/" + item.LogoURL)" alt="Image" style="width: 100px">
+                    <img src="@Url.Content("~/images/" + item.LogoUrl)" alt="Image" style="width: 100px">
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.TeamID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.TeamID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.TeamID">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.TeamId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.TeamId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.TeamId">Delete</a>
             </td>
         </tr>
 }

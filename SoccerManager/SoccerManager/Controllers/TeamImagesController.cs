@@ -35,7 +35,7 @@ namespace SoccerManager.Controllers
 
             var teamImage = await _context.TeamImage
                 .Include(t => t.Team)
-                .FirstOrDefaultAsync(m => m.TeamImageID == id);
+                .FirstOrDefaultAsync(m => m.TeamImageId == id);
             if (teamImage == null)
             {
                 return NotFound();
@@ -47,7 +47,7 @@ namespace SoccerManager.Controllers
         // GET: TeamImages/Create
         public IActionResult Create()
         {
-            ViewData["TeamID"] = new SelectList(_context.Team, "TeamID", "FoundedPosition");
+            ViewData["TeamId"] = new SelectList(_context.Team, "TeamId", "FoundedPosition");
             return View();
         }
 
@@ -56,7 +56,7 @@ namespace SoccerManager.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("TeamImageID,TeamID,ImageURL")] TeamImage teamImage)
+        public async Task<IActionResult> Create([Bind("TeamImageId,TeamId,ImageUrl")] TeamImage teamImage)
         {
             if (ModelState.IsValid)
             {
@@ -64,7 +64,7 @@ namespace SoccerManager.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["TeamID"] = new SelectList(_context.Team, "TeamID", "FoundedPosition", teamImage.TeamID);
+            ViewData["TeamId"] = new SelectList(_context.Team, "TeamId", "FoundedPosition", teamImage.TeamId);
             return View(teamImage);
         }
 
@@ -81,7 +81,7 @@ namespace SoccerManager.Controllers
             {
                 return NotFound();
             }
-            ViewData["TeamID"] = new SelectList(_context.Team, "TeamID", "FoundedPosition", teamImage.TeamID);
+            ViewData["TeamId"] = new SelectList(_context.Team, "TeamId", "FoundedPosition", teamImage.TeamId);
             return View(teamImage);
         }
 
@@ -90,9 +90,9 @@ namespace SoccerManager.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("TeamImageID,TeamID,ImageURL")] TeamImage teamImage)
+        public async Task<IActionResult> Edit(int id, [Bind("TeamImageId,TeamId,ImageUrl")] TeamImage teamImage)
         {
-            if (id != teamImage.TeamImageID)
+            if (id != teamImage.TeamImageId)
             {
                 return NotFound();
             }
@@ -106,7 +106,7 @@ namespace SoccerManager.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!TeamImageExists(teamImage.TeamImageID))
+                    if (!TeamImageExists(teamImage.TeamImageId))
                     {
                         return NotFound();
                     }
@@ -117,7 +117,7 @@ namespace SoccerManager.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["TeamID"] = new SelectList(_context.Team, "TeamID", "FoundedPosition", teamImage.TeamID);
+            ViewData["TeamId"] = new SelectList(_context.Team, "TeamId", "FoundedPosition", teamImage.TeamId);
             return View(teamImage);
         }
 
@@ -131,7 +131,7 @@ namespace SoccerManager.Controllers
 
             var teamImage = await _context.TeamImage
                 .Include(t => t.Team)
-                .FirstOrDefaultAsync(m => m.TeamImageID == id);
+                .FirstOrDefaultAsync(m => m.TeamImageId == id);
             if (teamImage == null)
             {
                 return NotFound();
@@ -161,7 +161,7 @@ namespace SoccerManager.Controllers
 
         private bool TeamImageExists(int id)
         {
-          return (_context.TeamImage?.Any(e => e.TeamImageID == id)).GetValueOrDefault();
+          return (_context.TeamImage?.Any(e => e.TeamImageId == id)).GetValueOrDefault();
         }
     }
 }

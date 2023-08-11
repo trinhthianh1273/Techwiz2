@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using SoccerManager.Interfaces;
 using SoccerManager.Models;
 
 namespace SoccerManager.Controllers
@@ -9,15 +8,10 @@ namespace SoccerManager.Controllers
     public class PlayersController : Controller
     {
         private readonly SoccerContext _context;
-        private readonly IFileUploadService _fileUploadService;
-        private readonly string ImgDir = "PlayerImages";
-        private readonly string ImgType = "player";
 
-        public PlayersController(SoccerContext context, IFileUploadService fileUploadService)
+        public PlayersController(SoccerContext context)
         {
             _context = context;
-            _fileUploadService = fileUploadService;
-
         }
 
         // GET: Players
@@ -39,37 +33,6 @@ namespace SoccerManager.Controllers
 
             var player = await _context.Player
                 .Include(p => p.CurrentTeamNavigation)
-                .FirstOrDefaultAsync(m => m.PlayerID == id);
-            if (player == null)
-            {
-                return NotFound();
-            }
-
-            return View(player);
-        }
-
-        // GET: Players/Details/5
-        // Get Player detail
-        public async Task<IActionResult> PlayerInfomation(int? id)
-        {
-            if (id == null || _context.Player == null)
-            {
-                return NotFound();
-            }
-            var playerImage = await _context.PlayerImage
-                .Include(p => p.Player)
-                .FirstOrDefaultAsync(m => m.PlayerId == id);
-            if (playerImage == null)
-            {
-                ViewBag.PlayerImage = null;
-            }
-            else
-            {
-                ViewBag.PlayerImage = playerImage.ImageUrl;
-            }
-
-            var player = await _context.Player
-                .Include(p => p.CurrentTeamNavigation)
                 .FirstOrDefaultAsync(m => m.PlayerId == id);
             if (player == null)
             {
@@ -82,7 +45,7 @@ namespace SoccerManager.Controllers
         // GET: Players/Create
         public IActionResult Create()
         {
-            ViewData["CurrentTeam"] = new SelectList(_context.Team, "TeamID", "FullName");
+            ViewData["CurrentTeam"] = new SelectList(_context.Team, "TeamId", "FullName");
             return View();
         }
 
@@ -90,54 +53,21 @@ namespace SoccerManager.Controllers
         // Handle Create Player request
         [HttpPost]
         [ValidateAntiForgeryToken]
-<<<<<<< HEAD
-        public async Task<IActionResult> Create([Bind("PlayerID,FullName,Dob,Pob,Height,Position,CurrentTeam,Number")] Player player, IFormFile file)
-=======
-        public async Task<IActionResult> Create(
-            [Bind("PlayerId,FullName,Dob,Pob,Height,Position,CurrentTeam,Number")] Player player,
-            List<IFormFile> files)
->>>>>>> 8e2198406ca71f7daec9266d036d70ebd9a4995d
+        public async Task<IActionResult> Create([Bind("PlayerId,FullName,Dob,Pob,Height,Position,CurrentTeam,Number")] Player player, IFormFile file)
         {
             if (ModelState.IsValid)
             {
-                //add product to database
+                //add player information
                 _context.Add(player);
                 await _context.SaveChangesAsync();
 
-                //get last inserted product id
-                var lastInsertedId = player.PlayerId;
+                //upload player image
 
-                //check request files
-                if (files != null)
-                {
-                    //upload image to folder and image nam to database
-                    foreach (var item in files)
-                    {
-                        try
-                        {
-                            //upload image and get file name
-                            string imgName = ImgDir + "/" + await _fileUploadService.UploadFile(item, ImgDir, ImgType);
-                            //save filename to database
-                            PlayerImage playerImage = new()
-                            {
-                                PlayerId = lastInsertedId,
-                                ImageUrl = imgName
-                            };
-                            _context.PlayerImage.Add(playerImage);
-                            await _context.SaveChangesAsync();
-                        }
-                        catch (Exception ex)
-                        {
-                            //Log ex
-                            ViewBag.Message = "File Upload Failed";
-                        }
-                    }
-                }
 
                 return RedirectToAction(nameof(Index));
             }
 
-            ViewData["CurrentTeam"] = new SelectList(_context.Team, "TeamID", "FullName", player.CurrentTeam);
+            ViewData["CurrentTeam"] = new SelectList(_context.Team, "TeamId", "FullName", player.CurrentTeam);
             return View(player);
         }
 
@@ -154,15 +84,7 @@ namespace SoccerManager.Controllers
             {
                 return NotFound();
             }
-<<<<<<< HEAD
-            ViewData["CurrentTeam"] = new SelectList(_context.Team, "TeamID", "FullName", player.CurrentTeam);
-=======
-
-
             ViewData["CurrentTeam"] = new SelectList(_context.Team, "TeamId", "FullName", player.CurrentTeam);
-
-            ViewBag.PlayerImages = _context.PlayerImage.Where(p => p.PlayerId == id).ToList();
->>>>>>> 8e2198406ca71f7daec9266d036d70ebd9a4995d
             return View(player);
         }
 
@@ -171,9 +93,9 @@ namespace SoccerManager.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PlayerID,FullName,Dob,Pob,Height,Position,CurrentTeam,Number")] Player player)
+        public async Task<IActionResult> Edit(int id, [Bind("PlayerId,FullName,Dob,Pob,Height,Position,CurrentTeam,Number")] Player player)
         {
-            if (id != player.PlayerID)
+            if (id != player.PlayerId)
             {
                 return NotFound();
             }
@@ -187,7 +109,7 @@ namespace SoccerManager.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!PlayerExists(player.PlayerID))
+                    if (!PlayerExists(player.PlayerId))
                     {
                         return NotFound();
                     }
@@ -198,7 +120,7 @@ namespace SoccerManager.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CurrentTeam"] = new SelectList(_context.Team, "TeamID", "FullName", player.CurrentTeam);
+            ViewData["CurrentTeam"] = new SelectList(_context.Team, "TeamId", "FullName", player.CurrentTeam);
             return View(player);
         }
 
@@ -212,7 +134,7 @@ namespace SoccerManager.Controllers
 
             var player = await _context.Player
                 .Include(p => p.CurrentTeamNavigation)
-                .FirstOrDefaultAsync(m => m.PlayerID == id);
+                .FirstOrDefaultAsync(m => m.PlayerId == id);
             if (player == null)
             {
                 return NotFound();
@@ -242,7 +164,7 @@ namespace SoccerManager.Controllers
 
         private bool PlayerExists(int id)
         {
-            return (_context.Player?.Any(e => e.PlayerID == id)).GetValueOrDefault();
+            return (_context.Player?.Any(e => e.PlayerId == id)).GetValueOrDefault();
         }
     }
 }

@@ -31,7 +31,7 @@ namespace SoccerManager.Controllers
             var soccerContext = _context.Orders.Include(o => o.Address).Include(o => o.Customer).Include(o => o.Employee).Include(o => o.PaymentMethod).Include(o => o.Status);
             foreach(var order in soccerContext)
             {
-                order.OrderContent = _context.OrderContent.Where(o => o.OrderID == order.OrderID).ToList();
+                order.OrderContent = _context.OrderContent.Where(o => o.OrderId == order.OrderId).ToList();
                 results.Add(OrderRespone.ConvertToOrderResponse(order));
             }
             return View(results);
@@ -51,11 +51,11 @@ namespace SoccerManager.Controllers
         // GET: Orders/Create
         public IActionResult Create()
         {
-            ViewData["AddressID"] = new SelectList(_context.Address, "AddressID", "Address1");
-            ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Fullname");
-            ViewData["EmployeeID"] = new SelectList(_context.Employee, "EmployeeID", "FullName");
-            ViewData["PaymentMethodID"] = new SelectList(_context.PaymentMethod, "PaymentMethodID", "PaymentMethod1");
-            ViewData["StatusID"] = new SelectList(_context.Status, "StatusID", "StatusName");
+            ViewData["AddressId"] = new SelectList(_context.Address, "AddressId", "Address1");
+            ViewData["CustomerId"] = new SelectList(_context.Customer, "CustomerId", "Fullname");
+            ViewData["EmployeeId"] = new SelectList(_context.Employee, "EmployeeId", "FullName");
+            ViewData["PaymentMethodId"] = new SelectList(_context.PaymentMethod, "PaymentMethodId", "PaymentMethod1");
+            ViewData["StatusId"] = new SelectList(_context.Status, "StatusId", "StatusName");
             
             return View();
         }
@@ -65,7 +65,7 @@ namespace SoccerManager.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("OrderID,CustomerID,EmployeeID,AddressID,OrderDate,StatusID,ShippedDate,PaymentMethodID,CardName,CardNumber,Expire,SecurityCode,PaymentStatus,PaymentDate")] Orders orders)
+        public async Task<IActionResult> Create([Bind("OrderId,CustomerId,EmployeeId,AddressId,OrderDate,StatusId,ShippedDate,PaymentMethodId,CardName,CardNumber,Expire,SecurityCode,PaymentStatus,PaymentDate")] Orders orders)
         {
             if (ModelState.IsValid)
             {
@@ -73,11 +73,11 @@ namespace SoccerManager.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AddressID"] = new SelectList(_context.Address, "AddressID", "Address1", orders.AddressID);
-            ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Fullname", orders.CustomerID);
-            ViewData["EmployeeID"] = new SelectList(_context.Employee, "EmployeeID", "FullName", orders.EmployeeID);
-            ViewData["PaymentMethodID"] = new SelectList(_context.PaymentMethod, "PaymentMethodID", "PaymentMethod1", orders.PaymentMethodID);
-            ViewData["StatusID"] = new SelectList(_context.Status, "StatusID", "StatusName", orders.StatusID);
+            ViewData["AddressId"] = new SelectList(_context.Address, "AddressId", "Address1", orders.AddressId);
+            ViewData["CustomerId"] = new SelectList(_context.Customer, "CustomerId", "Fullname", orders.CustomerId);
+            ViewData["EmployeeId"] = new SelectList(_context.Employee, "EmployeeId", "FullName", orders.EmployeeId);
+            ViewData["PaymentMethodId"] = new SelectList(_context.PaymentMethod, "PaymentMethodId", "PaymentMethod1", orders.PaymentMethodId);
+            ViewData["StatusId"] = new SelectList(_context.Status, "StatusId", "StatusName", orders.StatusId);
             return View(orders);
         }
 
@@ -94,11 +94,11 @@ namespace SoccerManager.Controllers
             {
                 return NotFound();
             }
-            ViewData["AddressID"] = new SelectList(_context.Address, "AddressID", "Address1", orders.AddressID);
-            ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Fullname", orders.CustomerID);
-            ViewData["EmployeeID"] = new SelectList(_context.Employee, "EmployeeID", "FullName", orders.EmployeeID);
-            ViewData["PaymentMethodID"] = new SelectList(_context.PaymentMethod, "PaymentMethodID", "PaymentMethod1", orders.PaymentMethodID);
-            ViewData["StatusID"] = new SelectList(_context.Status, "StatusID", "StatusName", orders.StatusID);
+            ViewData["AddressId"] = new SelectList(_context.Address, "AddressId", "Address1", orders.AddressId);
+            ViewData["CustomerId"] = new SelectList(_context.Customer, "CustomerId", "Fullname", orders.CustomerId);
+            ViewData["EmployeeId"] = new SelectList(_context.Employee, "EmployeeId", "FullName", orders.EmployeeId);
+            ViewData["PaymentMethodId"] = new SelectList(_context.PaymentMethod, "PaymentMethodId", "PaymentMethod1", orders.PaymentMethodId);
+            ViewData["StatusId"] = new SelectList(_context.Status, "StatusId", "StatusName", orders.StatusId);
             return View(orders);
         }
 
@@ -107,9 +107,9 @@ namespace SoccerManager.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("OrderID,CustomerID,EmployeeID,AddressID,OrderDate,StatusID,ShippedDate,PaymentMethodID,CardName,CardNumber,Expire,SecurityCode,PaymentStatus,PaymentDate")] Orders orders, List<OrderContent> orderContents)
+        public async Task<IActionResult> Edit(int id, [Bind("OrderId,CustomerId,EmployeeId,AddressId,OrderDate,StatusId,ShippedDate,PaymentMethodId,CardName,CardNumber,Expire,SecurityCode,PaymentStatus,PaymentDate")] Orders orders)
         {
-            if (id != orders.OrderID)
+            if (id != orders.OrderId)
             {
                 return NotFound();
             }
@@ -119,12 +119,12 @@ namespace SoccerManager.Controllers
                 try
                 {
                     _context.Update(orders);
-                    _context.Update(orderContents);
+                    //_context.Update(orderContents);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!OrdersExists(orders.OrderID))
+                    if (!OrdersExists(orders.OrderId))
                     {
                         return NotFound();
                     }
@@ -135,11 +135,11 @@ namespace SoccerManager.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AddressID"] = new SelectList(_context.Address, "AddressID", "Address1", orders.AddressID);
-            ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Password", orders.CustomerID);
-            ViewData["EmployeeID"] = new SelectList(_context.Employee, "EmployeeID", "Email", orders.EmployeeID);
-            ViewData["PaymentMethodID"] = new SelectList(_context.PaymentMethod, "PaymentMethodID", "PaymentMethodID", orders.PaymentMethodID);
-            ViewData["StatusID"] = new SelectList(_context.Status, "StatusID", "StatusName", orders.StatusID);
+            ViewData["AddressId"] = new SelectList(_context.Address, "AddressId", "Address1", orders.AddressId);
+            ViewData["CustomerId"] = new SelectList(_context.Customer, "CustomerId", "Password", orders.CustomerId);
+            ViewData["EmployeeId"] = new SelectList(_context.Employee, "EmployeeId", "Email", orders.EmployeeId);
+            ViewData["PaymentMethodId"] = new SelectList(_context.PaymentMethod, "PaymentMethodId", "PaymentMethodId", orders.PaymentMethodId);
+            ViewData["StatusId"] = new SelectList(_context.Status, "StatusId", "StatusName", orders.StatusId);
             return View(orders);
         }
 
@@ -157,7 +157,7 @@ namespace SoccerManager.Controllers
                 .Include(o => o.Employee)
                 .Include(o => o.PaymentMethod)
                 .Include(o => o.Status)
-                .FirstOrDefaultAsync(m => m.OrderID == id);
+                .FirstOrDefaultAsync(m => m.OrderId == id);
             if (orders == null)
             {
                 return NotFound();
@@ -187,7 +187,7 @@ namespace SoccerManager.Controllers
 
         private bool OrdersExists(int id)
         {
-          return (_context.Orders?.Any(e => e.OrderID == id)).GetValueOrDefault();
+          return (_context.Orders?.Any(e => e.OrderId == id)).GetValueOrDefault();
         }
     }
 }
