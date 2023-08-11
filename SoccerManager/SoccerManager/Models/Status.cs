@@ -3,18 +3,13 @@
 using System;
 using System.Collections.Generic;
 
-namespace SoccerManager.Models
+namespace SoccerManager.Models;
+
+public partial class Status
 {
-    public partial class Status
-    {
-        public Status()
-        {
-            Orders = new HashSet<Orders>();
-        }
+    public int StatusID { get; set; }
 
-        public int StatusId { get; set; }
-        public string StatusName { get; set; }
+    public string StatusName { get; set; }
 
-        public virtual ICollection<Orders> Orders { get; set; }
-    }
+    public virtual ICollection<Orders> Orders { get; set; } = new List<Orders>();
 }

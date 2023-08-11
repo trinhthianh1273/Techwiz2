@@ -1,0 +1,69 @@
+.tg-oldmatchresult{
+	width:100%;
+	float:left;
+	padding:20px;
+	color:#373542;
+	background:#f7f7f7;
+	cursor: pointer;
+	user-select: none;
+}
+.tg-oldmatchresult + .tg-oldmatchresult{ margin:10px 0 0;}
+.tg-oldmatchresult:hover{background:#373542;transition: 0.5s ease-in-out;}
+.tg-matchdate{
+	width:76px;
+	height:76px;
+	float:left;
+	color:#fff;
+	padding:13px;
+	margin:0 10px 0 0;
+	background:#373542;
+	text-align:center;
+	text-transform:uppercase;
+	font:36px/36px 'Oswald', Arial, Helvetica, sans-serif;
+}
+.tg-matchdate span{
+	display:block;
+	font-size:14px;
+	line-height:14px;
+}
+.tg-oldmatchresult:hover .tg-matchdate,
+.tg-oldmatchresult:hover .tg-matchdate span{color:#373542;transition: 0.5s ease-in-out;}
+.tg-oldmatchresult:hover .tg-matchdate{
+	background-color: #ffcc33;
+	transition: 0.5s ease-in-out;
+}
+.tg-oldmatchresult .tg-matchdetail{
+	width:auto;
+	float:none;
+	padding:0;
+	overflow:hidden;
+}
+.tg-oldmatchresult .tg-matchdetail .tg-theme-tag{
+	color: #ffcc33;
+	font-size: larger;
+	font-weight: bold;
+	float:left;}
+.tg-oldmatchresult .tg-matchdetail h4 span{
+	color: #ffcc33;
+}
+.tg-oldmatchresult .tg-matchdetail h4{
+	width:100%;
+	float:left;
+	margin:7px 0;
+	font-size:24px;
+	line-height:24px;
+}
+.tg-oldmatchresult:hover .tg-matchdetail h4{
+	color: #ffcc33;
+	transition: 0.5s ease-in-out;
+}
+.tg-oldmatchresult .tg-matchdetail address{
+	width:100%;
+	float:left;
+	margin:0;
+	font-size:14px;
+	line-height:17px;
+	font-style:normal;
+}
+.tg-oldmatchresult:hover .tg-matchdetail address{ color:#fff;
+	transition: 0.5s ease-in-out;}

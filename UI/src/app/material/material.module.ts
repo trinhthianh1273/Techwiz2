@@ -18,6 +18,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatRadioModule} from '@angular/material/radio';
 import { ReactiveFormsModule } from '@angular/forms';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatTableModule} from '@angular/material/table';
 const MaterialComponents = [
   MatButtonModule,
   MatGridListModule,
@@ -38,6 +40,8 @@ const MaterialComponents = [
   MatExpansionModule,
   MatRadioModule,
   ReactiveFormsModule,
+  MatMenuModule,
+  MatTableModule
 ] 
 @NgModule({
   imports: [

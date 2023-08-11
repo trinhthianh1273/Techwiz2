@@ -6,15 +6,43 @@
   <title>Railway dashboard</title>
 </head>
 <body>
-    <mat-toolbar >
+    <mat-toolbar style="background:#373542 url(./../../assets/img/other/bg-pattran.png); " >
+      
       <mat-toolbar-row style="display: flex; justify-content: center;" *ngIf="!lessthan">
-          <img src=".\..\assets\img\train1.png" class="img-fluid h-100" alt="train" style="cursor:pointer;"(click)="gotoTrainDetails()" >
-          <mat-tab-group [color]="'warn'">
-            <mat-tab label="Buy ticket"></mat-tab>
-            <mat-tab label="Stations"></mat-tab>
-            <mat-tab label="Refund"></mat-tab>
-            <mat-tab label="Reservation Information"></mat-tab>
+        <button mat-button [matMenuTriggerFor]="football"><mat-icon style="color: white;">menu</mat-icon></button>
+        <mat-menu #football="matMenu" class="mat-menu-content">
+          <button mat-menu-item >ABOUT US</button>
+          <button mat-menu-item >FEED BACK</button>
+        </mat-menu>
+          <mat-tab-group [color]="'warn'"  >
+            <mat-tab >
+              <ng-template mat-tab-label><span style="color: white;">TEAM</span></ng-template>
+            </mat-tab>
+            <mat-tab label="MATCH RESULTS ">
+              <ng-template mat-tab-label><span style="color: white;">MATCH</span></ng-template>
+            </mat-tab>
+            <mat-tab label="STATISTICS">
+              <ng-template mat-tab-label><span style="color: white;">NEWS</span></ng-template>
+            </mat-tab>
           </mat-tab-group>
+          <div style="height: 100%;"><img src="./../../assets/img/other/logo.png" class="img-fluid h-100" alt="train" style="cursor:pointer;"(click)="gotoTrainDetails()" ></div>
+          <mat-tab-group [color]="'warn'">
+            <mat-tab label="PLAYERS">
+              <ng-template mat-tab-label><span style="color: white;">PLAYERS</span></ng-template>
+            </mat-tab>
+            <mat-tab label="SHOPPING ">
+              <ng-template mat-tab-label><span style="color: white;">SHOPPING</span></ng-template>
+            </mat-tab>
+            <mat-tab label="CONTACT">
+              <ng-template mat-tab-label><span style="color: white;">CONTACT</span></ng-template>
+            </mat-tab>
+          </mat-tab-group>
+          <div class="authen" style="border-top-left-radius:50%; border-left: red solid 4px;">
+              <p>LOGIN</p>
+              <div style="width: 1px; background-color: white;"></div>
+              <P>REGISTER</P>
+          </div>
+          
       </mat-toolbar-row>
       <mat-toolbar-row style="display: flex; justify-content: center; align-items: center;" *ngIf="lessthan">
         <button  mat-icon-button (click)="sidenav.toggle()" >
@@ -25,7 +53,7 @@
       </mat-toolbar-row>
     </mat-toolbar>
     <!--sidebar-->
-    <mat-sidenav-container >
+    <mat-sidenav-container style="height: 90%;">
       <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
     <button mat-button class="menu-button" routerLink="/home">
       <img src=".\..\assets\img\tickets.svg" style="max-width: 30px; height: auto; margin-right: 10px;" alt="" >
@@ -47,8 +75,8 @@
       <span>Reservation Information</span>
     </button>
     </mat-sidenav>
-    <mat-sidenav-content>
-        <router-outlet></router-outlet>
+    <mat-sidenav-content style="height: 100%;">
+        <app-home></app-home>
     </mat-sidenav-content>
     </mat-sidenav-container>
 </body>

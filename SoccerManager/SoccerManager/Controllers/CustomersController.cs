@@ -4,8 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using SoccerManager.Models;
+using System.Security.Cryptography;
+using SoccerManager.Helper;
 
 namespace SoccerManager.Controllers
 {
@@ -25,6 +29,75 @@ namespace SoccerManager.Controllers
                           View(await _context.Customer.ToListAsync()) :
                           Problem("Entity set 'SoccerContext.Customer'  is null.");
         }
+
+        // GET: Customers/Login
+        public IActionResult Login()
+        {
+            Customer obj = new Customer();
+            if (Request.Cookies["Username"] != null)
+            {
+                obj.Username = Request.Cookies["Username"];                
+            }
+            return View(obj);
+        }
+
+        //POST: Customers/Login
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Login(Customer obj)
+        {
+            if (ModelState.IsValid)
+            {
+                var hb = Convert.FromBase64String(obj.Password);
+                // PasswordHasher.VerifyPassword(userObj.Password, user.Password)
+                var user = _context.Customer.FirstOrDefault(x => x.Username == obj.Username);
+                if (user == null) return Content("UserName not found!");
+                if (!PasswordHasher.VerifyPassword(obj.Password, user.Password))
+                {
+                    return Content("Password errors!");
+                }
+                HttpContext.Session.SetString("CusUserName", user.Username);
+                HttpContext.Session.SetString("CusFullName", user.Fullname);
+                HttpContext.Session.SetString("CustomerId", user.CustomerId.ToString());
+                return RedirectToAction("Index", "Home");
+
+
+                //var Customer = _context.Customer.Where(p => p.Username == obj.Username && PasswordHasher.VerifyPassword(obj.Password, p.Password)).ToList();
+                //if (Customer.Count > 0)
+                //{
+                //    return RedirectToAction("Index", "Home");
+                //}
+                //else
+                //{
+                //    return Content("UserName or Password errors!");
+                //}
+            }
+            return RedirectToAction("Login", "Customers");
+        }
+
+        // GET: Customers/Register
+        public IActionResult Register()
+        {
+            return View();
+        }
+
+        // POST: Customers/Register
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Register([Bind("CustomerId,Username,Password,Fullname,Email,Phone,Token")] Customer customer)
+        {
+            if (ModelState.IsValid)
+            {
+                customer.Password = PasswordHasher.HassPassword(customer.Password);
+                _context.Add(customer);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Login));
+            }
+            return View(customer);
+        }
+
 
         // GET: Customers/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -98,6 +171,7 @@ namespace SoccerManager.Controllers
             {
                 try
                 {
+                    customer.Password = PasswordHasher.HassPassword(customer.Password);
                     _context.Update(customer);
                     await _context.SaveChangesAsync();
                 }

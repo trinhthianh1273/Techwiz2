@@ -3,24 +3,37 @@
 using System;
 using System.Collections.Generic;
 
-namespace SoccerManager.Models
-{
-    public partial class Match
-    {
-        public int MatchId { get; set; }
-        public string MatchName { get; set; }
-        public int HomeTeamId { get; set; }
-        public int GuestTeamId { get; set; }
-        public DateTime StartTime { get; set; }
-        public DateTime? EndTime { get; set; }
-        public string Stadium { get; set; }
-        public int? HomeTeamScore { get; set; }
-        public int? GuestTeamScore { get; set; }
-        public int CompetitionId { get; set; }
-        public string Description { get; set; }
+namespace SoccerManager.Models;
 
-        public virtual Competition Competition { get; set; }
-        public virtual Team GuestTeam { get; set; }
-        public virtual Team HomeTeam { get; set; }
-    }
+public partial class Match
+{
+    public int MatchID { get; set; }
+
+    public string MatchName { get; set; }
+
+    public int HomeTeamID { get; set; }
+
+    public int GuestTeamID { get; set; }
+
+    public DateTime StartTime { get; set; }
+
+    public DateTime? EndTime { get; set; }
+
+    public string Stadium { get; set; }
+
+    public int? HomeTeamScore { get; set; }
+
+    public int? GuestTeamScore { get; set; }
+
+    public int CompetitionID { get; set; }
+
+    public string Description { get; set; }
+
+    public virtual Competition Competition { get; set; }
+
+    public virtual Team GuestTeam { get; set; }
+
+    public virtual Team HomeTeam { get; set; }
+
+    public virtual ICollection<PlayerScore> PlayerScore { get; set; } = new List<PlayerScore>();
 }

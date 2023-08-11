@@ -3,29 +3,29 @@
 using System;
 using System.Collections.Generic;
 
-namespace SoccerManager.Models
+namespace SoccerManager.Models;
+
+public partial class Customer
 {
-    public partial class Customer
-    {
-        public Customer()
-        {
-            Address = new HashSet<Address>();
-            Cart = new HashSet<Cart>();
-            Feedback = new HashSet<Feedback>();
-            Orders = new HashSet<Orders>();
-        }
+    public int CustomerID { get; set; }
 
-        public int CustomerId { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public string Fullname { get; set; }
-        public string Email { get; set; }
-        public string Phone { get; set; }
-        public string Token { get; set; }
+    public string Username { get; set; }
 
-        public virtual ICollection<Address> Address { get; set; }
-        public virtual ICollection<Cart> Cart { get; set; }
-        public virtual ICollection<Feedback> Feedback { get; set; }
-        public virtual ICollection<Orders> Orders { get; set; }
-    }
+    public string Password { get; set; }
+
+    public string Fullname { get; set; }
+
+    public string Email { get; set; }
+
+    public string Phone { get; set; }
+
+    public string Token { get; set; }
+
+    public virtual ICollection<Address> Address { get; set; } = new List<Address>();
+
+    public virtual ICollection<Cart> Cart { get; set; } = new List<Cart>();
+
+    public virtual ICollection<Feedback> Feedback { get; set; } = new List<Feedback>();
+
+    public virtual ICollection<Orders> Orders { get; set; } = new List<Orders>();
 }

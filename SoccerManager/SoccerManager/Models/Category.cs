@@ -3,19 +3,15 @@
 using System;
 using System.Collections.Generic;
 
-namespace SoccerManager.Models
+namespace SoccerManager.Models;
+
+public partial class Category
 {
-    public partial class Category
-    {
-        public Category()
-        {
-            Products = new HashSet<Products>();
-        }
+    public int CategoryID { get; set; }
 
-        public int CategoryId { get; set; }
-        public string CategoryName { get; set; }
-        public string CategoryDescription { get; set; }
+    public string CategoryName { get; set; }
 
-        public virtual ICollection<Products> Products { get; set; }
-    }
+    public string CategoryDescription { get; set; }
+
+    public virtual ICollection<Products> Products { get; set; } = new List<Products>();
 }

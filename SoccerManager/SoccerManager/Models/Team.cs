@@ -3,36 +3,39 @@
 using System;
 using System.Collections.Generic;
 
-namespace SoccerManager.Models
+namespace SoccerManager.Models;
+
+public partial class Team
 {
-    public partial class Team
-    {
-        public Team()
-        {
-            MatchGuestTeam = new HashSet<Match>();
-            MatchHomeTeam = new HashSet<Match>();
-            Player = new HashSet<Player>();
-            Products = new HashSet<Products>();
-            TeamImage = new HashSet<TeamImage>();
-            TeamPlayerHistory = new HashSet<TeamPlayerHistory>();
-        }
+    public int TeamID { get; set; }
 
-        public int TeamId { get; set; }
-        public string FullName { get; set; }
-        public string ShortName { get; set; }
-        public string Nickname { get; set; }
-        public string FoundedYear { get; set; }
-        public string FoundedPosition { get; set; }
-        public string Owner { get; set; }
-        public string Manager { get; set; }
-        public string Website { get; set; }
-        public string LogoURL { get; set; }
+    public string FullName { get; set; }
 
-        public virtual ICollection<Match> MatchGuestTeam { get; set; }
-        public virtual ICollection<Match> MatchHomeTeam { get; set; }
-        public virtual ICollection<Player> Player { get; set; }
-        public virtual ICollection<Products> Products { get; set; }
-        public virtual ICollection<TeamImage> TeamImage { get; set; }
-        public virtual ICollection<TeamPlayerHistory> TeamPlayerHistory { get; set; }
-    }
+    public string ShortName { get; set; }
+
+    public string Nickname { get; set; }
+
+    public string FoundedYear { get; set; }
+
+    public string FoundedPosition { get; set; }
+
+    public string Owner { get; set; }
+
+    public string Manager { get; set; }
+
+    public string Website { get; set; }
+
+    public string LogoURL { get; set; }
+
+    public virtual ICollection<Match> MatchGuestTeam { get; set; } = new List<Match>();
+
+    public virtual ICollection<Match> MatchHomeTeam { get; set; } = new List<Match>();
+
+    public virtual ICollection<Player> Player { get; set; } = new List<Player>();
+
+    public virtual ICollection<Products> Products { get; set; } = new List<Products>();
+
+    public virtual ICollection<TeamImage> TeamImage { get; set; } = new List<TeamImage>();
+
+    public virtual ICollection<TeamPlayerHistory> TeamPlayerHistory { get; set; } = new List<TeamPlayerHistory>();
 }

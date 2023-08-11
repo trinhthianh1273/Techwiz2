@@ -1,5 +1,5 @@
 ﻿{
-   "CodeGenerationMode": 2,
+   "CodeGenerationMode": 3,
    "ContextClassName": "SoccerContext",
    "ContextNamespace": null,
    "DefaultDacpacSchema": null,
@@ -15,7 +15,7 @@
    "SelectedToBeGenerated": 0,
    "Tables": [
       {
-         "Name": "[dbo].[address]",
+         "Name": "[dbo].[Address]",
          "ObjectType": 0
       },
       {
@@ -47,6 +47,10 @@
          "ObjectType": 0
       },
       {
+         "Name": "[dbo].[News]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[OrderContent]",
          "ObjectType": 0
       },
@@ -64,6 +68,10 @@
       },
       {
          "Name": "[dbo].[PlayerImage]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PlayerScore]",
          "ObjectType": 0
       },
       {
@@ -91,10 +99,10 @@
          "ObjectType": 0
       }
    ],
-   "UiHint": "desktop-uvb7o5i.Soccer.dbo",
+   "UiHint": "(localdb)\\MSSQLLocalDB.Soccer",
    "UncountableWords": null,
    "UseBoolPropertiesWithoutDefaultSql": false,
-   "UseDatabaseNames": false,
+   "UseDatabaseNames": true,
    "UseDateOnlyTimeOnly": false,
    "UseDbContextSplitting": false,
    "UseFluentApiOnly": true,
