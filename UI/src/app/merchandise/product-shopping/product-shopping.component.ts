@@ -76,16 +76,6 @@ export class ProductShoppingComponent implements OnInit {
     description:"Manchester City Puma Home Shorts 2023-24 - Kids"
   },
   {
-    productID:"7",
-    productName:"ManCity-home",
-    categoryName:"shorts",
-    price:90,
-    playerName:"",
-    teamName:"Man City",
-    pictureUrl:"\\premier_league\\Mancity\\shorts\\home.png",
-    description:"Manchester City Puma Home Shorts 2023-24 - Kids"
-  },
-  {
     productID:"8",
     productName:"ManCity-home",
     categoryName:"shirt",
