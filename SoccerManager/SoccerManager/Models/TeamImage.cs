@@ -3,14 +3,15 @@
 using System;
 using System.Collections.Generic;
 
-namespace SoccerManager.Models
-{
-    public partial class TeamImage
-    {
-        public int TeamImageId { get; set; }
-        public int TeamId { get; set; }
-        public string ImageUrl { get; set; }
+namespace SoccerManager.Models;
 
-        public virtual Team Team { get; set; }
-    }
+public partial class TeamImage
+{
+    public int TeamImageID { get; set; }
+
+    public int TeamID { get; set; }
+
+    public string ImageURL { get; set; }
+
+    public virtual Team Team { get; set; }
 }
