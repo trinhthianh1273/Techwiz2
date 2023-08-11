@@ -8,4 +8,6 @@ obj/
 *.user
 *.vspscc
 *.sln.docstates
-*.v2
+*.cache
+*.cache
+*.editorconfig
