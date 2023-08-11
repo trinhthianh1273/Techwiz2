@@ -54,7 +54,7 @@ namespace SoccerManager.Controllers.API
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCustomer(int id, Customer customer)
         {
-            if (id != customer.CustomerId)
+            if (id != customer.CustomerID)
             {
                 return BadRequest();
             }
@@ -92,7 +92,7 @@ namespace SoccerManager.Controllers.API
             _context.Customer.Add(customer);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCustomer", new { id = customer.CustomerId }, customer);
+            return CreatedAtAction("GetCustomer", new { id = customer.CustomerID }, customer);
         }
 
         // DELETE: api/CustomersAPI/5
@@ -117,7 +117,7 @@ namespace SoccerManager.Controllers.API
 
         private bool CustomerExists(int id)
         {
-            return (_context.Customer?.Any(e => e.CustomerId == id)).GetValueOrDefault();
+            return (_context.Customer?.Any(e => e.CustomerID == id)).GetValueOrDefault();
         }
     }
 }

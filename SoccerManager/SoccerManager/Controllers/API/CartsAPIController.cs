@@ -54,7 +54,7 @@ namespace SoccerManager.Controllers.API
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCart(int id, Cart cart)
         {
-            if (id != cart.CartId)
+            if (id != cart.CartID)
             {
                 return BadRequest();
             }
@@ -92,7 +92,7 @@ namespace SoccerManager.Controllers.API
             _context.Cart.Add(cart);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCart", new { id = cart.CartId }, cart);
+            return CreatedAtAction("GetCart", new { id = cart.CartID }, cart);
         }
 
         // DELETE: api/CartsAPI/5
@@ -117,7 +117,7 @@ namespace SoccerManager.Controllers.API
 
         private bool CartExists(int id)
         {
-            return (_context.Cart?.Any(e => e.CartId == id)).GetValueOrDefault();
+            return (_context.Cart?.Any(e => e.CartID == id)).GetValueOrDefault();
         }
     }
 }

@@ -36,7 +36,7 @@ namespace SoccerManager.Controllers
             var orderContent = await _context.OrderContent
                 .Include(o => o.Order)
                 .Include(o => o.Product)
-                .FirstOrDefaultAsync(m => m.OrderContentId == id);
+                .FirstOrDefaultAsync(m => m.OrderContentID == id);
             if (orderContent == null)
             {
                 return NotFound();
@@ -48,8 +48,8 @@ namespace SoccerManager.Controllers
         // GET: OrderContents/Create
         public IActionResult Create()
         {
-            ViewData["OrderId"] = new SelectList(_context.Orders, "OrderId", "OrderId");
-            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductId");
+            ViewData["OrderID"] = new SelectList(_context.Orders, "OrderID", "OrderID");
+            ViewData["ProductID"] = new SelectList(_context.Products, "ProductID", "ProductID");
             return View();
         }
 
@@ -58,7 +58,7 @@ namespace SoccerManager.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("OrderContentId,OrderId,ProductId,Quantity,Price")] OrderContent orderContent)
+        public async Task<IActionResult> Create([Bind("OrderContentID,OrderID,ProductID,Quantity,Price")] OrderContent orderContent)
         {
             if (ModelState.IsValid)
             {
@@ -66,8 +66,8 @@ namespace SoccerManager.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["OrderId"] = new SelectList(_context.Orders, "OrderId", "OrderId", orderContent.OrderId);
-            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductId", orderContent.ProductId);
+            ViewData["OrderID"] = new SelectList(_context.Orders, "OrderID", "OrderID", orderContent.OrderID);
+            ViewData["ProductID"] = new SelectList(_context.Products, "ProductID", "ProductID", orderContent.ProductID);
             return View(orderContent);
         }
 
@@ -84,8 +84,8 @@ namespace SoccerManager.Controllers
             {
                 return NotFound();
             }
-            ViewData["OrderId"] = new SelectList(_context.Orders, "OrderId", "OrderId", orderContent.OrderId);
-            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductId", orderContent.ProductId);
+            ViewData["OrderID"] = new SelectList(_context.Orders, "OrderID", "OrderID", orderContent.OrderID);
+            ViewData["ProductID"] = new SelectList(_context.Products, "ProductID", "ProductID", orderContent.ProductID);
             return View(orderContent);
         }
 
@@ -94,9 +94,9 @@ namespace SoccerManager.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("OrderContentId,OrderId,ProductId,Quantity,Price")] OrderContent orderContent)
+        public async Task<IActionResult> Edit(int id, [Bind("OrderContentID,OrderID,ProductID,Quantity,Price")] OrderContent orderContent)
         {
-            if (id != orderContent.OrderContentId)
+            if (id != orderContent.OrderContentID)
             {
                 return NotFound();
             }
@@ -110,7 +110,7 @@ namespace SoccerManager.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!OrderContentExists(orderContent.OrderContentId))
+                    if (!OrderContentExists(orderContent.OrderContentID))
                     {
                         return NotFound();
                     }
@@ -121,8 +121,8 @@ namespace SoccerManager.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["OrderId"] = new SelectList(_context.Orders, "OrderId", "OrderId", orderContent.OrderId);
-            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductId", orderContent.ProductId);
+            ViewData["OrderID"] = new SelectList(_context.Orders, "OrderID", "OrderID", orderContent.OrderID);
+            ViewData["ProductID"] = new SelectList(_context.Products, "ProductID", "ProductID", orderContent.ProductID);
             return View(orderContent);
         }
 
@@ -137,7 +137,7 @@ namespace SoccerManager.Controllers
             var orderContent = await _context.OrderContent
                 .Include(o => o.Order)
                 .Include(o => o.Product)
-                .FirstOrDefaultAsync(m => m.OrderContentId == id);
+                .FirstOrDefaultAsync(m => m.OrderContentID == id);
             if (orderContent == null)
             {
                 return NotFound();
@@ -167,7 +167,7 @@ namespace SoccerManager.Controllers
 
         private bool OrderContentExists(int id)
         {
-          return (_context.OrderContent?.Any(e => e.OrderContentId == id)).GetValueOrDefault();
+          return (_context.OrderContent?.Any(e => e.OrderContentID == id)).GetValueOrDefault();
         }
     }
 }
