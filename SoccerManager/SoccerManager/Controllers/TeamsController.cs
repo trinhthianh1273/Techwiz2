@@ -126,7 +126,6 @@ namespace SoccerManager.Controllers
 
                     //set new LogoUrl
                     team.LogoURL = ImgDir + "/" + await _fileUploadService.UploadFile(file, ImgDir, ImgType);
-
                 }
                 else
                 {
@@ -179,6 +178,7 @@ namespace SoccerManager.Controllers
         }
 
         // POST: Teams/Delete/5
+        // Handle DELETE Team Request
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -187,12 +187,18 @@ namespace SoccerManager.Controllers
             {
                 return Problem("Entity set 'SoccerContext.Team'  is null.");
             }
+
+            //get team object
             var team = await _context.Team.FindAsync(id);
             if (team != null)
             {
+                //delete team logo in folder
+                await _fileUploadService.DeleteFile(team.LogoURL);
+
+                //delete team in database
                 _context.Team.Remove(team);
             }
-
+            //commit changes
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
@@ -201,37 +207,5 @@ namespace SoccerManager.Controllers
         {
             return (_context.Team?.Any(e => e.TeamId == id)).GetValueOrDefault();
         }
-
-
-        //upload file to 
-        private async Task<bool> UploadFile(IFormFile file)
-        {
-            string path = "";
-            try
-            {
-                if (file.Length > 0)
-                {
-                    path = Path.GetFullPath(Path.Combine(Environment.CurrentDirectory, "UploadedFiles"));
-                    if (!Directory.Exists(path))
-                    {
-                        Directory.CreateDirectory(path);
-                    }
-                    using (var fileStream = new FileStream(Path.Combine(path, file.FileName), FileMode.Create))
-                    {
-                        await file.CopyToAsync(fileStream);
-                    }
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("File Copy Failed", ex);
-            }
-        }
-
     }
 }

@@ -53,7 +53,7 @@
                 @Html.DisplayFor(modelItem => item.ProductName)
             </td>
                 <td>
-                    <img src="~/images/ProductImage/@Html.DisplayFor(modelItem => item.ProductImage.FirstOrDefault().ImageUrl)" style="width: 100px; height: 100px;"/>
+                    <img src="@Url.Content("~/images/" + item.ProductImage.ElementAt(0).ImageUrl)" alt="Image" style="width: 100px">
                 </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Description)

@@ -61,17 +61,19 @@ namespace SoccerManager.Controllers
         }
 
         // POST: Products/Create
-        // Handle create Produt request
+        // Handle create Product request
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProductId,ProductName,Description,CategoryId,Price,InStock,OnOrder,Discontinued,TeamId,PlayerId")] Products products,  List<IFormFile> files)
+        public async Task<IActionResult> Create([Bind("ProductId,ProductName,Description,CategoryId,Price,InStock,OnOrder,Discontinued,TeamId,PlayerId")] Products products, List<IFormFile> files)
         {
             if (ModelState.IsValid)
             {
-
                 //add product to database
-                Products insertedProduct = _context.Add(products).Entity;
+                _context.Add(products);
                 await _context.SaveChangesAsync();
+
+                //get last inserted product id
+                var lastInsertedId = products.ProductId;
 
                 //check request files
                 if (files != null)
@@ -86,7 +88,7 @@ namespace SoccerManager.Controllers
                             //save filename to database
                             ProductImage productImage = new()
                             {
-                                ProductId = insertedProduct.ProductId,
+                                ProductId = lastInsertedId,
                                 ImageUrl = imgName
                             };
                             _context.ProductImage.Add(productImage);
@@ -194,9 +196,23 @@ namespace SoccerManager.Controllers
             {
                 return Problem("Entity set 'SoccerContext.Products'  is null.");
             }
+
+            //get current product
             var products = await _context.Products.FindAsync(id);
+
             if (products != null)
             {
+                //get images list
+                var images = await _context.ProductImage.Where(pi => pi.ProductId == products.ProductId).ToListAsync();
+
+                //delete images on local folder and database
+                foreach (var img in images)
+                {
+                    await _fileUploadService.DeleteFile(img.ImageUrl);
+                    _context.ProductImage.Remove(img);
+                }
+
+                //delete product information
                 _context.Products.Remove(products);
             }
 
