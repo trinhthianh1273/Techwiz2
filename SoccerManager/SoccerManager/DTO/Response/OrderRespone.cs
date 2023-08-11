@@ -16,9 +16,9 @@ namespace SoccerManager.DTO.Response
         public int StatusId { get; set; }
         public DateTime? ShippedDate { get; set; }
         public int? PaymentMethodId { get; set; }
-        public string CardName { get; set; }
-        public string CardNumber { get; set; }
-        public string Expire { get; set; }
+        public string? CardName { get; set; }
+        public string? CardNumber { get; set; }
+        public string? Expire { get; set; }
         public int? SecurityCode { get; set; }
         public int? PaymentStatus { get; set; }
         public DateTime? PaymentDate { get; set; }
@@ -46,9 +46,9 @@ namespace SoccerManager.DTO.Response
             int statusId,
             DateTime? shippedDate,
             int? paymentMethodId,
-            string cardName,
-            string cardNumber,
-            string expire,
+            string? cardName,
+            string? cardNumber,
+            string? expire,
             int? securityCode,
             int? paymentStatus,
             DateTime? paymentDate,
