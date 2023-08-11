@@ -85,11 +85,10 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.PaymentStatus)
                 </td>
-
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.OrderId">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.OrderId">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.OrderId">Delete</a>
+                    <a asp-action="Edit" asp-route-id="@item.OrderId"><i class="fa fa-edit"></i></a> |
+                    <a asp-action="Details" asp-route-id="@item.OrderId"><i class="fa fa-info"></i></a> |
+                    <a asp-action="Delete" asp-route-id="@item.OrderId"><i class="fa fa-remove"></i></a>
                 </td>
             </tr>
         }

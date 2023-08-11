@@ -15,6 +15,13 @@ builder.Services.AddDbContext<SoccerContext>(option =>
     option.UseSqlServer(builder.Configuration.GetConnectionString("SoccerContext") ?? throw new InvalidOperationException("Connect String AppDbContext is not found"));
 });
 
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(10);
+    //options.Cookie.HttpOnly = true;
+    //options.Cookie.IsEssential = true;
+});
+
 builder.Services.AddSingleton<IFileUploadService, FileUploadService>();
 
 builder.Services.AddTransient<IOrderRepository, OrderRepository>();
@@ -37,6 +44,8 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.UseStaticFiles();
+
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",
