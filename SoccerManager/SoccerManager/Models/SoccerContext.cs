@@ -336,7 +336,6 @@ namespace SoccerManager.Models
 
                 entity.Property(e => e.ImageUrl)
                     .IsRequired()
-                    .HasMaxLength(50)
                     .HasColumnName("ImageURL");
 
                 entity.Property(e => e.PlayerId).HasColumnName("PlayerID");
@@ -354,7 +353,6 @@ namespace SoccerManager.Models
 
                 entity.Property(e => e.ImageUrl)
                     .IsRequired()
-                    .HasMaxLength(50)
                     .HasColumnName("ImageURL");
 
                 entity.Property(e => e.ProductId).HasColumnName("ProductID");
@@ -440,7 +438,6 @@ namespace SoccerManager.Models
 
                 entity.Property(e => e.ImageUrl)
                     .IsRequired()
-                    .HasMaxLength(50)
                     .HasColumnName("ImageURL");
 
                 entity.Property(e => e.TeamId).HasColumnName("TeamID");
