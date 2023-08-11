@@ -21,7 +21,6 @@ namespace SoccerManager.Controllers
         }
 
         // GET: Teams
-        // View admin
         // Get all Teams
         public async Task<IActionResult> Index()
         {
@@ -30,34 +29,6 @@ namespace SoccerManager.Controllers
                         Problem("Entity set 'SoccerContext.Team'  is null.");
         }
 
-        // GET: Teams
-<<<<<<< Updated upstream
-=======
-        // View user
->>>>>>> Stashed changes
-        // Get all Teams
-        public async Task<IActionResult> ListTeam()
-        {
-            return _context.Team != null ?
-                        View(await _context.Team.ToListAsync()) :
-                        Problem("Entity set 'SoccerContext.Team'  is null.");
-        }
-
-<<<<<<< Updated upstream
-=======
-        // GET: Teams
-        // View user
-        // Get team detail
-        public async Task<IActionResult> TeamInfo(int? id)
-        {
-
-            var team = _context.Team.Where(t => t.TeamId == id).Include(i => i.Player).Single();
-            return team != null ?
-                        View(team) :
-                        Problem("Entity set 'SoccerContext.Team'  is null.");
-        }
-
->>>>>>> Stashed changes
         // GET: Teams/Details/5
         // Get Team detail
         public async Task<IActionResult> Details(int? id)
@@ -68,7 +39,7 @@ namespace SoccerManager.Controllers
             }
 
             var team = await _context.Team
-                .FirstOrDefaultAsync(m => m.TeamID == id);
+                .FirstOrDefaultAsync(m => m.TeamId == id);
             if (team == null)
             {
                 return NotFound();
@@ -88,14 +59,14 @@ namespace SoccerManager.Controllers
         // Handle Team POST Request
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("TeamID,FullName,ShortName,Nickname,FoundedYear,FoundedPosition,Owner,Manager,Website")] Team team, IFormFile file)
+        public async Task<IActionResult> Create([Bind("TeamId,FullName,ShortName,Nickname,FoundedYear,FoundedPosition,Owner,Manager,Website")] Team team, IFormFile file)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
                     //upload image and get file name
-                    team.LogoURL = ImgDir + "/" + await _fileUploadService.UploadFile(file, ImgDir, ImgType);
+                    team.LogoUrl = ImgDir + "/" + await _fileUploadService.UploadFile(file, ImgDir, ImgType);
                 }
                 catch (Exception ex)
                 {
@@ -108,6 +79,8 @@ namespace SoccerManager.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
+
             return View(team);
         }
 
@@ -130,16 +103,16 @@ namespace SoccerManager.Controllers
         // Handle Team PUT Request
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, string LogoURL, [Bind("TeamID,FullName,ShortName,Nickname,FoundedYear,FoundedPosition,Owner,Manager,Website")] Team team, IFormFile file)
+        public async Task<IActionResult> Edit(int id, string LogoUrl, [Bind("TeamId,FullName,ShortName,Nickname,FoundedYear,FoundedPosition,Owner,Manager,Website")] Team team, IFormFile file)
         {
-            if (id != team.TeamID)
+            if (id != team.TeamId)
             {
                 return NotFound();
             }
             try
             {
                 //get current logo url
-                var currentImg = LogoURL;
+                var currentImg = LogoUrl;
 
                 //if logo is changed, delete old one from folder
                 if (file != null)
@@ -149,11 +122,11 @@ namespace SoccerManager.Controllers
                         await _fileUploadService.DeleteFile(currentImg);
 
                     //set new LogoUrl
-                    team.LogoURL = ImgDir + "/" + await _fileUploadService.UploadFile(file, ImgDir, ImgType);
+                    team.LogoUrl = ImgDir + "/" + await _fileUploadService.UploadFile(file, ImgDir, ImgType);
                 }
                 else
                 {
-                    team.LogoURL = currentImg;  //logo still remains unchanged
+                    team.LogoUrl = currentImg;  //logo still remains unchanged
                 }
 
                 //update database
@@ -164,7 +137,7 @@ namespace SoccerManager.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!TeamExists(team.TeamID))
+                    if (!TeamExists(team.TeamId))
                     {
                         return NotFound();
                     }
@@ -192,7 +165,7 @@ namespace SoccerManager.Controllers
             }
 
             var team = await _context.Team
-                .FirstOrDefaultAsync(m => m.TeamID == id);
+                .FirstOrDefaultAsync(m => m.TeamId == id);
             if (team == null)
             {
                 return NotFound();
@@ -217,7 +190,7 @@ namespace SoccerManager.Controllers
             if (team != null)
             {
                 //delete team logo in folder
-                await _fileUploadService.DeleteFile(team.LogoURL);
+                await _fileUploadService.DeleteFile(team.LogoUrl);
 
                 //delete team in database
                 _context.Team.Remove(team);
@@ -229,7 +202,7 @@ namespace SoccerManager.Controllers
 
         private bool TeamExists(int id)
         {
-            return (_context.Team?.Any(e => e.TeamID == id)).GetValueOrDefault();
+            return (_context.Team?.Any(e => e.TeamId == id)).GetValueOrDefault();
         }
     }
 }

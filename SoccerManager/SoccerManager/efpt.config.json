@@ -1,5 +1,5 @@
 ﻿{
-   "CodeGenerationMode": 3,
+   "CodeGenerationMode": 2,
    "ContextClassName": "SoccerContext",
    "ContextNamespace": null,
    "DefaultDacpacSchema": null,
@@ -102,7 +102,7 @@
    "UiHint": "(localdb)\\MSSQLLocalDB.Soccer",
    "UncountableWords": null,
    "UseBoolPropertiesWithoutDefaultSql": false,
-   "UseDatabaseNames": true,
+   "UseDatabaseNames": false,
    "UseDateOnlyTimeOnly": false,
    "UseDbContextSplitting": false,
    "UseFluentApiOnly": true,

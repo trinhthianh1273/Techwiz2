@@ -987,7 +987,7 @@ address { font-style: italic; }
 .tg-wrapper{
 	height:100%;
 	position:relative;
-	overflow-x:hidden;
+	/* overflow-x:hidden; */
 }
 /* =============================================
 			Search

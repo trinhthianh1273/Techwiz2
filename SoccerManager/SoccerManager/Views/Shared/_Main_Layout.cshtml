@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="~/css/animate.css">
     <link rel="stylesheet" href="~/css/owl.theme.css">
     <link rel="stylesheet" href="~/css/owl.carousel.css">
-    @* <link rel="stylesheet" href="~/css/customScrollbar.css"> *@
+     <link rel="stylesheet" href="~/css/customScrollbar.css"> 
     <link rel="stylesheet" href="~/css/icomoon.css">
     <link rel="stylesheet" href="~/css/main.css">
     <link rel="stylesheet" href="~/css/color.css">
@@ -37,45 +37,18 @@
 
 </head>
 <body>
-    <!--[if lt IE 8]>
-        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
-    <!--************************************
-            Wrapper Start
-    *************************************-->
     <div id="tg-wrapper" class="tg-wrapper tg-haslayout">
-        <!--************************************
-                Header Start
-        *************************************-->
         <header id="tg-header" class="tg-header tg-haslayout">
             <div class="container">
                 <div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
                     <div class="row">
                         <div class="tg-topbar tg-haslayout">
                             <nav id="tg-topaddnav" class="tg-topaddnav">
-<<<<<<< HEAD
-                                <!-- <div class="navbar-header">
-                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#tg-addnavigationm-mobile">
-                                        <i class="fa fa-arrow-right"></i>
-                                    </button>
-                                </div>
-                                <div id="tg-addnavigationm-mobile" class="tg-addnavigationm-mobile collapse navbar-collapse"> -->
-                                <div class="tg-colhalf pull-right">
-                                    <nav class="tg-addnav">
-                                        <ul>
-                                            <li><a href="javascript().html" data-toggle="modal"
-                                                    data-target="#tg-login">login</a></li>
-                                            <li><a href="javascript().html" data-toggle="modal"
-                                                    data-target="#tg-register">Register</a></li>
-                                            <li>
-                                                <a id="tg-btn-search" href="javascript:void(0)"><i
-                                                        class="fa fa-search"></i></a>
-=======
                                 <div class="tg-colhalf pull-right">
                                     <nav class="tg-addnav">
                                         <ul>
                                             @{
-                                                var id = Context.Session.GetString("CustomerID");
+                                                var id = Context.Session.GetString("CustomerId");
                                                 var name = Context.Session.GetString("CusFullName");
 
                                                 if (name == null)
@@ -105,7 +78,6 @@
                                                 <a id="tg-btn-search" href="javascript:void(0)">
                                                     <i class="fa fa-search"></i>
                                                 </a>
->>>>>>> Develop
                                             </li>
                                         </ul>
                                     </nav>
@@ -149,11 +121,7 @@
                                 <i class="fa fa-bars"></i>
                             </button>
                             <strong class="tg-logo">
-<<<<<<< HEAD
-                                <a href="index-2.html"><img src="~/images/logo.png" alt="image description"></a>
-=======
                                 <a asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/logo.png" alt="image description"></a>
->>>>>>> Develop
                             </strong>
                         </div>
                         <div id="tg-navigation" class="tg-navigation">
@@ -176,11 +144,7 @@
                                         <a asp-area="" asp-controller="Matches" asp-action="Index">News</a>
                                     </li>
                                     <li>
-<<<<<<< HEAD
-                                        <a asp-area="ForCustomer" asp-controller="Shopping" asp-action="Index">Shopping</a>
-=======
                                         <a asp-area="" asp-controller="Products" asp-action="Shopping">Shopping</a>
->>>>>>> Develop
                                     </li>
                                     <li>
                                         <a asp-area="" asp-controller="Orders" asp-action="Index">Contacts</a>
@@ -192,13 +156,7 @@
                 </div>
             </div>
         </header>
-<<<<<<< HEAD
-
-
         <div class="container">
-=======
-        <div>
->>>>>>> Develop
             <main role="main" class="pb-3">
                 @RenderBody()
             </main>
@@ -259,16 +217,7 @@
             </div>
         </div>
     </div>
-<<<<<<< HEAD
-    <!--************************************
-            Search End
-    *************************************-->
-    <!--************************************
-        LightBoxes Start
-    *************************************-->
-=======
     
->>>>>>> Develop
     <div class="tg-modalbox modal fade" id="tg-login" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="tg-modal-content">
@@ -367,7 +316,7 @@
     *************************************-->
     <script src="~/js/vendor/jquery-library.js"></script>
     <script src="~/js/vendor/bootstrap.min.js"></script>
-    @* <script src="~/js/customScrollbar.min.js"></script> *@
+     <script src="~/js/customScrollbar.min.js"></script> 
     <script src="~/js/owl.carousel.js"></script>
     <script src="~/js/isotope.pkgd.js"></script>
     <script src="~/js/prettyPhoto.js"></script>

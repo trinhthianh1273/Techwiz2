@@ -8,14 +8,14 @@ namespace SoccerManager.DTO.Response
 {
     public class OrderRespone
     {
-        public int OrderID { get; set; }
-        public int CustomerID { get; set; }
-        public int EmployeeID { get; set; }
-        public int AddressID { get; set; }
+        public int OrderId { get; set; }
+        public int CustomerId { get; set; }
+        public int EmployeeId { get; set; }
+        public int AddressId { get; set; }
         public DateTime OrderDate { get; set; }
-        public int StatusID { get; set; }
+        public int StatusId { get; set; }
         public DateTime? ShippedDate { get; set; }
-        public int? PaymentMethodID { get; set; }
+        public int? PaymentMethodId { get; set; }
         public string? CardName { get; set; }
         public string? CardNumber { get; set; }
         public string? Expire { get; set; }
@@ -38,14 +38,14 @@ namespace SoccerManager.DTO.Response
         }
 
         public OrderRespone(
-            int OrderID,
-            int CustomerID,
-            int EmployeeID,
-            int AddressID,
+            int orderId,
+            int customerId,
+            int employeeId,
+            int addressId,
             DateTime orderDate,
-            int StatusID,
+            int statusId,
             DateTime? shippedDate,
-            int? PaymentMethodID,
+            int? paymentMethodId,
             string? cardName,
             string? cardNumber,
             string? expire,
@@ -63,14 +63,14 @@ namespace SoccerManager.DTO.Response
             List<Products> listProduct
         )
         {
-            OrderID = OrderID;
-            CustomerID = CustomerID;
-            EmployeeID = EmployeeID;
-            AddressID = AddressID;
+            OrderId = orderId;
+            CustomerId = customerId;
+            EmployeeId = employeeId;
+            AddressId = addressId;
             OrderDate = orderDate;
-            StatusID = StatusID;
+            StatusId = statusId;
             ShippedDate = shippedDate;
-            PaymentMethodID = PaymentMethodID;
+            PaymentMethodId = paymentMethodId;
             CardName = cardName;
             CardNumber = cardNumber;
             Expire = expire;
@@ -94,14 +94,14 @@ namespace SoccerManager.DTO.Response
             var TotalProduct = order.OrderContent.Sum(oc => oc.Quantity);
 
             var orderResponse = new OrderRespone {
-                OrderID = order.OrderID,
-                CustomerID = order.CustomerID,
-                EmployeeID = order.EmployeeID,
-                AddressID = order.AddressID,
+                OrderId = order.OrderId,
+                CustomerId = order.CustomerId,
+                EmployeeId = order.EmployeeId,
+                AddressId = order.AddressId,
                 OrderDate = order.OrderDate,
-                StatusID = order.StatusID,
+                StatusId = order.StatusId,
                 ShippedDate = order.ShippedDate,
-                PaymentMethodID = order.PaymentMethodID,
+                PaymentMethodId = order.PaymentMethodId,
                 CardName = order.CardName,
                 CardNumber = order.CardNumber,
                 Expire = order.Expire,

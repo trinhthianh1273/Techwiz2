@@ -35,7 +35,7 @@ namespace SoccerManager.Controllers
 
             var feedback = await _context.Feedback
                 .Include(f => f.Customer)
-                .FirstOrDefaultAsync(m => m.FeedbackID == id);
+                .FirstOrDefaultAsync(m => m.FeedbackId == id);
             if (feedback == null)
             {
                 return NotFound();
@@ -47,7 +47,7 @@ namespace SoccerManager.Controllers
         // GET: Feedbacks/Create
         public IActionResult Create()
         {
-            ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Password");
+            ViewData["CustomerId"] = new SelectList(_context.Customer, "CustomerId", "Password");
             return View();
         }
 
@@ -56,7 +56,7 @@ namespace SoccerManager.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("FeedbackID,CustomerID,Title,Content")] Feedback feedback)
+        public async Task<IActionResult> Create([Bind("FeedbackId,CustomerId,Title,Content")] Feedback feedback)
         {
             if (ModelState.IsValid)
             {
@@ -64,7 +64,7 @@ namespace SoccerManager.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Password", feedback.CustomerID);
+            ViewData["CustomerId"] = new SelectList(_context.Customer, "CustomerId", "Password", feedback.CustomerId);
             return View(feedback);
         }
 
@@ -81,7 +81,7 @@ namespace SoccerManager.Controllers
             {
                 return NotFound();
             }
-            ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Password", feedback.CustomerID);
+            ViewData["CustomerId"] = new SelectList(_context.Customer, "CustomerId", "Password", feedback.CustomerId);
             return View(feedback);
         }
 
@@ -90,9 +90,9 @@ namespace SoccerManager.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("FeedbackID,CustomerID,Title,Content")] Feedback feedback)
+        public async Task<IActionResult> Edit(int id, [Bind("FeedbackId,CustomerId,Title,Content")] Feedback feedback)
         {
-            if (id != feedback.FeedbackID)
+            if (id != feedback.FeedbackId)
             {
                 return NotFound();
             }
@@ -106,7 +106,7 @@ namespace SoccerManager.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!FeedbackExists(feedback.FeedbackID))
+                    if (!FeedbackExists(feedback.FeedbackId))
                     {
                         return NotFound();
                     }
@@ -117,7 +117,7 @@ namespace SoccerManager.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Password", feedback.CustomerID);
+            ViewData["CustomerId"] = new SelectList(_context.Customer, "CustomerId", "Password", feedback.CustomerId);
             return View(feedback);
         }
 
@@ -131,7 +131,7 @@ namespace SoccerManager.Controllers
 
             var feedback = await _context.Feedback
                 .Include(f => f.Customer)
-                .FirstOrDefaultAsync(m => m.FeedbackID == id);
+                .FirstOrDefaultAsync(m => m.FeedbackId == id);
             if (feedback == null)
             {
                 return NotFound();
@@ -161,7 +161,7 @@ namespace SoccerManager.Controllers
 
         private bool FeedbackExists(int id)
         {
-          return (_context.Feedback?.Any(e => e.FeedbackID == id)).GetValueOrDefault();
+          return (_context.Feedback?.Any(e => e.FeedbackId == id)).GetValueOrDefault();
         }
     }
 }

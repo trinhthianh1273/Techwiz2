@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SoccerManager.Interfaces;
 using SoccerManager.Models;
+using SoccerManager.ViewModels;
 
 namespace SoccerManager.Controllers
 {
@@ -31,60 +32,44 @@ namespace SoccerManager.Controllers
 
         // GET: Shopping
         // Get list of Products with player and team information
-        public async Task<IActionResult> Shopping(int? CategoryID)
+        public async Task<IActionResult> Shopping(int ? CategoryID)
         {
             var soccerContext = new List<Products>();
-            if (CategoryID == null)
+			if (CategoryID==null )
             {
-                soccerContext = _context.Products.Include(p => p.Category).Include(p => p.Player).Include(p => p.Team).Include(p => p.ProductImage).ToList();
-            }
+				soccerContext = _context.Products.Include(p => p.Category).Include(p => p.Player).Include(p => p.Team).Include(p => p.ProductImage).ToList();
+			}
             else
             {
-
-<<<<<<< Updated upstream
-				if (CategoryID!=null)
-				{
-					soccerContext = _context.Products.Include(p => p.Category).Include(p => p.Player).Include(p => p.Team).Include(p => p.ProductImage).Where(p => p.CategoryID == CategoryID).ToList();
-				}
+                soccerContext = _context.Products.Include(p => p.Category).Include(p => p.Player).Include(p => p.Team).Include(p => p.ProductImage).Where(p => p.CategoryId == CategoryID).ToList();
 			}    
 			
             
-=======
-
-                if (CategoryID != null)
-                {
-                    soccerContext = _context.Products.Include(p => p.Category).Include(p => p.Player).Include(p => p.Team).Include(p => p.ProductImage).Where(p => p.CategoryId == CategoryID).ToList();
-                }
-            }
-
-
->>>>>>> Stashed changes
             var categories = _context.Category.Include(p => p.Products).ToList();
             ViewBag.Categories = categories;
-            return View(soccerContext);
-        }
+			return View(soccerContext);
+}
         [HttpPost]
-        public async Task<IActionResult> Shopping(string SearchString)
-        {
-            var soccerContext = new List<Products>();
-            if (SearchString is null)
+		public async Task<IActionResult> Shopping(string SearchString)
+		{
+			var soccerContext = new List<Products>();
+			if (SearchString is null)
+			{
+				soccerContext = _context.Products.Include(p => p.Category).Include(p => p.Player).Include(p => p.Team).Include(p => p.ProductImage).ToList();
+			} else
             {
-                soccerContext = _context.Products.Include(p => p.Category).Include(p => p.Player).Include(p => p.Team).Include(p => p.ProductImage).ToList();
-            }
-            else
-            {
-                soccerContext = _context.Products.Include(p => p.Category).Include(p => p.Player).Include(p => p.Team).Include(p => p.ProductImage).Where(p => p.ProductName.Contains(SearchString)).ToList();
-            }
+				soccerContext = _context.Products.Include(p => p.Category).Include(p => p.Player).Include(p => p.Team).Include(p => p.ProductImage).Where(p => p.ProductName.Contains(SearchString)).ToList();
+			}
 
 
-            var categories = _context.Category.Include(p => p.Products).ToList();
-            ViewBag.Categories = categories;
-            return View(soccerContext);
-        }
+			var categories = _context.Category.Include(p => p.Products).ToList();
+			ViewBag.Categories = categories;
+			return View(soccerContext);
+		}
 
-        // GET: Products/Details/5
-        // Get detail for 1 product
-        public async Task<IActionResult> Details(int? id)
+		// GET: Products/Details/5
+		// Get detail for 1 product
+		public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Products == null)
             {
@@ -95,7 +80,7 @@ namespace SoccerManager.Controllers
                 .Include(p => p.Category)
                 .Include(p => p.Player)
                 .Include(p => p.Team)
-                .FirstOrDefaultAsync(m => m.ProductID == id);
+                .FirstOrDefaultAsync(m => m.ProductId == id);
             if (products == null)
             {
                 return NotFound();
@@ -107,9 +92,9 @@ namespace SoccerManager.Controllers
         // GET: Products/Create
         public IActionResult Create()
         {
-            ViewData["CategoryID"] = new SelectList(_context.Category, "CategoryID", "CategoryName");
-            ViewData["PlayerID"] = new SelectList(_context.Player, "PlayerID", "FullName");
-            ViewData["TeamID"] = new SelectList(_context.Team, "TeamID", "FullName");
+            ViewData["CategoryId"] = new SelectList(_context.Category, "CategoryId", "CategoryName");
+            ViewData["PlayerId"] = new SelectList(_context.Player, "PlayerId", "FullName");
+            ViewData["TeamId"] = new SelectList(_context.Team, "TeamId", "FullName");
             return View();
         }
 
@@ -117,7 +102,7 @@ namespace SoccerManager.Controllers
         // Handle create Product request
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProductID,ProductName,Description,CategoryID,Price,InStock,OnOrder,Discontinued,TeamID,PlayerID")] Products products, List<IFormFile> files)
+        public async Task<IActionResult> Create([Bind("ProductId,ProductName,Description,CategoryId,Price,InStock,OnOrder,Discontinued,TeamId,PlayerId")] Products products, List<IFormFile> files)
         {
             if (ModelState.IsValid)
             {
@@ -126,7 +111,7 @@ namespace SoccerManager.Controllers
                 await _context.SaveChangesAsync();
 
                 //get last inserted product id
-                var lastInsertedId = products.ProductID;
+                var lastInsertedId = products.ProductId;
 
                 //check request files
                 if (files != null)
@@ -141,8 +126,8 @@ namespace SoccerManager.Controllers
                             //save filename to database
                             ProductImage productImage = new()
                             {
-                                ProductID = lastInsertedId,
-                                ImageURL = imgName
+                                ProductId = lastInsertedId,
+                                ImageUrl = imgName
                             };
                             _context.ProductImage.Add(productImage);
                             await _context.SaveChangesAsync();
@@ -157,9 +142,9 @@ namespace SoccerManager.Controllers
 
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryID"] = new SelectList(_context.Category, "CategoryID", "CategoryName", products.CategoryID);
-            ViewData["PlayerID"] = new SelectList(_context.Player, "PlayerID", "FullName", products.PlayerID);
-            ViewData["TeamID"] = new SelectList(_context.Team, "TeamID", "FullName", products.TeamID);
+            ViewData["CategoryId"] = new SelectList(_context.Category, "CategoryId", "CategoryName", products.CategoryId);
+            ViewData["PlayerId"] = new SelectList(_context.Player, "PlayerId", "FullName", products.PlayerId);
+            ViewData["TeamId"] = new SelectList(_context.Team, "TeamId", "FullName", products.TeamId);
 
             return View(products);
         }
@@ -173,15 +158,15 @@ namespace SoccerManager.Controllers
             }
 
             //get detail
-            var products = _context.Products.Where(p => p.ProductID == id).Include(pi => pi.ProductImage).Single();
+            var products = _context.Products.Where(p => p.ProductId == id).Include(pi => pi.ProductImage).Single();
 
             if (products == null)
             {
                 return NotFound();
             }
-            ViewData["CategoryID"] = new SelectList(_context.Category, "CategoryID", "CategoryDescription", products.CategoryID);
-            ViewData["PlayerID"] = new SelectList(_context.Player, "PlayerID", "FullName", products.PlayerID);
-            ViewData["TeamID"] = new SelectList(_context.Team, "TeamID", "FullName", products.TeamID);
+            ViewData["CategoryId"] = new SelectList(_context.Category, "CategoryId", "CategoryDescription", products.CategoryId);
+            ViewData["PlayerId"] = new SelectList(_context.Player, "PlayerId", "FullName", products.PlayerId);
+            ViewData["TeamId"] = new SelectList(_context.Team, "TeamId", "FullName", products.TeamId);
             return View(products);
         }
 
@@ -191,11 +176,11 @@ namespace SoccerManager.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(
                     int id,
-                    [Bind("ProductID,ProductName,Description,CategoryID,Price,InStock,OnOrder,Discontinued,TeamID,PlayerID")] Products products,
+                    [Bind("ProductId,ProductName,Description,CategoryId,Price,InStock,OnOrder,Discontinued,TeamId,PlayerId")] Products products,
                     string[] deleteImage,
                     List<IFormFile> files)
         {
-            if (id != products.ProductID)
+            if (id != products.ProductId)
             {
                 return NotFound();
             }
@@ -210,7 +195,7 @@ namespace SoccerManager.Controllers
                         foreach (var img in deleteImage)
                         {
                             await _fileUploadService.DeleteFile(img);   //delete from folder
-                            _context.Remove(_context.ProductImage.Where(p => p.ImageURL == img).FirstOrDefault());  //delete from database
+                            _context.Remove(_context.ProductImage.Where(p => p.ImageUrl == img).FirstOrDefault());  //delete from database
                         }
                     }
 
@@ -225,19 +210,20 @@ namespace SoccerManager.Controllers
                             //save filename to database
                             ProductImage productImage = new()
                             {
-                                ProductID = id,
-                                ImageURL = imgName
+                                ProductId = id,
+                                ImageUrl = imgName
                             };
                             _context.ProductImage.Add(productImage);
                         }
                     }
+
                     //update information
                     _context.Update(products);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ProductsExists(products.ProductID))
+                    if (!ProductsExists(products.ProductId))
                     {
                         return NotFound();
                     }
@@ -248,9 +234,9 @@ namespace SoccerManager.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryID"] = new SelectList(_context.Category, "CategoryID", "CategoryDescription", products.CategoryID);
-            ViewData["PlayerID"] = new SelectList(_context.Player, "PlayerID", "FullName", products.PlayerID);
-            ViewData["TeamID"] = new SelectList(_context.Team, "TeamID", "FullName", products.TeamID);
+            ViewData["CategoryId"] = new SelectList(_context.Category, "CategoryId", "CategoryDescription", products.CategoryId);
+            ViewData["PlayerId"] = new SelectList(_context.Player, "PlayerId", "FullName", products.PlayerId);
+            ViewData["TeamId"] = new SelectList(_context.Team, "TeamId", "FullName", products.TeamId);
             return View(products);
         }
 
@@ -266,7 +252,7 @@ namespace SoccerManager.Controllers
                 .Include(p => p.Category)
                 .Include(p => p.Player)
                 .Include(p => p.Team)
-                .FirstOrDefaultAsync(m => m.ProductID == id);
+                .FirstOrDefaultAsync(m => m.ProductId == id);
             if (products == null)
             {
                 return NotFound();
@@ -291,12 +277,12 @@ namespace SoccerManager.Controllers
             if (products != null)
             {
                 //get images list
-                var images = await _context.ProductImage.Where(pi => pi.ProductID == products.ProductID).ToListAsync();
+                var images = await _context.ProductImage.Where(pi => pi.ProductId == products.ProductId).ToListAsync();
 
                 //delete images on local folder and database
                 foreach (var img in images)
                 {
-                    await _fileUploadService.DeleteFile(img.ImageURL);
+                    await _fileUploadService.DeleteFile(img.ImageUrl);
                     _context.ProductImage.Remove(img);
                 }
 
@@ -310,7 +296,7 @@ namespace SoccerManager.Controllers
 
         private bool ProductsExists(int id)
         {
-            return (_context.Products?.Any(e => e.ProductID == id)).GetValueOrDefault();
+            return (_context.Products?.Any(e => e.ProductId == id)).GetValueOrDefault();
         }
     }
 }

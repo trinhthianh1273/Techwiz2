@@ -14,7 +14,7 @@
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="PlayerID" />
+            <input type="hidden" asp-for="PlayerId" />
             <div class="form-group">
                 <label asp-for="FullName" class="control-label"></label>
                 <input asp-for="FullName" class="form-control" />
@@ -86,13 +86,6 @@
                     <input type="file" name="files" multiple class="form-control" />
                 </div>
             </div>
-
-            <h2>Add new images</h2>
-            <div class="form-group">
-                <label class="control-label">Player images</label>
-                <input type="file" name="files" multiple class="form-control" />
-            </div>
-
         </form>
     </div>
 </div>
@@ -100,3 +93,7 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

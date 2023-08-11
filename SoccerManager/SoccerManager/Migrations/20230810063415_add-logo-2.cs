@@ -11,7 +11,7 @@ namespace SoccerManager.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
-                name: "LogoURL",
+                name: "LogoUrl",
                 table: "Team",
                 type: "nvarchar(max)",
                 nullable: true);
@@ -21,7 +21,7 @@ namespace SoccerManager.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "LogoURL",
+                name: "LogoUrl",
                 table: "Team");
         }
     }

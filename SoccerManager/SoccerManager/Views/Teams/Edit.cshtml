@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Edit team</h1>
+<h1>Edit</h1>
 
 <h4>Team</h4>
 <hr />
@@ -14,8 +14,8 @@
         <form asp-action="Edit" class="row" enctype="multipart/form-data">
             <div class="col-md-4">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <input type="hidden" asp-for="TeamID" />
-                <input type="hidden" asp-for="LogoURL" />
+                <input type="hidden" asp-for="TeamId" />
+                <input type="hidden" asp-for="LogoUrl" />
                 <div class="form-group">
                     <label asp-for="FullName" class="control-label"></label>
                     <input asp-for="FullName" class="form-control" />
@@ -59,10 +59,10 @@
             </div>
             <div class="col-md-8">
                 <div class="form-group">
-                    <label asp-for="LogoURL" class="control-label"></label>
-                    <img src="~/images/@Html.DisplayFor(model => model.LogoURL)" />
+                    <label asp-for="LogoUrl" class="control-label"></label>
+                    <img src="~/images/@Html.DisplayFor(model => model.LogoUrl)" />
 
-                    <input asp-for="LogoURL" class="form-control" type="file" name="file" />
+                    <input asp-for="LogoUrl" class="form-control" type="file" name="file" />
                 </div>
                 
             </div>
@@ -78,3 +78,6 @@
     <a asp-action="Index">Back to List</a>
 </div>
 
+@*@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}*@

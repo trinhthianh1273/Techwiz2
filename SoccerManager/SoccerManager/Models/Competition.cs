@@ -3,13 +3,18 @@
 using System;
 using System.Collections.Generic;
 
-namespace SoccerManager.Models;
-
-public partial class Competition
+namespace SoccerManager.Models
 {
-    public int CompetitionID { get; set; }
+    public partial class Competition
+    {
+        public Competition()
+        {
+            Match = new HashSet<Match>();
+        }
 
-    public string CompetitionName { get; set; }
+        public int CompetitionId { get; set; }
+        public string CompetitionName { get; set; }
 
-    public virtual ICollection<Match> Match { get; set; } = new List<Match>();
+        public virtual ICollection<Match> Match { get; set; }
+    }
 }
