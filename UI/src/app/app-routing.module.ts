@@ -6,8 +6,9 @@ import { HomeComponent } from './home/home.component';
 import { HomeMainComponent } from './home-main/home-main.component';
 
 const routes: Routes = [
+  {path:'', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component:HomeMainComponent},
-  {path:'', component:CompetitionComponent},
+  {path: 'competition', component:CompetitionComponent},
   {path: '**', component:NotFoundPageComponent}
 ];
 
