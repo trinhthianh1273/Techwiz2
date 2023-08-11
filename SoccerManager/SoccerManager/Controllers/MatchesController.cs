@@ -21,7 +21,18 @@ namespace SoccerManager.Controllers
         // GET: Matches
         public async Task<IActionResult> Index()
         {
-            var soccerContext = _context.Match.Include(m => m.Competition).Include(m => m.GuestTeam).Include(m => m.HomeTeam);
+            var soccerContext = _context.Products
+                .Include(p => p.Category)
+                .Include(p => p.Player)
+                .Include(p => p.Team)
+                .Include(p => p.ProductImage);
+
+            var matches = _context.Match
+                .Include(m => m.Competition)
+                .Include(m => m.GuestTeam)
+                .Include(m => m.HomeTeam);
+            ViewBag.Matches = matches;
+
             return View(await soccerContext.ToListAsync());
         }
 
@@ -49,9 +60,13 @@ namespace SoccerManager.Controllers
         // GET: Matches/Create
         public IActionResult Create()
         {
-            ViewData["CompetitionId"] = new SelectList(_context.Competition, "CompetitionId", "CompetitionName");
-            ViewData["GuestTeamId"] = new SelectList(_context.Team, "TeamId", "FoundedPosition");
-            ViewData["HomeTeamId"] = new SelectList(_context.Team, "TeamId", "FoundedPosition");
+            ViewData["CompetitionId"] = new SelectList(
+                _context.Competition,
+                "CompetitionId",
+                "CompetitionName"
+            );
+            ViewData["GuestTeamId"] = new SelectList(_context.Team, "TeamId", "ShortName");
+            ViewData["HomeTeamId"] = new SelectList(_context.Team, "TeamId", "ShortName");
             return View();
         }
 
@@ -60,7 +75,12 @@ namespace SoccerManager.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("MatchId,MatchName,HomeTeamId,GuestTeamId,StartTime,EndTime,Stadium,HomeTeamScore,GuestTeamScore,CompetitionId,Description")] Match match)
+        public async Task<IActionResult> Create(
+            [Bind(
+                "MatchId,MatchName,HomeTeamId,GuestTeamId,StartTime,EndTime,Stadium,HomeTeamScore,GuestTeamScore,CompetitionId,Description"
+            )]
+                Match match
+        )
         {
             if (ModelState.IsValid)
             {
@@ -68,9 +88,24 @@ namespace SoccerManager.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CompetitionId"] = new SelectList(_context.Competition, "CompetitionId", "CompetitionName", match.CompetitionId);
-            ViewData["GuestTeamId"] = new SelectList(_context.Team, "TeamId", "FoundedPosition", match.GuestTeamId);
-            ViewData["HomeTeamId"] = new SelectList(_context.Team, "TeamId", "FoundedPosition", match.HomeTeamId);
+            ViewData["CompetitionId"] = new SelectList(
+                _context.Competition,
+                "CompetitionId",
+                "CompetitionName",
+                match.CompetitionId
+            );
+            ViewData["GuestTeamId"] = new SelectList(
+                _context.Team,
+                "TeamId",
+                "ShortName",
+                match.GuestTeamId
+            );
+            ViewData["HomeTeamId"] = new SelectList(
+                _context.Team,
+                "TeamId",
+                "ShortName",
+                match.HomeTeamId
+            );
             return View(match);
         }
 
@@ -87,9 +122,24 @@ namespace SoccerManager.Controllers
             {
                 return NotFound();
             }
-            ViewData["CompetitionId"] = new SelectList(_context.Competition, "CompetitionId", "CompetitionName", match.CompetitionId);
-            ViewData["GuestTeamId"] = new SelectList(_context.Team, "TeamId", "FoundedPosition", match.GuestTeamId);
-            ViewData["HomeTeamId"] = new SelectList(_context.Team, "TeamId", "FoundedPosition", match.HomeTeamId);
+            ViewData["CompetitionId"] = new SelectList(
+                _context.Competition,
+                "CompetitionId",
+                "CompetitionName",
+                match.CompetitionId
+            );
+            ViewData["GuestTeamId"] = new SelectList(
+                _context.Team,
+                "TeamId",
+                "FoundedPosition",
+                match.GuestTeamId
+            );
+            ViewData["HomeTeamId"] = new SelectList(
+                _context.Team,
+                "TeamId",
+                "FoundedPosition",
+                match.HomeTeamId
+            );
             return View(match);
         }
 
@@ -98,7 +148,13 @@ namespace SoccerManager.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("MatchId,MatchName,HomeTeamId,GuestTeamId,StartTime,EndTime,Stadium,HomeTeamScore,GuestTeamScore,CompetitionId,Description")] Match match)
+        public async Task<IActionResult> Edit(
+            int id,
+            [Bind(
+                "MatchId,MatchName,HomeTeamId,GuestTeamId,StartTime,EndTime,Stadium,HomeTeamScore,GuestTeamScore,CompetitionId,Description"
+            )]
+                Match match
+        )
         {
             if (id != match.MatchId)
             {
@@ -125,9 +181,24 @@ namespace SoccerManager.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CompetitionId"] = new SelectList(_context.Competition, "CompetitionId", "CompetitionName", match.CompetitionId);
-            ViewData["GuestTeamId"] = new SelectList(_context.Team, "TeamId", "FoundedPosition", match.GuestTeamId);
-            ViewData["HomeTeamId"] = new SelectList(_context.Team, "TeamId", "FoundedPosition", match.HomeTeamId);
+            ViewData["CompetitionId"] = new SelectList(
+                _context.Competition,
+                "CompetitionId",
+                "CompetitionName",
+                match.CompetitionId
+            );
+            ViewData["GuestTeamId"] = new SelectList(
+                _context.Team,
+                "TeamId",
+                "FoundedPosition",
+                match.GuestTeamId
+            );
+            ViewData["HomeTeamId"] = new SelectList(
+                _context.Team,
+                "TeamId",
+                "FoundedPosition",
+                match.HomeTeamId
+            );
             return View(match);
         }
 
@@ -166,14 +237,14 @@ namespace SoccerManager.Controllers
             {
                 _context.Match.Remove(match);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool MatchExists(int id)
         {
-          return (_context.Match?.Any(e => e.MatchId == id)).GetValueOrDefault();
+            return (_context.Match?.Any(e => e.MatchId == id)).GetValueOrDefault();
         }
     }
 }
