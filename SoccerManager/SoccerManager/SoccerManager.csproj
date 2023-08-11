@@ -25,7 +25,27 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Views\ForCustomer\" />
     <Folder Include="wwwroot\images\TeamLogos\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Players\Create.cshtml" />
+    <None Include="Views\Players\Delete.cshtml" />
+    <None Include="Views\Players\Details.cshtml" />
+    <None Include="Views\Players\Edit.cshtml" />
+    <None Include="Views\Players\Index.cshtml" />
+    <None Include="Views\Products\Create.cshtml" />
+    <None Include="Views\Products\Delete.cshtml" />
+    <None Include="Views\Products\Details.cshtml" />
+    <None Include="Views\Products\Edit.cshtml" />
+    <None Include="Views\Products\Index.cshtml" />
+    <None Include="Views\Teams\Create.cshtml" />
+    <None Include="Views\Teams\Delete.cshtml" />
+    <None Include="Views\Teams\Details.cshtml" />
+    <None Include="Views\Teams\Edit.cshtml" />
+    <None Include="Views\Teams\Index.cshtml" />
+    <None Include="Views\Teams\Uploadfile.cshtml" />
   </ItemGroup>
 
 </Project>

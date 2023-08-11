@@ -1,0 +1,339 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soccer BootStrap HTML5 CSS3 Theme</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/normalize.css">
+    <link rel="stylesheet" href="~/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/css/transitions.css">
+    <link rel="stylesheet" href="~/css/prettyPhoto.css">
+    <link rel="stylesheet" href="~/css/swiper.min.css">
+    <link rel="stylesheet" href="~/css/jquery-ui.css">
+    <link rel="stylesheet" href="~/css/animate.css">
+    <link rel="stylesheet" href="~/css/owl.theme.css">
+    <link rel="stylesheet" href="~/css/owl.carousel.css">
+    @* <link rel="stylesheet" href="~/css/customScrollbar.css"> *@
+    <link rel="stylesheet" href="~/css/icomoon.css">
+    <link rel="stylesheet" href="~/css/main.css">
+    <link rel="stylesheet" href="~/css/color.css">
+    <link rel="stylesheet" href="~/css/responsive.css">
+
+    <link rel="stylesheet"
+        href="@Url.Content("https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta17/dist/css/tabler.min.css")">
+    <link rel="stylesheet"
+        href="@Url.Content("https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta17/dist/css/tabler-flags.min.css")">
+    <link rel="stylesheet"
+        href="@Url.Content("https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta17/dist/css/tabler-payments.min.css")">
+    <link rel="stylesheet"
+        href="@Url.Content("https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta17/dist/css/tabler-vendors.min.css")">
+
+    <script src="~/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    <script src="@Url.Content("https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta17/dist/js/tabler.min.js")"></script>
+
+</head>
+<body>
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <!--************************************
+            Wrapper Start
+    *************************************-->
+    <div id="tg-wrapper" class="tg-wrapper tg-haslayout">
+        <!--************************************
+                Header Start
+        *************************************-->
+        <header id="tg-header" class="tg-header tg-haslayout">
+            <div class="container">
+                <div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
+                    <div class="row">
+                        <div class="tg-topbar tg-haslayout">
+                            <nav id="tg-topaddnav" class="tg-topaddnav">
+                                <div class="tg-colhalf pull-right">
+                                    <nav class="tg-addnav">
+                                        <ul>
+                                            @{
+                                                var id = Context.Session.GetString("CustomerId");
+                                                var name = Context.Session.GetString("CusFullName");
+
+                                                if (name == null)
+                                                {
+                                                    <li>
+                                                        <a href="javascript().html" data-toggle="modal"
+                                                           data-target="#tg-register">Login</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript().html" data-toggle="modal"
+                                                           data-target="#tg-register">Register</a>
+                                                    </li>
+                                                } else
+                                                {
+                                                    <li>
+                                                        <a href="javascript().html" data-toggle="modal"
+                                                           data-target="#tg-login">Account</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript().html" data-toggle="modal"
+                                                           data-target="#tg-register">@name</a>
+                                                    </li>
+                                                }
+                                            }
+                                            
+                                            <li>
+                                                <a id="tg-btn-search" href="javascript:void(0)">
+                                                    <i class="fa fa-search"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <div class="tg-colhalf">
+                                    <ul class="tg-socialicons">
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-facebook"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-twitter"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-linkedin"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-google-plus"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-dribbble"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                        </div>
+                        </nav>
+                    </div>
+                    <nav id="tg-nav" class="tg-nav brand-center">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                data-target="#tg-navigationm-mobile">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <strong class="tg-logo">
+                                <a href="index-2.html"><img src="~/images/logo.png" alt="image description"></a>
+                            </strong>
+                        </div>
+                        <div id="tg-navigation" class="tg-navigation">
+                            <div class="tg-colhalf">
+                                <ul>
+                                    <li>
+                                        <a asp-area="" asp-controller="Matches" asp-action="Index">Matches</a>
+                                    </li>
+                                    <li>
+                                        <a asp-area="" asp-controller="Teams" asp-action="Index">Team</a>
+                                    </li>
+                                    <li>
+                                        <a asp-area="" asp-controller="Orders" asp-action="Index">Player</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="tg-colhalf">
+                                <ul>
+                                    <li>
+                                        <a asp-area="" asp-controller="Matches" asp-action="Index">News</a>
+                                    </li>
+                                    <li>
+                                        <a asp-area="" asp-controller="Products" asp-action="Shopping">Shopping</a>
+                                    </li>
+                                    <li>
+                                        <a asp-area="" asp-controller="Orders" asp-action="Index">Contacts</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <div class="container">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+
+        <!-- Footer Start -->
+        <footer id="tg-footer" class="tg-footer tg-haslayout">
+            <div class="tg-haslayout tg-footerinfobox">
+                <div class="tg-bgboxone"></div>
+                <div class="tg-bgboxtwo"></div>
+                <div class="tg-footerinfo">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-4">
+                            </div>
+                            <div class="col-sm-4">
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="tg-footercol">
+                                    <ul class="tg-contactinfo">
+                                        <li>
+                                            <i class="fa fa-home"></i>
+                                            <address>Ha Noi, Viet Nam</address>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-envelope-o"></i>
+                                            <a href="info%40domain.html">info@domain.com</a>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-phone"></i>
+                                            <span>+44 123 456 788 - 9</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <div class="tg-searchbox">
+        <a id="tg-close-search" class="tg-close-search" href="javascript:void(0)"><span class="fa fa-close"></span></a>
+        <div class="tg-searcharea">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3">
+                        <form class="tg-form-search">
+                            <fieldset>
+                                <input type="search" class="form-control" placeholder="keyword">
+                                <i class="icon-icon_search2"></i>
+                            </fieldset>
+                        </form>
+                        <p>Start typing and press Enter to search</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="tg-modalbox modal fade" id="tg-login" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="tg-modal-content">
+                <div class="tg-formarea">
+                    <div class="tg-border-heading">
+                        <h3>Login</h3>
+                    </div>
+                    <form class="tg-loginform" method="post">
+                        <fieldset>
+                            <div class="form-group">
+                                <input type="text" name="userName/email" class="form-control"
+                                    placeholder="username/email">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" name="password" class="form-control" placeholder="password">
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" value="rememberme" class="checkbox">
+                                    <em>Remember Me</em>
+                                </label>
+                                <a href="#">
+                                    <em>Forgot Password</em>
+                                    <i class="fa fa-question-circle"></i>
+                                </a>
+                            </div>
+                            <div class="form-group">
+                                <button class="tg-btn tg-btn-lg" type="submit">Login Now</button>
+                            </div>
+                            <div class="tg-description">
+                                <p>Don't have an account? <a href="#">Signup</a></p>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="tg-logintype">
+                    <div class="tg-border-heading">
+                        <h3>Login with</h3>
+                    </div>
+                    <ul>
+                        <li class="tg-facebook"><a href="#">facebook</a></li>
+                        <li class="tg-twitter"><a href="#">twitter</a></li>
+                        <li class="tg-googleplus"><a href="#">google+</a></li>
+                        <li class="tg-linkedin"><a href="#">linkedin</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tg-modalbox modal fade" id="tg-register" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="tg-modal-content">
+                <div class="tg-formarea">
+                    <div class="tg-border-heading">
+                        <h3>Signup</h3>
+                    </div>
+                    <form class="tg-loginform" method="post">
+                        <fieldset>
+                            <div class="form-group">
+                                <input type="text" name="userName" class="form-control" placeholder="username">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" class="form-control" placeholder="email">
+                            </div>
+                            <div class="form-group">
+                                <div class="tg-note">
+                                    <i class="fa fa-exclamation-circle"></i>
+                                    <span>We will email you your password.</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button class="tg-btn tg-btn-lg" type="submit">Login Now</button>
+                            </div>
+                            <div class="tg-description">
+                                <p>Already have an account? <a href="#">Login</a></p>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="tg-logintype">
+                    <div class="tg-border-heading">
+                        <h3>Signup with</h3>
+                    </div>
+                    <ul>
+                        <li class="tg-facebook"><a href="#">facebook</a></li>
+                        <li class="tg-twitter"><a href="#">twitter</a></li>
+                        <li class="tg-googleplus"><a href="#">google+</a></li>
+                        <li class="tg-linkedin"><a href="#">linkedin</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--************************************
+        LightBoxes End
+    *************************************-->
+    <script src="~/js/vendor/jquery-library.js"></script>
+    <script src="~/js/vendor/bootstrap.min.js"></script>
+    @* <script src="~/js/customScrollbar.min.js"></script> *@
+    <script src="~/js/owl.carousel.js"></script>
+    <script src="~/js/isotope.pkgd.js"></script>
+    <script src="~/js/prettyPhoto.js"></script>
+    <script src="~/js/swiper.min.js"></script>
+    <script src="~/js/jquery-ui.js"></script>
+    <script src="~/js/countTo.js"></script>
+    <script src="~/js/appear.js"></script>
+    <script src="~/js/main.js"></script>
+</body>
+
+</html>

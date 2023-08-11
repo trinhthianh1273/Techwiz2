@@ -26,6 +26,37 @@ namespace SoccerManager.Controllers
                           Problem("Entity set 'SoccerContext.Employee'  is null.");
         }
 
+        // GET: Employees/Login
+        public ActionResult Login()
+        {
+            Employee obj = new Employee();
+            if (Request.Cookies["UserName"]!= null)
+            {
+                obj.UserName = Request.Cookies["UserName"];
+            }
+            return View(obj);
+        }
+
+        //POST: Employees/Login
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(Employee obj)
+        {
+            if (ModelState.IsValid)
+            {
+                var Employee = _context.Employee.Where(p => p.UserName == obj.UserName && p.Password == obj.Password);
+                if (Employee.ToList().Count > 0)
+                {
+                    return Content("Đăng nhập thành công");
+                }
+            }
+            else
+            {
+                return Content("UserName or Password errors!");
+            }
+            return RedirectToAction("Index", "Customers");
+        }
+
         // GET: Employees/Details/5
         public async Task<IActionResult> Details(int? id)
         {

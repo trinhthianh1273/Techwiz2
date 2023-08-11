@@ -14,9 +14,6 @@
     <thead>
         <tr>
             <th>
-                Image
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.ProductName)
             </th>
             <th>
@@ -43,6 +40,10 @@
             <th>
                 @Html.DisplayNameFor(model => model.Team)
             </th>
+            <th>
+                Image
+            </th>
+
             <th></th>
         </tr>
     </thead>
@@ -52,9 +53,6 @@
             <td>
                 @Html.DisplayFor(modelItem => item.ProductName)
             </td>
-                <td>
-                    <img src="~/images/ProductImage/@Html.DisplayFor(modelItem => item.ProductImage.FirstOrDefault().ImageUrl)" style="width: 100px; height: 100px;"/>
-                </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
@@ -79,6 +77,16 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Team.ShortName)
             </td>
+            <td>
+                    @{
+                        if(item.ProductImage.Count() > 0)
+                        {
+                            <img src="@Url.Content("~/images/" + item.ProductImage.ElementAt(0).ImageUrl)" alt="Image" style="width: 100px">
+
+                        }
+                    }
+            </td>
+
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ProductId">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.ProductId">Details</a> |

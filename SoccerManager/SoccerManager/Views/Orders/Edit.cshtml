@@ -168,12 +168,58 @@
             </div>
         </form>
     </div>
+    <div class="row col-6">
+        @*<h3>Danh sách sản phẩm</h3>*@
+        <table class="table">
+                <thead class="sticky-top">
+                    <tr>
+                        <th scope="col">Image</th>
+                        <th scope="col">Code</th>
+                        <th scope="col">P.Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Quantity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @*@foreach (int i = 0; i < Model.OrderContent.Count; i++)
+                {
+                    <tr>
+                        <th>
+                            <img src="@Url.Content("~/images/ProductImage/" + item.Product.ProductImage.ElementAt(0).ImageUrl)"
+                                 style="width: 200px; height: 200px;" />
+                        </th>
+                        <td scope="col">@item.Product.ProductId</td>
+                        <td scope="col">@item.Product.ProductName</td>
+                        <td scope="col">@item.Price</td>
+                        <input />
+                        <td scope="col">@item.Quantity</td>
+                    </tr>
+                }*@
+
+                    @foreach (var item in Model.OrderContent)
+                    {
+                        <tr>
+                            <th>
+                                <img src="@Url.Content("~/images/ProductImage/" + item.Product.ProductImage.ElementAt(0).ImageUrl)"
+                                     style="width: 200px; height: 200px;" />
+                            </th>
+                            <td scope="col">@item.Product.ProductId</td>
+                            <td scope="col">@item.Product.ProductName</td>
+                            <td scope="col">@item.Price</td>
+                            <input />
+                            <td scope="col">@item.Quantity</td>
+                        </tr>
+                    }
+                    
+                </tbody>
+            </table>
+    </div>
 </div>
 
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
 
-@section Scripts {
+@*@section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+}*@
