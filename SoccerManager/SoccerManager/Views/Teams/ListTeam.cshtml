@@ -25,7 +25,7 @@
                         <div class="tg-project">
                             <figure class="tg-postimg">
                                 <a asp-action="Details" asp-route-id="model.TeamId">
-                                    <img src="@Url.Content("~/images/" + item.LogoURL)" alt="">
+                                    <img src="@Url.Content("~/images/" + item.LogoUrl)" alt="">
                                 </a>
                                 <a asp-action="Details" asp-route-id="model.TeamId" class="tg-btn">
                                     @Html.DisplayFor(modelItem => item.FullName)

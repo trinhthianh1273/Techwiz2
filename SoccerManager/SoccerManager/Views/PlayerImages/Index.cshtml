@@ -14,7 +14,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ImageURL)
+                @Html.DisplayNameFor(model => model.ImageUrl)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Player)
@@ -26,15 +26,15 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.ImageURL)
+                @Html.DisplayFor(modelItem => item.ImageUrl)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Player.FullName)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.PlayerImageID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.PlayerImageID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.PlayerImageID">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.PlayerImageId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PlayerImageId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.PlayerImageId">Delete</a>
             </td>
         </tr>
 }

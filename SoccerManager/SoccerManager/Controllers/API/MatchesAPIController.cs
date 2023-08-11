@@ -54,7 +54,7 @@ namespace SoccerManager.Controllers.API
         [HttpPut("{id}")]
         public async Task<IActionResult> PutMatch(int id, Match match)
         {
-            if (id != match.MatchID)
+            if (id != match.MatchId)
             {
                 return BadRequest();
             }
@@ -92,7 +92,7 @@ namespace SoccerManager.Controllers.API
             _context.Match.Add(match);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetMatch", new { id = match.MatchID }, match);
+            return CreatedAtAction("GetMatch", new { id = match.MatchId }, match);
         }
 
         [HttpGet("{competitionName}")]
@@ -128,7 +128,7 @@ namespace SoccerManager.Controllers.API
 
         private bool MatchExists(int id)
         {
-            return (_context.Match?.Any(e => e.MatchID == id)).GetValueOrDefault();
+            return (_context.Match?.Any(e => e.MatchId == id)).GetValueOrDefault();
         }
     }
 }

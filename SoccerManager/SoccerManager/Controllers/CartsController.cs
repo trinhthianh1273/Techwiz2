@@ -36,7 +36,7 @@ namespace SoccerManager.Controllers
             var cart = await _context.Cart
                 .Include(c => c.Customer)
                 .Include(c => c.Product)
-                .FirstOrDefaultAsync(m => m.CartID == id);
+                .FirstOrDefaultAsync(m => m.CartId == id);
             if (cart == null)
             {
                 return NotFound();
@@ -48,8 +48,8 @@ namespace SoccerManager.Controllers
         // GET: Carts/Create
         public IActionResult Create()
         {
-            ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Fullname");
-            ViewData["ProductID"] = new SelectList(_context.Products, "ProductID", "ProductName");
+            ViewData["CustomerId"] = new SelectList(_context.Customer, "CustomerId", "Fullname");
+            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductName");
             return View();
         }
 
@@ -58,7 +58,7 @@ namespace SoccerManager.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CartID,CustomerID,ProductID,Quantity")] Cart cart)
+        public async Task<IActionResult> Create([Bind("CartId,CustomerId,ProductId,Quantity")] Cart cart)
         {
             if (ModelState.IsValid)
             {
@@ -66,8 +66,8 @@ namespace SoccerManager.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Password", cart.CustomerID);
-            ViewData["ProductID"] = new SelectList(_context.Products, "ProductID", "ProductID", cart.ProductID);
+            ViewData["CustomerId"] = new SelectList(_context.Customer, "CustomerId", "Password", cart.CustomerId);
+            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductId", cart.ProductId);
             return View(cart);
         }
 
@@ -84,8 +84,8 @@ namespace SoccerManager.Controllers
             {
                 return NotFound();
             }
-            ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Fullname", cart.CustomerID);
-            ViewData["ProductID"] = new SelectList(_context.Products, "ProductID", "ProductName", cart.ProductID);
+            ViewData["CustomerId"] = new SelectList(_context.Customer, "CustomerId", "Fullname", cart.CustomerId);
+            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductName", cart.ProductId);
             return View(cart);
         }
 
@@ -94,9 +94,9 @@ namespace SoccerManager.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CartID,CustomerID,ProductID,Quantity")] Cart cart)
+        public async Task<IActionResult> Edit(int id, [Bind("CartId,CustomerId,ProductId,Quantity")] Cart cart)
         {
-            if (id != cart.CartID)
+            if (id != cart.CartId)
             {
                 return NotFound();
             }
@@ -110,7 +110,7 @@ namespace SoccerManager.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CartExists(cart.CartID))
+                    if (!CartExists(cart.CartId))
                     {
                         return NotFound();
                     }
@@ -121,8 +121,8 @@ namespace SoccerManager.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Password", cart.CustomerID);
-            ViewData["ProductID"] = new SelectList(_context.Products, "ProductID", "ProductID", cart.ProductID);
+            ViewData["CustomerId"] = new SelectList(_context.Customer, "CustomerId", "Password", cart.CustomerId);
+            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductId", cart.ProductId);
             return View(cart);
         }
 
@@ -137,7 +137,7 @@ namespace SoccerManager.Controllers
             var cart = await _context.Cart
                 .Include(c => c.Customer)
                 .Include(c => c.Product)
-                .FirstOrDefaultAsync(m => m.CartID == id);
+                .FirstOrDefaultAsync(m => m.CartId == id);
             if (cart == null)
             {
                 return NotFound();
@@ -167,7 +167,7 @@ namespace SoccerManager.Controllers
 
         private bool CartExists(int id)
         {
-          return (_context.Cart?.Any(e => e.CartID == id)).GetValueOrDefault();
+          return (_context.Cart?.Any(e => e.CartId == id)).GetValueOrDefault();
         }
     }
 }

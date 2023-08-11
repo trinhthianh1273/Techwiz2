@@ -35,7 +35,7 @@ namespace SoccerManager.Controllers
             }
 
             var competition = await _context.Competition
-                .FirstOrDefaultAsync(m => m.CompetitionID == id);
+                .FirstOrDefaultAsync(m => m.CompetitionId == id);
             if (competition == null)
             {
                 return NotFound();
@@ -55,7 +55,7 @@ namespace SoccerManager.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CompetitionID,CompetitionName")] Competition competition)
+        public async Task<IActionResult> Create([Bind("CompetitionId,CompetitionName")] Competition competition)
         {
             if (ModelState.IsValid)
             {
@@ -87,9 +87,9 @@ namespace SoccerManager.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CompetitionID,CompetitionName")] Competition competition)
+        public async Task<IActionResult> Edit(int id, [Bind("CompetitionId,CompetitionName")] Competition competition)
         {
-            if (id != competition.CompetitionID)
+            if (id != competition.CompetitionId)
             {
                 return NotFound();
             }
@@ -103,7 +103,7 @@ namespace SoccerManager.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CompetitionExists(competition.CompetitionID))
+                    if (!CompetitionExists(competition.CompetitionId))
                     {
                         return NotFound();
                     }
@@ -126,7 +126,7 @@ namespace SoccerManager.Controllers
             }
 
             var competition = await _context.Competition
-                .FirstOrDefaultAsync(m => m.CompetitionID == id);
+                .FirstOrDefaultAsync(m => m.CompetitionId == id);
             if (competition == null)
             {
                 return NotFound();
@@ -156,7 +156,7 @@ namespace SoccerManager.Controllers
 
         private bool CompetitionExists(int id)
         {
-          return (_context.Competition?.Any(e => e.CompetitionID == id)).GetValueOrDefault();
+          return (_context.Competition?.Any(e => e.CompetitionId == id)).GetValueOrDefault();
         }
     }
 }
