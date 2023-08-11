@@ -7,70 +7,6 @@
 
 <h2>TeamInfo</h2>
 
-<div>
-    <h4>Team</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.FullName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.FullName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ShortName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ShortName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Nickname)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Nickname)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.FoundedYear)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.FoundedYear)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.FoundedPosition)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.FoundedPosition)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Owner)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Owner)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Manager)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Manager)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Website)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Website)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.LogoUrl)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.LogoUrl)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.TeamId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
 
 
 <!--************************************
@@ -89,160 +25,100 @@
 				<div class="row">
 					<div class="tg-latestresult">
 						<div class="row">
-							<div class="col-md-5 col-sm-12 col-xs-12">
+							<div class="col-md-6 col-sm">
 								<div class="tg-contentbox">
-									<div class="tg-section-heading"><h2>Background</h2></div>
-									<div class="tg-description">
-										<p>Consectetur adipisicing elit sed do eiusmod temport incididunt utia labore et dolore magna aliqua enima ad minim veniam quistrud on ullamco laboris nisiut aliquip ex ea commodo consequat.</p>
-									</div>
+									<dl class="dl-horizontal">
+										<dt>
+											@Html.DisplayNameFor(model => model.FullName)
+										</dt>
+										<dd>
+											@Html.DisplayFor(model => model.FullName)
+										</dd>
+										<dt>
+											@Html.DisplayNameFor(model => model.ShortName)
+										</dt>
+										<dd>
+											@Html.DisplayFor(model => model.ShortName)
+										</dd>
+										<dt>
+											@Html.DisplayNameFor(model => model.Nickname)
+										</dt>
+										<dd>
+											@Html.DisplayFor(model => model.Nickname)
+										</dd>
+										<dt>
+											@Html.DisplayNameFor(model => model.FoundedYear)
+										</dt>
+										<dd>
+											@Html.DisplayFor(model => model.FoundedYear)
+										</dd>
+										<dt>
+											@Html.DisplayNameFor(model => model.FoundedPosition)
+										</dt>
+										<dd>
+											@Html.DisplayFor(model => model.FoundedPosition)
+										</dd>
+										<dt>
+											@Html.DisplayNameFor(model => model.Owner)
+										</dt>
+										<dd>
+											@Html.DisplayFor(model => model.Owner)
+										</dd>
+										<dt>
+											@Html.DisplayNameFor(model => model.Manager)
+										</dt>
+										<dd>
+											@Html.DisplayFor(model => model.Manager)
+										</dd>
+										<dt>
+											@Html.DisplayNameFor(model => model.Website)
+										</dt>
+										<dd>
+											@Html.DisplayFor(model => model.Website)
+										</dd>
+										<dt>
+											Logo
+										</dt>
+										<dd>
+											<img src="@Url.Content("~/images/" + Model.LogoUrl)" alt="" style="200px;">
+										</dd>
+									</dl>
 								</div>
 							</div>
-							<div class="col-md-7 col-sm-12 col-xs-12">
-								<div id="tg-upcomingmatch-slider" class="tg-upcomingmatch-slider tg-upcomingmatch">
-									<div class="swiper-wrapper">
-										<div class="swiper-slide">
-											<div class="tg-match">
-												<div class="tg-matchdetail">
-													<div class="tg-box">
-														<strong class="tg-teamlogo">
-															<img src="images/team-logo/logo-l-02.png" alt="image description">
-														</strong>
-														<h3>Gladiators</h3>
-													</div>
-													<div class="tg-box">
-														<h3>vs</h3>
-													</div>
-													<div class="tg-box">
-														<strong class="tg-teamlogo">
-															<img src="images/team-logo/logo-l-02.png" alt="image description">
-														</strong>
-														<h3>Horned frogs</h3>
-													</div>
-												</div>
-												<div class="tg-matchhover">
-													<address>Jan16, 2017 15:30 PM Soccer Stadium, Dubai</address>
-													<div class="tg-btnbox">
-														<a class="tg-btn" href="#"><span>read more</span></a>
-														<a class="tg-btn" href="#"><span>book my ticket</span></a>
-													</div>
-												</div>
-											</div>
+							<div class="col-md-6 col-sm ">
+								<div class="row">
+									@foreach (var item in ViewBag.Player)
+									{
+										<div class="col-md-5">
+											<figure class="child">
+												<a asp-controller="Players" asp-action="PlayerInfomation" asp-route-id="@item.PlayerId">
+
+													@if(item.PlayerImage.Count > 0)
+													{
+														foreach(var img in ViewBag.Images)
+														{
+															if(img.PlayerId == item.PlayerId)
+															{
+																<img src="@Url.Content("~/images/" + img.ImageUrl)"  alt="" style="display: block; margin: auto;">
+																break;
+															}
+														}
+													}
+													else
+													{
+														<img src="https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg" alt="">
+													}
+												</a>
+												<figcaption style="text-align: center">
+													<a asp-controller="Players" asp-action="PlayerInfomation" asp-route-id="@item.PlayerId">
+														@item.FullName
+													</a>
+												</figcaption>
+
+											</figure>
 										</div>
-										<div class="swiper-slide">
-											<div class="tg-match">
-												<div class="tg-matchdetail">
-													<div class="tg-box">
-														<strong class="tg-teamlogo">
-															<img src="images/team-logo/logo-l-02.png" alt="image description">
-														</strong>
-														<h3>Gladiators</h3>
-													</div>
-													<div class="tg-box">
-														<h3>vs</h3>
-													</div>
-													<div class="tg-box">
-														<strong class="tg-teamlogo">
-															<img src="images/team-logo/logo-l-02.png" alt="image description">
-														</strong>
-														<h3>Horned frogs</h3>
-													</div>
-												</div>
-												<div class="tg-matchhover">
-													<address>Jan16, 2017 15:30 PM Soccer Stadium, Dubai</address>
-													<div class="tg-btnbox">
-														<a class="tg-btn" href="#"><span>read more</span></a>
-														<a class="tg-btn" href="#"><span>book my ticket</span></a>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="swiper-slide">
-											<div class="tg-match">
-												<div class="tg-matchdetail">
-													<div class="tg-box">
-														<strong class="tg-teamlogo">
-															<img src="images/team-logo/logo-l-02.png" alt="image description">
-														</strong>
-														<h3>Gladiators</h3>
-													</div>
-													<div class="tg-box">
-														<h3>vs</h3>
-													</div>
-													<div class="tg-box">
-														<strong class="tg-teamlogo">
-															<img src="images/team-logo/logo-l-02.png" alt="image description">
-														</strong>
-														<h3>Horned frogs</h3>
-													</div>
-												</div>
-												<div class="tg-matchhover">
-													<address>Jan16, 2017 15:30 PM Soccer Stadium, Dubai</address>
-													<div class="tg-btnbox">
-														<a class="tg-btn" href="#"><span>read more</span></a>
-														<a class="tg-btn" href="#"><span>book my ticket</span></a>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="swiper-slide">
-											<div class="tg-match">
-												<div class="tg-matchdetail">
-													<div class="tg-box">
-														<strong class="tg-teamlogo">
-															<img src="images/team-logo/logo-l-02.png" alt="image description">
-														</strong>
-														<h3>Gladiators</h3>
-													</div>
-													<div class="tg-box">
-														<h3>vs</h3>
-													</div>
-													<div class="tg-box">
-														<strong class="tg-teamlogo">
-															<img src="images/team-logo/logo-l-02.png" alt="image description">
-														</strong>
-														<h3>Horned frogs</h3>
-													</div>
-												</div>
-												<div class="tg-matchhover">
-													<address>Jan16, 2017 15:30 PM Soccer Stadium, Dubai</address>
-													<div class="tg-btnbox">
-														<a class="tg-btn" href="#"><span>read more</span></a>
-														<a class="tg-btn" href="#"><span>book my ticket</span></a>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="swiper-slide">
-											<div class="tg-match">
-												<div class="tg-matchdetail">
-													<div class="tg-box">
-														<strong class="tg-teamlogo">
-															<img src="images/team-logo/logo-l-02.png" alt="image description">
-														</strong>
-														<h3>Gladiators</h3>
-													</div>
-													<div class="tg-box">
-														<h3>vs</h3>
-													</div>
-													<div class="tg-box">
-														<strong class="tg-teamlogo">
-															<img src="images/team-logo/logo-l-02.png" alt="image description">
-														</strong>
-														<h3>Horned frogs</h3>
-													</div>
-												</div>
-												<div class="tg-matchhover">
-													<address>Jan16, 2017 15:30 PM Soccer Stadium, Dubai</address>
-													<div class="tg-btnbox">
-														<a class="tg-btn" href="#"><span>read more</span></a>
-														<a class="tg-btn" href="#"><span>book my ticket</span></a>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="tg-themebtnnext"><span class="fa fa-angle-down"></span></div>
-									<div class="tg-themebtnprev"><span class="fa fa-angle-up"></span></div>
+
+									}
 								</div>
 							</div>
 						</div>
@@ -254,75 +130,7 @@
 	<!--************************************
 			Fixtures End
 	*************************************-->
-	<!--************************************
-			Top Rated Player Start
-	*************************************-->
-	<section class="tg-main-section tg-haslayout">
-		<div class="container">
-			<div class="tg-section-name">
-				<h2>Players</h2>
-			</div>
-			<div class="col-sm-11 col-xs-11 pull-right">
-				<div class="row">
-					<div class="tg-player-grid2 tg-haslayout">
-						<div id="tg-player-slider" class="tg-player-slider tg-haslayout">
-							<div class="swiper-wrapper">
-								<div class="swiper-slide">
-									<figure class="tg-postimg">
-										<a href="playerdetail.html">
-											<img src="@Url.Content("~/images/PlayerImages/player.png")" alt="">
-										</a>
-										<figcaption>
-											<a class="tg-btn" href="playerdetail.html"><span>Player 0</span></a>
-										</figcaption>
 
-									</figure>
-								</div>
-								<div class="swiper-slide">
-									<figure class="tg-postimg">
-										<a href="playerdetail.html">
-											<img src="images/player/img-02.jpg" alt="image description">
-										</a>
-										<figcaption>
-											<a class="tg-btn" href="playerdetail.html"><span>Player 0</span></a>
-										</figcaption>
-
-									</figure>
-								</div>
-								<div class="swiper-slide">
-									<figure class="tg-postimg">
-										<a href="playerdetail.html">
-											<img src="images/player/img-02.jpg" alt="image description">
-										</a>
-										<figcaption>
-											<a class="tg-btn" href="playerdetail.html"><span>Player 0</span></a>
-										</figcaption>
-
-									</figure>
-								</div>
-								<div class="swiper-slide">
-									<figure class="tg-postimg">
-										<a href="playerdetail.html">
-											<img src="images/player/img-02.jpg" alt="image description">
-										</a>
-										<figcaption>
-											<a class="tg-btn" href="playerdetail.html"><span>Player 0</span></a>
-										</figcaption>
-
-									</figure>
-								</div>
-							</div>
-							<div class="tg-themebtnnext"><span class="fa fa-angle-up"></span></div>
-							<div class="tg-themebtnprev"><span class="fa fa-angle-down"></span></div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!--************************************
-			Top Rated Player End
-	*************************************-->
 	<!--************************************
 			Statistics Start
 	*************************************-->

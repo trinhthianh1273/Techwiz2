@@ -5,15 +5,20 @@
     Layout = "~/Views/Shared/_Main_Layout.cshtml";
 }
 
-<h2>Player Infomation</h2>
 
 <!--************************************
 				Main Start
 *************************************-->
 <main id="tg-main" class="tg-main tg-haslayout">
+	<h2>Player Infomation</h2>
+
+
 	<div class="container">
 		<div class="row">
 			<div id="tg-twocolumns" class="tg-twocolumns tg-main-section tg-haslayout">
+				
+				<h2><a asp-controller="Teams" asp-action="TeamInfo" asp-route-id="@Model.CurrentTeam">Back to Team</a></h2>
+
 				<div class="col-sm-9 col-xs-12 pull-left">
 					<div class="tg-player-detail tg-haslayout">
 						<div class="tg-player-data tg-haslayout">
@@ -22,7 +27,15 @@
 									<div class="col-sm-4 col-xs-12">
 										<div class="tg-widget tg-imagewidget">
 											<figure>
-												<img src="~/images/@ViewBag.PlayerImage" alt="@Model.FullName">
+												@if (ViewBag.PlayerImage != null)
+												{
+													<img src="~/images/@ViewBag.PlayerImage" alt="@Model.FullName">
+												}
+												else
+												{
+													<img src="https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg" alt="">
+
+												}
 											</figure>
 										</div>
 									</div>
@@ -33,11 +46,8 @@
 											<span class="tg-stars"><span></span></span>
 										</div>
 										<ul>
-											<li>Nick Name :</li>
-											<li>Mayn</li>
-
 											<li>Team :</li>
-											<li>Killer Whales</li>
+											<li>@ViewBag.Team</li>
 
 											<li>Birth Date :</li>
 											<li>@Html.DisplayFor(model => model.Dob)</li>
@@ -53,9 +63,6 @@
 
 											<li>Field position :</li>
 											<li>@Html.DisplayFor(model => model.Position)</li>
-
-											<li>Current team :</li>
-											<li>@Html.DisplayFor(model => model.CurrentTeam)</li>
 
 											<li>Social Networks :</li>
 											<li>
@@ -74,6 +81,38 @@
 					</div>
 				</div>
 			</div>
+		</div>
+
+		<div class="row">
+			<h2>Images from @Model.FullName</h2>
+			<div class="col-12 horizontal-scroll">
+				@foreach (var item in Model.PlayerImage)
+				{
+					<div class="col-3">
+						<div class="child">
+							<img src="@Url.Content("~/images/" + item.ImageUrl)" alt="">
+						</div>
+					</div>
+
+				}
+			</div>
+			<style>
+				.horizontal-scroll {
+					display: flex;
+					overflow-x: auto;
+					white-space: nowrap;
+					padding: 10px;
+				}
+
+				.child {
+					display: inline-block;
+					padding: 10px;
+					border: 1px solid #ccc;
+					min-width: 200px;
+				}
+
+			</style>
+
 		</div>
 	</div>
 </main>
