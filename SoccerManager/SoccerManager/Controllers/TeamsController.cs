@@ -29,6 +29,15 @@ namespace SoccerManager.Controllers
                         Problem("Entity set 'SoccerContext.Team'  is null.");
         }
 
+        // GET: Teams
+        // Get all Teams
+        public async Task<IActionResult> ListTeam()
+        {
+            return _context.Team != null ?
+                        View(await _context.Team.ToListAsync()) :
+                        Problem("Entity set 'SoccerContext.Team'  is null.");
+        }
+
         // GET: Teams/Details/5
         // Get Team detail
         public async Task<IActionResult> Details(int? id)
@@ -79,8 +88,6 @@ namespace SoccerManager.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-
-
             return View(team);
         }
 

@@ -119,74 +119,26 @@
                             <div class="tg-colhalf">
                                 <ul>
                                     <li>
-                                        <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                                    </li>
-                                    <li>
-                                        <a asp-area="" asp-controller="Teams" asp-action="Index">Teams</a>
-                                    </li>
-                                    <li>
-                                        <a asp-area="" asp-controller="Orders" asp-action="Index">Orders</a>
-                                    </li>
-                                    <li>
                                         <a asp-area="" asp-controller="Matches" asp-action="Index">Matches</a>
+                                    </li>
+                                    <li>
+                                        <a asp-area="" asp-controller="Teams" asp-action="Index">Team</a>
+                                    </li>
+                                    <li>
+                                        <a asp-area="" asp-controller="Orders" asp-action="Index">Player</a>
                                     </li>
                                 </ul>
                             </div>
                             <div class="tg-colhalf">
                                 <ul>
                                     <li>
-                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                            data-bs-toggle="dropdown" aria-expanded="false">
-                                            For Soccer
-                                        </a>
-                                        <ul class="dropdown-menu tg-dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <li>
-                                                <a class="dropdown-item" asp-area="" asp-controller="Teams"
-                                                    asp-action="Index">Teams</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" asp-area="" asp-controller="Players"
-                                                    asp-action="Index">Players</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" asp-area=""
-                                                    asp-controller="TeamPlayerHistories"
-                                                    asp-action="Index">TeamPlayerHistories</a>
-                                            </li>
-                                            <li>
-                                                <hr class="dropdown-divider">
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" asp-area="" asp-controller="Matches"
-                                                    asp-action="Index">Matches</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" asp-area="" asp-controller="Competitions"
-                                                    asp-action="Index">Competitions</a>
-                                            </li>
-                                        </ul>
+                                        <a asp-area="" asp-controller="Matches" asp-action="Index">News</a>
                                     </li>
                                     <li>
-                                        <a href="#">pro soccer media</a>
-                                        <ul class="tg-dropdown-menu">
-                                            <li><a href="soccermedia-1.html">pro soccer media1</a></li>
-                                            <li><a href="soccermedia-2.html">pro soccer media2</a></li>
-                                        </ul>
+                                        <a asp-area="ForCustomer" asp-controller="Shopping" asp-action="Index">Shopping</a>
                                     </li>
-                                    <li><a href="contactus.html">Contact</a></li>
                                     <li>
-                                        <a href="#"><i class=" fa fa-navicon"></i></a>
-                                        <ul>
-                                            <li><a href="aboutus.html">about us</a></li>
-                                            <li><a href="shoplist.html">shop list</a></li>
-                                            <li><a href="shopgrid.html">shop grid</a></li>
-                                            <li><a href="productsingle.html">shop detail</a></li>
-                                            <li><a href="bloglist.html">blog list</a></li>
-                                            <li><a href="bloggrid.html">blog grid</a></li>
-                                            <li><a href="blogdetail.html">blog detail</a></li>
-                                            <li><a href="404.html">404 error</a></li>
-                                            <li><a href="comming-soon.html">comming soon</a></li>
-                                        </ul>
+                                        <a asp-area="" asp-controller="Orders" asp-action="Index">Contacts</a>
                                     </li>
                                 </ul>
                             </div>
@@ -195,6 +147,8 @@
                 </div>
             </div>
         </header>
+
+
         <div class="container">
             <main role="main" class="pb-3">
                 @RenderBody()

@@ -119,7 +119,9 @@ namespace SoccerManager.Controllers
                 return NotFound();
             }
 
-            var products = await _context.Products.FindAsync(id);
+            //get detail
+            var products = _context.Products.Where(p => p.ProductId == id).Include(pi => pi.ProductImage).Single();
+
             if (products == null)
             {
                 return NotFound();
@@ -131,9 +133,14 @@ namespace SoccerManager.Controllers
         }
 
         // POST: Products/Edit/5
+        // Handle PUT Product Request
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ProductId,ProductName,Description,CategoryId,Price,InStock,OnOrder,Discontinued,TeamId,PlayerId")] Products products)
+        public async Task<IActionResult> Edit(
+                    int id,
+                    [Bind("ProductId,ProductName,Description,CategoryId,Price,InStock,OnOrder,Discontinued,TeamId,PlayerId")] Products products,
+                    string[] deleteImage,
+                    List<IFormFile> files)
         {
             if (id != products.ProductId)
             {
@@ -144,6 +151,35 @@ namespace SoccerManager.Controllers
             {
                 try
                 {
+                    //delete selected image 
+                    if (deleteImage.Length > 0)
+                    {
+                        foreach (var img in deleteImage)
+                        {
+                            await _fileUploadService.DeleteFile(img);   //delete from folder
+                            _context.Remove(_context.ProductImage.Where(p => p.ImageUrl == img).FirstOrDefault());  //delete from database
+                        }
+                    }
+
+                    //add new image
+                    if (files != null)
+                    {
+                        foreach (var item in files)
+                        {
+                            //upload image to folder and get its name
+                            string imgName = ImgDir + "/" + await _fileUploadService.UploadFile(item, ImgDir, ImgType);
+
+                            //save filename to database
+                            ProductImage productImage = new()
+                            {
+                                ProductId = id,
+                                ImageUrl = imgName
+                            };
+                            _context.ProductImage.Add(productImage);
+                        }
+                    }
+
+                    //update information
                     _context.Update(products);
                     await _context.SaveChangesAsync();
                 }
