@@ -27,12 +27,12 @@ namespace SoccerManager.Migrations
 
             modelBuilder.Entity("SoccerManager.Models.Address", b =>
                 {
-                    b.Property<int>("AddressId")
+                    b.Property<int>("AddressID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("AddressID");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AddressId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AddressID"));
 
                     b.Property<string>("Address1")
                         .IsRequired()
@@ -40,7 +40,7 @@ namespace SoccerManager.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasColumnName("Address");
 
-                    b.Property<int>("CustomerId")
+                    b.Property<int>("CustomerID")
                         .HasColumnType("int")
                         .HasColumnName("CustomerID");
 
@@ -54,45 +54,45 @@ namespace SoccerManager.Migrations
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
-                    b.HasKey("AddressId");
+                    b.HasKey("AddressID");
 
-                    b.HasIndex("CustomerId");
+                    b.HasIndex("CustomerID");
 
                     b.ToTable("address", (string)null);
                 });
 
             modelBuilder.Entity("SoccerManager.Models.Cart", b =>
                 {
-                    b.Property<int>("CartId")
+                    b.Property<int>("CartID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("CartID");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CartId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CartID"));
 
-                    b.Property<int>("CustomerId")
+                    b.Property<int>("CustomerID")
                         .HasColumnType("int")
                         .HasColumnName("CustomerID");
 
-                    b.Property<int>("ProductId")
+                    b.Property<int>("ProductID")
                         .HasColumnType("int")
                         .HasColumnName("ProductID");
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
-                    b.HasKey("CartId");
+                    b.HasKey("CartID");
 
-                    b.HasIndex("CustomerId");
+                    b.HasIndex("CustomerID");
 
-                    b.HasIndex("ProductId");
+                    b.HasIndex("ProductID");
 
                     b.ToTable("Cart");
                 });
 
             modelBuilder.Entity("SoccerManager.Models.Category", b =>
                 {
-                    b.Property<int>("CategoryId")
+                    b.Property<int>("CategoryID")
                         .HasColumnType("int")
                         .HasColumnName("CategoryID");
 
@@ -106,38 +106,38 @@ namespace SoccerManager.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.HasKey("CategoryId");
+                    b.HasKey("CategoryID");
 
                     b.ToTable("Category");
                 });
 
             modelBuilder.Entity("SoccerManager.Models.Competition", b =>
                 {
-                    b.Property<int>("CompetitionId")
+                    b.Property<int>("CompetitionID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("CompetitionID");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CompetitionId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CompetitionID"));
 
                     b.Property<string>("CompetitionName")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.HasKey("CompetitionId");
+                    b.HasKey("CompetitionID");
 
                     b.ToTable("Competition");
                 });
 
             modelBuilder.Entity("SoccerManager.Models.Customer", b =>
                 {
-                    b.Property<int>("CustomerId")
+                    b.Property<int>("CustomerID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("CustomerID");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CustomerId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CustomerID"));
 
                     b.Property<string>("Email")
                         .HasMaxLength(100)
@@ -163,7 +163,7 @@ namespace SoccerManager.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.HasKey("CustomerId");
+                    b.HasKey("CustomerID");
 
                     b.HasIndex(new[] { "Username" }, "UQ__Customer__536C85E4282B50A6")
                         .IsUnique();
@@ -173,12 +173,12 @@ namespace SoccerManager.Migrations
 
             modelBuilder.Entity("SoccerManager.Models.Employee", b =>
                 {
-                    b.Property<int>("EmployeeId")
+                    b.Property<int>("EmployeeID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("EmployeeID");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EmployeeId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EmployeeID"));
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -204,25 +204,25 @@ namespace SoccerManager.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.HasKey("EmployeeId");
+                    b.HasKey("EmployeeID");
 
                     b.ToTable("Employee");
                 });
 
             modelBuilder.Entity("SoccerManager.Models.Feedback", b =>
                 {
-                    b.Property<int>("FeedbackId")
+                    b.Property<int>("FeedbackID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("FeedbackID");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FeedbackId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FeedbackID"));
 
                     b.Property<string>("Content")
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
-                    b.Property<int>("CustomerId")
+                    b.Property<int>("CustomerID")
                         .HasColumnType("int")
                         .HasColumnName("CustomerID");
 
@@ -231,23 +231,23 @@ namespace SoccerManager.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.HasKey("FeedbackId");
+                    b.HasKey("FeedbackID");
 
-                    b.HasIndex("CustomerId");
+                    b.HasIndex("CustomerID");
 
                     b.ToTable("Feedback");
                 });
 
             modelBuilder.Entity("SoccerManager.Models.Match", b =>
                 {
-                    b.Property<int>("MatchId")
+                    b.Property<int>("MatchID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("MatchID");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MatchId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MatchID"));
 
-                    b.Property<int>("CompetitionId")
+                    b.Property<int>("CompetitionID")
                         .HasColumnType("int")
                         .HasColumnName("CompetitionID");
 
@@ -257,14 +257,14 @@ namespace SoccerManager.Migrations
                     b.Property<DateTime?>("EndTime")
                         .HasColumnType("datetime");
 
-                    b.Property<int>("GuestTeamId")
+                    b.Property<int>("GuestTeamID")
                         .HasColumnType("int")
                         .HasColumnName("GuestTeamID");
 
                     b.Property<int?>("GuestTeamScore")
                         .HasColumnType("int");
 
-                    b.Property<int>("HomeTeamId")
+                    b.Property<int>("HomeTeamID")
                         .HasColumnType("int")
                         .HasColumnName("HomeTeamID");
 
@@ -283,59 +283,59 @@ namespace SoccerManager.Migrations
                     b.Property<DateTime>("StartTime")
                         .HasColumnType("datetime");
 
-                    b.HasKey("MatchId");
+                    b.HasKey("MatchID");
 
-                    b.HasIndex("CompetitionId");
+                    b.HasIndex("CompetitionID");
 
-                    b.HasIndex("GuestTeamId");
+                    b.HasIndex("GuestTeamID");
 
-                    b.HasIndex("HomeTeamId");
+                    b.HasIndex("HomeTeamID");
 
                     b.ToTable("Match");
                 });
 
             modelBuilder.Entity("SoccerManager.Models.OrderContent", b =>
                 {
-                    b.Property<int>("OrderContentId")
+                    b.Property<int>("OrderContentID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("OrderContentID");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderContentId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderContentID"));
 
-                    b.Property<int>("OrderId")
+                    b.Property<int>("OrderID")
                         .HasColumnType("int")
                         .HasColumnName("OrderID");
 
                     b.Property<double?>("Price")
                         .HasColumnType("float");
 
-                    b.Property<int>("ProductId")
+                    b.Property<int>("ProductID")
                         .HasColumnType("int")
                         .HasColumnName("ProductID");
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
-                    b.HasKey("OrderContentId");
+                    b.HasKey("OrderContentID");
 
-                    b.HasIndex("OrderId");
+                    b.HasIndex("OrderID");
 
-                    b.HasIndex("ProductId");
+                    b.HasIndex("ProductID");
 
                     b.ToTable("OrderContent");
                 });
 
             modelBuilder.Entity("SoccerManager.Models.Orders", b =>
                 {
-                    b.Property<int>("OrderId")
+                    b.Property<int>("OrderID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("OrderID");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderID"));
 
-                    b.Property<int>("AddressId")
+                    b.Property<int>("AddressID")
                         .HasColumnType("int")
                         .HasColumnName("AddressID");
 
@@ -347,11 +347,11 @@ namespace SoccerManager.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("CustomerId")
+                    b.Property<int>("CustomerID")
                         .HasColumnType("int")
                         .HasColumnName("CustomerID");
 
-                    b.Property<int>("EmployeeId")
+                    b.Property<int>("EmployeeID")
                         .HasColumnType("int")
                         .HasColumnName("EmployeeID");
 
@@ -365,7 +365,7 @@ namespace SoccerManager.Migrations
                     b.Property<DateTime?>("PaymentDate")
                         .HasColumnType("datetime");
 
-                    b.Property<int?>("PaymentMethodId")
+                    b.Property<int?>("PaymentMethodID")
                         .HasColumnType("int")
                         .HasColumnName("PaymentMethodID");
 
@@ -378,53 +378,53 @@ namespace SoccerManager.Migrations
                     b.Property<DateTime?>("ShippedDate")
                         .HasColumnType("datetime");
 
-                    b.Property<int>("StatusId")
+                    b.Property<int>("StatusID")
                         .HasColumnType("int")
                         .HasColumnName("StatusID");
 
-                    b.HasKey("OrderId")
+                    b.HasKey("OrderID")
                         .HasName("PK__Orders__C3905BAFD40F2FBD");
 
-                    b.HasIndex("AddressId");
+                    b.HasIndex("AddressID");
 
-                    b.HasIndex("CustomerId");
+                    b.HasIndex("CustomerID");
 
-                    b.HasIndex("EmployeeId");
+                    b.HasIndex("EmployeeID");
 
-                    b.HasIndex("PaymentMethodId");
+                    b.HasIndex("PaymentMethodID");
 
-                    b.HasIndex("StatusId");
+                    b.HasIndex("StatusID");
 
                     b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("SoccerManager.Models.PaymentMethod", b =>
                 {
-                    b.Property<int>("PaymentMethodId")
+                    b.Property<int>("PaymentMethodID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("PaymentMethodID");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PaymentMethodId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PaymentMethodID"));
 
                     b.Property<string>("PaymentMethod1")
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)")
                         .HasColumnName("PaymentMethod");
 
-                    b.HasKey("PaymentMethodId");
+                    b.HasKey("PaymentMethodID");
 
                     b.ToTable("PaymentMethod");
                 });
 
             modelBuilder.Entity("SoccerManager.Models.Player", b =>
                 {
-                    b.Property<int>("PlayerId")
+                    b.Property<int>("PlayerID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("PlayerID");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PlayerId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PlayerID"));
 
                     b.Property<int?>("CurrentTeam")
                         .HasColumnType("int");
@@ -450,7 +450,7 @@ namespace SoccerManager.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("PlayerId");
+                    b.HasKey("PlayerID");
 
                     b.HasIndex("CurrentTeam");
 
@@ -459,63 +459,63 @@ namespace SoccerManager.Migrations
 
             modelBuilder.Entity("SoccerManager.Models.PlayerImage", b =>
                 {
-                    b.Property<int>("PlayerImageId")
+                    b.Property<int>("PlayerImageID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("PlayerImageID");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PlayerImageId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PlayerImageID"));
 
-                    b.Property<string>("ImageUrl")
+                    b.Property<string>("ImageURL")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)")
                         .HasColumnName("ImageURL");
 
-                    b.Property<int>("PlayerId")
+                    b.Property<int>("PlayerID")
                         .HasColumnType("int")
                         .HasColumnName("PlayerID");
 
-                    b.HasKey("PlayerImageId");
+                    b.HasKey("PlayerImageID");
 
-                    b.HasIndex("PlayerId");
+                    b.HasIndex("PlayerID");
 
                     b.ToTable("PlayerImage");
                 });
 
             modelBuilder.Entity("SoccerManager.Models.ProductImage", b =>
                 {
-                    b.Property<int>("ProductImageId")
+                    b.Property<int>("ProductImageID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("ProductImageID");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductImageId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductImageID"));
 
-                    b.Property<string>("ImageUrl")
+                    b.Property<string>("ImageURL")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)")
                         .HasColumnName("ImageURL");
 
-                    b.Property<int>("ProductId")
+                    b.Property<int>("ProductID")
                         .HasColumnType("int")
                         .HasColumnName("ProductID");
 
-                    b.HasKey("ProductImageId");
+                    b.HasKey("ProductImageID");
 
-                    b.HasIndex("ProductId");
+                    b.HasIndex("ProductID");
 
                     b.ToTable("ProductImage");
                 });
 
             modelBuilder.Entity("SoccerManager.Models.Products", b =>
                 {
-                    b.Property<int>("ProductId")
+                    b.Property<int>("ProductID")
                         .HasColumnType("int")
                         .HasColumnName("ProductID");
 
-                    b.Property<int?>("CategoryId")
+                    b.Property<int?>("CategoryID")
                         .HasColumnType("int")
                         .HasColumnName("CategoryID");
 
@@ -531,7 +531,7 @@ namespace SoccerManager.Migrations
                     b.Property<int?>("OnOrder")
                         .HasColumnType("int");
 
-                    b.Property<int?>("PlayerId")
+                    b.Property<int?>("PlayerID")
                         .HasColumnType("int")
                         .HasColumnName("PlayerID");
 
@@ -542,48 +542,48 @@ namespace SoccerManager.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("TeamId")
+                    b.Property<int>("TeamID")
                         .HasColumnType("int")
                         .HasColumnName("TeamID");
 
-                    b.HasKey("ProductId");
+                    b.HasKey("ProductID");
 
-                    b.HasIndex("CategoryId");
+                    b.HasIndex("CategoryID");
 
-                    b.HasIndex("PlayerId");
+                    b.HasIndex("PlayerID");
 
-                    b.HasIndex("TeamId");
+                    b.HasIndex("TeamID");
 
                     b.ToTable("Products");
                 });
 
             modelBuilder.Entity("SoccerManager.Models.Status", b =>
                 {
-                    b.Property<int>("StatusId")
+                    b.Property<int>("StatusID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("StatusID");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("StatusId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("StatusID"));
 
                     b.Property<string>("StatusName")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.HasKey("StatusId");
+                    b.HasKey("StatusID");
 
                     b.ToTable("Status");
                 });
 
             modelBuilder.Entity("SoccerManager.Models.Team", b =>
                 {
-                    b.Property<int>("TeamId")
+                    b.Property<int>("TeamID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("TeamID");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TeamId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TeamID"));
 
                     b.Property<string>("FoundedPosition")
                         .IsRequired()
@@ -620,33 +620,33 @@ namespace SoccerManager.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.HasKey("TeamId");
+                    b.HasKey("TeamID");
 
                     b.ToTable("Team");
                 });
 
             modelBuilder.Entity("SoccerManager.Models.TeamImage", b =>
                 {
-                    b.Property<int>("TeamImageId")
+                    b.Property<int>("TeamImageID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("TeamImageID");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TeamImageId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TeamImageID"));
 
-                    b.Property<string>("ImageUrl")
+                    b.Property<string>("ImageURL")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)")
                         .HasColumnName("ImageURL");
 
-                    b.Property<int>("TeamId")
+                    b.Property<int>("TeamID")
                         .HasColumnType("int")
                         .HasColumnName("TeamID");
 
-                    b.HasKey("TeamImageId");
+                    b.HasKey("TeamImageID");
 
-                    b.HasIndex("TeamId");
+                    b.HasIndex("TeamID");
 
                     b.ToTable("TeamImage");
                 });
@@ -666,19 +666,19 @@ namespace SoccerManager.Migrations
                     b.Property<DateTime?>("LeaveDate")
                         .HasColumnType("date");
 
-                    b.Property<int>("PlayerId")
+                    b.Property<int>("PlayerID")
                         .HasColumnType("int")
                         .HasColumnName("PlayerID");
 
-                    b.Property<int>("TeamId")
+                    b.Property<int>("TeamID")
                         .HasColumnType("int")
                         .HasColumnName("TeamID");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PlayerId");
+                    b.HasIndex("PlayerID");
 
-                    b.HasIndex("TeamId");
+                    b.HasIndex("TeamID");
 
                     b.ToTable("TeamPlayerHistory");
                 });
@@ -687,7 +687,7 @@ namespace SoccerManager.Migrations
                 {
                     b.HasOne("SoccerManager.Models.Customer", "Customer")
                         .WithMany("Address")
-                        .HasForeignKey("CustomerId")
+                        .HasForeignKey("CustomerID")
                         .IsRequired()
                         .HasConstraintName("FK_address_Customer");
 
@@ -698,13 +698,13 @@ namespace SoccerManager.Migrations
                 {
                     b.HasOne("SoccerManager.Models.Customer", "Customer")
                         .WithMany("Cart")
-                        .HasForeignKey("CustomerId")
+                        .HasForeignKey("CustomerID")
                         .IsRequired()
                         .HasConstraintName("FK_Cart_Customer");
 
                     b.HasOne("SoccerManager.Models.Products", "Product")
                         .WithMany("Cart")
-                        .HasForeignKey("ProductId")
+                        .HasForeignKey("ProductID")
                         .IsRequired()
                         .HasConstraintName("FK_CartContent_Products");
 
@@ -717,7 +717,7 @@ namespace SoccerManager.Migrations
                 {
                     b.HasOne("SoccerManager.Models.Customer", "Customer")
                         .WithMany("Feedback")
-                        .HasForeignKey("CustomerId")
+                        .HasForeignKey("CustomerID")
                         .IsRequired()
                         .HasConstraintName("FK_Feedback_Customer");
 
@@ -728,19 +728,19 @@ namespace SoccerManager.Migrations
                 {
                     b.HasOne("SoccerManager.Models.Competition", "Competition")
                         .WithMany("Match")
-                        .HasForeignKey("CompetitionId")
+                        .HasForeignKey("CompetitionID")
                         .IsRequired()
                         .HasConstraintName("FK_Match_Competition");
 
                     b.HasOne("SoccerManager.Models.Team", "GuestTeam")
                         .WithMany("MatchGuestTeam")
-                        .HasForeignKey("GuestTeamId")
+                        .HasForeignKey("GuestTeamID")
                         .IsRequired()
                         .HasConstraintName("FK_Match_Team1");
 
                     b.HasOne("SoccerManager.Models.Team", "HomeTeam")
                         .WithMany("MatchHomeTeam")
-                        .HasForeignKey("HomeTeamId")
+                        .HasForeignKey("HomeTeamID")
                         .IsRequired()
                         .HasConstraintName("FK_Match_Team");
 
@@ -755,13 +755,13 @@ namespace SoccerManager.Migrations
                 {
                     b.HasOne("SoccerManager.Models.Orders", "Order")
                         .WithMany("OrderContent")
-                        .HasForeignKey("OrderId")
+                        .HasForeignKey("OrderID")
                         .IsRequired()
                         .HasConstraintName("FK_OrderContent_Orders");
 
                     b.HasOne("SoccerManager.Models.Products", "Product")
                         .WithMany("OrderContent")
-                        .HasForeignKey("ProductId")
+                        .HasForeignKey("ProductID")
                         .IsRequired()
                         .HasConstraintName("FK_OrderContent_Products");
 
@@ -774,30 +774,30 @@ namespace SoccerManager.Migrations
                 {
                     b.HasOne("SoccerManager.Models.Address", "Address")
                         .WithMany("Orders")
-                        .HasForeignKey("AddressId")
+                        .HasForeignKey("AddressID")
                         .IsRequired()
                         .HasConstraintName("FK_Orders_address");
 
                     b.HasOne("SoccerManager.Models.Customer", "Customer")
                         .WithMany("Orders")
-                        .HasForeignKey("CustomerId")
+                        .HasForeignKey("CustomerID")
                         .IsRequired()
                         .HasConstraintName("FK_Orders_Customer");
 
                     b.HasOne("SoccerManager.Models.Employee", "Employee")
                         .WithMany("Orders")
-                        .HasForeignKey("EmployeeId")
+                        .HasForeignKey("EmployeeID")
                         .IsRequired()
                         .HasConstraintName("FK_Orders_Employee");
 
                     b.HasOne("SoccerManager.Models.PaymentMethod", "PaymentMethod")
                         .WithMany("Orders")
-                        .HasForeignKey("PaymentMethodId")
+                        .HasForeignKey("PaymentMethodID")
                         .HasConstraintName("FK_Orders_PaymentMethod");
 
                     b.HasOne("SoccerManager.Models.Status", "Status")
                         .WithMany("Orders")
-                        .HasForeignKey("StatusId")
+                        .HasForeignKey("StatusID")
                         .IsRequired()
                         .HasConstraintName("FK_Orders_Status");
 
@@ -826,7 +826,7 @@ namespace SoccerManager.Migrations
                 {
                     b.HasOne("SoccerManager.Models.Player", "Player")
                         .WithMany("PlayerImage")
-                        .HasForeignKey("PlayerId")
+                        .HasForeignKey("PlayerID")
                         .IsRequired()
                         .HasConstraintName("FK_PlayerImage_Player");
 
@@ -837,7 +837,7 @@ namespace SoccerManager.Migrations
                 {
                     b.HasOne("SoccerManager.Models.Products", "Product")
                         .WithMany("ProductImage")
-                        .HasForeignKey("ProductId")
+                        .HasForeignKey("ProductID")
                         .IsRequired()
                         .HasConstraintName("FK_ProductImage_Products");
 
@@ -848,17 +848,17 @@ namespace SoccerManager.Migrations
                 {
                     b.HasOne("SoccerManager.Models.Category", "Category")
                         .WithMany("Products")
-                        .HasForeignKey("CategoryId")
+                        .HasForeignKey("CategoryID")
                         .HasConstraintName("FK_Products_Category");
 
                     b.HasOne("SoccerManager.Models.Player", "Player")
                         .WithMany("Products")
-                        .HasForeignKey("PlayerId")
+                        .HasForeignKey("PlayerID")
                         .HasConstraintName("FK_Products_Player");
 
                     b.HasOne("SoccerManager.Models.Team", "Team")
                         .WithMany("Products")
-                        .HasForeignKey("TeamId")
+                        .HasForeignKey("TeamID")
                         .IsRequired()
                         .HasConstraintName("FK_Products_Team");
 
@@ -873,7 +873,7 @@ namespace SoccerManager.Migrations
                 {
                     b.HasOne("SoccerManager.Models.Team", "Team")
                         .WithMany("TeamImage")
-                        .HasForeignKey("TeamId")
+                        .HasForeignKey("TeamID")
                         .IsRequired()
                         .HasConstraintName("FK_TeamImage_Team");
 
@@ -884,13 +884,13 @@ namespace SoccerManager.Migrations
                 {
                     b.HasOne("SoccerManager.Models.Player", "Player")
                         .WithMany("TeamPlayerHistory")
-                        .HasForeignKey("PlayerId")
+                        .HasForeignKey("PlayerID")
                         .IsRequired()
                         .HasConstraintName("FK_TeamPlayerHistory_Player");
 
                     b.HasOne("SoccerManager.Models.Team", "Team")
                         .WithMany("TeamPlayerHistory")
-                        .HasForeignKey("TeamId")
+                        .HasForeignKey("TeamID")
                         .IsRequired()
                         .HasConstraintName("FK_TeamPlayerHistory_Team");
 

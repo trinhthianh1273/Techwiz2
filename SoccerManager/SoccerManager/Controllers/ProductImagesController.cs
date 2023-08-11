@@ -35,7 +35,7 @@ namespace SoccerManager.Controllers
 
             var productImage = await _context.ProductImage
                 .Include(p => p.Product)
-                .FirstOrDefaultAsync(m => m.ProductImageId == id);
+                .FirstOrDefaultAsync(m => m.ProductImageID == id);
             if (productImage == null)
             {
                 return NotFound();
@@ -47,7 +47,7 @@ namespace SoccerManager.Controllers
         // GET: ProductImages/Create
         public IActionResult Create()
         {
-            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductId");
+            ViewData["ProductID"] = new SelectList(_context.Products, "ProductID", "ProductID");
             return View();
         }
 
@@ -56,7 +56,7 @@ namespace SoccerManager.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProductImageId,ProductId,ImageUrl")] ProductImage productImage)
+        public async Task<IActionResult> Create([Bind("ProductImageID,ProductID,ImageURL")] ProductImage productImage)
         {
             if (ModelState.IsValid)
             {
@@ -64,7 +64,7 @@ namespace SoccerManager.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductId", productImage.ProductId);
+            ViewData["ProductID"] = new SelectList(_context.Products, "ProductID", "ProductID", productImage.ProductID);
             return View(productImage);
         }
 
@@ -81,7 +81,7 @@ namespace SoccerManager.Controllers
             {
                 return NotFound();
             }
-            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductId", productImage.ProductId);
+            ViewData["ProductID"] = new SelectList(_context.Products, "ProductID", "ProductID", productImage.ProductID);
             return View(productImage);
         }
 
@@ -90,9 +90,9 @@ namespace SoccerManager.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ProductImageId,ProductId,ImageUrl")] ProductImage productImage)
+        public async Task<IActionResult> Edit(int id, [Bind("ProductImageID,ProductID,ImageURL")] ProductImage productImage)
         {
-            if (id != productImage.ProductImageId)
+            if (id != productImage.ProductImageID)
             {
                 return NotFound();
             }
@@ -106,7 +106,7 @@ namespace SoccerManager.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ProductImageExists(productImage.ProductImageId))
+                    if (!ProductImageExists(productImage.ProductImageID))
                     {
                         return NotFound();
                     }
@@ -117,7 +117,7 @@ namespace SoccerManager.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductId", productImage.ProductId);
+            ViewData["ProductID"] = new SelectList(_context.Products, "ProductID", "ProductID", productImage.ProductID);
             return View(productImage);
         }
 
@@ -131,7 +131,7 @@ namespace SoccerManager.Controllers
 
             var productImage = await _context.ProductImage
                 .Include(p => p.Product)
-                .FirstOrDefaultAsync(m => m.ProductImageId == id);
+                .FirstOrDefaultAsync(m => m.ProductImageID == id);
             if (productImage == null)
             {
                 return NotFound();
@@ -161,7 +161,7 @@ namespace SoccerManager.Controllers
 
         private bool ProductImageExists(int id)
         {
-          return (_context.ProductImage?.Any(e => e.ProductImageId == id)).GetValueOrDefault();
+          return (_context.ProductImage?.Any(e => e.ProductImageID == id)).GetValueOrDefault();
         }
     }
 }
