@@ -17,6 +17,11 @@ import { SeriaADialogComponent } from './merchandise/seria-adialog/seria-adialog
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 import { MerchandiseModule } from './merchandise/merchandise.module';
 import { CurrencyPipe } from '@angular/common';
+import { HomeComponent } from './home/home.component';
+import { FooterComponent } from './footer/footer.component';
+import { HomeMainComponent } from './home-main/home-main.component';
+import { HomeMainModule } from './home-main/home-main.module';
+import { Top10Component } from './top10/top10.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,15 +32,20 @@ import { CurrencyPipe } from '@angular/common';
     Ligue1DialogComponent,
     PremierLeagueDialogComponent,
     SeriaADialogComponent,
-    NotFoundPageComponent
+    NotFoundPageComponent,
+    HomeComponent,
+    FooterComponent,
+    HomeMainComponent,
+    Top10Component
   ],
   imports: [
     BrowserModule,
     MerchandiseModule,
+    HomeMainModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    NgbModule,
+    NgbModule
   ],
   providers: [
     {
