@@ -1,7 +1,8 @@
-<p>product-shopping works!</p>
+
 <div >
+    <!-- (click)="buyProduct(product)" -->
     <div class="row-12 row-product" *ngFor="let i of noRowProducts" >
-        <div class="column-4 column-product" *ngFor="let product of products| slice: i:i+3" >
+        <div class="column-4 column-product" *ngFor="let product of products| slice: i:i+3" (click)="buyProduct(product)" >
             <mat-card class="example-card">
                 <mat-card-header>
                   <div  class="example-header-image">
