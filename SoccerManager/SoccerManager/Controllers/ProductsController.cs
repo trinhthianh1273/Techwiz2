@@ -96,7 +96,8 @@ namespace SoccerManager.Controllers
                             ProductId = products.ProductId,
                             ImageUrl = uniqueFileName
                         };
-                        _context.Add(productImage);
+                        _context.Products.Add(products);
+                        _context.ProductImage.Add(productImage);
                         await _context.SaveChangesAsync();
                     }
                 }

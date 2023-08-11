@@ -88,7 +88,7 @@ namespace SoccerManager.Controllers
                 return NotFound();
             }
 
-            var orders = await _context.Orders.FindAsync(id);
+            var orders = _orderRepository.GetResponseById(id);
             if (orders == null)
             {
                 return NotFound();
