@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { Product } from 'src/app/model/product';
+import { ImageTransferService } from 'src/app/shared/product/image-transfer.service';
+import { ProductService } from 'src/app/shared/product/product.service';
 
 @Component({
   selector: 'app-product-shopping',
@@ -97,6 +100,9 @@ export class ProductShoppingComponent implements OnInit {
   }
 ];
   noRowProducts:number[]=[];
+  constructor(private router:Router,private imgTransfer: ImageTransferService){
+
+  }
 ngOnInit(): void {
   for(let i=0;i<this.products.length/3;i++) {
     this.noRowProducts.push(i*3);
@@ -107,4 +113,9 @@ ngOnInit(): void {
 concatUrlImage(product: Product){
   return  ".\\..\\assets\\img"+ product.pictureUrl;
 }
+buyProduct(product: Product){
+  this.imgTransfer.setProductImg(product.pictureUrl);
+  this.router.navigate(['showproduct/',product.productID]);
+}
+
 }

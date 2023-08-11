@@ -9,11 +9,12 @@ import { Product } from 'src/app/model/product';
   providedIn: 'root'
 })
 export class ProductService {
-
+  private _productImg!:string;
   constructor(private httpClient:HttpClient,@Inject(APP_SERVICE_CONFIG)private config: IAppConfig ) {
     
   }
   getProduct$=this.httpClient.get<Product[]>(this.config.apiEndPoint).pipe(
     shareReplay(1)
   );
+  
 }

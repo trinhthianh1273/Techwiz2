@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Details";
+    List < Products> products = Model.ListProduct;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -112,13 +113,16 @@
         </dd>
     </dl>
     <div class="row col-6">
-        @foreach (var item in Model.ListProduct)
+        @foreach (var item in Model.OrderContent)
         {
             <div class="col-6">
-                <img src="~/images/products/" />
+                @*@{
+                    string url = @item.ProductImage.ElementAt(0).ImageUrl;
+                }*@
+                <img src="@Url.Content("~/images/ProductImage/" + item.Product.ProductImage.ElementAt(0).ImageUrl)" style="width: 100px; height: 100px;"/>
                 <div class="row d-flex">
-                    <p class="col-auto">Chưa hiển thị đc ảnh</p>
-                    <p class="col-auto">100</p>
+                    <p class="col-auto">@item.Product.ProductName</p>
+                    <p class="col-auto">@item.Price</p>
                 </div>
             </div>
         }

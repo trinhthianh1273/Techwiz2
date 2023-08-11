@@ -41,6 +41,10 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "MailKit": {
+              "target": "Package",
+              "version": "[4.1.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[7.0.10, )"
@@ -64,6 +68,14 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[7.0.10, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[7.0.9, )"
+            },
+            "MimeKit": {
+              "target": "Package",
+              "version": "[4.1.0, )"
             },
             "System.Composition": {
               "target": "Package",

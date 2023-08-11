@@ -16,5 +16,5 @@ mat-card-footer{
     font-size: larger;
 }
 .column-product{
-    flex-grow: 1;
+    width: 33%;
 }

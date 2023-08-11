@@ -5,6 +5,7 @@ import { MerchandiseRoutingModule } from './merchandise-routing.module';
 import { ProductShoppingComponent } from './product-shopping/product-shopping.component';
 import { ShoppingComponent } from './shopping/shopping.component';
 import { MaterialModule } from '../material/material.module';
+import { ShowProductComponent } from './show-product/show-product.component';
 
 
 
@@ -12,7 +13,8 @@ import { MaterialModule } from '../material/material.module';
   declarations: [
     MerchandiseComponent,
     ProductShoppingComponent,
-    ShoppingComponent
+    ShoppingComponent,
+    ShowProductComponent
   ],
   imports: [
     CommonModule,

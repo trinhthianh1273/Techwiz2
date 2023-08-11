@@ -465,8 +465,7 @@ namespace SoccerManager.Migrations
 
                     b.Property<string>("ImageUrl")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)")
+                        .HasColumnType("nvarchar(max)")
                         .HasColumnName("ImageURL");
 
                     b.Property<int>("PlayerId")
@@ -491,8 +490,7 @@ namespace SoccerManager.Migrations
 
                     b.Property<string>("ImageUrl")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)")
+                        .HasColumnType("nvarchar(max)")
                         .HasColumnName("ImageURL");
 
                     b.Property<int>("ProductId")
@@ -509,8 +507,11 @@ namespace SoccerManager.Migrations
             modelBuilder.Entity("SoccerManager.Models.Products", b =>
                 {
                     b.Property<int>("ProductId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("ProductID");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductId"));
 
                     b.Property<int?>("CategoryId")
                         .HasColumnType("int")
@@ -636,8 +637,7 @@ namespace SoccerManager.Migrations
 
                     b.Property<string>("ImageUrl")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)")
+                        .HasColumnType("nvarchar(max)")
                         .HasColumnName("ImageURL");
 
                     b.Property<int>("TeamId")
