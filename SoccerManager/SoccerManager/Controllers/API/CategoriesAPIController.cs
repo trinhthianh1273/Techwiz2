@@ -54,7 +54,7 @@ namespace SoccerManager.Controllers.API
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCategory(int id, Category category)
         {
-            if (id != category.CategoryID)
+            if (id != category.CategoryId)
             {
                 return BadRequest();
             }
@@ -96,7 +96,7 @@ namespace SoccerManager.Controllers.API
             }
             catch (DbUpdateException)
             {
-                if (CategoryExists(category.CategoryID))
+                if (CategoryExists(category.CategoryId))
                 {
                     return Conflict();
                 }
@@ -106,7 +106,7 @@ namespace SoccerManager.Controllers.API
                 }
             }
 
-            return CreatedAtAction("GetCategory", new { id = category.CategoryID }, category);
+            return CreatedAtAction("GetCategory", new { id = category.CategoryId }, category);
         }
 
         // DELETE: api/CategoriesAPI/5
@@ -131,7 +131,7 @@ namespace SoccerManager.Controllers.API
 
         private bool CategoryExists(int id)
         {
-            return (_context.Category?.Any(e => e.CategoryID == id)).GetValueOrDefault();
+            return (_context.Category?.Any(e => e.CategoryId == id)).GetValueOrDefault();
         }
     }
 }

@@ -35,7 +35,7 @@ namespace SoccerManager.Controllers
             }
 
             var category = await _context.Category
-                .FirstOrDefaultAsync(m => m.CategoryID == id);
+                .FirstOrDefaultAsync(m => m.CategoryId == id);
             if (category == null)
             {
                 return NotFound();
@@ -55,7 +55,7 @@ namespace SoccerManager.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CategoryID,CategoryName,CategoryDescription")] Category category)
+        public async Task<IActionResult> Create([Bind("CategoryId,CategoryName,CategoryDescription")] Category category)
         {
             if (ModelState.IsValid)
             {
@@ -87,9 +87,9 @@ namespace SoccerManager.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CategoryID,CategoryName,CategoryDescription")] Category category)
+        public async Task<IActionResult> Edit(int id, [Bind("CategoryId,CategoryName,CategoryDescription")] Category category)
         {
-            if (id != category.CategoryID)
+            if (id != category.CategoryId)
             {
                 return NotFound();
             }
@@ -103,7 +103,7 @@ namespace SoccerManager.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CategoryExists(category.CategoryID))
+                    if (!CategoryExists(category.CategoryId))
                     {
                         return NotFound();
                     }
@@ -126,7 +126,7 @@ namespace SoccerManager.Controllers
             }
 
             var category = await _context.Category
-                .FirstOrDefaultAsync(m => m.CategoryID == id);
+                .FirstOrDefaultAsync(m => m.CategoryId == id);
             if (category == null)
             {
                 return NotFound();
@@ -156,7 +156,7 @@ namespace SoccerManager.Controllers
 
         private bool CategoryExists(int id)
         {
-          return (_context.Category?.Any(e => e.CategoryID == id)).GetValueOrDefault();
+          return (_context.Category?.Any(e => e.CategoryId == id)).GetValueOrDefault();
         }
     }
 }

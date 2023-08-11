@@ -54,7 +54,7 @@ namespace SoccerManager.Controllers.API
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCompetition(int id, Competition competition)
         {
-            if (id != competition.CompetitionID)
+            if (id != competition.CompetitionId)
             {
                 return BadRequest();
             }
@@ -92,7 +92,7 @@ namespace SoccerManager.Controllers.API
             _context.Competition.Add(competition);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCompetition", new { id = competition.CompetitionID }, competition);
+            return CreatedAtAction("GetCompetition", new { id = competition.CompetitionId }, competition);
         }
 
         // DELETE: api/CompetitionsAPI/5
@@ -117,7 +117,7 @@ namespace SoccerManager.Controllers.API
 
         private bool CompetitionExists(int id)
         {
-            return (_context.Competition?.Any(e => e.CompetitionID == id)).GetValueOrDefault();
+            return (_context.Competition?.Any(e => e.CompetitionId == id)).GetValueOrDefault();
         }
     }
 }

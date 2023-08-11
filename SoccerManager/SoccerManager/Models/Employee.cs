@@ -3,23 +3,24 @@
 using System;
 using System.Collections.Generic;
 
-namespace SoccerManager.Models;
-
-public partial class Employee
+namespace SoccerManager.Models
 {
-    public int EmployeeID { get; set; }
+    public partial class Employee
+    {
+        public Employee()
+        {
+            News = new HashSet<News>();
+            Orders = new HashSet<Orders>();
+        }
 
-    public string FullName { get; set; }
+        public int EmployeeId { get; set; }
+        public string FullName { get; set; }
+        public string UserName { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
+        public string Role { get; set; }
 
-    public string UserName { get; set; }
-
-    public string Email { get; set; }
-
-    public string Password { get; set; }
-
-    public string Role { get; set; }
-
-    public virtual ICollection<News> News { get; set; } = new List<News>();
-
-    public virtual ICollection<Orders> Orders { get; set; } = new List<Orders>();
+        public virtual ICollection<News> News { get; set; }
+        public virtual ICollection<Orders> Orders { get; set; }
+    }
 }
