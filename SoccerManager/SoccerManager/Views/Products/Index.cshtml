@@ -78,7 +78,17 @@
                 @Html.DisplayFor(modelItem => item.Team.ShortName)
             </td>
             <td>
+<<<<<<< HEAD
                 <img src="@Url.Content("~/images/" + item.ProductImage.ElementAt(0).ImageUrl)" alt="Image" style="width: 100px">
+=======
+                    @{
+                        if(item.ProductImage.Count() > 0)
+                        {
+                            <img src="@Url.Content("~/images/" + item.ProductImage.ElementAt(0).ImageUrl)" alt="Image" style="width: 100px">
+
+                        }
+                    }
+>>>>>>> Develop
             </td>
 
             <td>

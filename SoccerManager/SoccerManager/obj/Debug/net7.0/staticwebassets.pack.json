@@ -226,6 +226,7 @@
     },
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
       "Id": "C:\\Users\\viper\\Desktop\\real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\product_Screenshot 2023-07-27 193136_29f74749-6964-4dee-bc18-af95aee1eba2.png",
       "PackagePath": "staticwebassets\\images\\ProductImage\\product_Screenshot 2023-07-27 193136_29f74749-6964-4dee-bc18-af95aee1eba2.png"
     },
@@ -288,6 +289,8 @@
     {
       "Id": "C:\\Users\\viper\\Desktop\\real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\js\\site.js",
 =======
+=======
+>>>>>>> Develop
       "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\TeamLogos\\team_78907faf8f3e23904b8987ec83a59891_a88df706-ceec-475b-93de-7cbee3b0c083.jpg",
       "PackagePath": "staticwebassets\\images\\TeamLogos\\team_78907faf8f3e23904b8987ec83a59891_a88df706-ceec-475b-93de-7cbee3b0c083.jpg"
     },
@@ -341,6 +344,9 @@
     },
     {
       "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\js\\site.js",
+<<<<<<< HEAD
+>>>>>>> Develop
+=======
 >>>>>>> Develop
       "PackagePath": "staticwebassets\\js\\site.js"
     },

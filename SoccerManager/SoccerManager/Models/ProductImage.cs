@@ -3,26 +3,15 @@
 using System;
 using System.Collections.Generic;
 
-namespace SoccerManager.Models
+namespace SoccerManager.Models;
+
+public partial class ProductImage
 {
-    public partial class ProductImage
-    {
-        public int ProductImageId { get; set; }
-        public int ProductId { get; set; }
-        public string ImageUrl { get; set; }
+    public int ProductImageID { get; set; }
 
-        public virtual Products Product { get; set; }
+    public int ProductID { get; set; }
 
-        public ProductImage()
-        {
-        }
+    public string ImageURL { get; set; }
 
-        public ProductImage(int productImageId, int productId, string imageUrl, Products product)
-        {
-            ProductImageId = productImageId;
-            ProductId = productId;
-            ImageUrl = imageUrl;
-            Product = product;
-        }
-    }
+    public virtual Products Product { get; set; }
 }

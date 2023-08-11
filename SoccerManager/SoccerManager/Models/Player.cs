@@ -3,29 +3,35 @@
 using System;
 using System.Collections.Generic;
 
-namespace SoccerManager.Models
+namespace SoccerManager.Models;
+
+public partial class Player
 {
-    public partial class Player
-    {
-        public Player()
-        {
-            PlayerImage = new HashSet<PlayerImage>();
-            Products = new HashSet<Products>();
-            TeamPlayerHistory = new HashSet<TeamPlayerHistory>();
-        }
+    public int PlayerID { get; set; }
 
-        public int PlayerId { get; set; }
-        public string FullName { get; set; }
-        public DateTime Dob { get; set; }
-        public string Pob { get; set; }
-        public int Height { get; set; }
-        public string Position { get; set; }
-        public int? CurrentTeam { get; set; }
-        public int? Number { get; set; }
+    public string FullName { get; set; }
 
-        public virtual Team CurrentTeamNavigation { get; set; }
-        public virtual ICollection<PlayerImage> PlayerImage { get; set; }
-        public virtual ICollection<Products> Products { get; set; }
-        public virtual ICollection<TeamPlayerHistory> TeamPlayerHistory { get; set; }
-    }
+    public DateTime Dob { get; set; }
+
+    public string Pob { get; set; }
+
+    public int Height { get; set; }
+
+    public string Position { get; set; }
+
+    public int? CurrentTeam { get; set; }
+
+    public int? Number { get; set; }
+
+    public int? Scores { get; set; }
+
+    public virtual Team CurrentTeamNavigation { get; set; }
+
+    public virtual ICollection<PlayerImage> PlayerImage { get; set; } = new List<PlayerImage>();
+
+    public virtual ICollection<PlayerScore> PlayerScore { get; set; } = new List<PlayerScore>();
+
+    public virtual ICollection<Products> Products { get; set; } = new List<Products>();
+
+    public virtual ICollection<TeamPlayerHistory> TeamPlayerHistory { get; set; } = new List<TeamPlayerHistory>();
 }

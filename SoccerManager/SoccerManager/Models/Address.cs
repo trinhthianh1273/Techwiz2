@@ -3,22 +3,21 @@
 using System;
 using System.Collections.Generic;
 
-namespace SoccerManager.Models
+namespace SoccerManager.Models;
+
+public partial class Address
 {
-    public partial class Address
-    {
-        public Address()
-        {
-            Orders = new HashSet<Orders>();
-        }
+    public int AddressID { get; set; }
 
-        public int AddressId { get; set; }
-        public int CustomerId { get; set; }
-        public string ReceiverName { get; set; }
-        public string PhoneNumber { get; set; }
-        public string Address1 { get; set; }
+    public int CustomerID { get; set; }
 
-        public virtual Customer Customer { get; set; }
-        public virtual ICollection<Orders> Orders { get; set; }
-    }
+    public string ReceiverName { get; set; }
+
+    public string PhoneNumber { get; set; }
+
+    public string Address1 { get; set; }
+
+    public virtual Customer Customer { get; set; }
+
+    public virtual ICollection<Orders> Orders { get; set; } = new List<Orders>();
 }

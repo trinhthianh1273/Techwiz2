@@ -1185,7 +1185,10 @@
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\TeamLogos\team_78907faf8f3e23904b8987ec83a59891_a88df706-ceec-475b-93de-7cbee3b0c083.jpg))</OriginalItemSpec>
     </StaticWebAsset>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> Develop
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\js\appear.js))">
       <SourceType>Package</SourceType>
       <SourceId>SoccerManager</SourceId>
@@ -1314,6 +1317,9 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\js\prettyPhoto.js))</OriginalItemSpec>
     </StaticWebAsset>
+<<<<<<< HEAD
+>>>>>>> Develop
+=======
 >>>>>>> Develop
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\js\site.js))">
       <SourceType>Package</SourceType>
