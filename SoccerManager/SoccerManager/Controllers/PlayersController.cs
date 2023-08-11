@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using SoccerManager.Interfaces;
 using SoccerManager.Models;
 
 namespace SoccerManager.Controllers
@@ -8,10 +9,15 @@ namespace SoccerManager.Controllers
     public class PlayersController : Controller
     {
         private readonly SoccerContext _context;
+        private readonly IFileUploadService _fileUploadService;
+        private readonly string ImgDir = "PlayerImages";
+        private readonly string ImgType = "player";
 
-        public PlayersController(SoccerContext context)
+        public PlayersController(SoccerContext context, IFileUploadService fileUploadService)
         {
             _context = context;
+            _fileUploadService = fileUploadService;
+
         }
 
         // GET: Players
@@ -42,6 +48,37 @@ namespace SoccerManager.Controllers
             return View(player);
         }
 
+        // GET: Players/Details/5
+        // Get Player detail
+        public async Task<IActionResult> PlayerInfomation(int? id)
+        {
+            if (id == null || _context.Player == null)
+            {
+                return NotFound();
+            }
+            var playerImage = await _context.PlayerImage
+                .Include(p => p.Player)
+                .FirstOrDefaultAsync(m => m.PlayerId == id);
+            if (playerImage == null)
+            {
+                ViewBag.PlayerImage = null;
+            }
+            else
+            {
+                ViewBag.PlayerImage = playerImage.ImageUrl;
+            }
+
+            var player = await _context.Player
+                .Include(p => p.CurrentTeamNavigation)
+                .FirstOrDefaultAsync(m => m.PlayerId == id);
+            if (player == null)
+            {
+                return NotFound();
+            }
+
+            return View(player);
+        }
+
         // GET: Players/Create
         public IActionResult Create()
         {
@@ -53,16 +90,49 @@ namespace SoccerManager.Controllers
         // Handle Create Player request
         [HttpPost]
         [ValidateAntiForgeryToken]
+<<<<<<< HEAD
         public async Task<IActionResult> Create([Bind("PlayerID,FullName,Dob,Pob,Height,Position,CurrentTeam,Number")] Player player, IFormFile file)
+=======
+        public async Task<IActionResult> Create(
+            [Bind("PlayerId,FullName,Dob,Pob,Height,Position,CurrentTeam,Number")] Player player,
+            List<IFormFile> files)
+>>>>>>> 8e2198406ca71f7daec9266d036d70ebd9a4995d
         {
             if (ModelState.IsValid)
             {
-                //add player information
+                //add product to database
                 _context.Add(player);
                 await _context.SaveChangesAsync();
 
-                //upload player image
+                //get last inserted product id
+                var lastInsertedId = player.PlayerId;
 
+                //check request files
+                if (files != null)
+                {
+                    //upload image to folder and image nam to database
+                    foreach (var item in files)
+                    {
+                        try
+                        {
+                            //upload image and get file name
+                            string imgName = ImgDir + "/" + await _fileUploadService.UploadFile(item, ImgDir, ImgType);
+                            //save filename to database
+                            PlayerImage playerImage = new()
+                            {
+                                PlayerId = lastInsertedId,
+                                ImageUrl = imgName
+                            };
+                            _context.PlayerImage.Add(playerImage);
+                            await _context.SaveChangesAsync();
+                        }
+                        catch (Exception ex)
+                        {
+                            //Log ex
+                            ViewBag.Message = "File Upload Failed";
+                        }
+                    }
+                }
 
                 return RedirectToAction(nameof(Index));
             }
@@ -84,7 +154,15 @@ namespace SoccerManager.Controllers
             {
                 return NotFound();
             }
+<<<<<<< HEAD
             ViewData["CurrentTeam"] = new SelectList(_context.Team, "TeamID", "FullName", player.CurrentTeam);
+=======
+
+
+            ViewData["CurrentTeam"] = new SelectList(_context.Team, "TeamId", "FullName", player.CurrentTeam);
+
+            ViewBag.PlayerImages = _context.PlayerImage.Where(p => p.PlayerId == id).ToList();
+>>>>>>> 8e2198406ca71f7daec9266d036d70ebd9a4995d
             return View(player);
         }
 

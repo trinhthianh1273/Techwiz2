@@ -1,0 +1,49 @@
+﻿@model IEnumerable<SoccerManager.Models.Team>
+
+@{
+    ViewData["Title"] = "ListTeam";
+    Layout = "~/Views/Shared/_Main_Layout.cshtml";
+}
+
+<h2>List Team</h2>
+
+<!--************************************
+		Main Start
+*************************************-->
+<main id="tg-main" class="tg-main tg-haslayout">
+	<!--************************************
+			Soccer Media Start
+	*************************************-->
+	<section class="tg-main-section tg-soccermedia tg-haslayout">
+		<div id="tg-soccermediascrollbar" class="tg-soccermediascrollbar">
+			<div id="filter-masonry" class="tg-soccermedia-content tg-haslayout">
+				<!-- League -->
+
+                @foreach(var item in Model)
+                {
+                    <div class="masonry-grid laliga m-1">
+                        <div class="tg-project">
+                            <figure class="tg-postimg">
+                                <a asp-action="Details" asp-route-id="model.TeamId">
+                                    <img src="@Url.Content("~/images/" + item.LogoURL)" alt="">
+                                </a>
+                                <a asp-action="Details" asp-route-id="model.TeamId" class="tg-btn">
+                                    @Html.DisplayFor(modelItem => item.FullName)
+                                </a>
+                            </figure>
+                        </div>
+                    </div>
+                }
+
+			</div>
+		</div>
+	</section>
+
+	<!--************************************
+			Soccer Media End
+	*************************************-->
+
+</main>
+<!--************************************
+		Main End
+*************************************-->

@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Product list</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -78,6 +78,9 @@
                 @Html.DisplayFor(modelItem => item.Team.ShortName)
             </td>
             <td>
+<<<<<<< HEAD
+                <img src="@Url.Content("~/images/" + item.ProductImage.ElementAt(0).ImageUrl)" alt="Image" style="width: 100px">
+=======
                     @{
                         if(item.ProductImage.Count() > 0)
                         {
@@ -85,6 +88,7 @@
 
                         }
                     }
+>>>>>>> Develop
             </td>
 
             <td>
