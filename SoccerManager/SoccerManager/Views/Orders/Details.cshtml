@@ -2,7 +2,11 @@
 
 @{
     ViewData["Title"] = "Details";
+<<<<<<< HEAD
+    List < Products> products = Model.ListProduct;
+=======
     List<Products> products = Model.ListProduct;
+>>>>>>> Develop
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -214,10 +218,16 @@
         {
             <div class="col-6">
                 @*@{
+<<<<<<< HEAD
+                    string url = @item.ProductImage.ElementAt(0).ImageUrl;
+                }*@
+                <img src="@Url.Content("~/images/ProductImage/" + item.Product.ProductImage.ElementAt(0).ImageUrl)" style="width: 100px; height: 100px;"/>
+=======
             string url = @item.ProductImage.ElementAt(0).ImageUrl;
             }*@
                 <img src="@Url.Content("~/images/ProductImage/" + item.Product.ProductImage.ElementAt(0).ImageUrl)"
                     style="width: 100px; height: 100px;" />
+>>>>>>> Develop
                 <div class="row d-flex">
                     <p class="col-auto">@item.Product.ProductName</p>
                     <p class="col-auto">@item.Price</p>
