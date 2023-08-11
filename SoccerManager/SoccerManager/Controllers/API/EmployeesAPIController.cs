@@ -54,7 +54,7 @@ namespace SoccerManager.Controllers.API
         [HttpPut("{id}")]
         public async Task<IActionResult> PutEmployee(int id, Employee employee)
         {
-            if (id != employee.EmployeeID)
+            if (id != employee.EmployeeId)
             {
                 return BadRequest();
             }
@@ -92,7 +92,7 @@ namespace SoccerManager.Controllers.API
             _context.Employee.Add(employee);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetEmployee", new { id = employee.EmployeeID }, employee);
+            return CreatedAtAction("GetEmployee", new { id = employee.EmployeeId }, employee);
         }
 
         // DELETE: api/EmployeesAPI/5
@@ -117,7 +117,7 @@ namespace SoccerManager.Controllers.API
 
         private bool EmployeeExists(int id)
         {
-            return (_context.Employee?.Any(e => e.EmployeeID == id)).GetValueOrDefault();
+            return (_context.Employee?.Any(e => e.EmployeeId == id)).GetValueOrDefault();
         }
     }
 }

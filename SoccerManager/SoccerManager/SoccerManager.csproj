@@ -25,13 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-<<<<<<< HEAD
-    <Folder Include="wwwroot\images\TeamLogos\" />
-  </ItemGroup>
-
-=======
     <Folder Include="Models\" />
-    <Folder Include="Model1\" />
     <Folder Include="Views\ForCustomer\" />
     <Folder Include="wwwroot\images\TeamLogos\" />
   </ItemGroup>
@@ -55,5 +49,4 @@
     <None Include="Views\Teams\Uploadfile.cshtml" />
   </ItemGroup>
 
->>>>>>> Develop
 </Project>

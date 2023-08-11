@@ -11,7 +11,7 @@
     <div class="col-6">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="OrderID" />
+            <input type="hidden" asp-for="OrderId" />
             <div class="form-group row mb-2">
                 <div class="col-4">
                     <label asp-for="OrderDate" class="control-label"></label>
@@ -26,8 +26,8 @@
                     <label class="control-label">Customer</label>
                 </div>
                 <div class="col-8">
-                    <select asp-for="CustomerID" class="form-control" asp-items="ViewBag.CustomerID"></select>
-                    <span asp-validation-for="CustomerID" class="text-danger"></span>
+                    <select asp-for="CustomerId" class="form-control" asp-items="ViewBag.CustomerId"></select>
+                    <span asp-validation-for="CustomerId" class="text-danger"></span>
                 </div>
             </div>
             <div class="form-group row mb-2">
@@ -37,7 +37,7 @@
                 <div class="col-8">
                     <input asp-for="ShippedDate" class="form-control" />
                     @*<input type="date" asp-for="ShippedDate" class="form-control" />*@
-                    <span asp-validation-for="ShippedDate" class="text-danger"></span><span asp-validation-for="CustomerID" class="text-danger"></span>
+                    <span asp-validation-for="ShippedDate" class="text-danger"></span><span asp-validation-for="CustomerId" class="text-danger"></span>
                 </div>
             </div>
             <div class="form-group row mb-2">
@@ -46,8 +46,8 @@
                 </div>
                 <div class="col-8">
                     @*<label class="control-label">@Model.Address.Address1 - @Model.Address.ReceiverName</label>*@
-                    <select asp-for="AddressID" class="form-control" asp-items="ViewBag.AddressID"></select>
-                    <span asp-validation-for="AddressID" class="text-danger"></span>
+                    <select asp-for="AddressId" class="form-control" asp-items="ViewBag.AddressId"></select>
+                    <span asp-validation-for="AddressId" class="text-danger"></span>
                 </div>
             </div>
             <div class="form-group row mb-2">
@@ -73,8 +73,8 @@
                     <label asp-for="Status" class="control-label"></label>
                 </div>
                 <div class="col-8">
-                    <select asp-for="StatusID" class="form-control" asp-items="ViewBag.StatusID"></select>
-                    <span asp-validation-for="StatusID" class="text-danger"></span>
+                    <select asp-for="StatusId" class="form-control" asp-items="ViewBag.StatusId"></select>
+                    <span asp-validation-for="StatusId" class="text-danger"></span>
                 </div>
             </div>
 
@@ -83,8 +83,8 @@
                     <label class="control-label">Employee</label>
                 </div>
                 <div class="col-8">
-                    <select asp-for="EmployeeID" class="form-control" asp-items="ViewBag.EmployeeID"></select>
-                    <span asp-validation-for="EmployeeID" class="text-danger"></span>
+                    <select asp-for="EmployeeId" class="form-control" asp-items="ViewBag.EmployeeId"></select>
+                    <span asp-validation-for="EmployeeId" class="text-danger"></span>
                 </div>
             </div>
             <div class="form-group row mb-2">
@@ -92,8 +92,8 @@
                     <label class="control-label">Payment Method</label>
                 </div>
                 <div class="col-8">
-                    <select asp-for="PaymentMethodID" class="form-control" asp-items="ViewBag.PaymentMethodID"></select>
-                    <span asp-validation-for="PaymentMethodID" class="text-danger"></span>
+                    <select asp-for="PaymentMethodId" class="form-control" asp-items="ViewBag.PaymentMethodId"></select>
+                    <span asp-validation-for="PaymentMethodId" class="text-danger"></span>
                 </div>
             </div>
 
@@ -109,7 +109,7 @@
                                     { 1, "Done" }
                                 };
                     }
-                    <select asp-for="PaymentMethodID" class="form-control">
+                    <select asp-for="PaymentMethodId" class="form-control">
                         @foreach (var item in ps)
                         {
                             <option value="@item.Key">@item.Value</option>
@@ -185,10 +185,10 @@
                 {
                     <tr>
                         <th>
-                            <img src="@Url.Content("~/images/ProductImage/" + item.Product.ProductImage.ElementAt(0).ImageURL)"
+                            <img src="@Url.Content("~/images/ProductImage/" + item.Product.ProductImage.ElementAt(0).ImageUrl)"
                                  style="width: 200px; height: 200px;" />
                         </th>
-                        <td scope="col">@item.Product.ProductID</td>
+                        <td scope="col">@item.Product.ProductId</td>
                         <td scope="col">@item.Product.ProductName</td>
                         <td scope="col">@item.Price</td>
                         <input />
@@ -200,10 +200,10 @@
                     {
                         <tr>
                             <th>
-                                <img src="@Url.Content("~/images/ProductImage/" + item.Product.ProductImage.ElementAt(0).ImageURL)"
+                                <img src="@Url.Content("~/images/ProductImage/" + item.Product.ProductImage.ElementAt(0).ImageUrl)"
                                      style="width: 200px; height: 200px;" />
                             </th>
-                            <td scope="col">@item.Product.ProductID</td>
+                            <td scope="col">@item.Product.ProductId</td>
                             <td scope="col">@item.Product.ProductName</td>
                             <td scope="col">@item.Price</td>
                             <input />

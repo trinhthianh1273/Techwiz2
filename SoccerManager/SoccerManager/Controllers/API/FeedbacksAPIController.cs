@@ -54,7 +54,7 @@ namespace SoccerManager.Controllers.API
         [HttpPut("{id}")]
         public async Task<IActionResult> PutFeedback(int id, Feedback feedback)
         {
-            if (id != feedback.FeedbackID)
+            if (id != feedback.FeedbackId)
             {
                 return BadRequest();
             }
@@ -92,7 +92,7 @@ namespace SoccerManager.Controllers.API
             _context.Feedback.Add(feedback);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetFeedback", new { id = feedback.FeedbackID }, feedback);
+            return CreatedAtAction("GetFeedback", new { id = feedback.FeedbackId }, feedback);
         }
 
         // DELETE: api/FeedbacksAPI/5
@@ -117,7 +117,7 @@ namespace SoccerManager.Controllers.API
 
         private bool FeedbackExists(int id)
         {
-            return (_context.Feedback?.Any(e => e.FeedbackID == id)).GetValueOrDefault();
+            return (_context.Feedback?.Any(e => e.FeedbackId == id)).GetValueOrDefault();
         }
     }
 }

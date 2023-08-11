@@ -54,7 +54,7 @@ namespace SoccerManager.Controllers.API
         [HttpPut("{id}")]
         public async Task<IActionResult> PutOrderContent(int id, OrderContent orderContent)
         {
-            if (id != orderContent.OrderContentID)
+            if (id != orderContent.OrderContentId)
             {
                 return BadRequest();
             }
@@ -92,7 +92,7 @@ namespace SoccerManager.Controllers.API
             _context.OrderContent.Add(orderContent);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetOrderContent", new { id = orderContent.OrderContentID }, orderContent);
+            return CreatedAtAction("GetOrderContent", new { id = orderContent.OrderContentId }, orderContent);
         }
 
         // DELETE: api/OrderContentsAPI/5
@@ -117,7 +117,7 @@ namespace SoccerManager.Controllers.API
 
         private bool OrderContentExists(int id)
         {
-            return (_context.OrderContent?.Any(e => e.OrderContentID == id)).GetValueOrDefault();
+            return (_context.OrderContent?.Any(e => e.OrderContentId == id)).GetValueOrDefault();
         }
     }
 }

@@ -54,7 +54,7 @@ namespace SoccerManager.Controllers.API
         [HttpPut("{id}")]
         public async Task<IActionResult> PutAddress(int id, Address address)
         {
-            if (id != address.AddressID)
+            if (id != address.AddressId)
             {
                 return BadRequest();
             }
@@ -92,7 +92,7 @@ namespace SoccerManager.Controllers.API
             _context.Address.Add(address);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetAddress", new { id = address.AddressID }, address);
+            return CreatedAtAction("GetAddress", new { id = address.AddressId }, address);
         }
 
         // DELETE: api/AddressesAPI/5
@@ -117,7 +117,7 @@ namespace SoccerManager.Controllers.API
 
         private bool AddressExists(int id)
         {
-            return (_context.Address?.Any(e => e.AddressID == id)).GetValueOrDefault();
+            return (_context.Address?.Any(e => e.AddressId == id)).GetValueOrDefault();
         }
     }
 }
