@@ -317,8 +317,48 @@
       "PackagePath": "staticwebassets\\images\\ProductImage\\product_logo_94a35824-ff7e-411e-9007-c0d05f40d366.png"
     },
     {
+      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\TeamLogos\\team_0iShHhASp5q1SL4JhtwJiw_96x96_bc42caf7-838e-4214-b3b3-545116e04cb9.png",
+      "PackagePath": "staticwebassets\\images\\TeamLogos\\team_0iShHhASp5q1SL4JhtwJiw_96x96_bc42caf7-838e-4214-b3b3-545116e04cb9.png"
+    },
+    {
+      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\TeamLogos\\team_4us2nCgl6kgZc0t3hpW75Q_96x96_87407bc9-32c0-41ff-82db-e384f84569a0.png",
+      "PackagePath": "staticwebassets\\images\\TeamLogos\\team_4us2nCgl6kgZc0t3hpW75Q_96x96_87407bc9-32c0-41ff-82db-e384f84569a0.png"
+    },
+    {
       "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\TeamLogos\\team_78907faf8f3e23904b8987ec83a59891_a88df706-ceec-475b-93de-7cbee3b0c083.jpg",
       "PackagePath": "staticwebassets\\images\\TeamLogos\\team_78907faf8f3e23904b8987ec83a59891_a88df706-ceec-475b-93de-7cbee3b0c083.jpg"
+    },
+    {
+      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\TeamLogos\\team_UDYY4FSlty6fXFBzvFfcyw_96x96_1df24329-606e-41e1-9018-625a8e853096.png",
+      "PackagePath": "staticwebassets\\images\\TeamLogos\\team_UDYY4FSlty6fXFBzvFfcyw_96x96_1df24329-606e-41e1-9018-625a8e853096.png"
+    },
+    {
+      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\TeamLogos\\team_bXkiyIzsbDip3x2FFcUU3A_96x96_1f33a56f-716e-44d9-b076-63733dde2c74.png",
+      "PackagePath": "staticwebassets\\images\\TeamLogos\\team_bXkiyIzsbDip3x2FFcUU3A_96x96_1f33a56f-716e-44d9-b076-63733dde2c74.png"
+    },
+    {
+      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\TeamLogos\\team_fhBITrIlbQxhVB6IjxUO6Q_96x96_d03fd05b-078b-4afd-823a-84cf082aa85b.png",
+      "PackagePath": "staticwebassets\\images\\TeamLogos\\team_fhBITrIlbQxhVB6IjxUO6Q_96x96_d03fd05b-078b-4afd-823a-84cf082aa85b.png"
+    },
+    {
+      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\TeamLogos\\team_k3Q_mKE98Dnohrcea0JFgQ_96x96_b2106feb-2954-4394-9d20-2a9de9632a8d.png",
+      "PackagePath": "staticwebassets\\images\\TeamLogos\\team_k3Q_mKE98Dnohrcea0JFgQ_96x96_b2106feb-2954-4394-9d20-2a9de9632a8d.png"
+    },
+    {
+      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\TeamLogos\\team_mancity_13de501f-7ca0-4a1b-99cf-7e2814f0b2fa.png",
+      "PackagePath": "staticwebassets\\images\\TeamLogos\\team_mancity_13de501f-7ca0-4a1b-99cf-7e2814f0b2fa.png"
+    },
+    {
+      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\TeamLogos\\team_udQ6ns69PctCv143h-GeYw_96x96_c34e4269-7725-458a-a51e-f33891c54647.png",
+      "PackagePath": "staticwebassets\\images\\TeamLogos\\team_udQ6ns69PctCv143h-GeYw_96x96_c34e4269-7725-458a-a51e-f33891c54647.png"
+    },
+    {
+      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\TeamLogos\\team_uyNNelfnFvCEnsLrUL-j2Q_96x96_c87ab328-631e-48cf-90c6-f6f3c30d5353.png",
+      "PackagePath": "staticwebassets\\images\\TeamLogos\\team_uyNNelfnFvCEnsLrUL-j2Q_96x96_c87ab328-631e-48cf-90c6-f6f3c30d5353.png"
+    },
+    {
+      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\TeamLogos\\team_werder_f4819875-2f8d-49f7-a358-455f35a02fd9.png",
+      "PackagePath": "staticwebassets\\images\\TeamLogos\\team_werder_f4819875-2f8d-49f7-a358-455f35a02fd9.png"
     },
     {
       "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\aaron.jpg",
@@ -339,6 +379,70 @@
     {
       "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\logo2.png",
       "PackagePath": "staticwebassets\\images\\logo2.png"
+    },
+    {
+      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\team-logo\\acmilan.png",
+      "PackagePath": "staticwebassets\\images\\team-logo\\acmilan.png"
+    },
+    {
+      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\team-logo\\ajax.png",
+      "PackagePath": "staticwebassets\\images\\team-logo\\ajax.png"
+    },
+    {
+      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\team-logo\\arsenal.png",
+      "PackagePath": "staticwebassets\\images\\team-logo\\arsenal.png"
+    },
+    {
+      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\team-logo\\barcelona.png",
+      "PackagePath": "staticwebassets\\images\\team-logo\\barcelona.png"
+    },
+    {
+      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\team-logo\\bayern.png",
+      "PackagePath": "staticwebassets\\images\\team-logo\\bayern.png"
+    },
+    {
+      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\team-logo\\burnley.png",
+      "PackagePath": "staticwebassets\\images\\team-logo\\burnley.png"
+    },
+    {
+      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\team-logo\\cincinnati.png",
+      "PackagePath": "staticwebassets\\images\\team-logo\\cincinnati.png"
+    },
+    {
+      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\team-logo\\dallas.png",
+      "PackagePath": "staticwebassets\\images\\team-logo\\dallas.png"
+    },
+    {
+      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\team-logo\\dortmund.png",
+      "PackagePath": "staticwebassets\\images\\team-logo\\dortmund.png"
+    },
+    {
+      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\team-logo\\getafe.png",
+      "PackagePath": "staticwebassets\\images\\team-logo\\getafe.png"
+    },
+    {
+      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\team-logo\\intermiami.png",
+      "PackagePath": "staticwebassets\\images\\team-logo\\intermiami.png"
+    },
+    {
+      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\team-logo\\logo-l-02.png",
+      "PackagePath": "staticwebassets\\images\\team-logo\\logo-l-02.png"
+    },
+    {
+      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\team-logo\\logo-s-01.png",
+      "PackagePath": "staticwebassets\\images\\team-logo\\logo-s-01.png"
+    },
+    {
+      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\team-logo\\mancity.png",
+      "PackagePath": "staticwebassets\\images\\team-logo\\mancity.png"
+    },
+    {
+      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\team-logo\\nottforest.png",
+      "PackagePath": "staticwebassets\\images\\team-logo\\nottforest.png"
+    },
+    {
+      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\team-logo\\werder.png",
+      "PackagePath": "staticwebassets\\images\\team-logo\\werder.png"
     },
     {
       "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\js\\appear.js",

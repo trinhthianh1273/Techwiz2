@@ -74,10 +74,10 @@
                 @Html.DisplayFor(modelItem => item.Competition.CompetitionName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.GuestTeam.FoundedPosition)
+                @Html.DisplayFor(modelItem => item.GuestTeam.ShortName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.HomeTeam.FoundedPosition)
+                    @Html.DisplayFor(modelItem => item.HomeTeam.ShortName)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.MatchId">Edit</a> |

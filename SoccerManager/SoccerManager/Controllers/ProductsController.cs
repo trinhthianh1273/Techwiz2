@@ -41,12 +41,7 @@ namespace SoccerManager.Controllers
 			}
             else
             {
-                
-
-				if (CategoryID!=null)
-				{
-					soccerContext = _context.Products.Include(p => p.Category).Include(p => p.Player).Include(p => p.Team).Include(p => p.ProductImage).Where(p => p.CategoryId == CategoryID).ToList();
-				}
+                soccerContext = _context.Products.Include(p => p.Category).Include(p => p.Player).Include(p => p.Team).Include(p => p.ProductImage).Where(p => p.CategoryId == CategoryID).ToList();
 			}    
 			
             

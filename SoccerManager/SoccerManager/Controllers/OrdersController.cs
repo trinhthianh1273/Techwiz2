@@ -107,7 +107,7 @@ namespace SoccerManager.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("OrderId,CustomerId,EmployeeId,AddressId,OrderDate,StatusId,ShippedDate,PaymentMethodId,CardName,CardNumber,Expire,SecurityCode,PaymentStatus,PaymentDate")] Orders orders, List<OrderContent> orderContents)
+        public async Task<IActionResult> Edit(int id, [Bind("OrderId,CustomerId,EmployeeId,AddressId,OrderDate,StatusId,ShippedDate,PaymentMethodId,CardName,CardNumber,Expire,SecurityCode,PaymentStatus,PaymentDate")] Orders orders)
         {
             if (id != orders.OrderId)
             {
@@ -119,7 +119,7 @@ namespace SoccerManager.Controllers
                 try
                 {
                     _context.Update(orders);
-                    _context.Update(orderContents);
+                    //_context.Update(orderContents);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
