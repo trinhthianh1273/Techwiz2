@@ -13,21 +13,21 @@
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="MatchId" />
+            <input type="hidden" asp-for="MatchID" />
             <div class="form-group">
                 <label asp-for="MatchName" class="control-label"></label>
                 <input asp-for="MatchName" class="form-control" />
                 <span asp-validation-for="MatchName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="HomeTeamId" class="control-label"></label>
-                <select asp-for="HomeTeamId" class="form-control" asp-items="ViewBag.HomeTeamId"></select>
-                <span asp-validation-for="HomeTeamId" class="text-danger"></span>
+                <label asp-for="HomeTeamID" class="control-label"></label>
+                <select asp-for="HomeTeamID" class="form-control" asp-items="ViewBag.HomeTeamID"></select>
+                <span asp-validation-for="HomeTeamID" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="GuestTeamId" class="control-label"></label>
-                <select asp-for="GuestTeamId" class="form-control" asp-items="ViewBag.GuestTeamId"></select>
-                <span asp-validation-for="GuestTeamId" class="text-danger"></span>
+                <label asp-for="GuestTeamID" class="control-label"></label>
+                <select asp-for="GuestTeamID" class="form-control" asp-items="ViewBag.GuestTeamID"></select>
+                <span asp-validation-for="GuestTeamID" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="StartTime" class="control-label"></label>
@@ -55,9 +55,9 @@
                 <span asp-validation-for="GuestTeamScore" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CompetitionId" class="control-label"></label>
-                <select asp-for="CompetitionId" class="form-control" asp-items="ViewBag.CompetitionId"></select>
-                <span asp-validation-for="CompetitionId" class="text-danger"></span>
+                <label asp-for="CompetitionID" class="control-label"></label>
+                <select asp-for="CompetitionID" class="form-control" asp-items="ViewBag.CompetitionID"></select>
+                <span asp-validation-for="CompetitionID" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Description" class="control-label"></label>

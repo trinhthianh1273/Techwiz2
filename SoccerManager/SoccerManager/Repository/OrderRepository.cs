@@ -20,10 +20,10 @@ public class OrderRepository : IOrderRepository
         var soccerContext = _context.Orders.Include(o => o.Address).Include(o => o.Customer).Include(o => o.Employee).Include(o => o.PaymentMethod).Include(o => o.Status);
         foreach (var order in soccerContext)
         {
-            order.OrderContent = _context.OrderContent.Where(o => o.OrderId == order.OrderId).Include(o => o.Product).ToList();
+            order.OrderContent = _context.OrderContent.Where(o => o.OrderID == order.OrderID).Include(o => o.Product).ToList();
             for(int i = 0; i < order.OrderContent.Count();  i++)
             {
-                order.OrderContent.ElementAt(i).Product.ProductImage = _context.ProductImage.Where(p => p.ProductId == order.OrderContent.ElementAt(i).Product.ProductId).ToList();
+                order.OrderContent.ElementAt(i).Product.ProductImage = _context.ProductImage.Where(p => p.ProductID == order.OrderContent.ElementAt(i).Product.ProductID).ToList();
             }
             results.Add(OrderRespone.ConvertToOrderResponse(order));
         }
@@ -32,6 +32,6 @@ public class OrderRepository : IOrderRepository
 
     public OrderRespone GetResponseById(int? id)
     {
-        return GetAllResponse().Where(o => o.OrderId == id).Single();
+        return GetAllResponse().Where(o => o.OrderID == id).Single();
     }
 }

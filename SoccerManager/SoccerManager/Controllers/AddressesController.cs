@@ -36,7 +36,7 @@ namespace SoccerManager.Controllers
 
             var address = await _context.Address
                 .Include(a => a.Customer)
-                .FirstOrDefaultAsync(m => m.AddressId == id);
+                .FirstOrDefaultAsync(m => m.AddressID == id);
             if (address == null)
             {
                 return NotFound();
@@ -48,7 +48,7 @@ namespace SoccerManager.Controllers
         // GET: Addresses/Create
         public IActionResult Create()
         {
-            ViewData["CustomerId"] = new SelectList(_context.Customer, "CustomerId", "Password");
+            ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Password");
             return View();
         }
 
@@ -57,7 +57,7 @@ namespace SoccerManager.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("AddressId,CustomerId,ReceiverName,PhoneNumber,Address1")] Address address)
+        public async Task<IActionResult> Create([Bind("AddressID,CustomerID,ReceiverName,PhoneNumber,Address1")] Address address)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +65,7 @@ namespace SoccerManager.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CustomerId"] = new SelectList(_context.Customer, "CustomerId", "Password", address.CustomerId);
+            ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Password", address.CustomerID);
             return View(address);
         }
 
@@ -82,7 +82,7 @@ namespace SoccerManager.Controllers
             {
                 return NotFound();
             }
-            ViewData["CustomerId"] = new SelectList(_context.Customer, "CustomerId", "Password", address.CustomerId);
+            ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Password", address.CustomerID);
             return View(address);
         }
 
@@ -91,9 +91,9 @@ namespace SoccerManager.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("AddressId,CustomerId,ReceiverName,PhoneNumber,Address1")] Address address)
+        public async Task<IActionResult> Edit(int id, [Bind("AddressID,CustomerID,ReceiverName,PhoneNumber,Address1")] Address address)
         {
-            if (id != address.AddressId)
+            if (id != address.AddressID)
             {
                 return NotFound();
             }
@@ -107,7 +107,7 @@ namespace SoccerManager.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!AddressExists(address.AddressId))
+                    if (!AddressExists(address.AddressID))
                     {
                         return NotFound();
                     }
@@ -118,7 +118,7 @@ namespace SoccerManager.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CustomerId"] = new SelectList(_context.Customer, "CustomerId", "Password", address.CustomerId);
+            ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Password", address.CustomerID);
             return View(address);
         }
 
@@ -132,7 +132,7 @@ namespace SoccerManager.Controllers
 
             var address = await _context.Address
                 .Include(a => a.Customer)
-                .FirstOrDefaultAsync(m => m.AddressId == id);
+                .FirstOrDefaultAsync(m => m.AddressID == id);
             if (address == null)
             {
                 return NotFound();
@@ -162,7 +162,7 @@ namespace SoccerManager.Controllers
 
         private bool AddressExists(int id)
         {
-          return (_context.Address?.Any(e => e.AddressId == id)).GetValueOrDefault();
+          return (_context.Address?.Any(e => e.AddressID == id)).GetValueOrDefault();
         }
     }
 }

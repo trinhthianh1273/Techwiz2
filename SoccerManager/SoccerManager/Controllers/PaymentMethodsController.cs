@@ -35,7 +35,7 @@ namespace SoccerManager.Controllers
             }
 
             var paymentMethod = await _context.PaymentMethod
-                .FirstOrDefaultAsync(m => m.PaymentMethodId == id);
+                .FirstOrDefaultAsync(m => m.PaymentMethodID == id);
             if (paymentMethod == null)
             {
                 return NotFound();
@@ -55,7 +55,7 @@ namespace SoccerManager.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PaymentMethodId,PaymentMethod1")] PaymentMethod paymentMethod)
+        public async Task<IActionResult> Create([Bind("PaymentMethodID,PaymentMethod1")] PaymentMethod paymentMethod)
         {
             if (ModelState.IsValid)
             {
@@ -87,9 +87,9 @@ namespace SoccerManager.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PaymentMethodId,PaymentMethod1")] PaymentMethod paymentMethod)
+        public async Task<IActionResult> Edit(int id, [Bind("PaymentMethodID,PaymentMethod1")] PaymentMethod paymentMethod)
         {
-            if (id != paymentMethod.PaymentMethodId)
+            if (id != paymentMethod.PaymentMethodID)
             {
                 return NotFound();
             }
@@ -103,7 +103,7 @@ namespace SoccerManager.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!PaymentMethodExists(paymentMethod.PaymentMethodId))
+                    if (!PaymentMethodExists(paymentMethod.PaymentMethodID))
                     {
                         return NotFound();
                     }
@@ -126,7 +126,7 @@ namespace SoccerManager.Controllers
             }
 
             var paymentMethod = await _context.PaymentMethod
-                .FirstOrDefaultAsync(m => m.PaymentMethodId == id);
+                .FirstOrDefaultAsync(m => m.PaymentMethodID == id);
             if (paymentMethod == null)
             {
                 return NotFound();
@@ -156,7 +156,7 @@ namespace SoccerManager.Controllers
 
         private bool PaymentMethodExists(int id)
         {
-          return (_context.PaymentMethod?.Any(e => e.PaymentMethodId == id)).GetValueOrDefault();
+          return (_context.PaymentMethod?.Any(e => e.PaymentMethodID == id)).GetValueOrDefault();
         }
     }
 }
