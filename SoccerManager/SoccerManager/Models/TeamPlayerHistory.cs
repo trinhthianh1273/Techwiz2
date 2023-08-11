@@ -3,17 +3,21 @@
 using System;
 using System.Collections.Generic;
 
-namespace SoccerManager.Models
-{
-    public partial class TeamPlayerHistory
-    {
-        public int Id { get; set; }
-        public int TeamId { get; set; }
-        public int PlayerId { get; set; }
-        public DateTime JoinDate { get; set; }
-        public DateTime? LeaveDate { get; set; }
+namespace SoccerManager.Models;
 
-        public virtual Player Player { get; set; }
-        public virtual Team Team { get; set; }
-    }
+public partial class TeamPlayerHistory
+{
+    public int ID { get; set; }
+
+    public int TeamID { get; set; }
+
+    public int PlayerID { get; set; }
+
+    public DateTime JoinDate { get; set; }
+
+    public DateTime? LeaveDate { get; set; }
+
+    public virtual Player Player { get; set; }
+
+    public virtual Team Team { get; set; }
 }

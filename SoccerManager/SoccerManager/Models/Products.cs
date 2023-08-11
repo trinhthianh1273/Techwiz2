@@ -3,33 +3,39 @@
 using System;
 using System.Collections.Generic;
 
-namespace SoccerManager.Models
+namespace SoccerManager.Models;
+
+public partial class Products
 {
-    public partial class Products
-    {
-        public Products()
-        {
-            Cart = new HashSet<Cart>();
-            OrderContent = new HashSet<OrderContent>();
-            ProductImage = new HashSet<ProductImage>();
-        }
+    public int ProductID { get; set; }
 
-        public int ProductId { get; set; }
-        public string ProductName { get; set; }
-        public string Description { get; set; }
-        public int? CategoryId { get; set; }
-        public double? Price { get; set; }
-        public int? InStock { get; set; }
-        public int? OnOrder { get; set; }
-        public int Discontinued { get; set; }
-        public int TeamId { get; set; }
-        public int? PlayerId { get; set; }
+    public string ProductName { get; set; }
 
-        public virtual Category Category { get; set; }
-        public virtual Player Player { get; set; }
-        public virtual Team Team { get; set; }
-        public virtual ICollection<Cart> Cart { get; set; }
-        public virtual ICollection<OrderContent> OrderContent { get; set; }
-        public virtual ICollection<ProductImage> ProductImage { get; set; }
-    }
+    public string Description { get; set; }
+
+    public int? CategoryID { get; set; }
+
+    public double? Price { get; set; }
+
+    public int? InStock { get; set; }
+
+    public int? OnOrder { get; set; }
+
+    public int Discontinued { get; set; }
+
+    public int TeamID { get; set; }
+
+    public int? PlayerID { get; set; }
+
+    public virtual ICollection<Cart> Cart { get; set; } = new List<Cart>();
+
+    public virtual Category Category { get; set; }
+
+    public virtual ICollection<OrderContent> OrderContent { get; set; } = new List<OrderContent>();
+
+    public virtual Player Player { get; set; }
+
+    public virtual ICollection<ProductImage> ProductImage { get; set; } = new List<ProductImage>();
+
+    public virtual Team Team { get; set; }
 }

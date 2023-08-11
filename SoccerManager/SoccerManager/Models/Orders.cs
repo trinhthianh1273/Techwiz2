@@ -3,35 +3,47 @@
 using System;
 using System.Collections.Generic;
 
-namespace SoccerManager.Models
+namespace SoccerManager.Models;
+
+public partial class Orders
 {
-    public partial class Orders
-    {
-        public Orders()
-        {
-            OrderContent = new HashSet<OrderContent>();
-        }
+    public int OrderID { get; set; }
 
-        public int OrderId { get; set; }
-        public int CustomerId { get; set; }
-        public int EmployeeId { get; set; }
-        public int AddressId { get; set; }
-        public DateTime OrderDate { get; set; }
-        public int StatusId { get; set; }
-        public DateTime? ShippedDate { get; set; }
-        public int? PaymentMethodId { get; set; }
-        public string CardName { get; set; }
-        public string CardNumber { get; set; }
-        public string Expire { get; set; }
-        public int? SecurityCode { get; set; }
-        public int? PaymentStatus { get; set; }
-        public DateTime? PaymentDate { get; set; }
+    public int CustomerID { get; set; }
 
-        public virtual Address Address { get; set; }
-        public virtual Customer Customer { get; set; }
-        public virtual Employee Employee { get; set; }
-        public virtual PaymentMethod PaymentMethod { get; set; }
-        public virtual Status Status { get; set; }
-        public virtual ICollection<OrderContent> OrderContent { get; set; }
-    }
+    public int EmployeeID { get; set; }
+
+    public int AddressID { get; set; }
+
+    public DateTime OrderDate { get; set; }
+
+    public int StatusID { get; set; }
+
+    public DateTime? ShippedDate { get; set; }
+
+    public int? PaymentMethodID { get; set; }
+
+    public string CardName { get; set; }
+
+    public string CardNumber { get; set; }
+
+    public string Expire { get; set; }
+
+    public int? SecurityCode { get; set; }
+
+    public int? PaymentStatus { get; set; }
+
+    public DateTime? PaymentDate { get; set; }
+
+    public virtual Address Address { get; set; }
+
+    public virtual Customer Customer { get; set; }
+
+    public virtual Employee Employee { get; set; }
+
+    public virtual ICollection<OrderContent> OrderContent { get; set; } = new List<OrderContent>();
+
+    public virtual PaymentMethod PaymentMethod { get; set; }
+
+    public virtual Status Status { get; set; }
 }

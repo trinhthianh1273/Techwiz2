@@ -3,15 +3,17 @@
 using System;
 using System.Collections.Generic;
 
-namespace SoccerManager.Models
-{
-    public partial class Feedback
-    {
-        public int FeedbackId { get; set; }
-        public int CustomerId { get; set; }
-        public string Title { get; set; }
-        public string Content { get; set; }
+namespace SoccerManager.Models;
 
-        public virtual Customer Customer { get; set; }
-    }
+public partial class Feedback
+{
+    public int FeedbackID { get; set; }
+
+    public int CustomerID { get; set; }
+
+    public string Title { get; set; }
+
+    public string Content { get; set; }
+
+    public virtual Customer Customer { get; set; }
 }

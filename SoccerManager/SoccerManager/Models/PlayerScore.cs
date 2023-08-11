@@ -5,13 +5,15 @@ using System.Collections.Generic;
 
 namespace SoccerManager.Models;
 
-public partial class PlayerImage
+public partial class PlayerScore
 {
-    public int PlayerImageID { get; set; }
+    public int MatchID { get; set; }
 
     public int PlayerID { get; set; }
 
-    public string ImageURL { get; set; }
+    public int Scores { get; set; }
+
+    public virtual Match Match { get; set; }
 
     public virtual Player Player { get; set; }
 }
