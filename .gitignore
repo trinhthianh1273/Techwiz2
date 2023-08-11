@@ -11,3 +11,7 @@ obj/
 *.cache
 *.cache
 *.editorconfig
+*.suo
+*.dll
+*.pdb
+*.vsidx

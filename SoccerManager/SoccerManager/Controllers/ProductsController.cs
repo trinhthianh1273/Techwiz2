@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using SoccerManager.Interfaces;
 using SoccerManager.Models;
 
 namespace SoccerManager.Controllers
@@ -9,11 +10,15 @@ namespace SoccerManager.Controllers
     {
         private readonly SoccerContext _context;
         private readonly IWebHostEnvironment _env;
+        private readonly IFileUploadService _fileUploadService;
+        private readonly string ImgDir = "ProductImage";
+        private readonly string ImgType = "product";
 
-        public ProductsController(SoccerContext context, IWebHostEnvironment env)
+        public ProductsController(SoccerContext context, IWebHostEnvironment env, IFileUploadService fileUploadService)
         {
             _context = context;
             _env = env;
+            _fileUploadService = fileUploadService;
         }
 
         // GET: Products
@@ -64,47 +69,36 @@ namespace SoccerManager.Controllers
             if (ModelState.IsValid)
             {
 
+                //add product to database
+                Products insertedProduct = _context.Add(products).Entity;
+                await _context.SaveChangesAsync();
+
                 //check request files
-                if( files != null)
+                if (files != null)
                 {
                     //upload image to folder and image nam to database
                     foreach (var item in files)
                     {
-                        //check if file is valid
-                        if (item.FileName == null || item.FileName.Length == 0)
+                        try
                         {
-                            return Content("Invalid file");
+                            //upload image and get file name
+                            string imgName = ImgDir + "/" + await _fileUploadService.UploadFile(item, ImgDir, ImgType);
+                            //save filename to database
+                            ProductImage productImage = new()
+                            {
+                                ProductId = insertedProduct.ProductId,
+                                ImageUrl = imgName
+                            };
+                            _context.ProductImage.Add(productImage);
+                            await _context.SaveChangesAsync();
                         }
-
-                        //generate unique file name
-                        string fileNameWithoutExtension = Path.GetFileNameWithoutExtension(item.FileName);
-                        string fileExtension = Path.GetExtension(item.FileName);
-                        string uniqueFileName = $"{fileNameWithoutExtension}_{Guid.NewGuid()}{fileExtension}";
-
-                        var path = Path.Combine(_env.WebRootPath, "images/ProductImage", uniqueFileName);
-
-                        //save file to folder
-                        using (FileStream stream = new FileStream(path, FileMode.Create))
+                        catch (Exception ex)
                         {
-                            await item.CopyToAsync(stream);
-                            stream.Close();
+                            //Log ex
+                            ViewBag.Message = "File Upload Failed";
                         }
-
-                        //save filename to database
-                        ProductImage productImage = new()
-                        {
-                            ProductId = products.ProductId,
-                            ImageUrl = uniqueFileName
-                        };
-                        _context.Products.Add(products);
-                        _context.ProductImage.Add(productImage);
-                        await _context.SaveChangesAsync();
                     }
                 }
-
-                //add product to database
-                _context.Add(products);
-                await _context.SaveChangesAsync();
 
                 return RedirectToAction(nameof(Index));
             }
