@@ -66,7 +66,7 @@ namespace SoccerManager.Controllers
             }
 
             var employee = await _context.Employee
-                .FirstOrDefaultAsync(m => m.EmployeeId == id);
+                .FirstOrDefaultAsync(m => m.EmployeeID == id);
             if (employee == null)
             {
                 return NotFound();
@@ -86,7 +86,7 @@ namespace SoccerManager.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("EmployeeId,FullName,UserName,Email,Password,Role")] Employee employee)
+        public async Task<IActionResult> Create([Bind("EmployeeID,FullName,UserName,Email,Password,Role")] Employee employee)
         {
             if (ModelState.IsValid)
             {
@@ -118,9 +118,9 @@ namespace SoccerManager.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("EmployeeId,FullName,UserName,Email,Password,Role")] Employee employee)
+        public async Task<IActionResult> Edit(int id, [Bind("EmployeeID,FullName,UserName,Email,Password,Role")] Employee employee)
         {
-            if (id != employee.EmployeeId)
+            if (id != employee.EmployeeID)
             {
                 return NotFound();
             }
@@ -134,7 +134,7 @@ namespace SoccerManager.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!EmployeeExists(employee.EmployeeId))
+                    if (!EmployeeExists(employee.EmployeeID))
                     {
                         return NotFound();
                     }
@@ -157,7 +157,7 @@ namespace SoccerManager.Controllers
             }
 
             var employee = await _context.Employee
-                .FirstOrDefaultAsync(m => m.EmployeeId == id);
+                .FirstOrDefaultAsync(m => m.EmployeeID == id);
             if (employee == null)
             {
                 return NotFound();
@@ -187,7 +187,7 @@ namespace SoccerManager.Controllers
 
         private bool EmployeeExists(int id)
         {
-          return (_context.Employee?.Any(e => e.EmployeeId == id)).GetValueOrDefault();
+          return (_context.Employee?.Any(e => e.EmployeeID == id)).GetValueOrDefault();
         }
     }
 }

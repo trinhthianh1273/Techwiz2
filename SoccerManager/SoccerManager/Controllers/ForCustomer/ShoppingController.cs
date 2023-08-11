@@ -37,7 +37,7 @@ namespace SoccerManager.Controllers.ForCustomer
                 .Include(p => p.Category)
                 .Include(p => p.Player)
                 .Include(p => p.Team)
-                .FirstOrDefaultAsync(m => m.ProductId == id);
+                .FirstOrDefaultAsync(m => m.ProductID == id);
             if (products == null)
             {
                 return NotFound();
@@ -49,9 +49,9 @@ namespace SoccerManager.Controllers.ForCustomer
         // GET: Shopping/Create
         public IActionResult Create()
         {
-            ViewData["CategoryId"] = new SelectList(_context.Category, "CategoryId", "CategoryDescription");
-            ViewData["PlayerId"] = new SelectList(_context.Player, "PlayerId", "FullName");
-            ViewData["TeamId"] = new SelectList(_context.Team, "TeamId", "FoundedPosition");
+            ViewData["CategoryID"] = new SelectList(_context.Category, "CategoryID", "CategoryDescription");
+            ViewData["PlayerID"] = new SelectList(_context.Player, "PlayerID", "FullName");
+            ViewData["TeamID"] = new SelectList(_context.Team, "TeamID", "FoundedPosition");
             return View();
         }
 
@@ -60,7 +60,7 @@ namespace SoccerManager.Controllers.ForCustomer
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProductId,ProductName,Description,CategoryId,Price,InStock,OnOrder,Discontinued,TeamId,PlayerId")] Products products)
+        public async Task<IActionResult> Create([Bind("ProductID,ProductName,Description,CategoryID,Price,InStock,OnOrder,Discontinued,TeamID,PlayerID")] Products products)
         {
             if (ModelState.IsValid)
             {
@@ -68,9 +68,9 @@ namespace SoccerManager.Controllers.ForCustomer
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryId"] = new SelectList(_context.Category, "CategoryId", "CategoryDescription", products.CategoryId);
-            ViewData["PlayerId"] = new SelectList(_context.Player, "PlayerId", "FullName", products.PlayerId);
-            ViewData["TeamId"] = new SelectList(_context.Team, "TeamId", "FoundedPosition", products.TeamId);
+            ViewData["CategoryID"] = new SelectList(_context.Category, "CategoryID", "CategoryDescription", products.CategoryID);
+            ViewData["PlayerID"] = new SelectList(_context.Player, "PlayerID", "FullName", products.PlayerID);
+            ViewData["TeamID"] = new SelectList(_context.Team, "TeamID", "FoundedPosition", products.TeamID);
             return View(products);
         }
 
@@ -87,9 +87,9 @@ namespace SoccerManager.Controllers.ForCustomer
             {
                 return NotFound();
             }
-            ViewData["CategoryId"] = new SelectList(_context.Category, "CategoryId", "CategoryDescription", products.CategoryId);
-            ViewData["PlayerId"] = new SelectList(_context.Player, "PlayerId", "FullName", products.PlayerId);
-            ViewData["TeamId"] = new SelectList(_context.Team, "TeamId", "FoundedPosition", products.TeamId);
+            ViewData["CategoryID"] = new SelectList(_context.Category, "CategoryID", "CategoryDescription", products.CategoryID);
+            ViewData["PlayerID"] = new SelectList(_context.Player, "PlayerID", "FullName", products.PlayerID);
+            ViewData["TeamID"] = new SelectList(_context.Team, "TeamID", "FoundedPosition", products.TeamID);
             return View(products);
         }
 
@@ -98,9 +98,9 @@ namespace SoccerManager.Controllers.ForCustomer
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ProductId,ProductName,Description,CategoryId,Price,InStock,OnOrder,Discontinued,TeamId,PlayerId")] Products products)
+        public async Task<IActionResult> Edit(int id, [Bind("ProductID,ProductName,Description,CategoryID,Price,InStock,OnOrder,Discontinued,TeamID,PlayerID")] Products products)
         {
-            if (id != products.ProductId)
+            if (id != products.ProductID)
             {
                 return NotFound();
             }
@@ -114,7 +114,7 @@ namespace SoccerManager.Controllers.ForCustomer
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ProductsExists(products.ProductId))
+                    if (!ProductsExists(products.ProductID))
                     {
                         return NotFound();
                     }
@@ -125,9 +125,9 @@ namespace SoccerManager.Controllers.ForCustomer
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryId"] = new SelectList(_context.Category, "CategoryId", "CategoryDescription", products.CategoryId);
-            ViewData["PlayerId"] = new SelectList(_context.Player, "PlayerId", "FullName", products.PlayerId);
-            ViewData["TeamId"] = new SelectList(_context.Team, "TeamId", "FoundedPosition", products.TeamId);
+            ViewData["CategoryID"] = new SelectList(_context.Category, "CategoryID", "CategoryDescription", products.CategoryID);
+            ViewData["PlayerID"] = new SelectList(_context.Player, "PlayerID", "FullName", products.PlayerID);
+            ViewData["TeamID"] = new SelectList(_context.Team, "TeamID", "FoundedPosition", products.TeamID);
             return View(products);
         }
 
@@ -143,7 +143,7 @@ namespace SoccerManager.Controllers.ForCustomer
                 .Include(p => p.Category)
                 .Include(p => p.Player)
                 .Include(p => p.Team)
-                .FirstOrDefaultAsync(m => m.ProductId == id);
+                .FirstOrDefaultAsync(m => m.ProductID == id);
             if (products == null)
             {
                 return NotFound();
@@ -173,7 +173,7 @@ namespace SoccerManager.Controllers.ForCustomer
 
         private bool ProductsExists(int id)
         {
-          return (_context.Products?.Any(e => e.ProductId == id)).GetValueOrDefault();
+          return (_context.Products?.Any(e => e.ProductID == id)).GetValueOrDefault();
         }
     }
 }

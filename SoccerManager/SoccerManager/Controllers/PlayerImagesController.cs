@@ -35,7 +35,7 @@ namespace SoccerManager.Controllers
 
             var playerImage = await _context.PlayerImage
                 .Include(p => p.Player)
-                .FirstOrDefaultAsync(m => m.PlayerImageId == id);
+                .FirstOrDefaultAsync(m => m.PlayerImageID == id);
             if (playerImage == null)
             {
                 return NotFound();
@@ -47,7 +47,7 @@ namespace SoccerManager.Controllers
         // GET: PlayerImages/Create
         public IActionResult Create()
         {
-            ViewData["PlayerId"] = new SelectList(_context.Player, "PlayerId", "FullName");
+            ViewData["PlayerID"] = new SelectList(_context.Player, "PlayerID", "FullName");
             return View();
         }
 
@@ -56,7 +56,7 @@ namespace SoccerManager.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PlayerImageId,PlayerId,ImageUrl")] PlayerImage playerImage)
+        public async Task<IActionResult> Create([Bind("PlayerImageID,PlayerID,ImageURL")] PlayerImage playerImage)
         {
             if (ModelState.IsValid)
             {
@@ -64,7 +64,7 @@ namespace SoccerManager.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PlayerId"] = new SelectList(_context.Player, "PlayerId", "FullName", playerImage.PlayerId);
+            ViewData["PlayerID"] = new SelectList(_context.Player, "PlayerID", "FullName", playerImage.PlayerID);
             return View(playerImage);
         }
 
@@ -81,7 +81,7 @@ namespace SoccerManager.Controllers
             {
                 return NotFound();
             }
-            ViewData["PlayerId"] = new SelectList(_context.Player, "PlayerId", "FullName", playerImage.PlayerId);
+            ViewData["PlayerID"] = new SelectList(_context.Player, "PlayerID", "FullName", playerImage.PlayerID);
             return View(playerImage);
         }
 
@@ -90,9 +90,9 @@ namespace SoccerManager.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PlayerImageId,PlayerId,ImageUrl")] PlayerImage playerImage)
+        public async Task<IActionResult> Edit(int id, [Bind("PlayerImageID,PlayerID,ImageURL")] PlayerImage playerImage)
         {
-            if (id != playerImage.PlayerImageId)
+            if (id != playerImage.PlayerImageID)
             {
                 return NotFound();
             }
@@ -106,7 +106,7 @@ namespace SoccerManager.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!PlayerImageExists(playerImage.PlayerImageId))
+                    if (!PlayerImageExists(playerImage.PlayerImageID))
                     {
                         return NotFound();
                     }
@@ -117,7 +117,7 @@ namespace SoccerManager.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PlayerId"] = new SelectList(_context.Player, "PlayerId", "FullName", playerImage.PlayerId);
+            ViewData["PlayerID"] = new SelectList(_context.Player, "PlayerID", "FullName", playerImage.PlayerID);
             return View(playerImage);
         }
 
@@ -131,7 +131,7 @@ namespace SoccerManager.Controllers
 
             var playerImage = await _context.PlayerImage
                 .Include(p => p.Player)
-                .FirstOrDefaultAsync(m => m.PlayerImageId == id);
+                .FirstOrDefaultAsync(m => m.PlayerImageID == id);
             if (playerImage == null)
             {
                 return NotFound();
@@ -161,7 +161,7 @@ namespace SoccerManager.Controllers
 
         private bool PlayerImageExists(int id)
         {
-          return (_context.PlayerImage?.Any(e => e.PlayerImageId == id)).GetValueOrDefault();
+          return (_context.PlayerImage?.Any(e => e.PlayerImageID == id)).GetValueOrDefault();
         }
     }
 }

@@ -35,7 +35,7 @@ namespace SoccerManager.Controllers
             }
 
             var status = await _context.Status
-                .FirstOrDefaultAsync(m => m.StatusId == id);
+                .FirstOrDefaultAsync(m => m.StatusID == id);
             if (status == null)
             {
                 return NotFound();
@@ -55,7 +55,7 @@ namespace SoccerManager.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("StatusId,StatusName")] Status status)
+        public async Task<IActionResult> Create([Bind("StatusID,StatusName")] Status status)
         {
             if (ModelState.IsValid)
             {
@@ -87,9 +87,9 @@ namespace SoccerManager.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("StatusId,StatusName")] Status status)
+        public async Task<IActionResult> Edit(int id, [Bind("StatusID,StatusName")] Status status)
         {
-            if (id != status.StatusId)
+            if (id != status.StatusID)
             {
                 return NotFound();
             }
@@ -103,7 +103,7 @@ namespace SoccerManager.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!StatusExists(status.StatusId))
+                    if (!StatusExists(status.StatusID))
                     {
                         return NotFound();
                     }
@@ -126,7 +126,7 @@ namespace SoccerManager.Controllers
             }
 
             var status = await _context.Status
-                .FirstOrDefaultAsync(m => m.StatusId == id);
+                .FirstOrDefaultAsync(m => m.StatusID == id);
             if (status == null)
             {
                 return NotFound();
@@ -156,7 +156,7 @@ namespace SoccerManager.Controllers
 
         private bool StatusExists(int id)
         {
-          return (_context.Status?.Any(e => e.StatusId == id)).GetValueOrDefault();
+          return (_context.Status?.Any(e => e.StatusID == id)).GetValueOrDefault();
         }
     }
 }

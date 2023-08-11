@@ -39,7 +39,7 @@ namespace SoccerManager.Controllers
             }
 
             var team = await _context.Team
-                .FirstOrDefaultAsync(m => m.TeamId == id);
+                .FirstOrDefaultAsync(m => m.TeamID == id);
             if (team == null)
             {
                 return NotFound();
@@ -59,7 +59,7 @@ namespace SoccerManager.Controllers
         // Handle Team POST Request
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("TeamId,FullName,ShortName,Nickname,FoundedYear,FoundedPosition,Owner,Manager,Website")] Team team, IFormFile file)
+        public async Task<IActionResult> Create([Bind("TeamID,FullName,ShortName,Nickname,FoundedYear,FoundedPosition,Owner,Manager,Website")] Team team, IFormFile file)
         {
             if (ModelState.IsValid)
             {
@@ -103,9 +103,9 @@ namespace SoccerManager.Controllers
         // Handle Team PUT Request
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, string LogoURL, [Bind("TeamId,FullName,ShortName,Nickname,FoundedYear,FoundedPosition,Owner,Manager,Website")] Team team, IFormFile file)
+        public async Task<IActionResult> Edit(int id, string LogoURL, [Bind("TeamID,FullName,ShortName,Nickname,FoundedYear,FoundedPosition,Owner,Manager,Website")] Team team, IFormFile file)
         {
-            if (id != team.TeamId)
+            if (id != team.TeamID)
             {
                 return NotFound();
             }
@@ -137,7 +137,7 @@ namespace SoccerManager.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!TeamExists(team.TeamId))
+                    if (!TeamExists(team.TeamID))
                     {
                         return NotFound();
                     }
@@ -165,7 +165,7 @@ namespace SoccerManager.Controllers
             }
 
             var team = await _context.Team
-                .FirstOrDefaultAsync(m => m.TeamId == id);
+                .FirstOrDefaultAsync(m => m.TeamID == id);
             if (team == null)
             {
                 return NotFound();
@@ -202,7 +202,7 @@ namespace SoccerManager.Controllers
 
         private bool TeamExists(int id)
         {
-            return (_context.Team?.Any(e => e.TeamId == id)).GetValueOrDefault();
+            return (_context.Team?.Any(e => e.TeamID == id)).GetValueOrDefault();
         }
     }
 }

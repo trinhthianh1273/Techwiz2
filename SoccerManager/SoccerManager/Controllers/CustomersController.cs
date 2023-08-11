@@ -58,7 +58,7 @@ namespace SoccerManager.Controllers
                 }
                 HttpContext.Session.SetString("CusUserName", user.Username);
                 HttpContext.Session.SetString("CusFullName", user.Fullname);
-                HttpContext.Session.SetString("CustomerId", user.CustomerId.ToString());
+                HttpContext.Session.SetString("CustomerID", user.CustomerID.ToString());
                 return RedirectToAction("Index", "Home");
 
 
@@ -86,7 +86,7 @@ namespace SoccerManager.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Register([Bind("CustomerId,Username,Password,Fullname,Email,Phone,Token")] Customer customer)
+        public async Task<IActionResult> Register([Bind("CustomerID,Username,Password,Fullname,Email,Phone,Token")] Customer customer)
         {
             if (ModelState.IsValid)
             {
@@ -108,7 +108,7 @@ namespace SoccerManager.Controllers
             }
 
             var customer = await _context.Customer
-                .FirstOrDefaultAsync(m => m.CustomerId == id);
+                .FirstOrDefaultAsync(m => m.CustomerID == id);
             if (customer == null)
             {
                 return NotFound();
@@ -128,7 +128,7 @@ namespace SoccerManager.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CustomerId,Username,Password,Fullname,Email,Phone,Token")] Customer customer)
+        public async Task<IActionResult> Create([Bind("CustomerID,Username,Password,Fullname,Email,Phone,Token")] Customer customer)
         {
             if (ModelState.IsValid)
             {
@@ -160,9 +160,9 @@ namespace SoccerManager.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CustomerId,Username,Password,Fullname,Email,Phone,Token")] Customer customer)
+        public async Task<IActionResult> Edit(int id, [Bind("CustomerID,Username,Password,Fullname,Email,Phone,Token")] Customer customer)
         {
-            if (id != customer.CustomerId)
+            if (id != customer.CustomerID)
             {
                 return NotFound();
             }
@@ -177,7 +177,7 @@ namespace SoccerManager.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CustomerExists(customer.CustomerId))
+                    if (!CustomerExists(customer.CustomerID))
                     {
                         return NotFound();
                     }
@@ -200,7 +200,7 @@ namespace SoccerManager.Controllers
             }
 
             var customer = await _context.Customer
-                .FirstOrDefaultAsync(m => m.CustomerId == id);
+                .FirstOrDefaultAsync(m => m.CustomerID == id);
             if (customer == null)
             {
                 return NotFound();
@@ -230,7 +230,7 @@ namespace SoccerManager.Controllers
 
         private bool CustomerExists(int id)
         {
-          return (_context.Customer?.Any(e => e.CustomerId == id)).GetValueOrDefault();
+          return (_context.Customer?.Any(e => e.CustomerID == id)).GetValueOrDefault();
         }
     }
 }

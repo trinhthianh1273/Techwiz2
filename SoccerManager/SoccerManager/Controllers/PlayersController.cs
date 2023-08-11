@@ -33,7 +33,7 @@ namespace SoccerManager.Controllers
 
             var player = await _context.Player
                 .Include(p => p.CurrentTeamNavigation)
-                .FirstOrDefaultAsync(m => m.PlayerId == id);
+                .FirstOrDefaultAsync(m => m.PlayerID == id);
             if (player == null)
             {
                 return NotFound();
@@ -45,7 +45,7 @@ namespace SoccerManager.Controllers
         // GET: Players/Create
         public IActionResult Create()
         {
-            ViewData["CurrentTeam"] = new SelectList(_context.Team, "TeamId", "FullName");
+            ViewData["CurrentTeam"] = new SelectList(_context.Team, "TeamID", "FullName");
             return View();
         }
 
@@ -53,7 +53,7 @@ namespace SoccerManager.Controllers
         // Handle Create Player request
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PlayerId,FullName,Dob,Pob,Height,Position,CurrentTeam,Number")] Player player, IFormFile file)
+        public async Task<IActionResult> Create([Bind("PlayerID,FullName,Dob,Pob,Height,Position,CurrentTeam,Number")] Player player, IFormFile file)
         {
             if (ModelState.IsValid)
             {
@@ -67,7 +67,7 @@ namespace SoccerManager.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            ViewData["CurrentTeam"] = new SelectList(_context.Team, "TeamId", "FullName", player.CurrentTeam);
+            ViewData["CurrentTeam"] = new SelectList(_context.Team, "TeamID", "FullName", player.CurrentTeam);
             return View(player);
         }
 
@@ -84,7 +84,7 @@ namespace SoccerManager.Controllers
             {
                 return NotFound();
             }
-            ViewData["CurrentTeam"] = new SelectList(_context.Team, "TeamId", "FullName", player.CurrentTeam);
+            ViewData["CurrentTeam"] = new SelectList(_context.Team, "TeamID", "FullName", player.CurrentTeam);
             return View(player);
         }
 
@@ -93,9 +93,9 @@ namespace SoccerManager.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PlayerId,FullName,Dob,Pob,Height,Position,CurrentTeam,Number")] Player player)
+        public async Task<IActionResult> Edit(int id, [Bind("PlayerID,FullName,Dob,Pob,Height,Position,CurrentTeam,Number")] Player player)
         {
-            if (id != player.PlayerId)
+            if (id != player.PlayerID)
             {
                 return NotFound();
             }
@@ -109,7 +109,7 @@ namespace SoccerManager.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!PlayerExists(player.PlayerId))
+                    if (!PlayerExists(player.PlayerID))
                     {
                         return NotFound();
                     }
@@ -120,7 +120,7 @@ namespace SoccerManager.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CurrentTeam"] = new SelectList(_context.Team, "TeamId", "FullName", player.CurrentTeam);
+            ViewData["CurrentTeam"] = new SelectList(_context.Team, "TeamID", "FullName", player.CurrentTeam);
             return View(player);
         }
 
@@ -134,7 +134,7 @@ namespace SoccerManager.Controllers
 
             var player = await _context.Player
                 .Include(p => p.CurrentTeamNavigation)
-                .FirstOrDefaultAsync(m => m.PlayerId == id);
+                .FirstOrDefaultAsync(m => m.PlayerID == id);
             if (player == null)
             {
                 return NotFound();
@@ -164,7 +164,7 @@ namespace SoccerManager.Controllers
 
         private bool PlayerExists(int id)
         {
-            return (_context.Player?.Any(e => e.PlayerId == id)).GetValueOrDefault();
+            return (_context.Player?.Any(e => e.PlayerID == id)).GetValueOrDefault();
         }
     }
 }

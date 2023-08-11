@@ -38,15 +38,15 @@
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Order.OrderId)
+                @Html.DisplayFor(modelItem => item.Order.OrderID)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Product.ProductId)
+                @Html.DisplayFor(modelItem => item.Product.ProductID)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.OrderContentId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.OrderContentId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.OrderContentId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.OrderContentID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.OrderContentID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.OrderContentID">Delete</a>
             </td>
         </tr>
 }

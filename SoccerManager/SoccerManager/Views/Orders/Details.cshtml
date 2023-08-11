@@ -113,7 +113,7 @@
             Order Code
         </dt>
         <dd class="col-sm-8">
-            @Html.DisplayFor(model => model.OrderId)
+            @Html.DisplayFor(model => model.OrderID)
         </dd>
         <dt class="col-sm-4">
             Order Date
@@ -214,9 +214,9 @@
         {
             <div class="col-6">
                 @*@{
-            string url = @item.ProductImage.ElementAt(0).ImageUrl;
+            string url = @item.ProductImage.ElementAt(0).ImageURL;
             }*@
-                <img src="@Url.Content("~/images/ProductImage/" + item.Product.ProductImage.ElementAt(0).ImageUrl)"
+                <img src="@Url.Content("~/images/ProductImage/" + item.Product.ProductImage.ElementAt(0).ImageURL)"
                     style="width: 100px; height: 100px;" />
                 <div class="row d-flex">
                     <p class="col-auto">@item.Product.ProductName</p>
@@ -228,6 +228,6 @@
     </div>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.OrderId">Edit</a> |
+    <a asp-action="Edit" asp-route-id="@Model?.OrderID">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>

@@ -53,7 +53,7 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.OrderId)
+                    @Html.DisplayFor(modelItem => item.OrderID)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.OrderDate)
@@ -86,9 +86,9 @@
                     @Html.DisplayFor(modelItem => item.PaymentStatus)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.OrderId"><i class="fa fa-edit"></i></a> |
-                    <a asp-action="Details" asp-route-id="@item.OrderId"><i class="fa fa-info"></i></a> |
-                    <a asp-action="Delete" asp-route-id="@item.OrderId"><i class="fa fa-remove"></i></a>
+                    <a asp-action="Edit" asp-route-id="@item.OrderID"><i class="fa fa-edit"></i></a> |
+                    <a asp-action="Details" asp-route-id="@item.OrderID"><i class="fa fa-info"></i></a> |
+                    <a asp-action="Delete" asp-route-id="@item.OrderID"><i class="fa fa-remove"></i></a>
                 </td>
             </tr>
         }

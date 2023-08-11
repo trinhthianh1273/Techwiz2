@@ -26,6 +26,7 @@
 
   <ItemGroup>
     <Folder Include="Models\" />
+    <Folder Include="Model1\" />
     <Folder Include="Views\ForCustomer\" />
     <Folder Include="wwwroot\images\TeamLogos\" />
   </ItemGroup>

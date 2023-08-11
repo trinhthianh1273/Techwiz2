@@ -37,7 +37,7 @@ namespace SoccerManager.Controllers
                 .Include(m => m.Competition)
                 .Include(m => m.GuestTeam)
                 .Include(m => m.HomeTeam)
-                .FirstOrDefaultAsync(m => m.MatchId == id);
+                .FirstOrDefaultAsync(m => m.MatchID == id);
             if (match == null)
             {
                 return NotFound();
@@ -49,9 +49,9 @@ namespace SoccerManager.Controllers
         // GET: Matches/Create
         public IActionResult Create()
         {
-            ViewData["CompetitionId"] = new SelectList(_context.Competition, "CompetitionId", "CompetitionName");
-            ViewData["GuestTeamId"] = new SelectList(_context.Team, "TeamId", "FoundedPosition");
-            ViewData["HomeTeamId"] = new SelectList(_context.Team, "TeamId", "FoundedPosition");
+            ViewData["CompetitionID"] = new SelectList(_context.Competition, "CompetitionID", "CompetitionName");
+            ViewData["GuestTeamID"] = new SelectList(_context.Team, "TeamID", "FoundedPosition");
+            ViewData["HomeTeamID"] = new SelectList(_context.Team, "TeamID", "FoundedPosition");
             return View();
         }
 
@@ -60,7 +60,7 @@ namespace SoccerManager.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("MatchId,MatchName,HomeTeamId,GuestTeamId,StartTime,EndTime,Stadium,HomeTeamScore,GuestTeamScore,CompetitionId,Description")] Match match)
+        public async Task<IActionResult> Create([Bind("MatchID,MatchName,HomeTeamID,GuestTeamID,StartTime,EndTime,Stadium,HomeTeamScore,GuestTeamScore,CompetitionID,Description")] Match match)
         {
             if (ModelState.IsValid)
             {
@@ -68,9 +68,9 @@ namespace SoccerManager.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CompetitionId"] = new SelectList(_context.Competition, "CompetitionId", "CompetitionName", match.CompetitionId);
-            ViewData["GuestTeamId"] = new SelectList(_context.Team, "TeamId", "FoundedPosition", match.GuestTeamId);
-            ViewData["HomeTeamId"] = new SelectList(_context.Team, "TeamId", "FoundedPosition", match.HomeTeamId);
+            ViewData["CompetitionID"] = new SelectList(_context.Competition, "CompetitionID", "CompetitionName", match.CompetitionID);
+            ViewData["GuestTeamID"] = new SelectList(_context.Team, "TeamID", "FoundedPosition", match.GuestTeamID);
+            ViewData["HomeTeamID"] = new SelectList(_context.Team, "TeamID", "FoundedPosition", match.HomeTeamID);
             return View(match);
         }
 
@@ -87,9 +87,9 @@ namespace SoccerManager.Controllers
             {
                 return NotFound();
             }
-            ViewData["CompetitionId"] = new SelectList(_context.Competition, "CompetitionId", "CompetitionName", match.CompetitionId);
-            ViewData["GuestTeamId"] = new SelectList(_context.Team, "TeamId", "FoundedPosition", match.GuestTeamId);
-            ViewData["HomeTeamId"] = new SelectList(_context.Team, "TeamId", "FoundedPosition", match.HomeTeamId);
+            ViewData["CompetitionID"] = new SelectList(_context.Competition, "CompetitionID", "CompetitionName", match.CompetitionID);
+            ViewData["GuestTeamID"] = new SelectList(_context.Team, "TeamID", "FoundedPosition", match.GuestTeamID);
+            ViewData["HomeTeamID"] = new SelectList(_context.Team, "TeamID", "FoundedPosition", match.HomeTeamID);
             return View(match);
         }
 
@@ -98,9 +98,9 @@ namespace SoccerManager.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("MatchId,MatchName,HomeTeamId,GuestTeamId,StartTime,EndTime,Stadium,HomeTeamScore,GuestTeamScore,CompetitionId,Description")] Match match)
+        public async Task<IActionResult> Edit(int id, [Bind("MatchID,MatchName,HomeTeamID,GuestTeamID,StartTime,EndTime,Stadium,HomeTeamScore,GuestTeamScore,CompetitionID,Description")] Match match)
         {
-            if (id != match.MatchId)
+            if (id != match.MatchID)
             {
                 return NotFound();
             }
@@ -114,7 +114,7 @@ namespace SoccerManager.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!MatchExists(match.MatchId))
+                    if (!MatchExists(match.MatchID))
                     {
                         return NotFound();
                     }
@@ -125,9 +125,9 @@ namespace SoccerManager.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CompetitionId"] = new SelectList(_context.Competition, "CompetitionId", "CompetitionName", match.CompetitionId);
-            ViewData["GuestTeamId"] = new SelectList(_context.Team, "TeamId", "FoundedPosition", match.GuestTeamId);
-            ViewData["HomeTeamId"] = new SelectList(_context.Team, "TeamId", "FoundedPosition", match.HomeTeamId);
+            ViewData["CompetitionID"] = new SelectList(_context.Competition, "CompetitionID", "CompetitionName", match.CompetitionID);
+            ViewData["GuestTeamID"] = new SelectList(_context.Team, "TeamID", "FoundedPosition", match.GuestTeamID);
+            ViewData["HomeTeamID"] = new SelectList(_context.Team, "TeamID", "FoundedPosition", match.HomeTeamID);
             return View(match);
         }
 
@@ -143,7 +143,7 @@ namespace SoccerManager.Controllers
                 .Include(m => m.Competition)
                 .Include(m => m.GuestTeam)
                 .Include(m => m.HomeTeam)
-                .FirstOrDefaultAsync(m => m.MatchId == id);
+                .FirstOrDefaultAsync(m => m.MatchID == id);
             if (match == null)
             {
                 return NotFound();
@@ -173,7 +173,7 @@ namespace SoccerManager.Controllers
 
         private bool MatchExists(int id)
         {
-          return (_context.Match?.Any(e => e.MatchId == id)).GetValueOrDefault();
+          return (_context.Match?.Any(e => e.MatchID == id)).GetValueOrDefault();
         }
     }
 }
