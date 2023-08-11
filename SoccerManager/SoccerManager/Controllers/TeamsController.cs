@@ -21,6 +21,7 @@ namespace SoccerManager.Controllers
         }
 
         // GET: Teams
+        // View admin
         // Get all Teams
         public async Task<IActionResult> Index()
         {
@@ -30,6 +31,10 @@ namespace SoccerManager.Controllers
         }
 
         // GET: Teams
+<<<<<<< Updated upstream
+=======
+        // View user
+>>>>>>> Stashed changes
         // Get all Teams
         public async Task<IActionResult> ListTeam()
         {
@@ -38,6 +43,21 @@ namespace SoccerManager.Controllers
                         Problem("Entity set 'SoccerContext.Team'  is null.");
         }
 
+<<<<<<< Updated upstream
+=======
+        // GET: Teams
+        // View user
+        // Get team detail
+        public async Task<IActionResult> TeamInfo(int? id)
+        {
+
+            var team = _context.Team.Where(t => t.TeamId == id).Include(i => i.Player).Single();
+            return team != null ?
+                        View(team) :
+                        Problem("Entity set 'SoccerContext.Team'  is null.");
+        }
+
+>>>>>>> Stashed changes
         // GET: Teams/Details/5
         // Get Team detail
         public async Task<IActionResult> Details(int? id)

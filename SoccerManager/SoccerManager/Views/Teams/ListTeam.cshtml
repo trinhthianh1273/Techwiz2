@@ -8,26 +8,30 @@
 <h2>List Team</h2>
 
 <!--************************************
-		Main Start
+        Main Start
 *************************************-->
 <main id="tg-main" class="tg-main tg-haslayout">
-	<!--************************************
-			Soccer Media Start
-	*************************************-->
-	<section class="tg-main-section tg-soccermedia tg-haslayout">
-		<div id="tg-soccermediascrollbar" class="tg-soccermediascrollbar">
-			<div id="filter-masonry" class="tg-soccermedia-content tg-haslayout">
-				<!-- League -->
-
-                @foreach(var item in Model)
+    <!--************************************
+            Soccer Media Start
+    *************************************-->
+    <section class="tg-main-section tg-soccermedia tg-haslayout">
+        <div id="tg-soccermediascrollbar" class="tg-soccermediascrollbar">
+            <div id="filter-masonry" class="tg-soccermedia-content tg-haslayout">
+                <!-- League -->
+                @foreach (var item in Model)
                 {
                     <div class="masonry-grid laliga m-1">
                         <div class="tg-project">
                             <figure class="tg-postimg">
+<<<<<<< Updated upstream
                                 <a asp-action="Details" asp-route-id="model.TeamId">
                                     <img src="@Url.Content("~/images/" + item.LogoURL)" alt="">
+=======
+                                <a asp-action="TeamInfo" asp-route-id="@item.TeamId">
+                                    <img src="@Url.Content("~/images/" + item.LogoUrl)" alt="">
+>>>>>>> Stashed changes
                                 </a>
-                                <a asp-action="Details" asp-route-id="model.TeamId" class="tg-btn">
+                                <a asp-action="TeamInfo" asp-route-id="@item.TeamId" class="tg-btn">
                                     @Html.DisplayFor(modelItem => item.FullName)
                                 </a>
                             </figure>
@@ -35,15 +39,15 @@
                     </div>
                 }
 
-			</div>
-		</div>
-	</section>
+            </div>
+        </div>
+    </section>
 
-	<!--************************************
-			Soccer Media End
-	*************************************-->
+    <!--************************************
+            Soccer Media End
+    *************************************-->
 
 </main>
 <!--************************************
-		Main End
+        Main End
 *************************************-->

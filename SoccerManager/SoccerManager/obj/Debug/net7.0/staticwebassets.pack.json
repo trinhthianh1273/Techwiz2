@@ -1,230 +1,279 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\SoccerManager.bundle.scp.css",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\SoccerManager.bundle.scp.css",
       "PackagePath": "staticwebassets\\SoccerManager.bundle.scp.css"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\css\\AjaxLoader.html",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\css\\AjaxLoader.html",
       "PackagePath": "staticwebassets\\css\\AjaxLoader.html"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\css\\animate.css",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\css\\animate.css",
       "PackagePath": "staticwebassets\\css\\animate.css"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\css\\bootstrap.min.css",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\css\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\css\\color.css",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\css\\color.css",
       "PackagePath": "staticwebassets\\css\\color.css"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\css\\customScrollbar.css",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\css\\customScrollbar.css",
       "PackagePath": "staticwebassets\\css\\customScrollbar.css"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\css\\font-awesome.min.css",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\css\\font-awesome.min.css",
       "PackagePath": "staticwebassets\\css\\font-awesome.min.css"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\css\\grabbing.html",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\css\\grabbing.html",
       "PackagePath": "staticwebassets\\css\\grabbing.html"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\css\\icomoon.css",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\css\\icomoon.css",
       "PackagePath": "staticwebassets\\css\\icomoon.css"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\css\\images\\ui-icons_444444_256x240.html",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\css\\images\\ui-icons_444444_256x240.html",
       "PackagePath": "staticwebassets\\css\\images\\ui-icons_444444_256x240.html"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\css\\images\\ui-icons_555555_256x240.html",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\css\\images\\ui-icons_555555_256x240.html",
       "PackagePath": "staticwebassets\\css\\images\\ui-icons_555555_256x240.html"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\css\\images\\ui-icons_777620_256x240.html",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\css\\images\\ui-icons_777620_256x240.html",
       "PackagePath": "staticwebassets\\css\\images\\ui-icons_777620_256x240.html"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\css\\images\\ui-icons_777777_256x240.html",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\css\\images\\ui-icons_777777_256x240.html",
       "PackagePath": "staticwebassets\\css\\images\\ui-icons_777777_256x240.html"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\css\\images\\ui-icons_cc0000_256x240.html",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\css\\images\\ui-icons_cc0000_256x240.html",
       "PackagePath": "staticwebassets\\css\\images\\ui-icons_cc0000_256x240.html"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\css\\images\\ui-icons_ffffff_256x240.html",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\css\\images\\ui-icons_ffffff_256x240.html",
       "PackagePath": "staticwebassets\\css\\images\\ui-icons_ffffff_256x240.html"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\css\\jquery-ui.css",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\css\\jquery-ui.css",
       "PackagePath": "staticwebassets\\css\\jquery-ui.css"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\css\\main.css",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\css\\main.css",
       "PackagePath": "staticwebassets\\css\\main.css"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\css\\prettyPhoto.css",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\css\\normalize.css",
+      "PackagePath": "staticwebassets\\css\\normalize.css"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\css\\owl.carousel.css",
+      "PackagePath": "staticwebassets\\css\\owl.carousel.css"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\css\\owl.theme.css",
+      "PackagePath": "staticwebassets\\css\\owl.theme.css"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\css\\prettyPhoto.css",
       "PackagePath": "staticwebassets\\css\\prettyPhoto.css"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\css\\responsive.css",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\css\\responsive.css",
       "PackagePath": "staticwebassets\\css\\responsive.css"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\css\\site.css",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\css\\stype.css",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\css\\stype.css",
       "PackagePath": "staticwebassets\\css\\stype.css"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\css\\transitions.css",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\css\\swiper.min.css",
+      "PackagePath": "staticwebassets\\css\\swiper.min.css"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\css\\transitions.css",
       "PackagePath": "staticwebassets\\css\\transitions.css"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\favicon.ico",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\fonts\\fontawesome-webfont5b62.eot",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\fonts\\fontawesome-webfont5b62.eot",
       "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont5b62.eot"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\fonts\\fontawesome-webfont5b62.svg",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\fonts\\fontawesome-webfont5b62.svg",
       "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont5b62.svg"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\fonts\\fontawesome-webfont5b62.ttf",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\fonts\\fontawesome-webfont5b62.ttf",
       "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont5b62.ttf"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\fonts\\fontawesome-webfont5b62.woff",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\fonts\\fontawesome-webfont5b62.woff",
       "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont5b62.woff"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\fonts\\fontawesome-webfont5b62.woff2",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\fonts\\fontawesome-webfont5b62.woff2",
       "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont5b62.woff2"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\fonts\\fontawesome-webfontd41d.eot",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\fonts\\fontawesome-webfontd41d.eot",
       "PackagePath": "staticwebassets\\fonts\\fontawesome-webfontd41d.eot"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\fonts\\glyphicons-halflings-regular.eot",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\fonts\\glyphicons-halflings-regular.eot",
       "PackagePath": "staticwebassets\\fonts\\glyphicons-halflings-regular.eot"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\fonts\\glyphicons-halflings-regular.svg",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\fonts\\glyphicons-halflings-regular.svg",
       "PackagePath": "staticwebassets\\fonts\\glyphicons-halflings-regular.svg"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\fonts\\glyphicons-halflings-regular.ttf",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\fonts\\glyphicons-halflings-regular.ttf",
       "PackagePath": "staticwebassets\\fonts\\glyphicons-halflings-regular.ttf"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\fonts\\glyphicons-halflings-regular.woff",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\fonts\\glyphicons-halflings-regular.woff",
       "PackagePath": "staticwebassets\\fonts\\glyphicons-halflings-regular.woff"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\fonts\\glyphicons-halflings-regular.woff2",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\fonts\\glyphicons-halflings-regular.woff2",
       "PackagePath": "staticwebassets\\fonts\\glyphicons-halflings-regular.woff2"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\fonts\\glyphicons-halflings-regulard41d.eot",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\fonts\\glyphicons-halflings-regulard41d.eot",
       "PackagePath": "staticwebassets\\fonts\\glyphicons-halflings-regulard41d.eot"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\fonts\\icomoonf55b.eot",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\fonts\\icomoonf55b.eot",
       "PackagePath": "staticwebassets\\fonts\\icomoonf55b.eot"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\fonts\\icomoonf55b.svg",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\fonts\\icomoonf55b.svg",
       "PackagePath": "staticwebassets\\fonts\\icomoonf55b.svg"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\fonts\\icomoonf55b.ttf",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\fonts\\icomoonf55b.ttf",
       "PackagePath": "staticwebassets\\fonts\\icomoonf55b.ttf"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\fonts\\icomoonf55b.woff",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\fonts\\icomoonf55b.woff",
       "PackagePath": "staticwebassets\\fonts\\icomoonf55b.woff"
     },
     {
+<<<<<<< Updated upstream
       "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\Pants Man United 2021 - 1.png",
+=======
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\PlayerImages\\player.jpg",
+      "PackagePath": "staticwebassets\\images\\PlayerImages\\player.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\PlayerImages\\player_Screenshot 2023-07-27 193136_94bd2617-92d7-4868-ae62-05cc34534eed.png",
+      "PackagePath": "staticwebassets\\images\\PlayerImages\\player_Screenshot 2023-07-27 193136_94bd2617-92d7-4868-ae62-05cc34534eed.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\PlayerImages\\player_Screenshot 2023-07-29 034844_fe952bdc-f33a-475b-aa0d-90dd6a8ffd8c.png",
+      "PackagePath": "staticwebassets\\images\\PlayerImages\\player_Screenshot 2023-07-29 034844_fe952bdc-f33a-475b-aa0d-90dd6a8ffd8c.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\PlayerImages\\player_Screenshot 2023-08-11 033002_677673cd-57cd-47b4-9f6f-c0530378635a - Copy.png",
+      "PackagePath": "staticwebassets\\images\\PlayerImages\\player_Screenshot 2023-08-11 033002_677673cd-57cd-47b4-9f6f-c0530378635a - Copy.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\PlayerLogo\\player_Screenshot 2023-07-27 193136_d1f42077-8c5c-4e58-97a2-0199b0421473.png",
+      "PackagePath": "staticwebassets\\images\\PlayerLogo\\player_Screenshot 2023-07-27 193136_d1f42077-8c5c-4e58-97a2-0199b0421473.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\PlayerLogo\\player_Screenshot 2023-07-29 034844_c8617d34-46f0-4fd6-aeb5-fe0d2872ee6d.png",
+      "PackagePath": "staticwebassets\\images\\PlayerLogo\\player_Screenshot 2023-07-29 034844_c8617d34-46f0-4fd6-aeb5-fe0d2872ee6d.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\PlayerLogo\\player_Screenshot 2023-08-11 033002_4b5d35b5-6fcf-4465-bbfa-36dd06b16a77.png",
+      "PackagePath": "staticwebassets\\images\\PlayerLogo\\player_Screenshot 2023-08-11 033002_4b5d35b5-6fcf-4465-bbfa-36dd06b16a77.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\Pants Man United 2021 - 1.png",
+>>>>>>> Stashed changes
       "PackagePath": "staticwebassets\\images\\ProductImage\\Pants Man United 2021 - 1.png"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\Pants Man United 2021 - 2.png",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\Pants Man United 2021 - 2.png",
       "PackagePath": "staticwebassets\\images\\ProductImage\\Pants Man United 2021 - 2.png"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\Pants Man United 2021 - 3.png",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\Pants Man United 2021 - 3.png",
       "PackagePath": "staticwebassets\\images\\ProductImage\\Pants Man United 2021 - 3.png"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\Pants Man United 2021.png",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\Pants Man United 2021.png",
       "PackagePath": "staticwebassets\\images\\ProductImage\\Pants Man United 2021.png"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\Pants Man United 2022 - 1.png",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\Pants Man United 2022 - 1.png",
       "PackagePath": "staticwebassets\\images\\ProductImage\\Pants Man United 2022 - 1.png"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\Pants Man United 2022 - 2.png",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\Pants Man United 2022 - 2.png",
       "PackagePath": "staticwebassets\\images\\ProductImage\\Pants Man United 2022 - 2.png"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\Pants Man United 2022 - 3.png",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\Pants Man United 2022 - 3.png",
       "PackagePath": "staticwebassets\\images\\ProductImage\\Pants Man United 2022 - 3.png"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\Pants Man United 2022.png",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\Pants Man United 2022.png",
       "PackagePath": "staticwebassets\\images\\ProductImage\\Pants Man United 2022.png"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\Poster Man United 2021.png",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\Poster Man United 2021.png",
       "PackagePath": "staticwebassets\\images\\ProductImage\\Poster Man United 2021.png"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\Poster Man United 2022.png",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\Poster Man United 2022.png",
       "PackagePath": "staticwebassets\\images\\ProductImage\\Poster Man United 2022.png"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\T-Shirt Man United 2021 - 1.png",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\T-Shirt Man United 2021 - 1.png",
       "PackagePath": "staticwebassets\\images\\ProductImage\\T-Shirt Man United 2021 - 1.png"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\T-Shirt Man United 2021 - 2.png",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\T-Shirt Man United 2021 - 2.png",
       "PackagePath": "staticwebassets\\images\\ProductImage\\T-Shirt Man United 2021 - 2.png"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\T-Shirt Man United 2021.png",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\T-Shirt Man United 2021.png",
       "PackagePath": "staticwebassets\\images\\ProductImage\\T-Shirt Man United 2021.png"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\T-Shirt Man United 2022 - 1.png",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\T-Shirt Man United 2022 - 1.png",
       "PackagePath": "staticwebassets\\images\\ProductImage\\T-Shirt Man United 2022 - 1.png"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\T-Shirt Man United 2022 - 2.png",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\T-Shirt Man United 2022 - 2.png",
       "PackagePath": "staticwebassets\\images\\ProductImage\\T-Shirt Man United 2022 - 2.png"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\T-Shirt Man United 2022 - 3.png",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\T-Shirt Man United 2022 - 3.png",
       "PackagePath": "staticwebassets\\images\\ProductImage\\T-Shirt Man United 2022 - 3.png"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\T-Shirt Man United 2022.png",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\T-Shirt Man United 2022.png",
       "PackagePath": "staticwebassets\\images\\ProductImage\\T-Shirt Man United 2022.png"
     },
     {
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 <<<<<<< HEAD
       "Id": "C:\\Users\\viper\\Desktop\\real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\product_Screenshot 2023-07-27 193136_29f74749-6964-4dee-bc18-af95aee1eba2.png",
@@ -293,305 +342,389 @@
 >>>>>>> Develop
       "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\TeamLogos\\team_78907faf8f3e23904b8987ec83a59891_a88df706-ceec-475b-93de-7cbee3b0c083.jpg",
       "PackagePath": "staticwebassets\\images\\TeamLogos\\team_78907faf8f3e23904b8987ec83a59891_a88df706-ceec-475b-93de-7cbee3b0c083.jpg"
+=======
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\product_Screenshot 2023-07-27 193136_29f74749-6964-4dee-bc18-af95aee1eba2.png",
+      "PackagePath": "staticwebassets\\images\\ProductImage\\product_Screenshot 2023-07-27 193136_29f74749-6964-4dee-bc18-af95aee1eba2.png"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\bg-footer.jpg",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\product_Screenshot 2023-07-27 193136_93ea12a1-c0ed-4b19-a7f8-59b5602fa825.png",
+      "PackagePath": "staticwebassets\\images\\ProductImage\\product_Screenshot 2023-07-27 193136_93ea12a1-c0ed-4b19-a7f8-59b5602fa825.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\product_Screenshot 2023-07-27 193136_b1293548-a472-4304-a052-9a500a62c22e.png",
+      "PackagePath": "staticwebassets\\images\\ProductImage\\product_Screenshot 2023-07-27 193136_b1293548-a472-4304-a052-9a500a62c22e.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\product_Screenshot 2023-07-27 193136_be14f5f8-780d-42f2-b2c4-073a874cfef8.png",
+      "PackagePath": "staticwebassets\\images\\ProductImage\\product_Screenshot 2023-07-27 193136_be14f5f8-780d-42f2-b2c4-073a874cfef8.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\product_Screenshot 2023-07-27 193136_d348ee2e-ddc0-493f-96b9-da34d5a872c2.png",
+      "PackagePath": "staticwebassets\\images\\ProductImage\\product_Screenshot 2023-07-27 193136_d348ee2e-ddc0-493f-96b9-da34d5a872c2.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\product_Screenshot 2023-07-27 193136_e3203280-d562-488a-b496-51d49a74fc7f.png",
+      "PackagePath": "staticwebassets\\images\\ProductImage\\product_Screenshot 2023-07-27 193136_e3203280-d562-488a-b496-51d49a74fc7f.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\product_Screenshot 2023-07-29 034844_11df392e-1b36-4acf-8b40-8300312fb66e.png",
+      "PackagePath": "staticwebassets\\images\\ProductImage\\product_Screenshot 2023-07-29 034844_11df392e-1b36-4acf-8b40-8300312fb66e.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\product_Screenshot 2023-07-29 034844_962a7ef4-a3c3-4f96-a24e-f2e7ba5992dd.png",
+      "PackagePath": "staticwebassets\\images\\ProductImage\\product_Screenshot 2023-07-29 034844_962a7ef4-a3c3-4f96-a24e-f2e7ba5992dd.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\product_Screenshot 2023-07-29 034844_f6143bcc-f65a-47c3-8b0d-6280ac769dee.png",
+      "PackagePath": "staticwebassets\\images\\ProductImage\\product_Screenshot 2023-07-29 034844_f6143bcc-f65a-47c3-8b0d-6280ac769dee.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\product_Screenshot 2023-07-29 034844_fd78c35d-4b0d-4c5b-9588-e1f6562a2ea0.png",
+      "PackagePath": "staticwebassets\\images\\ProductImage\\product_Screenshot 2023-07-29 034844_fd78c35d-4b0d-4c5b-9588-e1f6562a2ea0.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\product_Screenshot 2023-08-11 033002_1728ed79-b174-4f64-bfdb-8d148c4d39b4.png",
+      "PackagePath": "staticwebassets\\images\\ProductImage\\product_Screenshot 2023-08-11 033002_1728ed79-b174-4f64-bfdb-8d148c4d39b4.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\product_Screenshot 2023-08-11 033002_29b1385a-dfe1-40a2-97e1-e3ae483a0226.png",
+      "PackagePath": "staticwebassets\\images\\ProductImage\\product_Screenshot 2023-08-11 033002_29b1385a-dfe1-40a2-97e1-e3ae483a0226.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\product_Screenshot 2023-08-11 033002_4eae4c41-40d5-40e0-90b6-94ff4f4157d6.png",
+      "PackagePath": "staticwebassets\\images\\ProductImage\\product_Screenshot 2023-08-11 033002_4eae4c41-40d5-40e0-90b6-94ff4f4157d6.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\product_Screenshot 2023-08-11 033002_57e8bd53-62d2-4032-816b-5121939e7da2.png",
+      "PackagePath": "staticwebassets\\images\\ProductImage\\product_Screenshot 2023-08-11 033002_57e8bd53-62d2-4032-816b-5121939e7da2.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\product_Screenshot 2023-08-11 033002_7c060a36-7c58-4a8b-bb57-8d6f9be14d5f.png",
+      "PackagePath": "staticwebassets\\images\\ProductImage\\product_Screenshot 2023-08-11 033002_7c060a36-7c58-4a8b-bb57-8d6f9be14d5f.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\product_Screenshot 2023-08-11 033002_7c5d9536-4835-4c2a-a014-0f3228e89ac9.png",
+      "PackagePath": "staticwebassets\\images\\ProductImage\\product_Screenshot 2023-08-11 033002_7c5d9536-4835-4c2a-a014-0f3228e89ac9.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\ProductImage\\product_logo_94a35824-ff7e-411e-9007-c0d05f40d366.png",
+      "PackagePath": "staticwebassets\\images\\ProductImage\\product_logo_94a35824-ff7e-411e-9007-c0d05f40d366.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\TeamLogos\\team_78907faf8f3e23904b8987ec83a59891_a88df706-ceec-475b-93de-7cbee3b0c083.jpg",
+      "PackagePath": "staticwebassets\\images\\TeamLogos\\team_78907faf8f3e23904b8987ec83a59891_a88df706-ceec-475b-93de-7cbee3b0c083.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\aaron.jpg",
+      "PackagePath": "staticwebassets\\images\\aaron.jpg"
+>>>>>>> Stashed changes
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\bg-footer.jpg",
       "PackagePath": "staticwebassets\\images\\bg-footer.jpg"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\bg-pattran.png",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\bg-pattran.png",
       "PackagePath": "staticwebassets\\images\\bg-pattran.png"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\logo.png",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\logo.png",
       "PackagePath": "staticwebassets\\images\\logo.png"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\logo2.png",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\logo2.png",
       "PackagePath": "staticwebassets\\images\\logo2.png"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\js\\appear.js",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\js\\appear.js",
       "PackagePath": "staticwebassets\\js\\appear.js"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\js\\countTo.js",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\js\\countTo.js",
       "PackagePath": "staticwebassets\\js\\countTo.js"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\js\\customScrollbar.min.js",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\js\\customScrollbar.min.js",
       "PackagePath": "staticwebassets\\js\\customScrollbar.min.js"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\js\\isotope.pkgd.js",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\js\\isotope.pkgd.js",
       "PackagePath": "staticwebassets\\js\\isotope.pkgd.js"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\js\\jquery-ui.js",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\js\\jquery-ui.js",
       "PackagePath": "staticwebassets\\js\\jquery-ui.js"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\js\\main.js",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\js\\main.js",
       "PackagePath": "staticwebassets\\js\\main.js"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\js\\owl.carousel.js",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\js\\owl.carousel.js",
       "PackagePath": "staticwebassets\\js\\owl.carousel.js"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\js\\prettyPhoto.js",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\js\\prettyPhoto.js",
       "PackagePath": "staticwebassets\\js\\prettyPhoto.js"
     },
     {
+<<<<<<< Updated upstream
       "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\js\\site.js",
 <<<<<<< HEAD
 >>>>>>> Develop
 =======
 >>>>>>> Develop
+=======
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\js\\site.js",
+>>>>>>> Stashed changes
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\js\\swiper.min.js",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\js\\swiper.min.js",
       "PackagePath": "staticwebassets\\js\\swiper.min.js"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\js\\vendor\\bootstrap.min.js",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\js\\vendor\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\js\\vendor\\bootstrap.min.js"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\js\\vendor\\jquery-library.js",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\js\\vendor\\jquery-library.js",
       "PackagePath": "staticwebassets\\js\\vendor\\jquery-library.js"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\js\\vendor\\modernizr-2.8.3-respond-1.4.2.min.js",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\js\\vendor\\loader.js",
+      "PackagePath": "staticwebassets\\js\\vendor\\loader.js"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\js\\vendor\\modernizr-2.8.3-respond-1.4.2.min.js",
       "PackagePath": "staticwebassets\\js\\vendor\\modernizr-2.8.3-respond-1.4.2.min.js"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Id": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {

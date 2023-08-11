@@ -1,14 +1,21 @@
 {
   "version": 2,
+<<<<<<< Updated upstream
 <<<<<<< HEAD
   "dgSpecHash": "WMKI6m6XK5iMVPUQT+Z3NP6mEd3gA+SXlnxdYMK+L6Dzc5WdWiReZSpXfjIEfWnBJp0hJCzrxq5lAVzw5nx8KQ==",
 =======
   "dgSpecHash": "QIX18e9d9CsEcsiLeGyh5KSP9Ojcbfy1fbIqhqzWNtnBygC986+gzlubWa9mOHd0B+yTUWd0kT5HaFU3QD8DZQ==",
 >>>>>>> Develop
+=======
+  "dgSpecHash": "2yHr99dqfycsFroWxH2SdbyQhWoD3Or6BGMpQkLwRceMS90a0zRZdbyjjnFaSybPPMxLYBluxFy6gt2xb9eS7Q==",
+>>>>>>> Stashed changes
   "success": true,
-  "projectFilePath": "C:\\Users\\MSI Modern\\Techwiz2\\SoccerManager\\SoccerManager\\SoccerManager.csproj",
+  "projectFilePath": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\SoccerManager.csproj",
   "expectedPackageFiles": [
+<<<<<<< Updated upstream
 <<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
     "C:\\Users\\viper\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\viper\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\viper\\.nuget\\packages\\bouncycastle.cryptography\\2.2.1\\bouncycastle.cryptography.2.2.1.nupkg.sha512",
@@ -235,6 +242,7 @@
     "C:\\Users\\viper\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
     "C:\\Users\\viper\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\viper\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
+<<<<<<< Updated upstream
 =======
     "C:\\Users\\MSI Modern\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\MSI Modern\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
@@ -463,6 +471,8 @@
     "C:\\Users\\MSI Modern\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\MSI Modern\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
 >>>>>>> Develop
+=======
+>>>>>>> Stashed changes
   ],
   "logs": []
 }
