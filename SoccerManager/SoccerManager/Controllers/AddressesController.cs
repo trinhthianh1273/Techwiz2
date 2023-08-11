@@ -9,6 +9,7 @@ using SoccerManager.Models;
 
 namespace SoccerManager.Controllers
 {
+    
     public class AddressesController : Controller
     {
         private readonly SoccerContext _context;

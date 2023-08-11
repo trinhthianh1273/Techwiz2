@@ -59,6 +59,7 @@ namespace SoccerManager.DTO.Response
             Employee employee,
             PaymentMethod paymentMethod,
             Status status,
+            ICollection<OrderContent> orderContent,
             List<Products> listProduct
         )
         {
@@ -83,7 +84,7 @@ namespace SoccerManager.DTO.Response
             Employee = employee;
             PaymentMethod = paymentMethod;
             Status = status;
-            OrderContent = new HashSet<OrderContent>();
+            OrderContent = orderContent;
             ListProduct = listProduct;
         }
 
