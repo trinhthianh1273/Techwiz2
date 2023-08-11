@@ -91,7 +91,6 @@ namespace SoccerManager.Controllers
             {
                 return NotFound();
             }
-
             var team = await _context.Team.FindAsync(id);
             if (team == null)
             {
@@ -110,10 +109,8 @@ namespace SoccerManager.Controllers
             {
                 return NotFound();
             }
-
             try
             {
-
                 //get current logo url
                 var currentImg = LogoURL;
 
@@ -129,7 +126,7 @@ namespace SoccerManager.Controllers
                 }
                 else
                 {
-                    team.LogoURL = currentImg;  //logo is still remain
+                    team.LogoURL = currentImg;  //logo still remains unchanged
                 }
 
                 //update database
