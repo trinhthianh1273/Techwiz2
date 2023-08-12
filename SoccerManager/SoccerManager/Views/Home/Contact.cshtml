@@ -72,18 +72,19 @@
 								</div>
 							</div>
 							<div class="col-md-7 col-sm-12 col-xs-12">
-								<form asp-action="Create" class="tg-commentform help-form" id="tg-commentform">
+								<form asp-action="SendFeedback" class="tg-commentform help-form" id="tg-commentform">
 									<fieldset>
 										<div class="form-group">
+											@{
+                                                var id = Context.Session.GetString("CustomerId");
+											
+											}
 											<input asp-for="CustomerId" value="" class="form-control" style="display: none"/>
-											<input type="text" required="" placeholder="Name*" class="form-control" name="contact[name]">
-										</div>
-										<div class="form-group">
-											<input type="email" required="" placeholder="Email*" class="form-control" name="contact[email]">
+											@*<input type="text" required="" placeholder="Name*" class="form-control">*@
 										</div>
 										<div class="form-group">
 											<div class="tg-select">
-												<select name="contact[type]">
+												<select asp-for="Title">
 													<option value="">Message Type*</option>
 													<option value="Help">Discussion</option>
 													<option value="Help">Help</option>
@@ -92,7 +93,7 @@
 											</div>
 										</div>
 										<div class="form-group">
-											<textarea required placeholder="Message*" name="contact[message]"></textarea>
+											<textarea required placeholder="Message*" asp-for="Content"></textarea>
 										</div>
 										<div class="form-group">
 											<button type="submit" class="tg-btn submit-now">send</button>

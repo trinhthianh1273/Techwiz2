@@ -1,25 +1,67 @@
-﻿@model IEnumerable<SoccerManager.Models.Cart>
+﻿@model SoccerManager.Models.Cart
 
 @{
     ViewData["Title"] = "Cart";
     Layout = "~/Views/Shared/_Main_Layout.cshtml";
+
+    double totalAmount = ViewBag.TotalAmount;
+    List<Cart> Carts = ViewBag.Carts;
 }
 
 
 <section class="h-100 gradient-custom mb-5" style="font-size: 20px;">
-    <div class="container py-5">
+    <form action="post" asp-controller="Customers" asp-action="CheckOut" class="container py-5">
         <div class="row d-flex justify-content-center my-4">
             <div class="col-md-8">
                 <div class="card mb-4">
                     <div class="card-header py-3">
-                        <h1 class="mb-0">Cart - 2 items</h1>
+                        <h1 class="mb-0">Cart - @Carts.Count() items</h1>
                     </div>
                     <div class="card-body">
-                        @foreach(Cart item in Model)
+                        @foreach (Cart item in Carts)
                         {
-                            
+                            <div class="row th-products tg-shoplist">
+                                <div class="row tg-product">
+                                    <figure class="col-3 tg-productimg">
+                                        <a href="#">
+                                            @{
+                                                if (item.Product.ProductImage.Count() > 0)
+                                                {
+                                                    <img src="@Url.Content("~/images/ProductImage/" + item.Product.ProductImage.ElementAt(0).ImageUrl)" alt="image description" style="width: 165px; height: 191px;">
+                                                }
+                                                else
+                                                {
+                                                    <img src="https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg" alt="image description" style="width: 165px; height: 191px;">
+                                                }
+                                            }
+                                        </a>
+                                    </figure>
+                                    <div class="tg-productinfo">
+                                        <a class="tg-theme-tag">@item.Product.Category.CategoryName</a>
+                                        <div class="tg-producttitle"><h2><a href="#">@item.Product.ProductName</a></h2></div>
+                                        <div class="tg-productprice"><h3>$ @item.Product.Price</h3></div>
+                                        <div class="tg-productcolorsize">
+                                        </div>
+                                        <a class="tg-btn tg-btnaddtocart" asp-area="" asp-controller="Carts" asp-action="Delete">remove</a>
+                                        <span class="tg-productquentity">
+                                            <em class="minus">
+                                                <a asp-area="" asp-controller="Carts">-</a>
+                                                </em>
+                                            <input type="text" class="result" value="@item.Quantity" name="quantity">
+                                            <em class="plus">
+                                                <a asp-area="" asp-controller="Carts">+</a>
+                                            </em>
+                                        </span>
+                                    </div>
+                                    <input asp-for="CartId" value="@item.CartId" class="form-control" style="display: none"/>
+                                    <input asp-for="CustomerId" value="@item.CustomerId" class="form-control" style="display: none"/>
+                                    <input asp-for="ProductId" value="@item.ProductId" class="form-control" style="display: none"/>
+                                    <input asp-for="Quantity" value="@item.Quantity" class="form-control" style="display: none" />
+
+                                </div>
+                            </div>
                         }
-                        <div class="row th-products tg-shoplist">
+                        @*<div class="row th-products tg-shoplist">
                             <div class="row tg-product">
                                 <figure class="col-3 tg-productimg">
                                     <a href="#"><img src="https://tieusunhanvat.info/wp-content/uploads/2023/04/tsnv-tieu-su-satoru-gojoi-02.webp" alt="image description" style="width: 165px; height: 191px;"></a>
@@ -38,27 +80,7 @@
                                     </span>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row th-products tg-shoplist">
-                            <div class="row tg-product">
-                                <figure class="col-3 tg-productimg">
-                                    <a href="#"><img src="https://tieusunhanvat.info/wp-content/uploads/2023/04/tsnv-tieu-su-satoru-gojoi-02.webp" alt="image description" style="width: 165px; height: 191px;"></a>
-                                </figure>
-                                <div class="tg-productinfo">
-                                    <a class="tg-theme-tag" href="#">Mens wear</a>
-                                    <div class="tg-producttitle"><h2><a href="#">Casual Red T-Shirt</a></h2></div>
-                                    <div class="tg-productprice"><h3>$ 164</h3></div>
-                                    <div class="tg-productcolorsize">
-                                    </div>
-                                    <a class="tg-btn tg-btnaddtocart" href="#">remove</a>
-                                    <span class="tg-productquentity">
-                                        <em class="minus">-</em>
-                                        <input type="text" class="result" value="01" id="quantity1" name="quantity">
-                                        <em class="plus">+</em>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
+                        </div>*@
                         <hr class="my-4" />
                         
                     </div>
@@ -96,7 +118,7 @@
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
                                 Products
-                                <span>$53.98</span>
+                                <span>@totalAmount</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
                                 <div>
@@ -105,16 +127,18 @@
                                         <p class="mb-0">(including VAT)</p>
                                     </strong>
                                 </div>
-                                <span><strong>$53.98</strong></span>
+                                <span><strong>@totalAmount</strong></span>
                             </li>
                         </ul>
 
-                        <button type="button" class="btn btn-primary btn-lg btn-block">
+                        
+
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">
                             Go to checkout
                         </button>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </form>
 </section>
