@@ -28,9 +28,15 @@ namespace SoccerManager.Controllers
 
         // GET: Products
         // Get list of Products with player and team information
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? page)
         {
+            int pageSize = 10; // Số sản phẩm trên mỗi trang
+            int pageNumber = (page ?? 1); // Trang hiện tại, mặc định là trang 1
+
             var soccerContext = _context.Products.Include(p => p.Category).Include(p => p.Player).Include(p => p.Team).Include(p => p.ProductImage);
+            IPagedList<Products> pagedProducts = soccerContext.ToPagedList(pageNumber, pageSize);
+
+            ViewBag.PagedProducts = pagedProducts;
             return View(await soccerContext.ToListAsync());
         }
 

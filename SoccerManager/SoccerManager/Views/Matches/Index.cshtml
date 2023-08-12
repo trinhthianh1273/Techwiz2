@@ -5,86 +5,82 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<div class="page">
+    <!-- Navbar -->
+    <div class="page-wrapper">
+        <!-- Page header -->
+        <div class="page-header d-print-none">
+            <div class="container-xl">
+                <div class="row g-2 align-items-center">
+                    <div class="col">
+                        <div class="tg-section-heading">
+                            <h2 class="page-title">
+                                Team Management
+                            </h2>
+                            <p>
+                                <a asp-action="Create">Create New</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Page body -->
+        <div class="page-body">
+            <div class="container-xl">
+                <div class="card">
+                    <div class="card-body">
+                        <div id="table-default" class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th><button class="table-sort" data-sort="sort-name">Match Name</button></th>
+                                        <th><button class="table-sort" data-sort="sort-city">Start Time</button></th>
+                                        <th><button class="table-sort" data-sort="sort-type">End Time</button></th>
+                                        <th><button class="table-sort" data-sort="sort-score">Stadium</button></th>
+                                        <th>
+                                            <button class="table-sort" data-sort="sort-date">Home Team : Score</button>
+                                        </th>
+                                        <th>
+                                            <button class="table-sort" data-sort="sort-quantity">Guest Team : Scrore</button>
+                                        </th>
+                                        <th><button class="table-sort" data-sort="sort-score">Competition</button></th>
+                                        <th><button class="table-sort" data-sort="sort-score">Description</button></th>
+                                        <th><button class="table-sort">#</button></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="table-tbody">
+                                    @foreach (Match item in Model)
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.MatchName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StartTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EndTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Stadium)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HomeTeamScore)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.GuestTeamScore)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Competition)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.GuestTeam)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HomeTeam)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.MatchName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StartTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EndTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Stadium)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HomeTeamScore)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GuestTeamScore)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Competition.CompetitionName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GuestTeam.ShortName)
-            </td>
-            <td>
-                    @Html.DisplayFor(modelItem => item.HomeTeam.ShortName)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.MatchId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.MatchId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.MatchId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+                                    {
+                                        <tr>
+                                            <td class="sort-name">@Html.DisplayFor(modelItem => item.MatchName)</td>
+                                            <td class="sort-city">@Html.DisplayFor(modelItem => item.StartTime)</td>
+                                            <td class="sort-type">@Html.DisplayFor(modelItem => item.EndTime)</td>
+                                            <td class="sort-score">@Html.DisplayFor(modelItem => item.Stadium)</td>
+                                            <td class="sort-date">@Html.DisplayFor(modelItem => item.HomeTeam.ShortName) : @Html.DisplayFor(modelItem => item.HomeTeamScore)</td>
+                                            <td class="sort-quantity">@Html.DisplayFor(modelItem => item.GuestTeam.ShortName) : @Html.DisplayFor(modelItem => item.GuestTeamScore)</td>
+                                            <td class="sort-score">@Html.DisplayFor(modelItem => item.Competition)</td>
+                                            <td class="sort-score">@Html.DisplayFor(modelItem => item.Description)</td>
+
+                                            <td>
+                                                <a asp-action="Edit" asp-route-id="@item.MatchId"><i
+                                                        class="fa fa-edit"></i></a>
+                                                <a asp-action="Details" asp-route-id="@item.MatchId">
+                                                    <i class="fa fa-info"></i></a>
+                                                <a asp-action="Delete" asp-route-id="@item.MatchId">
+                                                    <i class="fa fa-remove"></i></a>
+                                            </td>
+
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
