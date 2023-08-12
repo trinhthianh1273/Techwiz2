@@ -41,8 +41,27 @@ namespace SoccerManager.Controllers
             return View(obj);
         }
 
-        //POST: Customers/Login
-        [HttpPost]
+		// GET: Customers/Cart
+		public IActionResult Cart()
+		{
+
+            var carts  = new List<Cart>();
+
+            if (HttpContext.Session.GetString("CustomerId") != null)
+			{
+				int customerId = Convert.ToInt16(HttpContext.Session.GetString("CustomerId"));
+				carts = _context.Cart
+								.Where(c => c.CustomerId == customerId)
+								.Include(c => c.Product)
+								.ToList();
+			}
+            ViewBag.Carts = carts;
+
+            return View(carts);
+		}
+
+		//POST: Customers/Login
+		[HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Login(Customer obj)
         {
@@ -59,18 +78,16 @@ namespace SoccerManager.Controllers
                 HttpContext.Session.SetString("CusUserName", user.Username);
                 HttpContext.Session.SetString("CusFullName", user.Fullname);
                 HttpContext.Session.SetString("CustomerId", user.CustomerId.ToString());
+
+                var carts = _context.Cart
+                                .Where(c => c.CustomerId == user.CustomerId)
+                                .Include(c => c.Product)
+                                .ToList().Count();
+                HttpContext.Session.SetString("CartCount", carts.ToString());
                 return RedirectToAction("Index", "Home");
 
 
-                //var Customer = _context.Customer.Where(p => p.Username == obj.Username && PasswordHasher.VerifyPassword(obj.Password, p.Password)).ToList();
-                //if (Customer.Count > 0)
-                //{
-                //    return RedirectToAction("Index", "Home");
-                //}
-                //else
-                //{
-                //    return Content("UserName or Password errors!");
-                //}
+                
             }
             return RedirectToAction("Login", "Customers");
         }

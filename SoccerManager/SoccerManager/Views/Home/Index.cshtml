@@ -7,7 +7,9 @@
 
 	List<Match> UpcomingMatches = matches.Where(match => match.StartTime > DateTime.Now).ToList();
 
-	List<Player> Top10Players = ViewBag.Top10Players.ToList();
+	List<Player> Top10Players = ViewBag.Top10Players;
+
+	//List<Cart> Carts = ViewBag.Carts;
 }
 
 <div id="tg-wrapper" class="tg-wrapper tg-haslayout">
@@ -359,7 +361,12 @@
 							</div>
 							<div class="col-sm-4 col-xs-12 hidden-xs">
 								<figure>
-									<img src="images/player/messi.png" alt="image description">
+									@{
+										if(Top10Players.ElementAt(0).PlayerImage.Count() > 0)
+										{
+											<img src="@Url.Content("~/images/" + Top10Players.ElementAt(0).PlayerImage.ElementAt(0).ImageUrl)" alt="image description">
+										}
+									}
 								</figure>
 							</div>
 						</div>
