@@ -11,7 +11,10 @@ namespace SoccerManager.Controllers
     public class PlayersController : Controller
     {
         private readonly SoccerContext _context;
+<<<<<<< HEAD
+=======
 
+>>>>>>> Develop
         private readonly IWebHostEnvironment _env;
         private readonly IFileUploadService _fileUploadService;
         private readonly string ImgDir = "PlayerImages";
@@ -41,6 +44,25 @@ namespace SoccerManager.Controllers
             return View(soccerContext);
         }
 
+<<<<<<< HEAD
+        // GET: Players/Details/5
+        // Get Player detail
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null || _context.Player == null)
+            {
+                return NotFound();
+            }
+
+            var player = await _context.Player
+                .Include(p => p.CurrentTeamNavigation)
+                .Include(i => i.PlayerImage)
+                .FirstOrDefaultAsync(m => m.PlayerId == id);
+            if (player == null)
+            {
+                return NotFound();
+            }
+=======
 		// GET: Players
 		// Admin view
 		// Get list of Playes
@@ -74,6 +96,7 @@ namespace SoccerManager.Controllers
 			{
 				return NotFound();
 			}
+>>>>>>> Develop
 
             return View(player);
         }
@@ -254,6 +277,12 @@ namespace SoccerManager.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+<<<<<<< HEAD
+        private bool PlayerExists(int id)
+        {
+            return (_context.Player?.Any(e => e.PlayerId == id)).GetValueOrDefault();
+        }
+=======
 
 		// GET: Players/Delete/5
 		public async Task<IActionResult> Delete(int? id)
@@ -277,5 +306,6 @@ namespace SoccerManager.Controllers
 		{
 			return (_context.Player?.Any(e => e.PlayerId == id)).GetValueOrDefault();
 		}
+>>>>>>> Develop
     }
 }

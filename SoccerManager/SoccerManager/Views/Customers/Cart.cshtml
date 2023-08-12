@@ -3,13 +3,22 @@
 @{
     ViewData["Title"] = "Cart";
     Layout = "~/Views/Shared/_Main_Layout.cshtml";
-
-    double totalAmount = ViewBag.TotalAmount;
-    List<Cart> Carts = ViewBag.Carts;
 }
 
 
 <section class="h-100 gradient-custom mb-5" style="font-size: 20px;">
+<<<<<<< HEAD
+    <div class="row d-flex justify-content-center my-4">
+        <div class="col-md-8">
+            <div class="card mb-4">
+                <div class="card-header py-3">
+                    <h1 class="mb-0">Cart - @Model.Count() items</h1>
+                </div>
+                <div class="card-body">
+                    @foreach (Cart item in Model)
+                    {
+                        <div class="row th-products tg-shoplist">
+=======
     <form class="container py-5">
         <div class="row d-flex justify-content-center my-4">
             <div class="col-md-8">
@@ -62,83 +71,192 @@
                             </div>
                         }
                         @*<div class="row th-products tg-shoplist">
+>>>>>>> Develop
                             <div class="row tg-product">
                                 <figure class="col-3 tg-productimg">
-                                    <a href="#"><img src="https://tieusunhanvat.info/wp-content/uploads/2023/04/tsnv-tieu-su-satoru-gojoi-02.webp" alt="image description" style="width: 165px; height: 191px;"></a>
+                                    <a href="#">
+                                        @{
+                                            if (item.Product.ProductImage.Count() > 0)
+                                            {
+                                                <img src="@Url.Content("~/images/" + item.Product.ProductImage.ElementAt(0).ImageUrl)" alt="image description" style="width: 165px; height: 191px;">
+                                            }
+                                            else
+                                            {
+                                                <img src="https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg" alt="image description" style="width: 165px; height: 191px;">
+                                            }
+                                        }
+                                    </a>
                                 </figure>
                                 <div class="tg-productinfo">
-                                    <a class="tg-theme-tag" href="#">Mens wear</a>
-                                    <div class="tg-producttitle"><h2><a href="#">Casual Red T-Shirt</a></h2></div>
-                                    <div class="tg-productprice"><h3>$ 164</h3></div>
+                                    @foreach( var cat in ViewBag.Categories)
+                                    {
+                                        if(cat.CategoryId == item.Product.CategoryId)
+                                        {
+                                            <a class="tg-theme-tag">@item.Product.Category.CategoryName</a>
+                                        }
+                                    }
+
+                                    <div class="tg-producttitle"><h2><a href="#">@item.Product.ProductName</a></h2></div>
+                                    <div class="tg-productprice"><h3>$ @item.Product.Price</h3></div>
                                     <div class="tg-productcolorsize">
                                     </div>
-                                    <a class="tg-btn tg-btnaddtocart" href="#">remove</a>
+                                    <a class="tg-btn tg-btnaddtocart" asp-area="" asp-controller="Carts" asp-action="Delete">remove</a>
                                     <span class="tg-productquentity">
-                                        <em class="minus">-</em>
-                                        <input type="text" class="result" value="01" id="quantity1" name="quantity">
-                                        <em class="plus">+</em>
+                                         
+                                    <em class="minus">
+                                        <a asp-area="" asp-controller="Carts">-</a>
+                                    </em>
+                                    <input type="text" class="result" value="@item.Quantity" name="quantity">
+                                    <em class="plus">
+                                        <a asp-area="" asp-controller="Carts">+</a>
+                                    </em>
                                     </span>
                                 </div>
                             </div>
-                        </div>*@
-                        <hr class="my-4" />
+                        </div>
+                    }
+                    @*<div class="row th-products tg-shoplist">
+                        <div class="row tg-product">
+                            <figure class="col-3 tg-productimg">
+                                <a href="#"><img src="https://tieusunhanvat.info/wp-content/uploads/2023/04/tsnv-tieu-su-satoru-gojoi-02.webp" alt="image description" style="width: 165px; height: 191px;"></a>
+                            </figure>
+                            <div class="tg-productinfo">
+                                <a class="tg-theme-tag" href="#">Mens wear</a>
+                                <div class="tg-producttitle"><h2><a href="#">Casual Red T-Shirt</a></h2></div>
+                                <div class="tg-productprice"><h3>$ 164</h3></div>
+                                <div class="tg-productcolorsize">
+                                </div>
+                                <a class="tg-btn tg-btnaddtocart" href="#">remove</a>
+                                <span class="tg-productquentity">
+                                    <em class="minus">-</em>
+                                    <input type="text" class="result" value="01" id="quantity1" name="quantity">
+                                    <em class="plus">+</em>
+                                </span>
+                            </div>
+                        </div>
+                    </div>*@
+                    <hr class="my-4" />
                         
-                    </div>
-                </div>
-                <div class="card mb-4">
-                </div>
-                <div class="card mb-4 mb-lg-0">
-                    <div class="card-body">
-                        <p><strong>We accept</strong></p>
-                        <img class="me-2"
-                             width="45px"
-                             src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/visa.svg"
-                             alt="Visa" />
-                        <img class="me-2"
-                             width="45px"
-                             src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/amex.svg"
-                             alt="American Express" />
-                        <img class="me-2"
-                             width="45px"
-                             src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/mastercard.svg"
-                             alt="Mastercard" />
-                        <img class="me-2"
-                             width="45px"
-                             src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce/includes/gateways/paypal/assets/images/paypal.png"
-                             alt="PayPal acceptance mark" />
-                    </div>
                 </div>
             </div>
-            <div class="col-md-4 mt-5">
-                <div class="card mb-4">
-                    <div class="card-header py-3">
-                        <h5 class="mb-0">Summary</h5>
-                    </div>
-                    <div class="card-body">
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
-                                Products
-                                <span>@totalAmount</span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
-                                <div>
-                                    <strong>Total amount</strong>
-                                    <strong>
-                                        <p class="mb-0">(including VAT)</p>
-                                    </strong>
-                                </div>
-                                <span><strong>@totalAmount</strong></span>
-                            </li>
-                        </ul>
+            <div class="card mb-4">
+            </div>
+        </div>
+        <div class="col-md-4 mt-5">
+            <div class="card mb-4">
+                <div class="card-header py-3">
+                    <h5 class="mb-0">Summary</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+                            <div>
+                                <strong>Total amount</strong>
+                                <strong>
+                                    <p class="mb-0">(including VAT)</p>
+                                </strong>
+                            </div>
+                            <span><strong>$ @ViewBag.Total</strong></span>
+                        </li>
+                    </ul>
 
-                        
+                    <form method="post" asp-action="CheckOut">
+
+                        @*payment method*@
+                        <div class="card mb-4 mb-lg-0">
+                            <div class="card-body">
+                                <p><strong>Select payment method: </strong></p>
+
+                                <label onclick="showCardForm()">
+                                    <input type="radio" value="2" name="paymentMethod" style="display: inline; width: 20px;" />
+                                    <img class="me-2"
+                                         width="45px"
+                                         src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/visa.svg"
+                                         alt="Visa" />
+                                    <img class="me-2"
+                                         width="45px"
+                                         src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/amex.svg"
+                                         alt="American Express" />
+                                    <img class="me-2"
+                                         width="45px"
+                                         src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/mastercard.svg"
+                                         alt="Mastercard" />
+                                    <img class="me-2"
+                                         width="45px"
+                                         src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce/includes/gateways/paypal/assets/images/paypal.png"
+                                         alt="PayPal acceptance mark" />
+                                </label>
+
+                                @*card info, hidden by default*@
+                                <div class="paymentInfo" style="display: none;" id="cartForm">
+                                    <div class="form-group">
+                                        <label for="cardName">
+                                            Card holder name:
+                                            <input type="text" name="cardName" id="cardName" />
+                                        </label>
+                                    </div>
+                                    <div class="form-group" style="display: none;">
+                                        <label for="cardNumber">
+                                            Card number:
+                                            <input type="text" name="cardNumber" id="cardNumber" />
+                                        </label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="expire">
+                                            Expire date:
+                                            <input type="text" name="expire" id="expire" />
+                                        </label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="code">
+                                            Security code:
+                                            <input type="text" name="code" id="code" />
+                                        </label>
+                                    </div>
+                                </div>
+
+
+                                <label onclick="hideCardForm()">
+                                    <input type="radio" value="1" name="paymentMethod" style="display: inline; width: 20px;" />
+                                    Cash on delivery
+                                </label>
+                            </div>
+
+                        </div>
+
+                        @*address*@
+                        <div class="card mb-4 mb-lg-0">
+                            <div class="card-body">
+                                <p><strong>Select address: </strong></p>
+
+                                @foreach (var addr in ViewBag.Address)
+                                {
+                                    <label>
+                                        <input type="radio" value="1" name="address" style="display: inline; width: 20px;" />
+                                        @addr.Address1
+                                    </label>
+                                }
+                            </div>
+                        </div>
+
+                        <input type="hidden" value="@ViewBag.CustomerId" name="customerId" />
 
                         <button type="submit" class="btn btn-primary btn-lg btn-block">
-                            Go to checkout
+                            Place order
                         </button>
-                    </div>
+                    </form>
+
                 </div>
             </div>
         </div>
-    </form>
+    </div>
 </section>
+
+<script>
+    function showCardForm(){
+        document.getElementById("cartForm").style.display = "block";
+    }
+    function hideCardForm(){
+        document.getElementById("cartForm").style.display = "none";
+    }
+</script>
