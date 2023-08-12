@@ -5,56 +5,75 @@
     Layout = "~/Views/Shared/_Main_Layout.cshtml";
 }
 
-<h2>Articles</h2>
+<div class="container ">
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Summary)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Contents)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ImageUrl)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Employee)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Summary)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Contents)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ImageUrl)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Employee.Email)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.NewsId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.NewsId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.NewsId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    @*latest news*@
+
+    <h2>Lattest news</h2>
+    
+
+    <a href="ArticlesDetail/@ViewBag.Lattest.NewsId">
+        <div class=" row col-10">
+
+            @*image*@
+            <div class="col-sm-2">
+                <img src="@Url.Content("~/images/" + ViewBag.Lattest.ImageUrl)" alt="Image" style="width: 80%">
+            </div>
+
+            @*title and sumary*@
+            <div class="col-sm-10">
+                <h1> @ViewBag.Lattest.Title</h1>
+                <p> @ViewBag.Lattest.Employee.FullName</p>
+                <h3> @ViewBag.Lattest.Title</h3>
+            </div>
+
+
+        </div>
+    </a>
+
+    <hr />
+
+    @*list news?-*@
+    <div class="row col-12" style="margin-top: 50px;">
+
+    @foreach(var item in Model)
+    { 
+        <a href="ArticlesDetail/@item.NewsId">
+                <div class="row col-sm-5 news-item " style="border: 1px solid #000; margin: 10px;">
+                    <div class="child">
+                        <img src="@Url.Content("~/images/" + item.ImageUrl)" alt="Image" style="width: 80%">
+
+                    </div>
+                    <div class="child">
+                        <div class="row">
+                            <h2>@item.Title</h2>
+
+                        </div>
+                        <div class="row">
+                        @item.Summary
+                        </div>
+                    </div>
+                </div>
+        </a>
+    }
+
+    </div>
+
+    <style>
+        .news-item:hover{
+            transition: 0.2s;
+            transform: scale(1.01)
+        }
+
+        .news-item{
+            min-height: 300px;
+        }
+
+
+    </style>
+
+
+    <hr/>
+
+
+</div>

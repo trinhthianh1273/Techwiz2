@@ -11541,11 +11541,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\SoccerManager.csproj",
+      "projectUniqueName": "C:\\Users\\viper\\Desktop\\tw2\\Techwiz2-Tuan\\SoccerManager\\SoccerManager\\SoccerManager.csproj",
       "projectName": "SoccerManager",
-      "projectPath": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\SoccerManager.csproj",
+      "projectPath": "C:\\Users\\viper\\Desktop\\tw2\\Techwiz2-Tuan\\SoccerManager\\SoccerManager\\SoccerManager.csproj",
       "packagesPath": "C:\\Users\\viper\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\obj\\",
+      "outputPath": "C:\\Users\\viper\\Desktop\\tw2\\Techwiz2-Tuan\\SoccerManager\\SoccerManager\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\viper\\AppData\\Roaming\\NuGet\\NuGet.Config",

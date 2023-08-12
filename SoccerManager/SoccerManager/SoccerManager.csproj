@@ -49,19 +49,7 @@
     <None Include="Views\Teams\Details.cshtml" />
     <None Include="Views\Teams\Edit.cshtml" />
     <None Include="Views\Teams\Index.cshtml" />
-    <None Include="wwwroot\js\appear.js" />
-    <None Include="wwwroot\js\countTo.js" />
-    <None Include="wwwroot\js\customScrollbar.min.js" />
-    <None Include="wwwroot\js\isotope.pkgd.js" />
-    <None Include="wwwroot\js\jquery-ui.js" />
-    <None Include="wwwroot\js\main.js" />
-    <None Include="wwwroot\js\owl.carousel.js" />
-    <None Include="wwwroot\js\prettyPhoto.js" />
-    <None Include="wwwroot\js\site.js" />
-    <None Include="wwwroot\js\swiper.min.js" />
-    <None Include="wwwroot\js\vendor\bootstrap.min.js" />
-    <None Include="wwwroot\js\vendor\jquery-library.js" />
-    <None Include="wwwroot\js\vendor\modernizr-2.8.3-respond-1.4.2.min.js" />
+    <None Include="Views\Teams\Uploadfile.cshtml" />
   </ItemGroup>
 
 </Project>

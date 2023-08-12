@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Delete";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Main_Layout.cshtml";
 }
 
 <h2>Delete</h2>
@@ -19,6 +19,13 @@
             @Html.DisplayFor(model => model.Title)
         </dd>
         <dt>
+            @Html.DisplayNameFor(model => model.Employee)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.FullName)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Summary)
         </dt>
         <dd>
@@ -31,17 +38,12 @@
             @Html.DisplayFor(model => model.Contents)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.ImageUrl)
+            Thumbnail
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.ImageUrl)
+            <img class="col-4" src="~/images/@Html.DisplayFor(model => model.ImageUrl)" />
         </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Employee)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Employee.Email)
-        </dd>
+
     </dl>
     
     <form asp-action="Delete">
