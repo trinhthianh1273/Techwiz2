@@ -56,7 +56,7 @@ namespace SoccerManager.Controllers
                 HttpContext.Session.SetString("EmployeeId", user.EmployeeId.ToString());
 
                 
-                return RedirectToAction("Index", "Employees");
+                return RedirectToAction("Index", "Dashboard");
             }
             return RedirectToAction("Login", "Employees");
         }

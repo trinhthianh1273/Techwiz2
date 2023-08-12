@@ -1,4 +1,4 @@
-﻿@model SoccerManager.Models.Cart
+﻿@model IEnumerable<SoccerManager.Models.Cart>
 
 @{
     ViewData["Title"] = "Cart";
@@ -10,7 +10,7 @@
 
 
 <section class="h-100 gradient-custom mb-5" style="font-size: 20px;">
-    <form action="post" asp-controller="Customers" asp-action="CheckOut" class="container py-5">
+    <form class="container py-5">
         <div class="row d-flex justify-content-center my-4">
             <div class="col-md-8">
                 <div class="card mb-4">
@@ -23,7 +23,7 @@
                             <div class="row th-products tg-shoplist">
                                 <div class="row tg-product">
                                     <figure class="col-3 tg-productimg">
-                                        <a href="#">
+                                        <a>
                                             @{
                                                 if (item.Product.ProductImage.Count() > 0)
                                                 {
@@ -38,7 +38,7 @@
                                     </figure>
                                     <div class="tg-productinfo">
                                         <a class="tg-theme-tag">@item.Product.Category.CategoryName</a>
-                                        <div class="tg-producttitle"><h2><a href="#">@item.Product.ProductName</a></h2></div>
+                                        <div class="tg-producttitle"><h2><a>@item.Product.ProductName</a></h2></div>
                                         <div class="tg-productprice"><h3>$ @item.Product.Price</h3></div>
                                         <div class="tg-productcolorsize">
                                         </div>
@@ -53,11 +53,11 @@
                                             </em>
                                         </span>
                                     </div>
-                                    <input asp-for="CartId" value="@item.CartId" class="form-control" style="display: none"/>
+                                    @*<input asp-for="CartId" value="@item.CartId" class="form-control" style="display: none"/>
                                     <input asp-for="CustomerId" value="@item.CustomerId" class="form-control" style="display: none"/>
                                     <input asp-for="ProductId" value="@item.ProductId" class="form-control" style="display: none"/>
                                     <input asp-for="Quantity" value="@item.Quantity" class="form-control" style="display: none" />
-
+*@
                                 </div>
                             </div>
                         }

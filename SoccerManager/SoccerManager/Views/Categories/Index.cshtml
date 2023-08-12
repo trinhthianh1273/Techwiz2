@@ -7,36 +7,75 @@
 
 <h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.CategoryName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CategoryDescription)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.CategoryName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CategoryDescription)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.CategoryId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.CategoryId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.CategoryId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="page">
+    <!-- Navbar -->
+    <div class="page-wrapper">
+        <!-- Page header -->
+        <div class="page-header d-print-none">
+            <div class="container-xl">
+                <div class="row g-2 align-items-center">
+                    <div class="col">
+                        <div class="tg-section-heading">
+                            <h2 class="page-title">
+                                Cart Management
+                            </h2>
+                            <p>
+                                <a asp-action="Create">Create New</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Page body -->
+        <div class="page-body">
+            <div class="container-xl">
+                <div class="card">
+                    <div class="card-body">
+                        <div id="table-default" class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th><button class="table-sort" data-sort="sort-name">Category Name</button></th>
+                                        <th><button class="table-sort" data-sort="sort-city">Description</button></th>
+                                        <th><button class="table-sort" data-sort="sort-type">Quantity</button></th>
+                                        <th><button class="table-sort">#</button></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="table-tbody">
+                                    @foreach (var item in Model)
+
+                                    {
+                                        <tr>
+                                            <td class="sort-name">@Html.DisplayFor(modelItem => item.CategoryName)</td>
+                                            <td class="sort-city">@Html.DisplayFor(modelItem => item.CategoryDescription)</td>
+                                            
+                                            @{
+                                                var pc = item.Products != null ? item.Products.Count() : 0;
+                                                }
+                                            <td class="sort-type">@pc</td>
+                                                
+                                            <td>
+                                                <a asp-action="Edit" asp-route-id="@item.CategoryId">
+                                                    <i class="fa fa-edit"></i>
+                                                </a>
+                                                <a asp-action="Details" asp-route-id="@item.CategoryId">
+                                                    <i class="fa fa-info"></i>
+                                                </a>
+                                                <a asp-action="Delete" asp-route-id="@item.CategoryId">
+                                                    <i class="fa fa-remove"></i>
+                                                </a>
+                                            </td>
+
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

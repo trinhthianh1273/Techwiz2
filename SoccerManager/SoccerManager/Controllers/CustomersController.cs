@@ -25,9 +25,15 @@ namespace SoccerManager.Controllers
         // GET: Customers
         public async Task<IActionResult> Index()
         {
-              return _context.Customer != null ? 
-                          View(await _context.Customer.ToListAsync()) :
-                          Problem("Entity set 'SoccerContext.Customer'  is null.");
+            var customers = _context.Customer;
+            foreach (var item in customers)
+            {
+                item.Address = _context.Address.Where(a => a.CustomerId == item.CustomerId).ToList();
+                item.Cart = _context.Cart.Where(c => c.CustomerId == item.CustomerId).ToList();
+                item.Orders = _context.Orders.Where(c => c.CustomerId == item.CustomerId).ToList();
+            }
+
+            return View(customers);
         }
 
         // GET: Customers/Login

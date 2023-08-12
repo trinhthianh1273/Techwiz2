@@ -21,10 +21,12 @@ builder.Services.AddSession(options =>
     //options.Cookie.HttpOnly = true;
     //options.Cookie.IsEssential = true;
 });
+builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddSingleton<IFileUploadService, FileUploadService>();
 
 builder.Services.AddTransient<IOrderRepository, OrderRepository>();
+
 
 var app = builder.Build();
 

@@ -1,0 +1,44 @@
+﻿@model SoccerManager.Models.News
+
+@{
+    ViewData["Title"] = "ArticlesDetail";
+    Layout = "~/Views/Shared/_Main_Layout.cshtml";
+}
+
+
+<div class="container">
+	<!--************************************
+			Main Start
+	*************************************-->
+	<main id="tg-main" class="tg-main tg-haslayout">
+		<div class="tg-main-section tg-haslayout">
+			<div class="container">
+				<div class="row">
+					<div id="tg-twocolumns" class="tg-twocolumns tg-haslayout">
+						<div class="col-sm-12 col-xs-12" style="font-size: 20px; ">
+							<h1> @Model.Title </h1>
+							<figure class="tg-postimg tg-postimgdetail">
+								<img src="@Url.Content("~/images/" + Model.ImageUrl)" alt="Image" style="width: 80%">
+							</figure>
+						</div>
+						<div class="col-md-9 col-sm-8 col-xs-12 pull-left">
+							<div class="tg-postdetail">
+								<div class="tg-mathtextbox article" style="font-size: 20px;">
+
+									<h2> @Model.Summary></h2>
+
+									<p>@Model.Contents</p>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+	<!--************************************
+			Main End
+	*************************************-->
+
+</div>

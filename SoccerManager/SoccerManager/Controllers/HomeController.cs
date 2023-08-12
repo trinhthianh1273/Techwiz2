@@ -50,6 +50,9 @@ namespace SoccerManager.Controllers
                 .Take(10)
                 .ToList();
 
+            var news = _context.News.Include(n => n.Employee);
+            ViewBag.News = news.OrderBy(p => p.NewsId).ToList() ;
+
             ViewBag.Matches = matches;
             ViewBag.Top10Players = players ;
 			return View();

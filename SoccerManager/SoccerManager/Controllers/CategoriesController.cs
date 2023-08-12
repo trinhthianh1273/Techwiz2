@@ -21,9 +21,14 @@ namespace SoccerManager.Controllers
         // GET: Categories
         public async Task<IActionResult> Index()
         {
-              return _context.Category != null ? 
-                          View(await _context.Category.ToListAsync()) :
-                          Problem("Entity set 'SoccerContext.Category'  is null.");
+            var categorys = _context.Category.Include(c => c.Products);
+            foreach(var item in categorys)
+            {
+                item.Products = _context.Products.Where(p => p.CategoryId == item.CategoryId).ToList();
+            }
+            var ProductCount = 0;
+
+            return View(_context.Category);
         }
 
         // GET: Categories/Details/5
