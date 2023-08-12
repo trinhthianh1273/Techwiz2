@@ -46,35 +46,62 @@ namespace SoccerManager.Controllers
 		{
 
             var carts  = new List<Cart>();
-
-            if (HttpContext.Session.GetString("CustomerId") != null)
+            double? totalAmout = 0;
+            if (HttpContext.Session.GetString("CustomerId") == null)
 			{
-				int customerId = Convert.ToInt16(HttpContext.Session.GetString("CustomerId"));
-				carts = _context.Cart
-								.Where(c => c.CustomerId == customerId)
-								.Include(c => c.Product)
-								.ToList();
-			}
+                return RedirectToAction("Login", "Customers");
+            } else
+            {
+                int customerId = Convert.ToInt16(HttpContext.Session.GetString("CustomerId"));
+                carts = _context.Cart
+                                .Where(c => c.CustomerId == customerId)
+                                .Include(c => c.Product)
+                                .ToList();
+                foreach(Cart item in carts)
+                {
+                    item.Product.Category = _context.Category.Where(c => c.CategoryId == item.Product.CategoryId).Single();
+                    item.Product.ProductImage = _context.ProductImage.Where(p => p.ProductId == item.Product.ProductId).ToList();
+                    totalAmout += item.Quantity * item.Product.Price;
+                }
+            }
+            
             ViewBag.Carts = carts;
-
-            return View(carts);
+            ViewBag.TotalAmount = totalAmout;
+            return View();
 		}
 
-		//POST: Customers/Login
-		[HttpPost]
+
+        // POST: Customers/Order
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CheckOut([FromForm] List<Cart> carts)
+        {
+            if (ModelState.IsValid)
+            {
+                //_context.Add(carts);
+                //await _context.SaveChangesAsync();
+                //return RedirectToAction(nameof(Index));
+                return View(carts);
+            }
+            return View(carts);
+        }
+
+        //POST: Customers/Login
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Login(Customer obj)
         {
             if (ModelState.IsValid)
             {
-                var hb = Convert.FromBase64String(obj.Password);
-                // PasswordHasher.VerifyPassword(userObj.Password, user.Password)
+                
                 var user = _context.Customer.FirstOrDefault(x => x.Username == obj.Username);
-                if (user == null) return Content("UserName not found!");
-                if (!PasswordHasher.VerifyPassword(obj.Password, user.Password))
+                if (user == null) return RedirectToAction("Login", "Customers");
+				if (!PasswordHasher.VerifyPassword(obj.Password, user.Password))
                 {
-                    return Content("Password errors!");
-                }
+					return RedirectToAction("Login", "Customers");
+				}
                 HttpContext.Session.SetString("CusUserName", user.Username);
                 HttpContext.Session.SetString("CusFullName", user.Fullname);
                 HttpContext.Session.SetString("CustomerId", user.CustomerId.ToString());
@@ -85,9 +112,6 @@ namespace SoccerManager.Controllers
                                 .ToList().Count();
                 HttpContext.Session.SetString("CartCount", carts.ToString());
                 return RedirectToAction("Index", "Home");
-
-
-                
             }
             return RedirectToAction("Login", "Customers");
         }
@@ -134,8 +158,67 @@ namespace SoccerManager.Controllers
             return View(customer);
         }
 
-        // GET: Customers/Create
-        public IActionResult Create()
+		// GET: Customers/Details/5
+		public async Task<IActionResult> Profile(int? id)
+		{
+			if (HttpContext.Session.GetString("CustomerId") == null)
+			{
+				return RedirectToAction("Login", "Customers");
+			}
+			if (id == null || _context.Customer == null)
+			{
+				return NotFound();
+			}
+
+			var customer = await _context.Customer
+				.FirstOrDefaultAsync(m => m.CustomerId == id);
+			if (customer == null)
+			{
+				return NotFound();
+			}
+
+			return View(customer);
+		}
+
+
+		// POST: Customers/Profile/5
+		// To protect from overposting attacks, enable the specific properties you want to bind to.
+		// For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public async Task<IActionResult> Profile(int id, [Bind("CustomerId,Username,Password,Fullname,Email,Phone,Token")] Customer customer)
+		{
+			if (id != customer.CustomerId)
+			{
+				return NotFound();
+			}
+
+			if (ModelState.IsValid)
+			{
+				try
+				{
+					customer.Password = PasswordHasher.HassPassword(customer.Password);
+					_context.Update(customer);
+					await _context.SaveChangesAsync();
+				}
+				catch (DbUpdateConcurrencyException)
+				{
+					if (!CustomerExists(customer.CustomerId))
+					{
+						return NotFound();
+					}
+					else
+					{
+						throw;
+					}
+				}
+				return RedirectToAction(nameof(Index));
+			}
+			return RedirectToAction("Index", "Home");
+		}
+
+		// GET: Customers/Create
+		public IActionResult Create()
         {
             return View();
         }
@@ -149,6 +232,7 @@ namespace SoccerManager.Controllers
         {
             if (ModelState.IsValid)
             {
+                customer.Password = PasswordHasher.HassPassword(customer.Password);
                 _context.Add(customer);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
