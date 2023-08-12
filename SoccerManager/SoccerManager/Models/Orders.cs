@@ -35,3 +35,4 @@ namespace SoccerManager.Models
         public virtual ICollection<OrderContent> OrderContent { get; set; }
     }
 }
+

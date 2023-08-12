@@ -39,8 +39,30 @@ namespace SoccerManager.Controllers
 						Problem("Entity set 'SoccerContext.Team'  is null.");
 		}
 
+<<<<<<< HEAD
+        // GET: Teams
+        // View Admin
+        // Get all Teams
+        public async Task<IActionResult> Index()
+        {
+            return _context.Team != null ?
+                        View(await _context.Team.ToListAsync()) :
+                        Problem("Entity set 'SoccerContext.Team'  is null.");
+        }
+        // GET: Teams/ListTeam
+        // View User
+        // Get all Teams
+        public async Task<IActionResult> ListTeam()
+        {
+            return _context.Team != null ?
+                        View(await _context.Team.ToListAsync()) :
+                        Problem("Entity set 'SoccerContext.Team'  is null.");
+        }
+=======
+>>>>>>> Develop
 
         // GET: Teams/Details/5
+        // View Admin
         // Get Team detail
         public async Task<IActionResult> Details(int? id)
         {
@@ -67,8 +89,13 @@ namespace SoccerManager.Controllers
 				return NotFound();
 			}
 
+<<<<<<< HEAD
+            return View(team);
+        }
+=======
 			var team = await _context.Team
 				.FirstOrDefaultAsync(m => m.TeamId == id);
+>>>>>>> Develop
 
 			ViewBag.Player = _context.Player
 				.Where(p => p.CurrentTeam == id)
@@ -85,7 +112,20 @@ namespace SoccerManager.Controllers
 		}
         
 
+<<<<<<< HEAD
+            ViewBag.Images = _context.PlayerImage.ToList();
+            if (team == null)
+            {
+                return NotFound();
+            }
+
+            return View(team);
+        }
+
+
+=======
 		
+>>>>>>> Develop
         // GET: Teams/Create
         public IActionResult Create()
         {
@@ -122,6 +162,10 @@ namespace SoccerManager.Controllers
 			return View(team);
 		}
 
+<<<<<<< HEAD
+        // GET: Teams/Edit/5
+        public async Task<IActionResult> Edit(int? id)
+=======
 		// GET: Teams/Edit/5
 		public async Task<IActionResult> Edit(int? id)
 		{
@@ -139,28 +183,48 @@ namespace SoccerManager.Controllers
 
         // GET: Teams/Delete/5
         public async Task<IActionResult> Delete(int? id)
+>>>>>>> Develop
         {
             if (id == null || _context.Team == null)
             {
                 return NotFound();
             }
+<<<<<<< HEAD
+            var team = await _context.Team.FindAsync(id);
+=======
 
             var team = await _context.Team
                 .FirstOrDefaultAsync(m => m.TeamId == id);
+>>>>>>> Develop
             if (team == null)
             {
                 return NotFound();
             }
+<<<<<<< HEAD
+            return View(team);
+        }
+
+=======
 
             return View(team);
         }
 
 
+>>>>>>> Develop
         // POST: Teams/Edit/5
         // Handle Team PUT Request
         [HttpPost]
         [ValidateAntiForgeryToken]
+<<<<<<< HEAD
+        public async Task<IActionResult> Edit(
+            int id,
+            string LogoUrl,
+            [Bind("TeamId,FullName,ShortName,Nickname,FoundedYear,FoundedPosition,Owner,Manager,Website")] Team team,
+            IFormFile file
+            )
+=======
         public async Task<IActionResult> Edit(int id, string LogoUrl, [Bind("TeamId,FullName,ShortName,Nickname,FoundedYear,FoundedPosition,Owner,Manager,Website")] Team team, IFormFile file)
+>>>>>>> Develop
         {
             if (id != team.TeamId)
             {
@@ -247,4 +311,12 @@ namespace SoccerManager.Controllers
 		}
 	}
 
+<<<<<<< HEAD
+        private bool TeamExists(int id)
+        {
+            return (_context.Team?.Any(e => e.TeamId == id)).GetValueOrDefault();
+        }
+    }
+=======
+>>>>>>> Develop
 }
