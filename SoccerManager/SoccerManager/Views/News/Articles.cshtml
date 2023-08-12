@@ -1,0 +1,79 @@
+﻿@model IEnumerable<SoccerManager.Models.News>
+
+@{
+    ViewData["Title"] = "Articles";
+    Layout = "~/Views/Shared/_Main_Layout.cshtml";
+}
+
+<div class="container ">
+
+    @*latest news*@
+
+    <h2>Lattest news</h2>
+    
+
+    <a href="ArticlesDetail/@ViewBag.Lattest.NewsId">
+        <div class=" row col-10">
+
+            @*image*@
+            <div class="col-sm-2">
+                <img src="@Url.Content("~/images/" + ViewBag.Lattest.ImageUrl)" alt="Image" style="width: 80%">
+            </div>
+
+            @*title and sumary*@
+            <div class="col-sm-10">
+                <h1> @ViewBag.Lattest.Title</h1>
+                <p> @ViewBag.Lattest.Employee.FullName</p>
+                <h3> @ViewBag.Lattest.Title</h3>
+            </div>
+
+
+        </div>
+    </a>
+
+    <hr />
+
+    @*list news?-*@
+    <div class="row col-12" style="margin-top: 50px;">
+
+    @foreach(var item in Model)
+    { 
+        <a href="ArticlesDetail/@item.NewsId">
+                <div class="row col-sm-5 news-item " style="border: 1px solid #000; margin: 10px;">
+                    <div class="child">
+                        <img src="@Url.Content("~/images/" + item.ImageUrl)" alt="Image" style="width: 80%">
+
+                    </div>
+                    <div class="child">
+                        <div class="row">
+                            <h2>@item.Title</h2>
+
+                        </div>
+                        <div class="row">
+                        @item.Summary
+                        </div>
+                    </div>
+                </div>
+        </a>
+    }
+
+    </div>
+
+    <style>
+        .news-item:hover{
+            transition: 0.2s;
+            transform: scale(1.01)
+        }
+
+        .news-item{
+            min-height: 300px;
+        }
+
+
+    </style>
+
+
+    <hr/>
+
+
+</div>
