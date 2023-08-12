@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Org.BouncyCastle.Utilities;
 using SoccerManager.Helper;
 using SoccerManager.Models;
 
@@ -239,18 +238,10 @@ namespace SoccerManager.Controllers
         {
             var Req = Request.Form;
 
-            if(Req != null)
+            if (Req != null)
             {
                 //get all user data
                 int paymentMethod = Int32.Parse(Req["paymentMethod"].ToString());
-
-                if (paymentMethod == 2)
-                {
-                    string cardName = Req["cardName"];
-                    string cardNumber = Req["cardNumber"];
-                    string expire = Req["expire"];
-                    int code = Int32.Parse(Req["code"].ToString());
-                }
 
                 int address = Int32.Parse(Req["address"].ToString());
                 int customerId = Int32.Parse(Req["customerId"].ToString());
@@ -271,12 +262,36 @@ namespace SoccerManager.Controllers
                     CardNumber = Req["cardNumber"].ToString() == null ? null : Req["cardNumber"].ToString(),
                     Expire = Req["expire"].ToString() == null ? null : Req["expire"].ToString(),
                     SecurityCode = Int32.Parse(Req["code"].ToString()) == null ? null : Int32.Parse(Req["code"].ToString()),
-                    PaymentStatus = paymentMethod == 1 ? "Chưa thanh toán" : "Đã thanh toán"
+                    PaymentStatus = paymentMethod == 1 ? 0 : 1,
+                    OrderDate = DateTime.Now
+                };
 
+                _context.Orders.Add(o);
+                await _context.SaveChangesAsync();
 
-				};
+                //get orderid
+                int orderId = o.OrderId;
 
+                //get cart content
+                var cartContent = _context.Cart.Where(c=>c.CustomerId == customerId).ToList();
 
+                //add cart content to order content then delete from cart
+                foreach (var cart in cartContent)
+                {
+                    OrderContent oc = new OrderContent()
+                    {
+                        OrderId = orderId,
+                        ProductId = cart.ProductId,
+                        Quantity = cart.Quantity,
+                        Price = cart.Quantity * _context.Products.Where(a => a.ProductId == cart.ProductId).Single().Price,
+                    };
+
+                    _context.OrderContent.Add(oc);
+                    _context.Cart.Remove(cart);
+
+                    await _context.SaveChangesAsync();
+
+                }
 
                 return RedirectToAction(nameof(Index));
 

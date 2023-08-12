@@ -1,8 +1,8 @@
 ﻿@model IEnumerable<SoccerManager.Models.Team>
 
 @{
-    ViewData["Title"] = "ListTeam";
-    Layout = "~/Views/Shared/_Main_Layout.cshtml";
+	ViewData["Title"] = "ListTeam";
+	Layout = "~/Views/Shared/_Main_Layout.cshtml";
 }
 
 
@@ -12,21 +12,32 @@
 *************************************-->
 <main id="tg-main" class="tg-main tg-haslayout">
 
-	<h2>List teams</h2>
 	<!--************************************
 			Soccer Media Start
 	*************************************-->
 	<section class="tg-main-section tg-soccermedia tg-haslayout">
 		<div class="container">
+			<h2>List teams</h2>
 
 			@foreach (var item in Model)
 			{
-
-				<div class="masonry-grid premier">
+@*				<div class="masonry-grid premier">
+					<div class="tg-project">
+						<figure class="tg-postimg">
+							<img src="~/images/team-logo/mancity.jpg" alt="image description">
+							<figcaption>
+								<a class="tg-theme-tag">premier league</a>
+								<h3>manchester city</h3>
+							</figcaption>
+						</figure>
+					</div>
+				</div>
+*@
+				<div class="masonry-grid premier" style="margin: 10px;">
 					<div class="tg-project">
 						<figure class="tg-postimg">
 							<a asp-action="TeamInfo" asp-route-id="@item.TeamId">
-								<img src="@Url.Content("~/images" + item.LogoUrl)" alt="">
+								<img src="@Url.Content("~/images/" + item.LogoUrl)" alt="Image" style="">
 							</a>
 							<figcaption>
 								<a asp-action="TeamInfo" asp-route-id="@item.TeamId" class="tg-btn">

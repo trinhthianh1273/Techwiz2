@@ -133,7 +133,7 @@
                                 </label>
 
                                 @*card info, hidden by default*@
-                                <div class="paymentInfo" style="display: none;">
+                                <div class="paymentInfo" style="display: none;" id="cartForm">
                                     <div class="form-group">
                                         <label for="cardName">
                                             Card holder name:
@@ -196,3 +196,12 @@
         </div>
     </div>
 </section>
+
+<script>
+    function showCardForm(){
+        document.getElementById("cartForm").style.display = "block";
+    }
+    function hideCardForm(){
+        document.getElementById("cartForm").style.display = "none";
+    }
+</script>
