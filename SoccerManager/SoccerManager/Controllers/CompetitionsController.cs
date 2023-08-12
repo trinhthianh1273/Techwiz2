@@ -21,9 +21,12 @@ namespace SoccerManager.Controllers
         // GET: Competitions
         public async Task<IActionResult> Index()
         {
-              return _context.Competition != null ? 
-                          View(await _context.Competition.ToListAsync()) :
-                          Problem("Entity set 'SoccerContext.Competition'  is null.");
+            var competitions = _context.Competition;
+            foreach(var item in competitions)
+            {
+                item.Match = await _context.Match.Where(m => m.CompetitionId == item.CompetitionId).ToListAsync();
+            }
+            return View(competitions.ToList());
         }
 
         // GET: Competitions/Details/5

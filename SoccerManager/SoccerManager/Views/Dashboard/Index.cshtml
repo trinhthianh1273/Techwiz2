@@ -1,0 +1,84 @@
+﻿@model IEnumerable<SoccerManager.DTO.Response.OrderRespone>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="page">
+    <!-- Navbar -->
+    <div class="page-wrapper">
+        <!-- Page header -->
+        <div class="page-header d-print-none">
+            <div class="container-xl">
+                <div class="row g-2 align-items-center">
+                    <div class="col">
+                        <div class="tg-section-heading">
+                            <h2 class="page-title">
+                                Dashboard
+                            </h2>
+                            <p>
+                                <a asp-action="Create">Create New</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Page body -->
+        <div class="page-body">
+            <div class="container-xl">
+                <div class="card">
+                    <div class="card-body">
+                        <div id="table-default" class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th><button class="table-sort" data-sort="sort-name">Order Code</button></th>
+                                        <th><button class="table-sort" data-sort="sort-city">Order Date</button></th>
+                                        <th><button class="table-sort" data-sort="sort-type">Customer</button></th>
+                                        <th><button class="table-sort" data-sort="sort-score">Address</button></th>
+                                        <th><button class="table-sort" data-sort="sort-date">Product Amount</button></th>
+                                        <th><button class="table-sort" data-sort="sort-quantity">Price Amount</button></th>
+                                        <th><button class="table-sort" data-sort="sort-status">Status</button></th>
+                                        <th><button class="table-sort" data-sort="sort-status">Employee</button></th>
+                                        <th><button class="table-sort" data-sort="sort-status">Shipped Date</button></th>
+                                        <th><button class="table-sort" data-sort="sort-status">Payment Method</button></th>
+                                        <th><button class="table-sort" data-sort="sort-status">Payment Status</button></th>
+                                        <th><button class="table-sort">#</button></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="table-tbody">
+                                    @foreach(var item in Model)
+                                    {
+                                        <tr>
+                                            <td class="sort-name">@Html.DisplayFor(modelItem => item.OrderId)</td>
+                                            <td class="sort-city">@Html.DisplayFor(modelItem => item.OrderDate)</td>
+                                            <td class="sort-type">@Html.DisplayFor(modelItem => item.Customer.Fullname)</td>
+                                            <td class="sort-score">@Html.DisplayFor(modelItem => item.Address.Address1)</td>
+                                            <td class="sort-date" >@Html.DisplayFor(modelItem => item.TotalProduct)</td>
+                                            <td class="sort-quantity">@Html.DisplayFor(modelItem => item.TotalAmount)</td>
+                                            <td class="sort-quantity">@Html.DisplayFor(modelItem => item.Status.StatusName)</td>
+                                            <td class="sort-quantity">@Html.DisplayFor(modelItem => item.Employee.FullName)</td>
+                                            <td class="sort-name">@Html.DisplayFor(modelItem => item.ShippedDate)</td>
+                                            <td class="sort-name">@Html.DisplayFor(modelItem => item.PaymentMethod.PaymentMethod1)</td>
+                                            <td class="sort-name">@Html.DisplayFor(modelItem => item.PaymentStatus)</td>
+                                            <td>
+                                                <a asp-action="Edit" asp-route-id="@item.OrderId"><i class="fa fa-edit"></i></a> 
+                                                <a asp-action="Details" asp-route-id="@item.OrderId"><i class="fa fa-info"></i></a> 
+                                                <a asp-action="Delete" asp-route-id="@item.OrderId"><i class="fa fa-remove"></i></a>
+                                            </td>
+
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

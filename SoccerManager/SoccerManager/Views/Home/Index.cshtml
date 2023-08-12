@@ -9,6 +9,8 @@
 
 	List<Player> Top10Players = ViewBag.Top10Players;
 
+	List<News> AllNews = ViewBag.News;
+
 	//List<Cart> Carts = ViewBag.Carts;
 }
 
@@ -35,7 +37,7 @@
 											<p>Football is the world’s most popular ball game in numbers of participants and spectators. Simple in its principal rules and essential equipment, the sport can be played almost anywhere.	</p>
 										</div>
 										<div class="tg-btnbox">
-											<a class="tg-btn" href="bloglist.html"><span>read more</span></a>
+											<a class="tg-btn" asp-area="" asp-controller="AboutSoccer" asp-action="Index"><span>read more</span></a>
 										</div>
 									</div>
 								</div>
@@ -306,8 +308,6 @@
 												</div>
 											}
 										</div>
-										<div class="tg-themebtnnext"><span class="fa fa-angle-down"></span></div>
-										<div class="tg-themebtnprev"><span class="fa fa-angle-up"></span></div>
 									</div>
 								</div>
 							</div>
@@ -341,7 +341,7 @@
 											{
 												<div class="swiper-slide">
 													<div class="tg-pointtable">
-														<div class="tg-box">@item.PlayerId</div>
+														<div class="tg-box">@item.Number</div>
 														<div class="tg-box">@item.FullName</div>
 														<div class="tg-box">@item.Scores</div>
 														<div class="tg-box">@item.CurrentTeamNavigation.ShortName</div>
@@ -383,90 +383,31 @@
 					<div class="row">
 						<div class="tg-blogpost">
 							<div class="row">
-								<div class="col-sm-6 col-xs-12">
-									<article class="tg-post">
-										<figure class="tg-postimg">
-											<a href="#">
-												<img src="images/blog/harrykanenews.png" alt="image description">
-											</a>
-											<figcaption>
-												<ul class="tg-postmetadata">
-													<li><a href="#">by skysport</a></li>
-													<li><a href="#">Premier League</a></li>
-												</ul>
-											</figcaption>
-										</figure>
-										<div class="tg-posttitle"><h3><a href="#">Harry Kane: Tottenham insist striker has permission to fly to Germany for medical ahead of potential move to Bayern Munich</a></h3></div>
-										<div class="tg-description">
-											<p>Harry Kane is waiting for permission from Tottenham to fly to Germany for a medical on Friday ahead of his potential move to Bayern Munich.</p>
-											<p>After Kane was told that a deal had been agreed between the clubs, he decided to accept Bayern's offer.</p>
-										</div>
-										<a class="tg-btn" href="#">Read more</a>
-									</article>
-								</div>
-								<div class="col-sm-6 col-xs-12">
-									<article class="tg-post">
-										<figure class="tg-postimg">
-											<a href="#">
-												<img src="images/blog/skysports-spain-netherlands_6247236.jpg" alt="image description">
-											</a>
-											<figcaption>
-												<ul class="tg-postmetadata">
-													<li><a href="#">by skysport</a></li>
-													<li><a href="#">Women's WC</a></li>
-												</ul>
-											</figcaption>
-										</figure>
-										<div class="tg-posttitle"><h3><a href="#">Spain 2-1 Netherlands: Salma Paralluelo scores extra-time winner to send Jorge Vilda's side into Women's World Cup semi-finals</a></h3></div>
-										<div class="tg-description">
-											<p>Match report as Spain edged Netherlands 2-1 to reach the Women's World Cup semi-finals for the first time ever; Mariona Caldente gave Spain the lead on 81 minutes after VAR controversy but Stefanie van der Gragt's goal forced extra-time; </p>
-										</div>
-										<a class="tg-btn" href="#"><span>read more</span></a>
-									</article>
-								</div>
+								@foreach (News item in AllNews)
+								{
+									<div class="col-sm-6 col-xs-12">
+										<article class="tg-post">
+											<figure class="tg-postimg">
+												<a>
+													<img src="@Url.Content("~/images/" + @item.ImageUrl)" alt="image description">
+												</a>
+												<figcaption>
+													<ul class="tg-postmetadata">
+														<li><a>@item.Employee.FullName</a></li>
+													</ul>
+												</figcaption>
+											</figure>
+											<div class="tg-posttitle"><h3><a>@item.Title</a></h3></div>
+											<div class="tg-description">
+												<p>@item.Summary</p>
+											</div>
+											<a class="tg-btn" href="ArticlesDetail/@item.NewsId">Read more</a>
+										</article>
+									</div>
+								}
+								
 							</div>
-							<div class="row">
-								<div class="col-sm-6 col-xs-12">
-									<article class="tg-post">
-										<figure class="tg-postimg">
-											<a href="#">
-												<img src="images/blog/news-1.png" alt="image description">
-											</a>
-											<figcaption>
-												<ul class="tg-postmetadata">
-													<li><a href="#">by marca</a></li>
-													<li><a href="#">Premier League</a></li>
-												</ul>
-											</figcaption>
-										</figure>
-										<div class="tg-posttitle"><h3><a href="#">Liverpool beat out Chelsea to sign Moises Caicedo for British record fee of $139 million</a></h3></div>
-										<div class="tg-description">
-											<p>Moises Caicedo was never long for Brighton and Hove Albion. During the 2022-2023 Premier League season, at age 21, Caicedo turned into a dominant force in midfield.</p>
-										</div>
-										<a class="tg-btn" href="#">Read more</a>
-									</article>
-								</div>
-								<div class="col-sm-6 col-xs-12">
-									<article class="tg-post">
-										<figure class="tg-postimg">
-											<a href="#">
-												<img src="images/blog/skysports-harry-kane-tottenham_6218695.jpg" alt="image description">
-											</a>
-											<figcaption>
-												<ul class="tg-postmetadata">
-													<li><a href="#">by skysport</a></li>
-													<li><a href="#">Premier League</a></li>
-												</ul>
-											</figcaption>
-										</figure>
-										<div class="tg-posttitle"><h3><a href="#">Harry Kane to Bayern Munich: Why England captain joining German champions could be perfect match</a></h3></div>
-										<div class="tg-description">
-											<p>With Bayern Munich having now agreed a deal with Tottenham to sign Harry Kane, we ask just how much sense does a move to Bavaria make? The transfer could solve problems for both player and club... </p>
-										</div>
-										<a class="tg-btn" href="#"><span>read more</span></a>
-									</article>
-								</div>
-							</div>
+							
 						</div>
 					</div>
 				</div>

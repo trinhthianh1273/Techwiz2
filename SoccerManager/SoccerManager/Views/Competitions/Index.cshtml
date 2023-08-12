@@ -5,32 +5,74 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<div class="page">
+    <!-- Navbar -->
+    <div class="page-wrapper">
+        <!-- Page header -->
+        <div class="page-header d-print-none">
+            <div class="container-xl">
+                <div class="row g-2 align-items-center">
+                    <div class="col">
+                        <div class="tg-section-heading">
+                            <h2 class="page-title">
+                                Compatitions Management
+                            </h2>
+                            <p>
+                                <a asp-action="Create">Create New</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Page body -->
+        <div class="page-body">
+            <div class="container-xl">
+                <div class="card">
+                    <div class="card-body">
+                        <div id="table-default" class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th><button class="table-sort" data-sort="sort-name">Competition Name</button></th>
+                                        <th><button class="table-sort" data-sort="sort-city">Match Quantity</button></th>
+                                        <th><button class="table-sort" data-sort="sort-city">Score Quantity</button></th>
+                                        <th><button class="table-sort">#</button></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="table-tbody">
+                                    @foreach (var item in Model)
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.CompetitionName)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.CompetitionName)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.CompetitionId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.CompetitionId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.CompetitionId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+                                    {
+                                        <tr>
+                                            <td class="sort-name">@Html.DisplayFor(modelItem => item.CompetitionName)</td>
+                                            @{
+                                                var mc = item.Match != null ? item.Match.Count() : 0;
+                                                var sc = item.Match.Sum(m => m.GuestTeamScore) + item.Match.Sum(m => m.HomeTeamScore);
+                                            }
+                                            <td class="sort-name">@mc</td>
+                                            <td class="sort-name">@sc</td>
+                                            <td>
+                                                <a asp-action="Edit" asp-route-id="@item.CompetitionId">
+                                                    <i class="fa fa-edit"></i>
+                                                </a>
+                                                <a asp-action="Details" asp-route-id="@item.CompetitionId">
+                                                    <i class="fa fa-info"></i>
+                                                </a>
+                                                <a asp-action="Delete" asp-route-id="@item.CompetitionId">
+                                                    <i class="fa fa-remove"></i>
+                                                </a>
+                                            </td>
+
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

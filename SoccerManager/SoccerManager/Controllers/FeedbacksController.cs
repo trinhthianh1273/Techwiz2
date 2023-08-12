@@ -68,8 +68,29 @@ namespace SoccerManager.Controllers
             return View(feedback);
         }
 
-        // GET: Feedbacks/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+		// POST: Feedbacks/Create
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public async Task<IActionResult> SendFeedback([Bind("FeedbackId,CustomerId,Title,Content")] Feedback feedback)
+		{
+			if (HttpContext.Session.GetString("CustomerId") == null)
+			{
+				return RedirectToAction("Login", "Customers");
+			}
+			if (ModelState.IsValid)
+			{
+                feedback.CustomerId = Convert.ToInt16(HttpContext.Session.GetString("CustomerId"));
+				_context.Add(feedback);
+				await _context.SaveChangesAsync();
+				return RedirectToAction("Index", "Home");
+			}
+			ViewData["CustomerId"] = new SelectList(_context.Customer, "CustomerId", "Password", feedback.CustomerId);
+            throw new Exception(feedback.CustomerId.ToString());
+            return RedirectToAction("Contact", "Home");
+		}
+
+		// GET: Feedbacks/Edit/5
+		public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Feedback == null)
             {

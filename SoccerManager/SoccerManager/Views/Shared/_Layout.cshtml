@@ -1,4 +1,18 @@
-﻿<!DOCTYPE html>
+﻿@{
+    
+}
+
+@*@if (Context.Session.GetString("EmployeeId") == null)
+{
+    <script>
+
+        $(document).ready(function () {
+            $('#myModal').modal('show'); // Thay '#myModal' bằng id của popup của bạn
+        });
+    </script>
+    Context.Response.Redirect("Employees/Login");
+}*@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -17,7 +31,7 @@
     <link rel="stylesheet" href="~/css/animate.css">
     <link rel="stylesheet" href="~/css/owl.theme.css">
     <link rel="stylesheet" href="~/css/owl.carousel.css">
-    @* <link rel="stylesheet" href="~/css/customScrollbar.css"> *@
+     <link rel="stylesheet" href="~/css/customScrollbar.css"> 
     <link rel="stylesheet" href="~/css/icomoon.css">
     <link rel="stylesheet" href="~/css/main.css">
     <link rel="stylesheet" href="~/css/color.css">
@@ -37,36 +51,21 @@
 
 </head>
 <body>
-    <!--[if lt IE 8]>
-        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
-    <!--************************************
-            Wrapper Start
-    *************************************-->
     <div id="tg-wrapper" class="tg-wrapper tg-haslayout">
-        <!--************************************
-                Header Start
-        *************************************-->
         <header id="tg-header" class="tg-header tg-haslayout">
             <div class="container">
                 <div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
                     <div class="row">
                         <div class="tg-topbar tg-haslayout">
                             <nav id="tg-topaddnav" class="tg-topaddnav">
-                                <!-- <div class="navbar-header">
-                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#tg-addnavigationm-mobile">
-                                        <i class="fa fa-arrow-right"></i>
-                                    </button>
-                                </div>
-                                <div id="tg-addnavigationm-mobile" class="tg-addnavigationm-mobile collapse navbar-collapse"> -->
                                 <div class="tg-colhalf pull-right">
                                     <nav class="tg-addnav">
                                         <ul>
-                                            <li><a href="javascript().html" data-toggle="modal"
-                                                    data-target="#tg-login">login</a></li>
-                                            <li><a href="javascript().html" data-toggle="modal"
-                                                    data-target="#tg-register">Register</a></li>
                                             <li>
+                                                <a href="javascript().html" data-toggle="modal"
+                                                    data-target="#tg-login">Logout</a>
+                                            </li>
+                                           
                                                 <a id="tg-btn-search" href="javascript:void(0)"><i
                                                         class="fa fa-search"></i></a>
                                             </li>
@@ -102,7 +101,6 @@
                                         </li>
                                     </ul>
                                 </div>
-                        </div>
                         </nav>
                     </div>
                     <nav id="tg-nav" class="tg-nav brand-center">
@@ -119,7 +117,7 @@
                             <div class="tg-colhalf">
                                 <ul>
                                     <li>
-                                        <a asp-area="" asp-controller="Home" asp-action="Index">Admin</a>
+                                        <a asp-area="" asp-controller="Dashboard" asp-action="Index">Admin</a>
                                     </li>
                                     <li>
                                         <a asp-area="" asp-controller="Teams" asp-action="Index">Teams</a>
@@ -135,57 +133,25 @@
                             <div class="tg-colhalf">
                                 <ul>
                                     <li>
-                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                            data-bs-toggle="dropdown" aria-expanded="false">
-                                            Soccer
-                                        </a>
-                                        <ul class="dropdown-menu tg-dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <li>
-                                                <a class="dropdown-item" asp-area="" asp-controller="Teams"
-                                                    asp-action="Index">Teams</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" asp-area="" asp-controller="Players"
-                                                    asp-action="Index">Players</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" asp-area=""
-                                                    asp-controller="TeamPlayerHistories"
-                                                    asp-action="Index">TeamPlayerHistories</a>
-                                            </li>
-                                            <li>
-                                                <hr class="dropdown-divider">
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" asp-area="" asp-controller="Matches"
-                                                    asp-action="Index">Matches</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" asp-area="" asp-controller="Competitions"
-                                                    asp-action="Index">Competitions</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#">pro soccer media</a>
+                                        <a href="#">for soccer</a>
                                         <ul class="tg-dropdown-menu">
-                                            <li><a href="soccermedia-1.html">pro soccer media1</a></li>
-                                            <li><a href="soccermedia-2.html">pro soccer media2</a></li>
+                                            <li><a asp-area="" asp-controller="Teams" asp-action="Index">Teams</a></li>
+                                            <li><a asp-area="" asp-controller="Players" asp-action="Index">Players</a></li>
+                                            <li><a asp-area="" asp-controller="Matches" asp-action="Index">Matches</a></li>
+                                            <li><a asp-area="" asp-controller="Competitions" asp-action="Index">Competitions</a></li>
+                                        </ul>
+                                    <li>
+                                        <a href="#">for order</a>
+                                        <ul class="tg-dropdown-menu">
+                                            <li><a asp-area="" asp-controller="Orders" asp-action="Index">Orders</a></li>
+                                            <li><a asp-area="" asp-controller="Teams" asp-action="Index">pro soccer media2</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="contactus.html">Contact</a></li>
+                                    <li><a asp-area="" asp-controller="Feedback" asp-action="Index">Feedback</a></li>
                                     <li>
                                         <a href="#"><i class=" fa fa-navicon"></i></a>
                                         <ul>
-                                            <li><a href="aboutus.html">about us</a></li>
-                                            <li><a href="shoplist.html">shop list</a></li>
-                                            <li><a href="shopgrid.html">shop grid</a></li>
-                                            <li><a href="productsingle.html">shop detail</a></li>
-                                            <li><a href="bloglist.html">blog list</a></li>
-                                            <li><a href="bloggrid.html">blog grid</a></li>
-                                            <li><a href="blogdetail.html">blog detail</a></li>
-                                            <li><a href="404.html">404 error</a></li>
-                                            <li><a href="comming-soon.html">comming soon</a></li>
+                                            <li><a asp-area="" asp-controller="Home" asp-action="Logout">logout</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -196,9 +162,7 @@
             </div>
         </header>
         <div class="container">
-            <main role="main" class="pb-3">
-                @RenderBody()
-            </main>
+            @RenderBody()
         </div>
 
         <!-- Footer Start -->
@@ -238,79 +202,6 @@
         </footer>
     </div>
     
-    <div class="tg-searchbox">
-        <a id="tg-close-search" class="tg-close-search" href="javascript:void(0)"><span class="fa fa-close"></span></a>
-        <div class="tg-searcharea">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6 col-sm-offset-3">
-                        <form class="tg-form-search">
-                            <fieldset>
-                                <input type="search" class="form-control" placeholder="keyword">
-                                <i class="icon-icon_search2"></i>
-                            </fieldset>
-                        </form>
-                        <p>Start typing and press Enter to search</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--************************************
-            Search End
-    *************************************-->
-    <!--************************************
-        LightBoxes Start
-    *************************************-->
-    <div class="tg-modalbox modal fade" id="tg-login" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="tg-modal-content">
-                <div class="tg-formarea">
-                    <div class="tg-border-heading">
-                        <h3>Login</h3>
-                    </div>
-                    <form class="tg-loginform" method="post">
-                        <fieldset>
-                            <div class="form-group">
-                                <input type="text" name="userName/email" class="form-control"
-                                    placeholder="username/email">
-                            </div>
-                            <div class="form-group">
-                                <input type="password" name="password" class="form-control" placeholder="password">
-                            </div>
-                            <div class="form-group">
-                                <label>
-                                    <input type="checkbox" value="rememberme" class="checkbox">
-                                    <em>Remember Me</em>
-                                </label>
-                                <a href="#">
-                                    <em>Forgot Password</em>
-                                    <i class="fa fa-question-circle"></i>
-                                </a>
-                            </div>
-                            <div class="form-group">
-                                <button class="tg-btn tg-btn-lg" type="submit">Login Now</button>
-                            </div>
-                            <div class="tg-description">
-                                <p>Don't have an account? <a href="#">Signup</a></p>
-                            </div>
-                        </fieldset>
-                    </form>
-                </div>
-                <div class="tg-logintype">
-                    <div class="tg-border-heading">
-                        <h3>Login with</h3>
-                    </div>
-                    <ul>
-                        <li class="tg-facebook"><a href="#">facebook</a></li>
-                        <li class="tg-twitter"><a href="#">twitter</a></li>
-                        <li class="tg-googleplus"><a href="#">google+</a></li>
-                        <li class="tg-linkedin"><a href="#">linkedin</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="tg-modalbox modal fade" id="tg-register" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="tg-modal-content">
@@ -355,12 +246,28 @@
             </div>
         </div>
     </div>
-    <!--************************************
-        LightBoxes End
-    *************************************-->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Thông báo</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Bạn cần đăng nhập để tiếp tục.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="~/js/vendor/jquery-library.js"></script>
     <script src="~/js/vendor/bootstrap.min.js"></script>
-    @* <script src="~/js/customScrollbar.min.js"></script> *@
+     <script src="~/js/customScrollbar.min.js"></script> 
     <script src="~/js/owl.carousel.js"></script>
     <script src="~/js/isotope.pkgd.js"></script>
     <script src="~/js/prettyPhoto.js"></script>
