@@ -3,12 +3,18 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SoccerManager.Interfaces;
 using SoccerManager.Models;
+using X.PagedList;
 
 namespace SoccerManager.Controllers
 {
+
     public class PlayersController : Controller
     {
         private readonly SoccerContext _context;
+<<<<<<< HEAD
+=======
+
+>>>>>>> Develop
         private readonly IWebHostEnvironment _env;
         private readonly IFileUploadService _fileUploadService;
         private readonly string ImgDir = "PlayerImages";
@@ -20,20 +26,14 @@ namespace SoccerManager.Controllers
             _env = env;
             _fileUploadService = fileUploadService;
         }
-        // GET: Players
-        // Admin view
-        // Get list of Playes
-        public async Task<IActionResult> Index()
-        {
-            var soccerContext = _context.Player.Include(p => p.CurrentTeamNavigation);
-            return View(await soccerContext.ToListAsync());
-        }
+        
 
         // GET: Players
         // Admin view
         // Get list of Playes
-        public async Task<IActionResult> PlayerInfomation(int? id)
+        public async Task<IActionResult> PlayerInfomation(int? id, int? page)
         {
+            
             var soccerContext = _context.Player
                 .Where(p => p.PlayerId == id)
                 .Include(i => i.PlayerImage)
@@ -44,6 +44,7 @@ namespace SoccerManager.Controllers
             return View(soccerContext);
         }
 
+<<<<<<< HEAD
         // GET: Players/Details/5
         // Get Player detail
         public async Task<IActionResult> Details(int? id)
@@ -61,6 +62,41 @@ namespace SoccerManager.Controllers
             {
                 return NotFound();
             }
+=======
+		// GET: Players
+		// Admin view
+		// Get list of Playes
+		public async Task<IActionResult> Index(int? page)
+		{
+            int pageSize = 10; // Số sản phẩm trên mỗi trang
+            int pageNumber = (page ?? 1); // Trang hiện tại, mặc định là trang 1
+
+            var soccerContext = _context.Player.Include(p => p.CurrentTeamNavigation);
+
+            IPagedList<Player> pagedPlayers = soccerContext.ToPagedList(pageNumber, pageSize);
+
+            ViewBag.PagedPlayers = pagedPlayers;
+            return View(await soccerContext.ToListAsync());
+		}
+
+		// GET: Players/Details/5
+		// Get Player detail
+		public async Task<IActionResult> Details(int? id)
+		{
+			if (id == null || _context.Player == null)
+			{
+				return NotFound();
+			}
+
+			var player = await _context.Player
+				.Include(p => p.CurrentTeamNavigation)
+				.Include(i => i.PlayerImage)
+				.FirstOrDefaultAsync(m => m.PlayerId == id);
+			if (player == null)
+			{
+				return NotFound();
+			}
+>>>>>>> Develop
 
             return View(player);
         }
@@ -208,24 +244,6 @@ namespace SoccerManager.Controllers
             return View(player);
         }
 
-        // GET: Players/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null || _context.Player == null)
-            {
-                return NotFound();
-            }
-
-            var player = await _context.Player
-                .Include(p => p.CurrentTeamNavigation)
-                .FirstOrDefaultAsync(m => m.PlayerId == id);
-            if (player == null)
-            {
-                return NotFound();
-            }
-
-            return View(player);
-        }
 
         // POST: Players/Delete/5
         [HttpPost, ActionName("Delete")]
@@ -259,9 +277,35 @@ namespace SoccerManager.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+<<<<<<< HEAD
         private bool PlayerExists(int id)
         {
             return (_context.Player?.Any(e => e.PlayerId == id)).GetValueOrDefault();
         }
+=======
+
+		// GET: Players/Delete/5
+		public async Task<IActionResult> Delete(int? id)
+		{
+			if (id == null || _context.Player == null)
+			{
+				return NotFound();
+			}
+
+			var player = await _context.Player
+				.Include(p => p.CurrentTeamNavigation)
+				.FirstOrDefaultAsync(m => m.PlayerId == id);
+			if (player == null)
+			{
+				return NotFound();
+			}
+
+			return View(player);
+		}
+		private bool PlayerExists(int id)
+		{
+			return (_context.Player?.Any(e => e.PlayerId == id)).GetValueOrDefault();
+		}
+>>>>>>> Develop
     }
 }

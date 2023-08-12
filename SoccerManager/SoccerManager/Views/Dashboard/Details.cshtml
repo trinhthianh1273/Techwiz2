@@ -1,0 +1,97 @@
+﻿@model SoccerManager.Models.Orders
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Main_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Orders</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OrderDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ShippedDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ShippedDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CardName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CardName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CardNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CardNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Expire)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Expire)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SecurityCode)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SecurityCode)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PaymentStatus)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PaymentStatus)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PaymentDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PaymentDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Address.Address1)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Customer.Password)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PaymentMethod)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PaymentMethod.PaymentMethodId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Status.StatusName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.OrderId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

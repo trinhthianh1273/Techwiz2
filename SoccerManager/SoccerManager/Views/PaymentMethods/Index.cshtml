@@ -5,32 +5,78 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<div class="page">
+    <!-- Navbar -->
+    <div class="page-wrapper">
+        <!-- Page header -->
+        <div class="page-header d-print-none">
+            <div class="container-xl">
+                <div class="row g-2 align-items-center">
+                    <div class="col">
+                        <div class="tg-section-heading">
+                            <h2 class="page-title">
+                                Team Management
+                            </h2>
+                            <p>
+                                <a asp-action="Create">Create New</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Page body -->
+        <div class="page-body">
+            <div class="container-xl">
+                <div class="card">
+                    <div class="card-body">
+                        <div id="table-default" class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th><button class="table-sort" data-sort="sort-name">Payment Method</button></th>
+                                        <th><button class="table-sort" data-sort="sort-city">Number of orders</button></th>
+                                        <th><button class="table-sort" data-sort="sort-type">Total Amount</button></th>
+                                        <th><button class="table-sort">#</button></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="table-tbody">
+                                    @foreach (var item in Model)
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.PaymentMethod1)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.PaymentMethod1)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.PaymentMethodId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.PaymentMethodId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.PaymentMethodId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+                                    {
+                                        <tr>
+                                            <td class="sort-name">@Html.DisplayFor(modelItem => item.PaymentMethod1)</td>
+                                            @{
+                                                var oc = item.Orders != null ? item.Orders.Count() : 0;
+                                                double? ta = 0;
+                                                foreach(var o in item.Orders)
+                                                {
+                                                    ta += o.OrderContent.Sum(c => c.Quantity * c.Price);
+                                                }
+                                            }
+                                            <td class="sort-city">@oc</td>
+                                            <td class="sort-type">@ta</td>
+                                            <td>
+                                                <a asp-action="Edit" asp-route-id="@item.PaymentMethodId">
+                                                    <i class="fa fa-edit"></i>
+                                                </a>
+                                                <a asp-action="Details" asp-route-id="@item.PaymentMethodId">
+                                                    <i class="fa fa-info"></i>
+                                                </a>
+                                                <a asp-action="Delete" asp-route-id="@item.PaymentMethodId">
+                                                    <i class="fa fa-remove"></i>
+                                                </a>
+                                            </td>
+
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

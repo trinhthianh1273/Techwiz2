@@ -22,6 +22,10 @@ namespace SoccerManager.Controllers
         public async Task<IActionResult> Index()
         {
             var soccerContext = _context.OrderContent.Include(o => o.Order).Include(o => o.Product);
+            foreach(var item in soccerContext)
+            {
+                item.Order.Customer = _context.Customer.Where(c => c.CustomerId == item.Order.CustomerId).Single();
+            }
             return View(await soccerContext.ToListAsync());
         }
 

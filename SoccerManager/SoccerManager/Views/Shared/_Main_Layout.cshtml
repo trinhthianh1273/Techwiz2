@@ -56,21 +56,19 @@
                                                         <a asp-area="" asp-controller="Customers" asp-action="Register">Register</a>
                                                     </li>
                                                     <li>
-                                                        <a id="tg-btn-search" href="javascript:void(0)">
-                                                            <i class="fa fa-search"></i>
-                                                        </a>
+                                                        <a asp-area="" asp-controller="Employees" asp-action="Login">Manager</a>
                                                     </li>
                                                 }
                                                 else
                                                 {
                                                     <li>
-                                                        <a asp-area="" asp-controller="Customers" asp-action="Account">@name</a>
+                                                        <a asp-area="" asp-controller="Customers" asp-action="Profile" asp-route-id="@id">@name</a>
                                                     </li>
-                                                    <li>
-                                                        <a id="tg-btn-search" href="javascript:void(0)">
-                                                            <i class="fa fa-search"></i>
-                                                        </a>
-                                                    </li>
+                                                    //<li>
+                                                    //    <a id="tg-btn-search" href="javascript:void(0)">
+                                                    //        <i class="fa fa-search"></i>
+                                                    //    </a>
+                                                    //</li>
                                                     <li class="cart-icon">
                                                         <a asp-area="" asp-controller="Customers" asp-action="Cart">
                                                             <i class="fa fa-shopping-cart"></i>
@@ -131,17 +129,25 @@
                                         <a asp-area="" asp-controller="Matches" asp-action="Index">Matches</a>
                                     </li>
                                     <li>
-                                        <a asp-area="" asp-controller="Teams" asp-action="Index">Team</a>
+                                        <a asp-area="" asp-controller="Teams" asp-action="ListTeam">Team</a>
                                     </li>
                                     <li>
+<<<<<<< HEAD
                                         <a asp-area="" asp-controller="Players" asp-action="Index">Player</a>
+=======
+                                            <a asp-area="" asp-controller="Players" asp-action="Index">Player</a>
+>>>>>>> Develop
                                     </li>
                                 </ul>
                             </div>
                             <div class="tg-colhalf">
                                 <ul>
                                     <li>
+<<<<<<< HEAD
                                         <a asp-area="" asp-controller="News" asp-action="Articles">News</a>
+=======
+                                            <a asp-area="" asp-controller="News" asp-action="Articles">News</a>
+>>>>>>> Develop
                                     </li>
                                     <li>
                                         <a asp-area="" asp-controller="Products" asp-action="Shopping">Shopping</a>
@@ -153,13 +159,7 @@
                                         <a href="#"><i class=" fa fa-navicon"></i></a>
                                         <ul>
                                             <li><a asp-area="" asp-controller="Home" asp-action="AboutUs">about us</a></li>
-                                            <li><a href="shoplist.html">shop list</a></li>
-                                            <li><a href="shopgrid.html">shop grid</a></li>
-                                            <li><a href="productsingle.html">shop detail</a></li>
-                                            <li><a href="bloglist.html">blog list</a></li>
-                                            <li><a href="bloggrid.html">blog grid</a></li>
-                                            <li><a href="blogdetail.html">blog detail</a></li>
-                                            <li><a href="404.html">404 error</a></li>
+                                                <li><a asp-area="" asp-controller="Home" asp-action="Logout">logout</a></li>
                                         </ul>
                                     </li>
                                 </ul>

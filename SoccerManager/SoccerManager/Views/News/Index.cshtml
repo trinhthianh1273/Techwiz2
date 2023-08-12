@@ -5,7 +5,84 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="container">
+<div class="page">
+    <!-- Navbar -->
+    <div class="page-wrapper">
+        <!-- Page header -->
+        <div class="page-header d-print-none">
+            <div class="container-xl">
+                <div class="row g-2 align-items-center">
+                    <div class="col">
+                        <div class="tg-section-heading">
+                            <h2 class="page-title">
+                                News Management
+                            </h2>
+                            <p>
+                                <a asp-action="Create">Create New</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Page body -->
+        <div class="page-body">
+            <div class="container-xl">
+                <div class="card">
+                    <div class="card-body">
+                        <div id="table-default" class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th><button class="table-sort" data-sort="sort-name">Title</button></th>
+                                        <th><button class="table-sort" data-sort="sort-city">Author</button></th>
+                                        <th><button class="table-sort" data-sort="sort-type">Summary</button></th>
+                                        <th><button class="table-sort" data-sort="sort-score">Contents</button></th>
+                                        <th>
+                                            <button class="table-sort" data-sort="sort-date">Image</button>
+                                        </th>
+                                        <th><button class="table-sort">#</button></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="table-tbody">
+                                    @foreach (var item in Model)
+
+                                    {
+                                        <tr>
+                                            <td class="sort-name">@Html.DisplayFor(modelItem => item.Title)</td>
+                                            @{
+                                                var en = item.Employee != null ? item.Employee.FullName : "Unknown";
+                                            }
+                                            <td class="sort-city">@en</td>
+                                            <td class="sort-type">@Html.DisplayFor(modelItem => item.Summary)</td>
+                                            <td class="sort-score">@Html.DisplayFor(modelItem => item.Contents)</td>
+                                            <td class="sort-name"><img src="@Url.Content("~/images/" + item.ImageUrl)" alt="Image" style="width: 200px"></td>
+
+                                            <td>
+                                                <a asp-action="Edit" asp-route-id="@item.NewsId">
+                                                    <i class="fa fa-edit"></i>
+                                                </a>
+                                                <a asp-action="Details" asp-route-id="@item.NewsId">
+                                                    <i class="fa fa-info"></i>
+                                                </a>
+                                                <a asp-action="Delete" asp-route-id="@item.NewsId">
+                                                    <i class="fa fa-remove"></i>
+                                                </a>
+                                            </td>
+
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+ass="container">
     <h2>Index</h2>
 
     <p>

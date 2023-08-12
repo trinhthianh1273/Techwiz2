@@ -21,9 +21,12 @@ namespace SoccerManager.Controllers
         // GET: PaymentMethods
         public async Task<IActionResult> Index()
         {
-              return _context.PaymentMethod != null ? 
-                          View(await _context.PaymentMethod.ToListAsync()) :
-                          Problem("Entity set 'SoccerContext.PaymentMethod'  is null.");
+            var paymentMethods = _context.PaymentMethod;
+            foreach(PaymentMethod item in paymentMethods)
+            {
+                item.Orders = _context.Orders.Where(o => o.PaymentMethodId == item.PaymentMethodId).ToList();
+            }
+            return View(paymentMethods.ToList());
         }
 
         // GET: PaymentMethods/Details/5

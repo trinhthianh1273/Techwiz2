@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using SoccerManager.Helper;
 using SoccerManager.Models;
 
 namespace SoccerManager.Controllers
@@ -44,17 +45,20 @@ namespace SoccerManager.Controllers
         {
             if (ModelState.IsValid)
             {
-                var Employee = _context.Employee.Where(p => p.UserName == obj.UserName && p.Password == obj.Password);
-                if (Employee.ToList().Count > 0)
+                var user = _context.Employee.FirstOrDefault(x => x.UserName == obj.UserName);
+                if (user == null) return RedirectToAction("Login", "Employees");
+                if (!PasswordHasher.VerifyPassword(obj.Password, user.Password))
                 {
-                    return Content("Đăng nhập thành công");
+                    return RedirectToAction("Login", "Employees");
                 }
+                HttpContext.Session.SetString("EmpUserName", user.UserName);
+                HttpContext.Session.SetString("EmpFullName", user.FullName);
+                HttpContext.Session.SetString("EmployeeId", user.EmployeeId.ToString());
+
+                
+                return RedirectToAction("Index", "Dashboard");
             }
-            else
-            {
-                return Content("UserName or Password errors!");
-            }
-            return RedirectToAction("Index", "Customers");
+            return RedirectToAction("Login", "Employees");
         }
 
         // GET: Employees/Details/5
@@ -90,6 +94,7 @@ namespace SoccerManager.Controllers
         {
             if (ModelState.IsValid)
             {
+                employee.Password = PasswordHasher.HassPassword(employee.Password);
                 _context.Add(employee);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -105,6 +110,7 @@ namespace SoccerManager.Controllers
                 return NotFound();
             }
 
+            
             var employee = await _context.Employee.FindAsync(id);
             if (employee == null)
             {
@@ -129,6 +135,7 @@ namespace SoccerManager.Controllers
             {
                 try
                 {
+                    employee.Password = PasswordHasher.HassPassword(employee.Password);
                     _context.Update(employee);
                     await _context.SaveChangesAsync();
                 }

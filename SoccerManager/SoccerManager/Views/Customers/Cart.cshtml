@@ -7,6 +7,7 @@
 
 
 <section class="h-100 gradient-custom mb-5" style="font-size: 20px;">
+<<<<<<< HEAD
     <div class="row d-flex justify-content-center my-4">
         <div class="col-md-8">
             <div class="card mb-4">
@@ -17,6 +18,60 @@
                     @foreach (Cart item in Model)
                     {
                         <div class="row th-products tg-shoplist">
+=======
+    <form class="container py-5">
+        <div class="row d-flex justify-content-center my-4">
+            <div class="col-md-8">
+                <div class="card mb-4">
+                    <div class="card-header py-3">
+                        <h1 class="mb-0">Cart - @Carts.Count() items</h1>
+                    </div>
+                    <div class="card-body">
+                        @foreach (Cart item in Carts)
+                        {
+                            <div class="row th-products tg-shoplist">
+                                <div class="row tg-product">
+                                    <figure class="col-3 tg-productimg">
+                                        <a>
+                                            @{
+                                                if (item.Product.ProductImage.Count() > 0)
+                                                {
+                                                    <img src="@Url.Content("~/images/ProductImage/" + item.Product.ProductImage.ElementAt(0).ImageUrl)" alt="image description" style="width: 165px; height: 191px;">
+                                                }
+                                                else
+                                                {
+                                                    <img src="https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg" alt="image description" style="width: 165px; height: 191px;">
+                                                }
+                                            }
+                                        </a>
+                                    </figure>
+                                    <div class="tg-productinfo">
+                                        <a class="tg-theme-tag">@item.Product.Category.CategoryName</a>
+                                        <div class="tg-producttitle"><h2><a>@item.Product.ProductName</a></h2></div>
+                                        <div class="tg-productprice"><h3>$ @item.Product.Price</h3></div>
+                                        <div class="tg-productcolorsize">
+                                        </div>
+                                        <a class="tg-btn tg-btnaddtocart" asp-area="" asp-controller="Carts" asp-action="Delete">remove</a>
+                                        <span class="tg-productquentity">
+                                            <em class="minus">
+                                                <a asp-area="" asp-controller="Carts">-</a>
+                                                </em>
+                                            <input type="text" class="result" value="@item.Quantity" name="quantity">
+                                            <em class="plus">
+                                                <a asp-area="" asp-controller="Carts">+</a>
+                                            </em>
+                                        </span>
+                                    </div>
+                                    @*<input asp-for="CartId" value="@item.CartId" class="form-control" style="display: none"/>
+                                    <input asp-for="CustomerId" value="@item.CustomerId" class="form-control" style="display: none"/>
+                                    <input asp-for="ProductId" value="@item.ProductId" class="form-control" style="display: none"/>
+                                    <input asp-for="Quantity" value="@item.Quantity" class="form-control" style="display: none" />
+*@
+                                </div>
+                            </div>
+                        }
+                        @*<div class="row th-products tg-shoplist">
+>>>>>>> Develop
                             <div class="row tg-product">
                                 <figure class="col-3 tg-productimg">
                                     <a href="#">

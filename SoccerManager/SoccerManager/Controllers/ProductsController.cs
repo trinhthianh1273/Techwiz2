@@ -3,9 +3,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SoccerManager.Interfaces;
 using SoccerManager.Models;
+
 using SoccerManager.ViewModels;
 using System.Drawing.Printing;
 using X.PagedList;
+
 
 namespace SoccerManager.Controllers
 {
@@ -26,9 +28,15 @@ namespace SoccerManager.Controllers
 
         // GET: Products
         // Get list of Products with player and team information
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? page)
         {
+            int pageSize = 10; // Số sản phẩm trên mỗi trang
+            int pageNumber = (page ?? 1); // Trang hiện tại, mặc định là trang 1
+
             var soccerContext = _context.Products.Include(p => p.Category).Include(p => p.Player).Include(p => p.Team).Include(p => p.ProductImage);
+            IPagedList<Products> pagedProducts = soccerContext.ToPagedList(pageNumber, pageSize);
+
+            ViewBag.PagedProducts = pagedProducts;
             return View(await soccerContext.ToListAsync());
         }
 
@@ -86,17 +94,20 @@ namespace SoccerManager.Controllers
             ViewBag.PagedProducts = pagedProducts;
 			return View();
 }
+
         [HttpPost]
-		public async Task<IActionResult> Shopping(string SearchString)
-		{
-			var soccerContext = new List<Products>();
-			if (SearchString is null)
-			{
-				soccerContext = _context.Products.Include(p => p.Category).Include(p => p.Player).Include(p => p.Team).Include(p => p.ProductImage).ToList();
-			} else
+        public async Task<IActionResult> Shopping(string SearchString)
+        {
+            var soccerContext = new List<Products>();
+            if (SearchString is null)
             {
-				soccerContext = _context.Products.Include(p => p.Category).Include(p => p.Player).Include(p => p.Team).Include(p => p.ProductImage).Where(p => p.ProductName.Contains(SearchString)).ToList();
-			}
+                soccerContext = _context.Products.Include(p => p.Category).Include(p => p.Player).Include(p => p.Team).Include(p => p.ProductImage).ToList();
+            }
+            else
+            {
+                soccerContext = _context.Products.Include(p => p.Category).Include(p => p.Player).Include(p => p.Team).Include(p => p.ProductImage).Where(p => p.ProductName.Contains(SearchString)).ToList();
+            }
+
 
 
 			var categories = _context.Category.Include(p => p.Products).ToList();
@@ -107,9 +118,10 @@ namespace SoccerManager.Controllers
 			return View(soccerContext);
 		}
 
-		// GET: Products/Details/5
-		// Get detail for 1 product
-		public async Task<IActionResult> Details(int? id)
+
+        // GET: Products/Details/5
+        // Get detail for 1 product
+        public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Products == null)
             {
@@ -119,6 +131,7 @@ namespace SoccerManager.Controllers
             var products = await _context.Products
                 .Include(p => p.Category)
                 .Include(p => p.Player)
+                .Include(p => p.ProductImage)
                 .Include(p => p.Team)
                 .FirstOrDefaultAsync(m => m.ProductId == id);
             if (products == null)
