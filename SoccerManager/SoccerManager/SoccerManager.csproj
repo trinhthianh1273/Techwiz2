@@ -49,7 +49,6 @@
     <None Include="Views\Teams\Details.cshtml" />
     <None Include="Views\Teams\Edit.cshtml" />
     <None Include="Views\Teams\Index.cshtml" />
-    <None Include="Views\Teams\Uploadfile.cshtml" />
   </ItemGroup>
 
 </Project>

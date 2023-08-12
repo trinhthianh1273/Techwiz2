@@ -208,10 +208,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0Y2hlc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/viper/Desktop/New folder (2)/Techwiz2/SoccerManager/SoccerManager/Views/Matches/EarlierMatch.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0Y2hlc1xFYXJsaWVyTWF0Y2guY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/viper/Desktop/New folder (2)/Techwiz2/SoccerManager/SoccerManager/Views/Matches/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0Y2hlc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -220,8 +216,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0Y2hlc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/viper/Desktop/New folder (2)/Techwiz2/SoccerManager/SoccerManager/Views/Matches/UpcommingMatch.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0Y2hlc1xVcGNvbW1pbmdNYXRjaC5jc2h0bWw=
+[C:/Users/viper/Desktop/New folder (2)/Techwiz2/SoccerManager/SoccerManager/Views/Matches/Matches.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0Y2hlc1xNYXRjaGVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/viper/Desktop/New folder (2)/Techwiz2/SoccerManager/SoccerManager/Views/News/Articles.cshtml]

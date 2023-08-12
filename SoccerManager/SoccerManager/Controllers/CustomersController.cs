@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
-using SoccerManager.Models;
-using System.Security.Cryptography;
+using Org.BouncyCastle.Utilities;
 using SoccerManager.Helper;
+using SoccerManager.Models;
 
 namespace SoccerManager.Controllers
 {
@@ -25,9 +18,9 @@ namespace SoccerManager.Controllers
         // GET: Customers
         public async Task<IActionResult> Index()
         {
-              return _context.Customer != null ? 
-                          View(await _context.Customer.ToListAsync()) :
-                          Problem("Entity set 'SoccerContext.Customer'  is null.");
+            return _context.Customer != null ?
+                        View(await _context.Customer.ToListAsync()) :
+                        Problem("Entity set 'SoccerContext.Customer'  is null.");
         }
 
         // GET: Customers/Login
@@ -36,32 +29,46 @@ namespace SoccerManager.Controllers
             Customer obj = new Customer();
             if (Request.Cookies["Username"] != null)
             {
-                obj.Username = Request.Cookies["Username"];                
+                obj.Username = Request.Cookies["Username"];
             }
             return View(obj);
         }
 
-		// GET: Customers/Cart
-		public IActionResult Cart()
-		{
-
-            var carts  = new List<Cart>();
+        // GET: Customers/Cart
+        public IActionResult Cart()
+        {
+            double total = 0;
+            var carts = new List<Cart>();
 
             if (HttpContext.Session.GetString("CustomerId") != null)
-			{
-				int customerId = Convert.ToInt16(HttpContext.Session.GetString("CustomerId"));
-				carts = _context.Cart
-								.Where(c => c.CustomerId == customerId)
-								.Include(c => c.Product)
-								.ToList();
-			}
-            ViewBag.Carts = carts;
+            {
+                int customerId = Convert.ToInt16(HttpContext.Session.GetString("CustomerId"));
+                carts = _context.Cart
+                                .Where(c => c.CustomerId == customerId)
+                                .Include(c => c.Product)
+                                .ToList();
+                ViewBag.Address = _context.Address.Where(a => a.CustomerId == customerId);
+                ViewBag.CustomerId = customerId;
 
+            }
+            foreach (var item in carts)
+            {
+                if (item.Product.Price != null)
+                {
+                    total += (double)item.Quantity * item.Product.Price.Value;
+
+                }
+            }
+            ViewBag.Total = total;
+
+
+
+            ViewBag.Categories = _context.Category.ToList();
             return View(carts);
-		}
+        }
 
-		//POST: Customers/Login
-		[HttpPost]
+        //POST: Customers/Login
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Login(Customer obj)
         {
@@ -87,7 +94,7 @@ namespace SoccerManager.Controllers
                 return RedirectToAction("Index", "Home");
 
 
-                
+
             }
             return RedirectToAction("Login", "Customers");
         }
@@ -226,6 +233,61 @@ namespace SoccerManager.Controllers
             return View(customer);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CheckOut()
+        {
+            var Req = Request.Form;
+
+            if(Req != null)
+            {
+                //get all user data
+                int paymentMethod = Int32.Parse(Req["paymentMethod"].ToString());
+
+                if (paymentMethod == 2)
+                {
+                    string cardName = Req["cardName"];
+                    string cardNumber = Req["cardNumber"];
+                    string expire = Req["expire"];
+                    int code = Int32.Parse(Req["code"].ToString());
+                }
+
+                int address = Int32.Parse(Req["address"].ToString());
+                int customerId = Int32.Parse(Req["customerId"].ToString());
+
+                //randomize employee id
+                int[] emps = _context.Employee.Select(e => e.EmployeeId).ToArray();
+                int employeeId = emps[new Random().Next(0, emps.Length)];
+
+                //add to order table
+                Orders o = new Orders()
+                {
+                    CustomerId = customerId,
+                    EmployeeId = employeeId,
+                    AddressId = address,
+                    StatusId = 1,
+                    PaymentMethodId = paymentMethod,
+                    CardName = Req["cardName"].ToString() == null ? null : Req["cardName"].ToString(),
+                    CardNumber = Req["cardNumber"].ToString() == null ? null : Req["cardNumber"].ToString(),
+                    Expire = Req["expire"].ToString() == null ? null : Req["expire"].ToString(),
+                    SecurityCode = Int32.Parse(Req["code"].ToString()) == null ? null : Int32.Parse(Req["code"].ToString()),
+                    PaymentStatus = paymentMethod == 1 ? "Chưa thanh toán" : "Đã thanh toán"
+
+
+				};
+
+
+
+                return RedirectToAction(nameof(Index));
+
+            }
+            else
+            {
+                return View(Cart());
+            }
+
+        }
+
         // POST: Customers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -240,14 +302,14 @@ namespace SoccerManager.Controllers
             {
                 _context.Customer.Remove(customer);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool CustomerExists(int id)
         {
-          return (_context.Customer?.Any(e => e.CustomerId == id)).GetValueOrDefault();
+            return (_context.Customer?.Any(e => e.CustomerId == id)).GetValueOrDefault();
         }
     }
 }

@@ -93,12 +93,11 @@ namespace SoccerManager.Controllers
                 return NotFound();
             }
 
-            var news = await _context.News.FindAsync(id);
+            var news = _context.News.Where(n => n.NewsId == id).Include(p => p.Employee).Single();
             if (news == null)
             {
-                return NotFound();
+                ViewData["EmployeeId"] = new SelectList(_context.Employee, "EmployeeId", "FullName", news.EmployeeId);
             }
-            ViewData["EmployeeId"] = new SelectList(_context.Employee, "EmployeeId", "FullName", news.EmployeeId);
             return View(news);
         }
 
