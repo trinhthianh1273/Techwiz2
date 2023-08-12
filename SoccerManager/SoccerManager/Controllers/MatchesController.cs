@@ -31,9 +31,9 @@ namespace SoccerManager.Controllers
                 .Include(m => m.Competition)
                 .Include(m => m.GuestTeam)
                 .Include(m => m.HomeTeam);
-            ViewBag.Matches = matches;
+            ViewBag.Products = soccerContext.ToList();
 
-            return View(await soccerContext.ToListAsync());
+            return View(await matches.ToListAsync());
         }
 
         // GET: Matches/Details/5

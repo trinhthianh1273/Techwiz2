@@ -1,5 +1,9 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿@{
+}
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,18 +26,9 @@
     <link rel="stylesheet" href="~/css/main.css">
     <link rel="stylesheet" href="~/css/color.css">
     <link rel="stylesheet" href="~/css/responsive.css">
-
-    <link rel="stylesheet"
-        href="@Url.Content("https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta17/dist/css/tabler.min.css")">
-    <link rel="stylesheet"
-        href="@Url.Content("https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta17/dist/css/tabler-flags.min.css")">
-    <link rel="stylesheet"
-        href="@Url.Content("https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta17/dist/css/tabler-payments.min.css")">
-    <link rel="stylesheet"
-        href="@Url.Content("https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta17/dist/css/tabler-vendors.min.css")">
+    <link rel="stylesheet" href="~/css/main_layout.css">
 
     <script src="~/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-    <script src="@Url.Content("https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta17/dist/js/tabler.min.js")"></script>
 
 </head>
 <body>
@@ -50,35 +45,40 @@
                                             @{
                                                 var id = Context.Session.GetString("CustomerId");
                                                 var name = Context.Session.GetString("CusFullName");
+                                                var cartCount = Context.Session.GetString("CartCount");
 
-                                                if (name == null)
+                                                if (id == null)
                                                 {
                                                     <li>
-                                                        <a href="javascript().html" data-toggle="modal"
-                                                           data-target="#tg-register">Login</a>
+                                                        <a asp-area="" asp-controller="Customers" asp-action="Login">Login</a>
                                                     </li>
                                                     <li>
-                                                        <a href="javascript().html" data-toggle="modal"
-                                                           data-target="#tg-register">Register</a>
+                                                        <a asp-area="" asp-controller="Customers" asp-action="Register">Register</a>
                                                     </li>
-                                                } else
+                                                    <li>
+                                                        <a id="tg-btn-search" href="javascript:void(0)">
+                                                            <i class="fa fa-search"></i>
+                                                        </a>
+                                                    </li>
+                                                }
+                                                else
                                                 {
                                                     <li>
-                                                        <a href="javascript().html" data-toggle="modal"
-                                                           data-target="#tg-login">Account</a>
+                                                        <a asp-area="" asp-controller="Customers" asp-action="Account">@name</a>
                                                     </li>
                                                     <li>
-                                                        <a href="javascript().html" data-toggle="modal"
-                                                           data-target="#tg-register">@name</a>
+                                                        <a id="tg-btn-search" href="javascript:void(0)">
+                                                            <i class="fa fa-search"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="cart-icon">
+                                                        <a asp-area="" asp-controller="Customers" asp-action="Cart">
+                                                            <i class="fa fa-shopping-cart"></i>
+                                                            <span class="cart-count">@cartCount</span>
+                                                        </a>
                                                     </li>
                                                 }
                                             }
-                                            
-                                            <li>
-                                                <a id="tg-btn-search" href="javascript:void(0)">
-                                                    <i class="fa fa-search"></i>
-                                                </a>
-                                            </li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -111,7 +111,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                        </div>
+                                
                         </nav>
                     </div>
                     <nav id="tg-nav" class="tg-nav brand-center">
@@ -147,7 +147,20 @@
                                         <a asp-area="" asp-controller="Products" asp-action="Shopping">Shopping</a>
                                     </li>
                                     <li>
-                                        <a asp-area="" asp-controller="Orders" asp-action="Index">Contacts</a>
+                                        <a asp-area="" asp-controller="Home" asp-action="Contact">Contacts</a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class=" fa fa-navicon"></i></a>
+                                        <ul>
+                                            <li><a asp-area="" asp-controller="Home" asp-action="AboutUs">about us</a></li>
+                                            <li><a href="shoplist.html">shop list</a></li>
+                                            <li><a href="shopgrid.html">shop grid</a></li>
+                                            <li><a href="productsingle.html">shop detail</a></li>
+                                            <li><a href="bloglist.html">blog list</a></li>
+                                            <li><a href="bloggrid.html">blog grid</a></li>
+                                            <li><a href="blogdetail.html">blog detail</a></li>
+                                            <li><a href="404.html">404 error</a></li>
+                                        </ul>
                                     </li>
                                 </ul>
                             </div>
@@ -155,49 +168,146 @@
                     </nav>
                 </div>
             </div>
+            </div>
         </header>
-        <div class="container">
-            <main role="main" class="pb-3">
+        @RenderBody()
+            @*<main role="main">
                 @RenderBody()
-            </main>
-        </div>
+            </main>*@
+        
 
         <!-- Footer Start -->
         <footer id="tg-footer" class="tg-footer tg-haslayout">
-            <div class="tg-haslayout tg-footerinfobox">
-                <div class="tg-bgboxone"></div>
-                <div class="tg-bgboxtwo"></div>
-                <div class="tg-footerinfo">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-4">
-                            </div>
-                            <div class="col-sm-4">
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="tg-footercol">
-                                    <ul class="tg-contactinfo">
-                                        <li>
-                                            <i class="fa fa-home"></i>
-                                            <address>Ha Noi, Viet Nam</address>
-                                        </li>
-                                        <li>
-                                            <i class="fa fa-envelope-o"></i>
-                                            <a href="info%40domain.html">info@domain.com</a>
-                                        </li>
-                                        <li>
-                                            <i class="fa fa-phone"></i>
-                                            <span>+44 123 456 788 - 9</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-    </div>
+			<div class="tg-haslayout tg-footerinfobox">
+				<div class="tg-bgboxone"></div>
+				<div class="tg-bgboxtwo"></div>
+				<div class="tg-footerinfo">
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-4">
+								<div class="tg-footercol">
+									<div class="tg-posttitle">
+										<h3>signup newsletter</h3>
+									</div>
+									<div class="tg-description">
+										<p>Adipisicing elit, sed do eiusmod tempor incidunta utiai labore et dolore magna si aliqua quis.</p>
+									</div>
+									<form class="tg-form-newsletter">
+										<fieldset>
+											<div class="form-group">
+												<input type="email" class="form-control" name="email" placeholder="Email">
+											</div>
+											<button class="tg-btn" type="submit">signup</button>
+										</fieldset>
+									</form>
+									<div class="tg-posttitle">
+										<h3>popular tags</h3>
+									</div>
+									<div class="tg-tags">
+										<a class="tg-tag" href="#">fashion</a>
+										<a class="tg-tag" href="#">travel</a>
+										<a class="tg-tag" href="#">blog</a>
+										<a class="tg-tag" href="#">sports</a>
+										<a class="tg-tag" href="#">magazine</a>
+										<a class="tg-tag" href="#">ui</a>
+										<a class="tg-tag" href="#">tech</a>
+										<a class="tg-tag" href="#">fun time</a>
+										<a class="tg-tag" href="#">soccer</a>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<div class="tg-footercol">
+									<div class="tg-posttitle">
+										<h3>Top products</h3>
+									</div>
+									<div class="tg-toprated">
+										<ul>
+											<li>
+												<figure>
+													<a href="#">
+														<img src="~/images/thumbnails/img-04.jpg" alt="image description">
+													</a>
+												</figure>
+												<div class="tg-productcontent">
+													<h4><a href="#">Smooth 3-Stripes Scarf</a></h4><span class="tg-stars"><span></span></span>
+													<span class="tg-price">Price: $67</span>
+												</div>
+											</li>
+											<li>
+												<figure>
+													<a href="#">
+														<img src="~/images/thumbnails/img-05.jpg" alt="image description">
+													</a>
+												</figure>
+												<div class="tg-productcontent">
+													<h4><a href="#">Smooth 3-Stripes Scarf</a></h4><span class="tg-stars"><span></span></span>
+													<span class="tg-price">Price: $67</span>
+												</div>
+											</li>
+											<li>
+												<figure>
+													<a href="#">
+														<img src="~/images/thumbnails/img-06.jpg" alt="image description">
+													</a>
+												</figure>
+												<div class="tg-productcontent">
+													<h4><a href="#">Smooth 3-Stripes Scarf</a></h4><span class="tg-stars"><span></span></span>
+													<span class="tg-price">Price: $67</span>
+												</div>
+											</li>
+											<li>
+												<figure>
+													<a href="#">
+														<img src="~/images/thumbnails/img-07.jpg" alt="image description">
+													</a>
+												</figure>
+												<div class="tg-productcontent">
+													<h4><a href="#">Smooth 3-Stripes Scarf</a></h4><span class="tg-stars"><span></span></span>
+													<span class="tg-price">Price: $67</span>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<div class="tg-footercol">
+									<div class="tg-haslayout">
+										<strong class="tg-logo">
+											<a href="#">
+												<img src="~/images/logo2.png" alt="image description">
+											</a>
+										</strong>
+									</div>
+									<div class="tg-description">
+										<p>Consectetur adipisicing elit sedtado eiusmod dunt ut labore et dolore magna aliqua enim minim veniami quis nostrud.</p>
+									</div>
+									<ul class="tg-contactinfo">
+										<li>
+											<i class="fa fa-home"></i>
+											<address>Ha Noi, Viet Name</address>
+										</li>
+										<li>
+											<i class="fa fa-envelope-o"></i>
+											<a href="info%40domain.html">aptech-vietnam@gmail.com.vn</a>
+										</li>
+										<li>
+											<i class="fa fa-phone"></i>
+											<span>+44 123 456 788 - 9</span>
+										</li>
+									</ul>
+									<div class="tg-haslayout">
+                                        <a class="tg-btn" asp-area="" asp-controller="Home" asp-action="Contact">read more</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+        </div>
     
     <div class="tg-searchbox">
         <a id="tg-close-search" class="tg-close-search" href="javascript:void(0)"><span class="fa fa-close"></span></a>
@@ -217,103 +327,6 @@
             </div>
         </div>
     </div>
-    
-    <div class="tg-modalbox modal fade" id="tg-login" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="tg-modal-content">
-                <div class="tg-formarea">
-                    <div class="tg-border-heading">
-                        <h3>Login</h3>
-                    </div>
-                    <form class="tg-loginform" method="post">
-                        <fieldset>
-                            <div class="form-group">
-                                <input type="text" name="userName/email" class="form-control"
-                                    placeholder="username/email">
-                            </div>
-                            <div class="form-group">
-                                <input type="password" name="password" class="form-control" placeholder="password">
-                            </div>
-                            <div class="form-group">
-                                <label>
-                                    <input type="checkbox" value="rememberme" class="checkbox">
-                                    <em>Remember Me</em>
-                                </label>
-                                <a href="#">
-                                    <em>Forgot Password</em>
-                                    <i class="fa fa-question-circle"></i>
-                                </a>
-                            </div>
-                            <div class="form-group">
-                                <button class="tg-btn tg-btn-lg" type="submit">Login Now</button>
-                            </div>
-                            <div class="tg-description">
-                                <p>Don't have an account? <a href="#">Signup</a></p>
-                            </div>
-                        </fieldset>
-                    </form>
-                </div>
-                <div class="tg-logintype">
-                    <div class="tg-border-heading">
-                        <h3>Login with</h3>
-                    </div>
-                    <ul>
-                        <li class="tg-facebook"><a href="#">facebook</a></li>
-                        <li class="tg-twitter"><a href="#">twitter</a></li>
-                        <li class="tg-googleplus"><a href="#">google+</a></li>
-                        <li class="tg-linkedin"><a href="#">linkedin</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="tg-modalbox modal fade" id="tg-register" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="tg-modal-content">
-                <div class="tg-formarea">
-                    <div class="tg-border-heading">
-                        <h3>Signup</h3>
-                    </div>
-                    <form class="tg-loginform" method="post">
-                        <fieldset>
-                            <div class="form-group">
-                                <input type="text" name="userName" class="form-control" placeholder="username">
-                            </div>
-                            <div class="form-group">
-                                <input type="email" name="email" class="form-control" placeholder="email">
-                            </div>
-                            <div class="form-group">
-                                <div class="tg-note">
-                                    <i class="fa fa-exclamation-circle"></i>
-                                    <span>We will email you your password.</span>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <button class="tg-btn tg-btn-lg" type="submit">Login Now</button>
-                            </div>
-                            <div class="tg-description">
-                                <p>Already have an account? <a href="#">Login</a></p>
-                            </div>
-                        </fieldset>
-                    </form>
-                </div>
-                <div class="tg-logintype">
-                    <div class="tg-border-heading">
-                        <h3>Signup with</h3>
-                    </div>
-                    <ul>
-                        <li class="tg-facebook"><a href="#">facebook</a></li>
-                        <li class="tg-twitter"><a href="#">twitter</a></li>
-                        <li class="tg-googleplus"><a href="#">google+</a></li>
-                        <li class="tg-linkedin"><a href="#">linkedin</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--************************************
-        LightBoxes End
-    *************************************-->
     <script src="~/js/vendor/jquery-library.js"></script>
     <script src="~/js/vendor/bootstrap.min.js"></script>
      <script src="~/js/customScrollbar.min.js"></script> 
