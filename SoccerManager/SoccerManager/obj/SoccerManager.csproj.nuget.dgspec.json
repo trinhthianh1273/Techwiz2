@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\viper\\Desktop\\tw2\\Techwiz2-Tuan\\SoccerManager\\SoccerManager\\SoccerManager.csproj": {}
+    "C:\\Users\\viper\\Desktop\\New folder (2)\\Techwiz2\\SoccerManager\\SoccerManager\\SoccerManager.csproj": {}
   },
   "projects": {
-    "C:\\Users\\viper\\Desktop\\tw2\\Techwiz2-Tuan\\SoccerManager\\SoccerManager\\SoccerManager.csproj": {
+    "C:\\Users\\viper\\Desktop\\New folder (2)\\Techwiz2\\SoccerManager\\SoccerManager\\SoccerManager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\viper\\Desktop\\tw2\\Techwiz2-Tuan\\SoccerManager\\SoccerManager\\SoccerManager.csproj",
+        "projectUniqueName": "C:\\Users\\viper\\Desktop\\New folder (2)\\Techwiz2\\SoccerManager\\SoccerManager\\SoccerManager.csproj",
         "projectName": "SoccerManager",
-        "projectPath": "C:\\Users\\viper\\Desktop\\tw2\\Techwiz2-Tuan\\SoccerManager\\SoccerManager\\SoccerManager.csproj",
+        "projectPath": "C:\\Users\\viper\\Desktop\\New folder (2)\\Techwiz2\\SoccerManager\\SoccerManager\\SoccerManager.csproj",
         "packagesPath": "C:\\Users\\viper\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\viper\\Desktop\\tw2\\Techwiz2-Tuan\\SoccerManager\\SoccerManager\\obj\\",
+        "outputPath": "C:\\Users\\viper\\Desktop\\New folder (2)\\Techwiz2\\SoccerManager\\SoccerManager\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\viper\\AppData\\Roaming\\NuGet\\NuGet.Config",

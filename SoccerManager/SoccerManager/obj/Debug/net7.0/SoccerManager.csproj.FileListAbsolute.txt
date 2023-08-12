@@ -342,6 +342,7 @@ C:\Users\MSI Modern\Techwiz2\SoccerManager\SoccerManager\obj\Debug\net7.0\Soccer
 C:\Users\MSI Modern\Techwiz2\SoccerManager\SoccerManager\bin\Debug\net7.0\JetBrains.Annotations.dll
 C:\Users\MSI Modern\Techwiz2\SoccerManager\SoccerManager\bin\Debug\net7.0\X.PagedList.dll
 C:\Users\MSI Modern\Techwiz2\SoccerManager\SoccerManager\bin\Debug\net7.0\X.PagedList.Mvc.Core.dll
+<<<<<<< HEAD
 C:\Users\viper\Desktop\tw2\Techwiz2-Tuan\SoccerManager\SoccerManager\bin\Debug\net7.0\appsettings.Development.json
 C:\Users\viper\Desktop\tw2\Techwiz2-Tuan\SoccerManager\SoccerManager\bin\Debug\net7.0\appsettings.json
 C:\Users\viper\Desktop\tw2\Techwiz2-Tuan\SoccerManager\SoccerManager\bin\Debug\net7.0\efpt.config.json
@@ -606,3 +607,5 @@ C:\Users\viper\Desktop\tw2\Techwiz2-Tuan\SoccerManager\SoccerManager\obj\Debug\n
 C:\Users\viper\Desktop\tw2\Techwiz2-Tuan\SoccerManager\SoccerManager\obj\Debug\net7.0\SoccerManager.pdb
 C:\Users\viper\Desktop\tw2\Techwiz2-Tuan\SoccerManager\SoccerManager\obj\Debug\net7.0\SoccerManager.genruntimeconfig.cache
 C:\Users\viper\Desktop\tw2\Techwiz2-Tuan\SoccerManager\SoccerManager\obj\Debug\net7.0\ref\SoccerManager.dll
+=======
+>>>>>>> Develop

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "reQ58wmH2wTWydlBUK2L+7+Qbm4Kgm5T83yNCmDL2fQS9CNkDIA1G6S3jKi8FbXj/iTN6VMcXIBAyfd4Aq2+1A==",
+  "dgSpecHash": "YPSY2G+H5Bi9Iq6XNwW9yRl+kGc/cWwwTVcmHz7Ul/BZgExx5/T2tNrpUcpjsWe2BfN5CIYg60eerd+ulTlhvg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\viper\\Desktop\\tw2\\Techwiz2-Tuan\\SoccerManager\\SoccerManager\\SoccerManager.csproj",
+  "projectFilePath": "C:\\Users\\viper\\Desktop\\New folder (2)\\Techwiz2\\SoccerManager\\SoccerManager\\SoccerManager.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\viper\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\viper\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
