@@ -53,10 +53,7 @@ body h6 {
 	font-family: 'Oswald', Arial, Helvetica, sans-serif;
 }
 /* add*/
-body{
-background-color:#f2f6fc;
-color:#69707a;
-}
+
 .img-account-profile {
     height: 10rem;
 }
@@ -3400,33 +3397,32 @@ address { font-style: italic; }
 	width:100%;
 	float:left;
 	position:relative;
-	padding:0 0 80px 100px;
+	padding:0 50px 80px 50px;
 }
 .tg-themetabnav{
-	top:0;
-	left:31px;
+	/* top:0;
+	left:0px; */
 	list-style:none;
 	font-size:16px;
 	line-height:56px;
-	position:absolute;
+	position:relative;
 	text-transform:uppercase;
 	-webkit-transform: rotate(90deg);
 	-moz-transform: rotate(90deg);
 	-ms-transform: rotate(90deg);
 	-o-transform: rotate(90deg);
-	transform: rotate(90deg);
-	-webkit-transform-origin: 20px 20px;
+	transform: rotate(0deg);
+	/* -webkit-transform-origin: 20px 20px;
 	-moz-transform-origin: 20px 20px;
 	-ms-transform-origin: 20px 20px;
 	-o-transform-origin: 20px 20px;
-	transform-origin: 20px 20px;
+	transform-origin: 20px 20px; */
 	font:16px/56px 'Oswald', Arial, Helvetica, sans-serif;
 }
 .tg-themetabnav li{
-	float:left;
+	float: left;
 	line-height:inherit;
 	list-style-type:none;
-	padding:0 10px 0 0;
 }
 .tg-themetabnav li a{
 	color:#aeaeae;
@@ -3434,21 +3430,20 @@ address { font-style: italic; }
 	min-width:150px;
 	line-height:54px;
 	text-align:center;
-	margin:15px 0 0;
-	padding:0 20px;
+	margin:0 0 0;
+	padding:0 0px;
 	border:1px solid #aeaeae;
 }
 .tg-themetabnav li.active a,
 .tg-themetabnav li a:hover{
 	color:#373542;
-	margin:0 0 15px;
+	margin:0 0 0px;
 }
 .tg-themetabcontent{
 	width:100%;
 	float:left;
-	padding:30px;
+	padding:0px;
 	min-height:500px;
-	border:1px solid #aeaeae;
 }
 .tg-themetabcontent .tg-section-heading{
 	width:auto;
