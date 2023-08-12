@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
 using SoccerManager.Models;
 
@@ -62,14 +63,26 @@ namespace SoccerManager.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(cart);
+				var findCart = _context.Cart.FirstOrDefault(c => c.CustomerId == Convert.ToInt16(cart.CustomerId) && c.ProductId == Convert.ToInt16(cart.ProductId));
+				if (findCart == null)
+				{
+					_context.Add(cart);
+				}
+				else
+				{
+					findCart.Quantity++;
+					_context.Cart.Update(findCart);
+				}
+				
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
             ViewData["CustomerId"] = new SelectList(_context.Customer, "CustomerId", "Password", cart.CustomerId);
             ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductId", cart.ProductId);
             return View(cart);
         }
+
 
         // GET: Carts/Edit/5
         public async Task<IActionResult> Edit(int? id)

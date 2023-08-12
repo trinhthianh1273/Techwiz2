@@ -1,8 +1,15 @@
-﻿@model IEnumerable<SoccerManager.Models.Products>
+﻿@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+@using X.PagedList.Web.Common;
+
+@model SoccerManager.Models.Cart
 
 @{
-    ViewData["Title"] = "Shopping";
-    Layout = "~/Views/Shared/_Main_Layout.cshtml";
+	ViewData["Title"] = "Shopping";
+	Layout = "~/Views/Shared/_Main_Layout.cshtml";
+	List<Team> teams = ViewBag.Teams;
+	List<Products> products = ViewBag.Products;
+	IPagedList<Products> PagedProducts = ViewBag.PagedProducts;
 }
 
 <div id="tg-wrapper" class="tg-wrapper tg-haslayout">
@@ -13,29 +20,29 @@
 					<div class="col-md-9 col-sm-8 col-xs-12 pull-right">
 
 						<div class="tg-shophead">
-							<form class="tg-formfilter">
+							<div class="tg-formfilter">
 								<fieldset>
 									<div class="tg-select">
-										<select>
-											<option>sort by: All Category</option>
-											<option>All Category</option>
-											<option>All Category</option>
+										<select onchange="location = this.value;">
+											<option value="@Url.Action("Shopping", "Products")">sort by: All Category</option>
+											<option value="@Url.Action("Shopping", "Products", new { PriceDown = true })">Price Down</option>
+											<option value="@Url.Action("Shopping", "Products", new { PriceUp = true })">Price Up</option>
 										</select>
 									</div>
-									<div class="tg-select">
+									@*<div class="tg-select">
 										<select>
 											<option>Show: 9 Items Per Page</option>
 											<option>All Category</option>
 											<option>All Category</option>
 										</select>
-									</div>
+									</div>*@
 								</fieldset>
-							</form>
+							</div>
 						</div>
 
 						<div class="th-products">
 							<div class="row">
-								@foreach (var item in Model)
+								@foreach (Products item in PagedProducts)
 								{
 									<div class="col-md-4 col-sm-6 col-xs-6">
 										<div class="tg-product">
@@ -52,7 +59,33 @@
 												}
 												
 												<figcaption>
-													<a class="tg-btncart" href="#"><i class="fa fa-shopping-cart"></i></a>
+													@{
+														var id = Context.Session.GetString("CustomerId");
+														var name = Context.Session.GetString("CusFullName");
+
+														if (id is null)
+														{
+															<a class="tg-btncart" asp-area="" asp-controller="Customers" asp-action="Login"><i class="fa fa-shopping-cart"></i></a>
+														} else
+														{
+																<a class="tg-btncart" href="javascript:void(0);">
+																	
+																	<form asp-controller="Carts" asp-action="Create" method="post">
+																	<input asp-for="CustomerId" value="@id" class="form-control" style="display: none" />
+																	<input asp-for="ProductId" value="@item.ProductId" class="form-control" style="display: none" />
+																	<input asp-for="Quantity" value="1" class="form-control" style="display: none" />
+																		<div class="card-text p-1">
+																			<button type="submit">
+																				<i class="fa fa-shopping-cart"></i>
+																			</button>
+																		</div>
+																	</form>
+																</a>
+															
+															
+														}
+													}
+													
 												</figcaption>
 											</figure>
 											<div class="tg-productinfo">
@@ -66,10 +99,7 @@
 								}
 							</div>
 							<ul class="tg-pagination">
-								<li class="tg-prevpage"><a href="#"><i class="fa fa-angle-left"></i></a></li>
-								<li class="active"><a href="#">4</a></li>
-								<li><a href="#">6</a></li>
-								<li class="tg-nextpage"><a href="#"><i class="fa fa-angle-right"></i></a></li>
+								@Html.PagedListPager(PagedProducts, page => Url.Action("Shopping", new { page }), PagedListRenderOptions.ClassicPlusFirstAndLast)
 							</ul>
 						</div>
 
@@ -94,16 +124,17 @@
 
 									@foreach (Category category in cates)
 									{
-										<li><a asp-area="" asp-controller="Products" asp-action="Shopping"
+										<li>
+											<a asp-area="" asp-controller="Products" asp-action="Shopping"
 										   asp-route-CategoryId="@category.CategoryId">
-										   <em>@category.CategoryName</em><i>389</i>
+										   <em>@category.CategoryName</em><i>@category.Products.Count()</i>
 									   </a>
 										</li>
 									}
 									
 								</ul>
 							</div>
-							<div class="tg-widget tg-price-widget">
+							@*<div class="tg-widget tg-price-widget">
 								<h3>filter by price</h3>
 								<div class="tg-price-range">
 									<div id="tg-slider-range" class="tg-slider-range"></div>
@@ -111,18 +142,21 @@
 										<label for="amount">Price:</label>
 										<input type="text" id="amount" readonly>
 									</p>
-									<a class="tg-btn" href="#">Filter</a>
+									<a class="tg-btn" asp-area="" asp-controller="Products" asp-action="Shopping"
+									   asp-route-FromPrice="" asp-route-ToPrice="">Filter</a>
 								</div>
-							</div>
+							</div>*@
 							<div class="tg-widget tg-tags-widget">
 								<h3>popular tags</h3>
 								<ul>
-									<li><a class="tg-btn" href="#">Man City</a></li>
-									<li><a class="tg-btn" href="#">Barcelona</a></li>
-									<li><a class="tg-btn" href="#">Shirts</a></li>
-									<li><a class="tg-btn" href="#">blog</a></li>
-									<li><a class="tg-btn" href="#">magazine</a></li>
-									<li><a class="tg-btn" href="#">soccer</a></li>
+									@foreach(Team item in teams)
+									{
+										<li>
+											<a class="tg-btn" asp-area="" asp-controller="Products" asp-action="Shopping"
+										   asp-route-TeamId="@item.TeamId">@item.Nickname</a>
+										</li>
+									}
+									
 								</ul>
 							</div>
 						</aside>
