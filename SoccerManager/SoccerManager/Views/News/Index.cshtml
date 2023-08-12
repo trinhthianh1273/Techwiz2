@@ -2,11 +2,7 @@
 
 @{
     ViewData["Title"] = "Index";
-<<<<<<< HEAD
     Layout = "~/Views/Shared/_Layout.cshtml";
-=======
-    Layout = "~/Views/Shared/_Main_Layout.cshtml";
->>>>>>> Develop
 }
 
 <div class="container">
@@ -55,11 +51,7 @@
                         @Html.DisplayFor(modelItem => item.Contents)
                     </td>
                     <td>
-<<<<<<< HEAD
                         <img src="@Url.Content("~/images/" + item.ImageUrl)" alt="Image" style="width: 200px">
-=======
-                        <img src="@Url.Content("~/images/" + item.ImageUrl)" alt="Image" style="width: 100px">
->>>>>>> Develop
                     </td>
                     <td>
                         <a asp-action="Edit" asp-route-id="@item.NewsId">Edit</a> |
