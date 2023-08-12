@@ -96,6 +96,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGV0aXRpb25zXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/viper/Desktop/Reall real/Techwiz2/SoccerManager/SoccerManager/Views/Customers/Cart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJzXENhcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/viper/Desktop/Reall real/Techwiz2/SoccerManager/SoccerManager/Views/Customers/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -148,6 +152,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzXExvZ2luLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/viper/Desktop/Reall real/Techwiz2/SoccerManager/SoccerManager/Views/Feedbacks/Contact.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmVlZGJhY2tzXENvbnRhY3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/viper/Desktop/Reall real/Techwiz2/SoccerManager/SoccerManager/Views/Feedbacks/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmVlZGJhY2tzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -166,6 +174,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/viper/Desktop/Reall real/Techwiz2/SoccerManager/SoccerManager/Views/Feedbacks/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmVlZGJhY2tzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/viper/Desktop/Reall real/Techwiz2/SoccerManager/SoccerManager/Views/Home/AboutUs.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBYm91dFVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/viper/Desktop/Reall real/Techwiz2/SoccerManager/SoccerManager/Views/Home/Contact.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb250YWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/viper/Desktop/Reall real/Techwiz2/SoccerManager/SoccerManager/Views/Home/Index.cshtml]
@@ -188,12 +204,44 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0Y2hlc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/viper/Desktop/Reall real/Techwiz2/SoccerManager/SoccerManager/Views/Matches/EarlierMatch.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0Y2hlc1xFYXJsaWVyTWF0Y2guY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/viper/Desktop/Reall real/Techwiz2/SoccerManager/SoccerManager/Views/Matches/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0Y2hlc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/viper/Desktop/Reall real/Techwiz2/SoccerManager/SoccerManager/Views/Matches/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0Y2hlc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/viper/Desktop/Reall real/Techwiz2/SoccerManager/SoccerManager/Views/Matches/UpcommingMatch.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0Y2hlc1xVcGNvbW1pbmdNYXRjaC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/viper/Desktop/Reall real/Techwiz2/SoccerManager/SoccerManager/Views/News/Articles.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmV3c1xBcnRpY2xlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/viper/Desktop/Reall real/Techwiz2/SoccerManager/SoccerManager/Views/News/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmV3c1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/viper/Desktop/Reall real/Techwiz2/SoccerManager/SoccerManager/Views/News/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmV3c1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/viper/Desktop/Reall real/Techwiz2/SoccerManager/SoccerManager/Views/News/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmV3c1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/viper/Desktop/Reall real/Techwiz2/SoccerManager/SoccerManager/Views/News/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmV3c1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/viper/Desktop/Reall real/Techwiz2/SoccerManager/SoccerManager/Views/News/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmV3c1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/viper/Desktop/Reall real/Techwiz2/SoccerManager/SoccerManager/Views/OrderContents/Create.cshtml]

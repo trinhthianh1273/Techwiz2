@@ -598,3 +598,7 @@ C:\Users\viper\Desktop\Reall real\Techwiz2\SoccerManager\SoccerManager\obj\Debug
 C:\Users\viper\Desktop\Reall real\Techwiz2\SoccerManager\SoccerManager\obj\Debug\net7.0\SoccerManager.csproj.CopyComplete
 C:\Users\viper\Desktop\Reall real\Techwiz2\SoccerManager\SoccerManager\obj\Debug\net7.0\SoccerManager.genruntimeconfig.cache
 C:\Users\viper\Desktop\Reall real\Techwiz2\SoccerManager\SoccerManager\obj\Debug\net7.0\ref\SoccerManager.dll
+C:\Users\viper\Desktop\Reall real\Techwiz2\SoccerManager\SoccerManager\bin\Debug\net7.0\JetBrains.Annotations.dll
+C:\Users\viper\Desktop\Reall real\Techwiz2\SoccerManager\SoccerManager\bin\Debug\net7.0\X.PagedList.dll
+C:\Users\viper\Desktop\Reall real\Techwiz2\SoccerManager\SoccerManager\bin\Debug\net7.0\X.PagedList.Mvc.Core.dll
+C:\Users\viper\Desktop\Reall real\Techwiz2\SoccerManager\SoccerManager\obj\Debug\net7.0\SoccerManager.MvcApplicationPartsAssemblyInfo.cs

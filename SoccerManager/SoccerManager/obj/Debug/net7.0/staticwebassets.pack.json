@@ -69,6 +69,10 @@
       "PackagePath": "staticwebassets\\css\\main.css"
     },
     {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\css\\main_layout.css",
+      "PackagePath": "staticwebassets\\css\\main_layout.css"
+    },
+    {
       "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\css\\normalize.css",
       "PackagePath": "staticwebassets\\css\\normalize.css"
     },
@@ -173,6 +177,30 @@
       "PackagePath": "staticwebassets\\fonts\\icomoonf55b.woff"
     },
     {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\404-img.jpg",
+      "PackagePath": "staticwebassets\\images\\404-img.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\NewsImages\\news_Screenshot 2023-07-27 193136_74f342be-d03e-44a7-9ea7-426b028e0f3b.png",
+      "PackagePath": "staticwebassets\\images\\NewsImages\\news_Screenshot 2023-07-27 193136_74f342be-d03e-44a7-9ea7-426b028e0f3b.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\NewsImages\\news_Screenshot 2023-07-27 193136_7c278d73-5490-4cf7-9fcd-11f831d518a3.png",
+      "PackagePath": "staticwebassets\\images\\NewsImages\\news_Screenshot 2023-07-27 193136_7c278d73-5490-4cf7-9fcd-11f831d518a3.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\NewsImages\\news_Screenshot 2023-07-29 034844_0ff819b8-a913-4ed5-b076-4e43f40344bf.png",
+      "PackagePath": "staticwebassets\\images\\NewsImages\\news_Screenshot 2023-07-29 034844_0ff819b8-a913-4ed5-b076-4e43f40344bf.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\NewsImages\\news_logo_7dcd1956-2672-4723-8b96-0a4376be25fa.png",
+      "PackagePath": "staticwebassets\\images\\NewsImages\\news_logo_7dcd1956-2672-4723-8b96-0a4376be25fa.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\NewsImages\\news_logo_c88914d2-8d1f-4c2d-8243-6e40fadf4b6d.png",
+      "PackagePath": "staticwebassets\\images\\NewsImages\\news_logo_c88914d2-8d1f-4c2d-8243-6e40fadf4b6d.png"
+    },
+    {
       "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\PlayerImages\\player.jpg",
       "PackagePath": "staticwebassets\\images\\PlayerImages\\player.jpg"
     },
@@ -187,6 +215,10 @@
     {
       "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\PlayerImages\\player_Screenshot 2023-07-29 034844_fe952bdc-f33a-475b-aa0d-90dd6a8ffd8c.png",
       "PackagePath": "staticwebassets\\images\\PlayerImages\\player_Screenshot 2023-07-29 034844_fe952bdc-f33a-475b-aa0d-90dd6a8ffd8c.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\PlayerImages\\player_Screenshot 2023-08-11 033002_4ff63bad-3c3f-49ed-9b46-c0a7b38b8228.png",
+      "PackagePath": "staticwebassets\\images\\PlayerImages\\player_Screenshot 2023-08-11 033002_4ff63bad-3c3f-49ed-9b46-c0a7b38b8228.png"
     },
     {
       "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\PlayerImages\\player_Screenshot 2023-08-11 033002_677673cd-57cd-47b4-9f6f-c0530378635a - Copy.png",
@@ -373,12 +405,12 @@
       "PackagePath": "staticwebassets\\images\\TeamLogos\\team_k3Q_mKE98Dnohrcea0JFgQ_96x96_b2106feb-2954-4394-9d20-2a9de9632a8d.png"
     },
     {
-      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\TeamLogos\\team_mancity_13de501f-7ca0-4a1b-99cf-7e2814f0b2fa.png",
-      "PackagePath": "staticwebassets\\images\\TeamLogos\\team_mancity_13de501f-7ca0-4a1b-99cf-7e2814f0b2fa.png"
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\TeamLogos\\team_logo_d4ba8523-749a-4273-969c-0a6ff9a74631.png",
+      "PackagePath": "staticwebassets\\images\\TeamLogos\\team_logo_d4ba8523-749a-4273-969c-0a6ff9a74631.png"
     },
     {
-      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\TeamLogos\\team_udQ6ns69PctCv143h-GeYw_96x96_c34e4269-7725-458a-a51e-f33891c54647.png",
-      "PackagePath": "staticwebassets\\images\\TeamLogos\\team_udQ6ns69PctCv143h-GeYw_96x96_c34e4269-7725-458a-a51e-f33891c54647.png"
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\TeamLogos\\team_mancity_13de501f-7ca0-4a1b-99cf-7e2814f0b2fa.png",
+      "PackagePath": "staticwebassets\\images\\TeamLogos\\team_mancity_13de501f-7ca0-4a1b-99cf-7e2814f0b2fa.png"
     },
     {
       "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\TeamLogos\\team_uyNNelfnFvCEnsLrUL-j2Q_96x96_c87ab328-631e-48cf-90c6-f6f3c30d5353.png",
@@ -393,6 +425,14 @@
       "PackagePath": "staticwebassets\\images\\aaron.jpg"
     },
     {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\author\\img-01.png",
+      "PackagePath": "staticwebassets\\images\\author\\img-01.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\bg-commingsoon.jpg",
+      "PackagePath": "staticwebassets\\images\\bg-commingsoon.jpg"
+    },
+    {
       "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\bg-footer.jpg",
       "PackagePath": "staticwebassets\\images\\bg-footer.jpg"
     },
@@ -401,12 +441,512 @@
       "PackagePath": "staticwebassets\\images\\bg-pattran.png"
     },
     {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\bg-video.jpg",
+      "PackagePath": "staticwebassets\\images\\bg-video.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\blog\\img-01.jpg",
+      "PackagePath": "staticwebassets\\images\\blog\\img-01.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\blog\\img-02.jpg",
+      "PackagePath": "staticwebassets\\images\\blog\\img-02.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\blog\\img-03.jpg",
+      "PackagePath": "staticwebassets\\images\\blog\\img-03.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\blog\\img-04.jpg",
+      "PackagePath": "staticwebassets\\images\\blog\\img-04.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\blog\\img-05.jpg",
+      "PackagePath": "staticwebassets\\images\\blog\\img-05.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\blog\\img-06.jpg",
+      "PackagePath": "staticwebassets\\images\\blog\\img-06.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\blog\\img-07.jpg",
+      "PackagePath": "staticwebassets\\images\\blog\\img-07.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\blog\\img-08.jpg",
+      "PackagePath": "staticwebassets\\images\\blog\\img-08.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\blog\\img-09.jpg",
+      "PackagePath": "staticwebassets\\images\\blog\\img-09.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\blog\\img-10.jpg",
+      "PackagePath": "staticwebassets\\images\\blog\\img-10.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\blog\\img-11.jpg",
+      "PackagePath": "staticwebassets\\images\\blog\\img-11.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\blog\\img-12.jpg",
+      "PackagePath": "staticwebassets\\images\\blog\\img-12.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\blog\\img-13.jpg",
+      "PackagePath": "staticwebassets\\images\\blog\\img-13.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\blog\\img-14.jpg",
+      "PackagePath": "staticwebassets\\images\\blog\\img-14.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\blog\\img-15.jpg",
+      "PackagePath": "staticwebassets\\images\\blog\\img-15.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\blog\\img-16.jpg",
+      "PackagePath": "staticwebassets\\images\\blog\\img-16.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\blog\\img-18.jpg",
+      "PackagePath": "staticwebassets\\images\\blog\\img-18.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\gallery2\\img-01.jpg",
+      "PackagePath": "staticwebassets\\images\\gallery2\\img-01.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\gallery2\\img-02.jpg",
+      "PackagePath": "staticwebassets\\images\\gallery2\\img-02.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\gallery2\\img-03.jpg",
+      "PackagePath": "staticwebassets\\images\\gallery2\\img-03.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\gallery2\\img-04.jpg",
+      "PackagePath": "staticwebassets\\images\\gallery2\\img-04.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\gallery2\\img-05.jpg",
+      "PackagePath": "staticwebassets\\images\\gallery2\\img-05.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\gallery2\\img-06.jpg",
+      "PackagePath": "staticwebassets\\images\\gallery2\\img-06.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\gallery2\\img-07.jpg",
+      "PackagePath": "staticwebassets\\images\\gallery2\\img-07.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\gallery2\\img-08.jpg",
+      "PackagePath": "staticwebassets\\images\\gallery2\\img-08.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\gallery2\\img-09.jpg",
+      "PackagePath": "staticwebassets\\images\\gallery2\\img-09.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\gallery2\\img-10.jpg",
+      "PackagePath": "staticwebassets\\images\\gallery2\\img-10.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\gallery2\\img-11.jpg",
+      "PackagePath": "staticwebassets\\images\\gallery2\\img-11.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\gallery2\\img-12.jpg",
+      "PackagePath": "staticwebassets\\images\\gallery2\\img-12.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\gallery2\\img-13.jpg",
+      "PackagePath": "staticwebassets\\images\\gallery2\\img-13.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\gallery2\\img-14.jpg",
+      "PackagePath": "staticwebassets\\images\\gallery2\\img-14.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\gallery2\\img-15.jpg",
+      "PackagePath": "staticwebassets\\images\\gallery2\\img-15.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\gallery\\img-01.jpg",
+      "PackagePath": "staticwebassets\\images\\gallery\\img-01.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\gallery\\img-02.jpg",
+      "PackagePath": "staticwebassets\\images\\gallery\\img-02.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\gallery\\img-03.jpg",
+      "PackagePath": "staticwebassets\\images\\gallery\\img-03.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\gallery\\img-04.jpg",
+      "PackagePath": "staticwebassets\\images\\gallery\\img-04.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\gallery\\img-05.jpg",
+      "PackagePath": "staticwebassets\\images\\gallery\\img-05.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\gallery\\img-06.jpg",
+      "PackagePath": "staticwebassets\\images\\gallery\\img-06.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\gallery\\img-07.jpg",
+      "PackagePath": "staticwebassets\\images\\gallery\\img-07.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\gallery\\img-08.jpg",
+      "PackagePath": "staticwebassets\\images\\gallery\\img-08.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\gallery\\img-09.jpg",
+      "PackagePath": "staticwebassets\\images\\gallery\\img-09.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\gallery\\img-10.jpg",
+      "PackagePath": "staticwebassets\\images\\gallery\\img-10.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\gallery\\img-11.jpg",
+      "PackagePath": "staticwebassets\\images\\gallery\\img-11.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\history-section\\img-01.jpg",
+      "PackagePath": "staticwebassets\\images\\history-section\\img-01.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\history-section\\img-02.jpg",
+      "PackagePath": "staticwebassets\\images\\history-section\\img-02.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\history-section\\img-03.jpg",
+      "PackagePath": "staticwebassets\\images\\history-section\\img-03.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\history-section\\img-04.jpg",
+      "PackagePath": "staticwebassets\\images\\history-section\\img-04.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\icon-close.png",
+      "PackagePath": "staticwebassets\\images\\icon-close.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\icon-play.png",
+      "PackagePath": "staticwebassets\\images\\icon-play.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\icon-play1.png",
+      "PackagePath": "staticwebassets\\images\\icon-play1.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\img-01.jpg",
+      "PackagePath": "staticwebassets\\images\\img-01.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\img-02.png",
+      "PackagePath": "staticwebassets\\images\\img-02.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\img-03.png",
+      "PackagePath": "staticwebassets\\images\\img-03.png"
+    },
+    {
       "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\logo.png",
       "PackagePath": "staticwebassets\\images\\logo.png"
     },
     {
       "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\logo2.png",
       "PackagePath": "staticwebassets\\images\\logo2.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\mCSB_buttons.html",
+      "PackagePath": "staticwebassets\\images\\mCSB_buttons.html"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\match-detail\\img-01.jpg",
+      "PackagePath": "staticwebassets\\images\\match-detail\\img-01.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\player-detail\\img-01.jpg",
+      "PackagePath": "staticwebassets\\images\\player-detail\\img-01.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\player-detail\\img-02.jpg",
+      "PackagePath": "staticwebassets\\images\\player-detail\\img-02.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\player\\img-01.jpg",
+      "PackagePath": "staticwebassets\\images\\player\\img-01.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\player\\img-01.png",
+      "PackagePath": "staticwebassets\\images\\player\\img-01.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\player\\img-02.jpg",
+      "PackagePath": "staticwebassets\\images\\player\\img-02.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\player\\img-02.png",
+      "PackagePath": "staticwebassets\\images\\player\\img-02.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\player\\img-03.jpg",
+      "PackagePath": "staticwebassets\\images\\player\\img-03.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\player\\img-03.png",
+      "PackagePath": "staticwebassets\\images\\player\\img-03.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\player\\img-04.html",
+      "PackagePath": "staticwebassets\\images\\player\\img-04.html"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\player\\img-04.png",
+      "PackagePath": "staticwebassets\\images\\player\\img-04.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\player\\img-05.jpg",
+      "PackagePath": "staticwebassets\\images\\player\\img-05.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\prettyPhoto\\dark_rounded\\btnNext.png",
+      "PackagePath": "staticwebassets\\images\\prettyPhoto\\dark_rounded\\btnNext.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\prettyPhoto\\dark_rounded\\btnPrevious.png",
+      "PackagePath": "staticwebassets\\images\\prettyPhoto\\dark_rounded\\btnPrevious.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\prettyPhoto\\dark_rounded\\contentPattern.png",
+      "PackagePath": "staticwebassets\\images\\prettyPhoto\\dark_rounded\\contentPattern.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\prettyPhoto\\dark_rounded\\loader.gif",
+      "PackagePath": "staticwebassets\\images\\prettyPhoto\\dark_rounded\\loader.gif"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\prettyPhoto\\dark_rounded\\sprite.png",
+      "PackagePath": "staticwebassets\\images\\prettyPhoto\\dark_rounded\\sprite.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\prettyPhoto\\dark_square\\btnNext.png",
+      "PackagePath": "staticwebassets\\images\\prettyPhoto\\dark_square\\btnNext.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\prettyPhoto\\dark_square\\btnPrevious.png",
+      "PackagePath": "staticwebassets\\images\\prettyPhoto\\dark_square\\btnPrevious.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\prettyPhoto\\dark_square\\loader.gif",
+      "PackagePath": "staticwebassets\\images\\prettyPhoto\\dark_square\\loader.gif"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\prettyPhoto\\dark_square\\sprite.png",
+      "PackagePath": "staticwebassets\\images\\prettyPhoto\\dark_square\\sprite.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\prettyPhoto\\default\\default_thumb.png",
+      "PackagePath": "staticwebassets\\images\\prettyPhoto\\default\\default_thumb.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\prettyPhoto\\default\\loader.gif",
+      "PackagePath": "staticwebassets\\images\\prettyPhoto\\default\\loader.gif"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\prettyPhoto\\default\\sprite.png",
+      "PackagePath": "staticwebassets\\images\\prettyPhoto\\default\\sprite.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\prettyPhoto\\default\\sprite_next.png",
+      "PackagePath": "staticwebassets\\images\\prettyPhoto\\default\\sprite_next.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\prettyPhoto\\default\\sprite_prev.png",
+      "PackagePath": "staticwebassets\\images\\prettyPhoto\\default\\sprite_prev.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\prettyPhoto\\default\\sprite_x.png",
+      "PackagePath": "staticwebassets\\images\\prettyPhoto\\default\\sprite_x.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\prettyPhoto\\default\\sprite_y.png",
+      "PackagePath": "staticwebassets\\images\\prettyPhoto\\default\\sprite_y.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\prettyPhoto\\facebook\\btnNext.png",
+      "PackagePath": "staticwebassets\\images\\prettyPhoto\\facebook\\btnNext.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\prettyPhoto\\facebook\\btnPrevious.png",
+      "PackagePath": "staticwebassets\\images\\prettyPhoto\\facebook\\btnPrevious.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\prettyPhoto\\facebook\\contentPatternBottom.png",
+      "PackagePath": "staticwebassets\\images\\prettyPhoto\\facebook\\contentPatternBottom.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\prettyPhoto\\facebook\\contentPatternLeft.png",
+      "PackagePath": "staticwebassets\\images\\prettyPhoto\\facebook\\contentPatternLeft.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\prettyPhoto\\facebook\\contentPatternRight.png",
+      "PackagePath": "staticwebassets\\images\\prettyPhoto\\facebook\\contentPatternRight.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\prettyPhoto\\facebook\\contentPatternTop.png",
+      "PackagePath": "staticwebassets\\images\\prettyPhoto\\facebook\\contentPatternTop.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\prettyPhoto\\facebook\\default_thumbnail.gif",
+      "PackagePath": "staticwebassets\\images\\prettyPhoto\\facebook\\default_thumbnail.gif"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\prettyPhoto\\facebook\\loader.gif",
+      "PackagePath": "staticwebassets\\images\\prettyPhoto\\facebook\\loader.gif"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\prettyPhoto\\facebook\\sprite.png",
+      "PackagePath": "staticwebassets\\images\\prettyPhoto\\facebook\\sprite.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\prettyPhoto\\light_rounded\\btnNext.png",
+      "PackagePath": "staticwebassets\\images\\prettyPhoto\\light_rounded\\btnNext.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\prettyPhoto\\light_rounded\\btnPrevious.png",
+      "PackagePath": "staticwebassets\\images\\prettyPhoto\\light_rounded\\btnPrevious.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\prettyPhoto\\light_rounded\\loader.gif",
+      "PackagePath": "staticwebassets\\images\\prettyPhoto\\light_rounded\\loader.gif"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\prettyPhoto\\light_rounded\\sprite.png",
+      "PackagePath": "staticwebassets\\images\\prettyPhoto\\light_rounded\\sprite.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\prettyPhoto\\light_square\\btnNext.png",
+      "PackagePath": "staticwebassets\\images\\prettyPhoto\\light_square\\btnNext.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\prettyPhoto\\light_square\\btnPrevious.png",
+      "PackagePath": "staticwebassets\\images\\prettyPhoto\\light_square\\btnPrevious.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\prettyPhoto\\light_square\\sprite.png",
+      "PackagePath": "staticwebassets\\images\\prettyPhoto\\light_square\\sprite.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\shop\\img-01.png",
+      "PackagePath": "staticwebassets\\images\\shop\\img-01.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\shop\\img-02.jpg",
+      "PackagePath": "staticwebassets\\images\\shop\\img-02.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\shop\\img-03.jpg",
+      "PackagePath": "staticwebassets\\images\\shop\\img-03.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\shop\\img-04.jpg",
+      "PackagePath": "staticwebassets\\images\\shop\\img-04.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\shop\\img-05.jpg",
+      "PackagePath": "staticwebassets\\images\\shop\\img-05.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\shop\\img-06.jpg",
+      "PackagePath": "staticwebassets\\images\\shop\\img-06.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\shop\\img-07.jpg",
+      "PackagePath": "staticwebassets\\images\\shop\\img-07.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\shop\\img-08.jpg",
+      "PackagePath": "staticwebassets\\images\\shop\\img-08.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\shop\\img-09.jpg",
+      "PackagePath": "staticwebassets\\images\\shop\\img-09.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\shop\\img-10.jpg",
+      "PackagePath": "staticwebassets\\images\\shop\\img-10.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\shop\\thumbs\\img-01.jpg",
+      "PackagePath": "staticwebassets\\images\\shop\\thumbs\\img-01.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\shop\\thumbs\\img-02.jpg",
+      "PackagePath": "staticwebassets\\images\\shop\\thumbs\\img-02.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\shop\\thumbs\\img-03.jpg",
+      "PackagePath": "staticwebassets\\images\\shop\\thumbs\\img-03.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\shop\\thumbs\\img-04.jpg",
+      "PackagePath": "staticwebassets\\images\\shop\\thumbs\\img-04.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\shop\\thumbs\\img-05.jpg",
+      "PackagePath": "staticwebassets\\images\\shop\\thumbs\\img-05.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\shop\\thumbs\\img-06.jpg",
+      "PackagePath": "staticwebassets\\images\\shop\\thumbs\\img-06.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\shop\\thumbs\\img-07.jpg",
+      "PackagePath": "staticwebassets\\images\\shop\\thumbs\\img-07.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\sidebar\\img-01.jpg",
+      "PackagePath": "staticwebassets\\images\\sidebar\\img-01.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\slider\\img-01.png",
+      "PackagePath": "staticwebassets\\images\\slider\\img-01.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\slider\\img-02.png",
+      "PackagePath": "staticwebassets\\images\\slider\\img-02.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\slider\\img-03.jpg",
+      "PackagePath": "staticwebassets\\images\\slider\\img-03.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\slider\\img-04.jpg",
+      "PackagePath": "staticwebassets\\images\\slider\\img-04.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\slider\\img-05.jpg",
+      "PackagePath": "staticwebassets\\images\\slider\\img-05.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\sponser\\img-01.png",
+      "PackagePath": "staticwebassets\\images\\sponser\\img-01.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\sponser\\img-02.png",
+      "PackagePath": "staticwebassets\\images\\sponser\\img-02.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\sponser\\img-03.png",
+      "PackagePath": "staticwebassets\\images\\sponser\\img-03.png"
     },
     {
       "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\team-logo\\acmilan.png",
@@ -453,6 +993,14 @@
       "PackagePath": "staticwebassets\\images\\team-logo\\intermiami.png"
     },
     {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\team-logo\\logo-01.png",
+      "PackagePath": "staticwebassets\\images\\team-logo\\logo-01.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\team-logo\\logo-02.png",
+      "PackagePath": "staticwebassets\\images\\team-logo\\logo-02.png"
+    },
+    {
       "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\team-logo\\logo-l-02.png",
       "PackagePath": "staticwebassets\\images\\team-logo\\logo-l-02.png"
     },
@@ -471,6 +1019,50 @@
     {
       "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\team-logo\\werder.png",
       "PackagePath": "staticwebassets\\images\\team-logo\\werder.png"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\thumbnails\\img-01.jpg",
+      "PackagePath": "staticwebassets\\images\\thumbnails\\img-01.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\thumbnails\\img-02.jpg",
+      "PackagePath": "staticwebassets\\images\\thumbnails\\img-02.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\thumbnails\\img-03.jpg",
+      "PackagePath": "staticwebassets\\images\\thumbnails\\img-03.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\thumbnails\\img-04.jpg",
+      "PackagePath": "staticwebassets\\images\\thumbnails\\img-04.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\thumbnails\\img-05.jpg",
+      "PackagePath": "staticwebassets\\images\\thumbnails\\img-05.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\thumbnails\\img-06.jpg",
+      "PackagePath": "staticwebassets\\images\\thumbnails\\img-06.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\thumbnails\\img-07.jpg",
+      "PackagePath": "staticwebassets\\images\\thumbnails\\img-07.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\thumbnails\\img-08.jpg",
+      "PackagePath": "staticwebassets\\images\\thumbnails\\img-08.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\thumbnails\\img-09.jpg",
+      "PackagePath": "staticwebassets\\images\\thumbnails\\img-09.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\thumbnails\\img-10.jpg",
+      "PackagePath": "staticwebassets\\images\\thumbnails\\img-10.jpg"
+    },
+    {
+      "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\images\\trophy.png",
+      "PackagePath": "staticwebassets\\images\\trophy.png"
     },
     {
       "Id": "C:\\Users\\viper\\Desktop\\Reall real\\Techwiz2\\SoccerManager\\SoccerManager\\wwwroot\\js\\appear.js",

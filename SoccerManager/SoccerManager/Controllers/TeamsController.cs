@@ -142,7 +142,8 @@ namespace SoccerManager.Controllers
 		[HttpPost]
 		[ValidateAntiForgeryToken]
 		public async Task<IActionResult> Edit(
-			int id, string LogoUrl,
+			int id,
+			string LogoUrl,
 			[Bind("TeamId,FullName,ShortName,Nickname,FoundedYear,FoundedPosition,Owner,Manager,Website")] Team team,
 			IFormFile file
 			)
