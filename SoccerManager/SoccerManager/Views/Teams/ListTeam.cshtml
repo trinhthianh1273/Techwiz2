@@ -5,12 +5,13 @@
     Layout = "~/Views/Shared/_Main_Layout.cshtml";
 }
 
-<h2>List Team</h2>
 
 <!--************************************
 		Main Start
 *************************************-->
 <main id="tg-main" class="tg-main tg-haslayout">
+    <h2>List Team</h2>
+
 	<!--************************************
 			Soccer Media Start
 	*************************************-->
@@ -24,10 +25,10 @@
                     <div class="masonry-grid laliga m-1">
                         <div class="tg-project">
                             <figure class="tg-postimg">
-                                <a asp-action="Details" asp-route-id="model.TeamId">
+                                <a asp-action="TeamInfo" asp-route-id="@item.TeamId">
                                     <img src="@Url.Content("~/images/" + item.LogoUrl)" alt="">
                                 </a>
-                                <a asp-action="Details" asp-route-id="model.TeamId" class="tg-btn">
+                                <a asp-action="TeamInfo" asp-route-id="@item.TeamId" class="tg-btn">
                                     @Html.DisplayFor(modelItem => item.FullName)
                                 </a>
                             </figure>
