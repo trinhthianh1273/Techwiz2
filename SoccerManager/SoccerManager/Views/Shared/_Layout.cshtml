@@ -2,7 +2,7 @@
     
 }
 
-@*@if (Context.Session.GetString("EmployeeId") == null)
+@if (Context.Session.GetString("EmployeeId") == null)
 {
     <script>
 
@@ -11,7 +11,7 @@
         });
     </script>
     Context.Response.Redirect("Employees/Login");
-}*@
+}
 <!DOCTYPE html>
 <html lang="en">
 <head>
