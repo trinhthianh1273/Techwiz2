@@ -338,3 +338,7 @@ C:\Users\MSI Modern\Techwiz2\SoccerManager\SoccerManager\bin\Debug\net7.0\System
 C:\Users\MSI Modern\Techwiz2\SoccerManager\SoccerManager\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Security.Cryptography.Pkcs.dll
 C:\Users\MSI Modern\Techwiz2\SoccerManager\SoccerManager\obj\Debug\net7.0\scopedcss\Views\Shared\_Layout - Copy.cshtml.rz.scp.css
 C:\Users\MSI Modern\Techwiz2\SoccerManager\SoccerManager\bin\Debug\net7.0\efpt.config.json
+C:\Users\MSI Modern\Techwiz2\SoccerManager\SoccerManager\obj\Debug\net7.0\SoccerManager.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\MSI Modern\Techwiz2\SoccerManager\SoccerManager\bin\Debug\net7.0\JetBrains.Annotations.dll
+C:\Users\MSI Modern\Techwiz2\SoccerManager\SoccerManager\bin\Debug\net7.0\X.PagedList.dll
+C:\Users\MSI Modern\Techwiz2\SoccerManager\SoccerManager\bin\Debug\net7.0\X.PagedList.Mvc.Core.dll
