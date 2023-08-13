@@ -202,7 +202,7 @@ namespace SoccerManager.Controllers
 		}
 
 		// GET : Employees/CreateOrder
-		public async Task<IActionResult> CreateOrder(int)
+		public async Task<IActionResult> CreateOrder()
 		{
 			ViewBag.Customer = _context.Customer.ToList();
 			ViewBag.Status = _context.Status.ToList();

@@ -40,17 +40,19 @@ namespace SoccerManager.Controllers
             double total = 0;
             var carts = new List<Cart>();
 
-            if (HttpContext.Session.GetString("CustomerId") != null)
+            if (HttpContext.Session.GetString("CustomerId") == null)
             {
-                int customerId = Convert.ToInt16(HttpContext.Session.GetString("CustomerId"));
-                carts = _context.Cart
-                                .Where(c => c.CustomerId == customerId)
-                                .Include(c => c.Product)
-                                .ToList();
-                ViewBag.Address = _context.Address.Where(a => a.CustomerId == customerId);
-                ViewBag.CustomerId = customerId;
-
+                return RedirectToAction("Login", "Customers");
+                
             }
+            int customerId = Convert.ToInt16(HttpContext.Session.GetString("CustomerId"));
+            carts = _context.Cart
+                            .Where(c => c.CustomerId == customerId)
+                            .Include(c => c.Product)
+                            .ToList();
+            ViewBag.Address = _context.Address.Where(a => a.CustomerId == customerId).ToList();
+            ViewBag.CustomerId = customerId;
+
             foreach (var item in carts)
             {
                 if (item.Product.Price != null)
@@ -60,9 +62,6 @@ namespace SoccerManager.Controllers
                 }
             }
             ViewBag.Total = total;
-
-
-
             ViewBag.Categories = _context.Category.ToList();
             return View(carts);
         }
@@ -141,6 +140,126 @@ namespace SoccerManager.Controllers
             return View(customer);
         }
 
+
+        // GET: Customers/Details/5
+        public async Task<IActionResult> Profile(int? id)
+        {
+            if (HttpContext.Session.GetString("CustomerId") == null)
+            {
+                return RedirectToAction("Login", "Customers");
+            }
+            if (id == null || _context.Customer == null)
+            {
+                return NotFound();
+            }
+
+            var customer = await _context.Customer
+                .FirstOrDefaultAsync(m => m.CustomerId == id);
+            if (customer == null)
+            {
+                return NotFound();
+            }
+
+            return View(customer);
+        }
+
+
+        // POST: Customers/Profile/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Profile([Bind("CustomerId,Username,Password,Fullname,Email,Phone,Token")] Customer customer)
+        {
+            if (customer is null)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    // PasswordHasher.VerifyPassword(userObj.Password, user.Password)
+                    var user = _context.Customer.Find(customer.CustomerId);
+                    if (!PasswordHasher.VerifyPassword(customer.Password, user.Password))
+                    {
+                        customer.Password = PasswordHasher.HassPassword(customer.Password);
+                    }                    
+                    _context.Update(customer);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!CustomerExists(customer.CustomerId))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return RedirectToAction("Index", "Home");
+        }
+
+
+        // GET: Customers/Details/5
+        public async Task<IActionResult> AddressManage(int? id)
+        {
+            if (HttpContext.Session.GetString("CustomerId") == null)
+            {
+                return RedirectToAction("Login", "Customers");
+            }
+            if (id == null || _context.Customer == null)
+            {
+                return NotFound();
+            }
+
+            var address = _context.Address
+                .Where(a => a.CustomerId == id)
+                .ToList();
+            ViewBag.CustomerId = id;
+            if (address == null)
+            {
+                return NotFound();
+            }
+
+            return View(address);
+        }
+
+        // GET: Customers/Details/5
+        [HttpPost]
+        public async Task<IActionResult> AddressManage()
+        {
+            if (HttpContext.Session.GetString("CustomerId") == null)
+            {
+                return RedirectToAction("Login", "Customers");
+            }
+            int cid = Int32.Parse(Request.Form["customer"].ToString());
+            Address a = new Address()
+            {
+                CustomerId = cid,
+                ReceiverName = Request.Form["fullname"].ToString(),
+                PhoneNumber = Request.Form["phone"].ToString(),
+                Address1 = Request.Form["address"].ToString()
+            };
+
+            _context.Address.Add(a);
+
+            _context.SaveChanges();
+            var address = _context.Address
+                .Where(a => a.CustomerId == cid)
+                .ToList();
+            ViewBag.CustomerId = cid;
+
+            return View(address);
+        }
+
+
+
         // GET: Customers/Create
         public IActionResult Create()
         {
@@ -195,6 +314,7 @@ namespace SoccerManager.Controllers
             {
                 try
                 {
+                    // ở đây
                     customer.Password = PasswordHasher.HassPassword(customer.Password);
                     _context.Update(customer);
                     await _context.SaveChangesAsync();
@@ -271,8 +391,7 @@ namespace SoccerManager.Controllers
                     CardNumber = Req["cardNumber"].ToString() == null ? null : Req["cardNumber"].ToString(),
                     Expire = Req["expire"].ToString() == null ? null : Req["expire"].ToString(),
                     SecurityCode = Int32.Parse(Req["code"].ToString()) == null ? null : Int32.Parse(Req["code"].ToString()),
-                    PaymentStatus = paymentMethod == 1 ? "Chưa thanh toán" : "Đã thanh toán"
-
+                    PaymentStatus = paymentMethod
 
 				};
 

@@ -1,8 +1,8 @@
 ﻿@model IEnumerable<SoccerManager.Models.Address>
 
 @{
-    ViewData["Title"] = "AddressManage";
-    Layout = "~/Views/Shared/_Main_Layout.cshtml";
+	ViewData["Title"] = "Profile";
+	Layout = "~/Views/Shared/_Main_Layout.cshtml";
 }
 
 <div class="tg-banner tg-haslayout">
@@ -23,14 +23,14 @@
 		</div>
 	</div>
 </div>
-@*<main id="tg-main" class="tg-main tg-haslayout" style="font-family: Oswald;">
+<main id="tg-main" class="tg-main tg-haslayout" style="font-family: Oswald;">
 	<div class="tg-themetabs">
 		<ul class="tg-themetabnav" role="tablist">
-			<li role="presentation" class="active">
-				<a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Update information</a>
-			</li>
 			<li role="presentation">
-				<a href="#purchased" aria-controls="purchased" role="tab" data-toggle="tab">Shop history</a>
+				<a asp-action="Profile" asp-route-id="@ViewBag.CustomerId">Update information</a>
+			</li>
+			<li role="presentation" class="active">
+				<a asp-action="AddressManage" asp-route-id="@ViewBag.CustomerId">Address Book</a>
 			</li>
 		</ul>
 		<div class="tab-content tg-themetabcontent">
@@ -41,43 +41,27 @@
 							<div class="card mb-4">
 								<div class="card-header" style="font-size: 20pt;">ACCOUNT DETAILS</div>
 								<div class="card-body">
-									<form asp-action="Profile" method="post">
+									<form asp-action="AddressManage" method="post">
 										<!-- Form Group (username)-->
-										<input type="hidden" asp-for="CustomerId" />
+										<input type="hidden" name="customer" value="@ViewBag.CustomerId" />
 										<div class="row gx-3 mb-3">
 											<div class="col-md-6">
-												<label class="mb-1" for="inputUsername">Username (how your name will appear to other users on the site)</label>
-												<input asp-for="Username" class="form-control" type="text" placeholder="Enter your username" />
-												<span asp-validation-for="Username" class="text-danger"></span>
+												<label class="mb-1" for="inputUsername">Reciever name</label>
+												<input name="fullname" class="form-control" type="text" placeholder="Enter your username" />
 											</div>
 											<div class="col-md-6">
-												<label class="mb-1" for="inputUsername">FullName</label>
-												<input asp-for="Fullname" class="form-control" type="text" placeholder="Enter your fullname" />
-												<span asp-validation-for="Fullname" class="text-danger"></span>
-											</div>
-										</div>
-										<div class="row gx-3 mb-3">
-											<div class="col-md-6">
-												<label class="mb-1" for="inputEmailAddress">Email address</label>
-												<input asp-for="Email" class="form-control" type="text" placeholder="Enter your email" />
-												<span asp-validation-for="Email" class="text-danger"></span>
+												<label class="mb-1" for="inputUsername">Phone</label>
+												<input name="phone" class="form-control" type="text" placeholder="Enter your fullname" />
 											</div>
 											<div class="col-md-6">
-												<label class="mb-1" for="inputEmailAddress">Phone number</label>
-												<input asp-for="Phone" class="form-control" type="text" placeholder="Enter your email" />
-												<span asp-validation-for="Phone" class="text-danger"></span>
+												<label class="mb-1" for="inputUsername">Address</label>
+												<input name="address" class="form-control" type="text" placeholder="Enter your fullname" />
 											</div>
-										</div>
-										<div class="mb-3">
-											<label class="mb-1" for="inputEmailAddress">New Password</label>
-											<input asp-for="Password" class="form-control" type="text" placeholder="Enter your email" />
-											<span asp-validation-for="Password" class="text-danger"></span>
 										</div>
 										<div style="float: right;">
 											<button type="submit" class="tg-btn">
-												<span>Update information</span>
+												<span>Add new address</span>
 											</button>
-											<a class="tg-btn" href="#"><span>Delete account</span></a>
 										</div>
 
 									</form>
@@ -86,16 +70,27 @@
 						</div>
 					</div>
 				</div>
-			</div>
-			<div role="tabpanel" class="tab-pane" id="purchased">
+
 				<div class="container">
 					<div class="container-xl px-4 mt-4">
-						<div>
-						</div>
+						<h2> Addresses book </h2>
+
+						<ol>
+							@foreach (var item in Model)
+							{
+								<li>
+									@item.Address1
+								</li>
+							}
+
+						</ol>
 					</div>
 				</div>
+
 			</div>
+
+
 		</div>
 	</div>
 </main>
-*@
+
