@@ -4,6 +4,30 @@
     ViewData["Title"] = "Articles";
     Layout = "~/Views/Shared/_Main_Layout.cshtml";
 }
+<!--************************************
+                Banner Start
+        *************************************-->
+<div class="tg-banner tg-haslayout">
+    <div class="tg-imglayer">
+        <img src="~/images/bg-pattran.png" alt="image desctription">
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="tg-banner-content tg-haslayout">
+                <div class="tg-pagetitle">
+                    <h1>News</h1>
+                </div>
+                <ol class="tg-breadcrumb">
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li href="#">News</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<!--************************************
+                Banner End
+        *************************************-->
 
 <div class="container ">
 
@@ -12,53 +36,55 @@
     <div class="tg-border-heading">
         <h3>Lattest news</h3>
 	</div>
-    
 
-    <a href="ArticlesDetail/@ViewBag.Lattest.NewsId">
+
+	<div class="col-sm-11 col-xs-11 pull-right">
+		<div class="tg-blogpost tg-blogpostlist">
+			<div class="row">
+                @foreach(var item in Model)
+                {
+                    <div class="col-sm-6 col-xs-12">
+                        <article class="tg-post">
+                            <figure class="tg-postimg">
+                                <a href="ArticlesDetail/@item.NewsId">
+                                    <img src="@Url.Content("~/images/" + item.ImageUrl)" alt="Image" style="width: 500px; height: 200px; object-fit: cover;">
+                                    @*<img src="~/images/blog/img-14.jpg" alt="image description">*@
+                                
+                                </a>
+                            </figure>
+                            <div class="tg-posttitle">
+                                <h3><a href="ArticlesDetail/@item.NewsId">@item.Title</a></h3>
+                                </div>
+                            <div class="tg-description">
+                                <p>@item.Summary</p>
+                            </div>
+                            <a class="tg-btn" href="ArticlesDetail/@item.NewsId">Read more</a>
+                        </article>
+                    </div>
+                }
+            
+            </div>
+		</div>
+	</div>
+
+
+
+	@*<a href="ArticlesDetail/@ViewBag.Lattest.NewsId">
         <div class=" row col-10">
 
-            @*image*@
             <div class="col-sm-2">
                 <img src="@Url.Content("~/images/" + ViewBag.Lattest.ImageUrl)" alt="Image" style="width: 80%">
             </div>
 
-            @*title and sumary*@
             <div class="col-sm-10">
                 <h1> @ViewBag.Lattest.Title</h1>
                 <p> @ViewBag.Lattest.Employee.FullName</p>
                 <h3> @ViewBag.Lattest.Title</h3>
             </div>
         </div>
-    </a>
+    </a>*@
 
     <hr />
-
-    @*list news?-*@
-    <div class="row col-12" style="margin-top: 50px;">
-
-    @foreach(var item in Model)
-    { 
-        <a href="ArticlesDetail/@item.NewsId">
-                <div class="row col-sm-5 news-item " style="border: 1px solid #000; margin: 10px;">
-                    <div class="child">
-                        <img src="@Url.Content("~/images/" + item.ImageUrl)" alt="Image" style="width: 80%">
-
-                    </div>
-                    <div class="child">
-                        <div class="row">
-                            <h2>@item.Title</h2>
-
-                        </div>
-                        <div class="row">
-                        @item.Summary
-                        </div>
-                    </div>
-                </div>
-        </a>
-    }
-
-    </div>
-
     <style>
         .news-item:hover{
             transition: 0.2s;
