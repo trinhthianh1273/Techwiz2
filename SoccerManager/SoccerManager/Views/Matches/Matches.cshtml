@@ -29,129 +29,153 @@
 				Banner End
 		*************************************-->
 
-<div class="container ">
-
-    @*latest news*@
-
-    <h2>Occuring match</h2>
-
-
-	<div class="tg-matchresult">
-			<div class="tg-box">
-				<div class="tg-score">
-					<h3>@ViewBag.Lattest.HomeTeamScore - @ViewBag.Lattest.GuestTeamScore</h3>
-					<div style="color: white; text-align: center;">
-						@ViewBag.Lattest.StartTime
+<!--************************************
+		Main Start
+*************************************-->
+<main id="tg-main" class="tg-main tg-haslayout">
+	<!--************************************
+			Fixtures Start
+	*************************************-->
+	<section class="tg-main-section tg-haslayout">
+		<div class="container">
+			<div class="tg-section-name">
+				<h2>Occuring Match</h2>
+			</div>
+			<div class="col-sm-11 col-xs-11 pull-right">
+				<div class="row">
+					<div class="tg-matchresult">
+						<div class="tg-box">
+							<div class="tg-score">
+								<h3>@ViewBag.Lattest.HomeTeamScore - @ViewBag.Lattest.GuestTeamScore</h3>
+								<div style="color: white; text-align: center;">
+									@ViewBag.Lattest.StartTime
+								</div>
+							</div>
+							<div class="tg-teamscore">
+								<strong class="tg-team-logo">
+									<a asp-controller="Teams" asp-action="Details" asp-route-id="@ViewBag.Lattest.HomeTeam.TeamId">
+										<img src="@Url.Content("~/images/" + ViewBag.Lattest.HomeTeam.LogoUrl)" alt="@ViewBag.Lattest.HomeTeam.ShortName">
+									</a>
+								</strong>
+								<div class="tg-team-nameplusstatus">
+									<h4>
+										<a asp-controller="Teams" asp-action="Details" asp-route-id="@ViewBag.Lattest.HomeTeam.TeamId">
+											@{
+												if (@ViewBag.Lattest.HomeTeamScore > @ViewBag.Lattest.GuestTeamScore)
+												{
+													<span>@ViewBag.Lattest.HomeTeam.ShortName ( Win )</span>
+												}
+												else if (@ViewBag.Lattest.HomeTeamScore < @ViewBag.Lattest.GuestTeamScore)
+												{
+													<span>@ViewBag.Lattest.HomeTeam.ShortName ( Lose )</span>
+												}
+												else
+												{
+													<span>@ViewBag.Lattest.HomeTeam.ShortName ( Tie )</span>
+												}
+											}
+										</a>
+									</h4>
+								</div>
+								<ul class="tg-playernameplusgoadtime">
+									@{
+										if (@ViewBag.Lattest.HomeTeam.Player.Count > 0)
+										{
+											<li>@ViewBag.Lattest.HomeTeam.Player.ElementAt(0).FullName</li>
+										}
+									}
+								</ul>
+							</div>
+							<div class="tg-teamscore">
+								<strong class="tg-team-logo">
+									<a asp-controller="Teams" asp-action="Details" asp-route-id="@ViewBag.Lattest.GuestTeam.TeamId">
+										<img src="@Url.Content("~/images/" + @ViewBag.Lattest.GuestTeam.LogoUrl)" alt="@ViewBag.Lattest.GuestTeam.ShortName">
+									</a>
+								</strong>
+								<div class="tg-team-nameplusstatus">
+									<h4>
+										<a asp-controller="Teams" asp-action="Details" asp-route-id="@ViewBag.Lattest.GuestTeam.TeamId">
+											@{
+												if (@ViewBag.Lattest.GuestTeamScore > @ViewBag.Lattest.HomeTeamScore)
+												{
+													<span>@ViewBag.Lattest.GuestTeam.ShortName ( Win )</span>
+												}
+												else if (@ViewBag.Lattest.GuestTeamScore < @ViewBag.Lattest.HomeTeamScore)
+												{
+													<span>@ViewBag.Lattest.GuestTeam.ShortName ( Lose )</span>
+												}
+												else
+												{
+													<span>@ViewBag.Lattest.GuestTeam.ShortName ( Tie )</span>
+												}
+											}
+										</a>
+									</h4>
+								</div>
+								<ul class="tg-playernameplusgoadtime">
+									@{
+										if (@ViewBag.Lattest.GuestTeam.Player.Count > 0)
+										{
+											<li>@ViewBag.Lattest.GuestTeam.Player.ElementAt(0).FullName</li>
+										}
+									}
+								</ul>
+							</div>
+						</div>
 					</div>
-				</div>
-				<div class="tg-teamscore">
-					<strong class="tg-team-logo">
-						<a asp-controller="Teams" asp-action="Details" asp-route-id="@ViewBag.Lattest.HomeTeam.TeamId">
-							<img src="@Url.Content("~/images/" + ViewBag.Lattest.HomeTeam.LogoUrl)" alt="@ViewBag.Lattest.HomeTeam.ShortName">
-						</a>
-					</strong>
-					<div class="tg-team-nameplusstatus">
-						<h4>
-							<a asp-controller="Teams" asp-action="Details" asp-route-id="@ViewBag.Lattest.HomeTeam.TeamId">
-								@{
-									if (@ViewBag.Lattest.HomeTeamScore > @ViewBag.Lattest.GuestTeamScore)
-									{
-										<span>@ViewBag.Lattest.HomeTeam.ShortName ( Win )</span>
-									}
-									else if (@ViewBag.Lattest.HomeTeamScore < @ViewBag.Lattest.GuestTeamScore)
-									{
-										<span>@ViewBag.Lattest.HomeTeam.ShortName ( Lose )</span>
-									}
-									else
-									{
-										<span>@ViewBag.Lattest.HomeTeam.ShortName ( Tie )</span>
-									}
-								}
-							</a>
-						</h4>
-					</div>
-					<ul class="tg-playernameplusgoadtime">
-						@{
-							if (@ViewBag.Lattest.HomeTeam.Player.Count > 0)
-							{
-								<li>@ViewBag.Lattest.HomeTeam.Player.ElementAt(0).FullName</li>
-							}
-						}
-					</ul>
-				</div>
-				<div class="tg-teamscore">
-					<strong class="tg-team-logo">
-						<a asp-controller="Teams" asp-action="Details" asp-route-id="@ViewBag.Lattest.GuestTeam.TeamId">
-							<img src="@Url.Content("~/images/" + @ViewBag.Lattest.GuestTeam.LogoUrl)" alt="@ViewBag.Lattest.GuestTeam.ShortName">
-						</a>
-					</strong>
-					<div class="tg-team-nameplusstatus">
-						<h4>
-							<a asp-controller="Teams" asp-action="Details" asp-route-id="@ViewBag.Lattest.GuestTeam.TeamId">
-								@{
-									if (@ViewBag.Lattest.GuestTeamScore > @ViewBag.Lattest.HomeTeamScore)
-									{
-										<span>@ViewBag.Lattest.GuestTeam.ShortName ( Win )</span>
-									}
-									else if (@ViewBag.Lattest.GuestTeamScore < @ViewBag.Lattest.HomeTeamScore)
-									{
-										<span>@ViewBag.Lattest.GuestTeam.ShortName ( Lose )</span>
-									}
-									else
-									{
-										<span>@ViewBag.Lattest.GuestTeam.ShortName ( Tie )</span>
-									}
-								}
-							</a>
-						</h4>
-					</div>
-					<ul class="tg-playernameplusgoadtime">
-						@{
-							if (@ViewBag.Lattest.GuestTeam.Player.Count > 0)
-							{
-								<li>@ViewBag.Lattest.GuestTeam.Player.ElementAt(0).FullName</li>
-							}
-						}
-					</ul>
 				</div>
 			</div>
 		</div>
+	</section>
+	<!--************************************
+			Fixtures End
+	*************************************-->
 
-    <hr />
+	<!--************************************
+			Other Fixtures Start
+	*************************************-->
+	<section class="tg-main-section tg-haslayout">
+		<div class="container">
+			<div class="tg-section-name">
+				<h2>upcoming matches</h2>
+			</div>
+			<div class="col-sm-11 col-xs-11 pull-right">
+				<div class="row">
+					<div class="col-md-12 col-sm-12 col-xs-12">
+						<div class="row">
+							<div id="tg-otherfixtures-slider" class="tg-otherfixtures-slider tg-tickets">
+								<div class="swiper-wrapper">
 
-	<h2>Upcoming matches</h2>
+									@foreach (var item in Model)
+									{																
+										<div class="swiper-slide">
+											<div class="tg-ticket">
+												<time class="tg-matchdate" datetime="2016-05-03">14<span>Aug</span></time>
+												<div class="tg-matchdetail" style="padding: 0">
+													<span class="tg-theme-tag">@item.Competition.CompetitionName</span>
+													<h4>@item.HomeTeam.FullName <span>vs</span> @item.GuestTeam.FullName</h4>
+													<ul class="tg-matchmetadata">
+														<li>@item.StartTime</li>
+														<li><address> @item.Stadium</address></li>
+													</ul>
+												</div>
+											</div>
+										</div>
 
-    @*matches list*@
-    <div class="row col-12 mx-auto" style="margin-top: 20px; text-align: center;">
-
-        @foreach (var item in Model)
-        {
-            <div class="row col-sm-5 news-item " style="border: 1px solid #000; margin: 10px ;">
-                <div class="child">
-                    <div class="row">
-						<div class="col-12">
-							<b>@item.HomeTeam.FullName vs @item.GuestTeam.FullName</b>
+									}
+								</div>
+							</div>
 						</div>
-                    </div>
-                    <div class="row">
-						@item.StartTime at @item.Stadium
-                    </div>
-                </div>
-            </div>
-        }
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--************************************
+			Other Fixtures End
+	*************************************-->
 
-    </div>
-
-    <style>
-        .news-item:hover {
-            transition: 0.2s;
-            transform: scale(1.01)
-        }
-
-    </style>
-
-
-    <hr />
-
-
-</div>
+</main>
+<!--************************************
+		Main End
+*************************************-->

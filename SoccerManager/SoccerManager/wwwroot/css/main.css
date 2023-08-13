@@ -129,6 +129,10 @@ input[type="color"],
 	border-radius: 0;
 	box-shadow: none;
 	border: 1px solid #e1e1e1;
+<<<<<<< HEAD
+=======
+	text-transform: capitalize;
+>>>>>>> main
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
@@ -984,9 +988,9 @@ address { font-style: italic; }
 			Theme Style
 =============================================*/
 .tg-wrapper{
-	height:100%;
+	/*height:100%;*/
 	position:relative;
-	/* overflow-x:hidden; */
+	overflow-x:hidden;
 }
 /* =============================================
 			Search
@@ -1178,13 +1182,14 @@ address { font-style: italic; }
 =============================================*/
 .tg-wrapper > .tg-navigationm-mobile{ display:none !important;}
 .tg-header{
+	background-color: #373542;
 	top:0;
 	left:0;
 	float:none;
 	width:100%;
 	clear:both;
-	z-index:1000;
-	position:absolute;
+	z-index:2000;
+	/* position:absolute; */
 	padding:20px 0 15px;
 }
 .tg-colhalf{
@@ -2323,7 +2328,7 @@ address { font-style: italic; }
 	background:#f7f7f7;
 }
 .tg-pointtable .tg-box{
-	width:20%;
+	width:50%;
 	padding:15px;
 	text-align:left;
 	font-size:16px;
@@ -2332,11 +2337,15 @@ address { font-style: italic; }
 	font-family: 'Oswald', Arial, Helvetica, sans-serif;
 }
 .tg-pointtable .tg-box:nth-child(2n+1){background:#fff;}
-/* .tg-pointtable .tg-box + .tg-box{
+.tg-pointtable .tg-box + .tg-box{
 	width:12.5%;
 	float:left;
 	text-align:center;
+<<<<<<< HEAD
 } */
+=======
+}
+>>>>>>> main
 .tg-pointstable-slider .tg-themebtnnext,
 .tg-pointstable-slider .tg-themebtnprev{ background:#373542;}
 /*=============================================
@@ -2448,7 +2457,7 @@ address { font-style: italic; }
 	width:100%;
 	float:left;
 	z-index:3;
-	padding:80px 0;
+	padding:40px 0;
 	position:relative;
 }
 .tg-footercol{

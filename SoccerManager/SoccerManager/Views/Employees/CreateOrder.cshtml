@@ -1,0 +1,191 @@
+﻿@model IEnumerable<SoccerManager.Models.Orders>
+
+@{
+    ViewData["Title"] = "CreateOrder";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<!--************************************
+		Main Start
+*************************************-->
+<main id="tg-main" class="tg-main tg-haslayout">
+	<div class="tg-main-section tg-haslayout">
+		<div class="container">
+			<div class="page">
+				<!-- Navbar -->
+				<div class="page-wrapper">
+					<!-- Page header -->
+					<div class="page-header d-print-none">
+						<div class="container-xl">
+							<div class="row g-2 align-items-center">
+								<div class="col">
+									<div class="tg-section-heading">
+										<h2 class="page-title">
+											Create Order
+										</h2>
+                                        <div>
+                                            <a asp-action="ManageOrder">Back to List</a>
+                                        </div>
+
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Page body -->
+					<div class="page-body">
+						<div class="container-xl">
+							<div class="row row-cards">
+								<div class="col-12">
+									<form asp-action="CreateOrder" method="post" class="card">
+
+										<div class="card-body">
+											<div class="row g-5">
+												<div class="col-xl-4">
+													<div class="row">
+
+														@*information*@
+														<div class="col-md-12 col-xl-12">
+
+															<div class="mb-3">
+																<label class="control-label">Customer</label>
+																<select name="customer" class="form-control" id="selectCustomer" onchange="getAddressList()">
+																	@foreach (var customer in ViewBag.Customer)
+																	{
+                                                                        <option value="@customer.CustomerId">@customer.Fullname</option>
+																	}
+																</select>
+															</div>
+															<div class="mb-3">
+                                                                @*payment method*@
+                                                                <p><strong>Select payment method: </strong></p>
+
+                                                                <label onclick="showCardForm()">
+                                                                    <input type="radio" value="2" name="paymentMethod" style="display: inline; width: 20px;" />
+                                                                    <img class="me-2"
+                                                                            width="45px"
+                                                                            src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/visa.svg"
+                                                                            alt="Visa" />
+                                                                    <img class="me-2"
+                                                                            width="45px"
+                                                                            src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/amex.svg"
+                                                                            alt="American Express" />
+                                                                    <img class="me-2"
+                                                                            width="45px"
+                                                                            src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/mastercard.svg"
+                                                                            alt="Mastercard" />
+                                                                    <img class="me-2"
+                                                                            width="45px"
+                                                                            src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce/includes/gateways/paypal/assets/images/paypal.png"
+                                                                            alt="PayPal acceptance mark" />
+                                                                </label>
+
+                                                                @*card info, hidden by default*@
+                                                                <div class="paymentInfo" style="display: none;" id="cartForm">
+                                                                    <div class="form-group">
+                                                                        <label for="cardName">
+                                                                            Card holder name:
+                                                                            <input type="text" name="cardName" id="cardName" />
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="form-group" style="display: none;">
+                                                                        <label for="cardNumber">
+                                                                            Card number:
+                                                                            <input type="text" name="cardNumber" id="cardNumber" />
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label for="expire">
+                                                                            Expire date:
+                                                                            <input type="text" name="expire" id="expire" />
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label for="code">
+                                                                            Security code:
+                                                                            <input type="text" name="code" id="code" />
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+
+
+                                                                <label onclick="hideCardForm()">
+                                                                    <input type="radio" value="1" name="paymentMethod" style="display: inline; width: 20px;" />
+                                                                    Cash on delivery
+                                                                </label>
+
+                                                            </div>
+
+                                                            <div class="mb-3">
+                                                                <label class="control-label">Payment Status</label>
+                                                                <select name="paymentStatus" class="form-control">
+                                                                    <option value="0">Not Paid</option>
+                                                                    <option value="1">Paid</option>
+                                                                </select>
+                                                            </div>
+
+                                                            @*select product*@
+                                                            <div class="mb-3">
+                                                                <label class="control-label">Select Product</label>
+                                                                <select class="form-control" name="selectProduct" id="selectProduct">
+                                                                    @foreach (var p in ViewBag.Product)
+                                                                    {
+                                                                        <option value="@p.ProductId">@p.ProductName</option>
+                                                                    }
+                                                                </select>
+                                                                <button onclick="addProduct()" type="button" value="Add" class="tg-btn ms-1" style="margin-right: 10pt; margin-top: 7pt;">Add</button>
+                                                            </div>
+
+                                                            <div class="mb-3" id="productList">
+                                                            </div>
+
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="card-footer text-end">
+											<div class="d-flex">
+												<input type="submit" value="Place order" class="tg-btn ms-1" style="margin-right: 10pt; margin-top: 7pt;" />
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+<!--************************************
+		Main End
+*************************************-->
+
+<script>
+    function showCardForm() {
+        document.getElementById("cartForm").style.display = "block";
+    }
+    function hideCardForm() {
+        document.getElementById("cartForm").style.display = "none";
+    }
+    function addProduct(){
+        let pid = document.getElementById("selectProduct").value;
+        let text = document.getElementById("selectProduct").options[document.getElementById("selectProduct").selectedIndex].text
+        let check = `
+            <div class="selectedItem">
+                <label>
+                    <input value="${pid}" type="checkbox" name="productList"></input>
+                    ${text}
+                </label>
+            </div>            
+        `;
+        document.getElementById("productList").innerHTML += check;
+
+    }
+</script>

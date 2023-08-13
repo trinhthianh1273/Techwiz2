@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Org.BouncyCastle.Utilities;
 using SoccerManager.Helper;
 using SoccerManager.Models;
 
@@ -17,15 +18,9 @@ namespace SoccerManager.Controllers
         // GET: Customers
         public async Task<IActionResult> Index()
         {
-            var customers = _context.Customer;
-            foreach (var item in customers)
-            {
-                item.Address = _context.Address.Where(a => a.CustomerId == item.CustomerId).ToList();
-                item.Cart = _context.Cart.Where(c => c.CustomerId == item.CustomerId).ToList();
-                item.Orders = _context.Orders.Where(c => c.CustomerId == item.CustomerId).ToList();
-            }
-
-            return View(customers);
+            return _context.Customer != null ?
+                        View(await _context.Customer.ToListAsync()) :
+                        Problem("Entity set 'SoccerContext.Customer'  is null.");
         }
 
         // GET: Customers/Login
@@ -39,55 +34,38 @@ namespace SoccerManager.Controllers
             return View(obj);
         }
 
-		// GET: Customers/Cart
-		public IActionResult Cart()
-		{
+        // GET: Customers/Cart
+        public IActionResult Cart()
+        {
+            double total = 0;
+            var carts = new List<Cart>();
 
-            var carts  = new List<Cart>();
-            double? totalAmout = 0;
-            if (HttpContext.Session.GetString("CustomerId") == null)
-			{
-                return RedirectToAction("Login", "Customers");
-            } else
-
+            if (HttpContext.Session.GetString("CustomerId") != null)
             {
                 int customerId = Convert.ToInt16(HttpContext.Session.GetString("CustomerId"));
                 carts = _context.Cart
                                 .Where(c => c.CustomerId == customerId)
                                 .Include(c => c.Product)
                                 .ToList();
+                ViewBag.Address = _context.Address.Where(a => a.CustomerId == customerId);
+                ViewBag.CustomerId = customerId;
 
-                foreach(Cart item in carts)
+            }
+            foreach (var item in carts)
+            {
+                if (item.Product.Price != null)
                 {
-                    item.Product.Category = _context.Category.Where(c => c.CategoryId == item.Product.CategoryId).Single();
-                    item.Product.ProductImage = _context.ProductImage.Where(p => p.ProductId == item.Product.ProductId).ToList();
-                    totalAmout += item.Quantity * item.Product.Price;
+                    total += (double)item.Quantity * item.Product.Price.Value;
+
                 }
             }
-            
-            ViewBag.Carts = carts;
-            ViewBag.TotalAmount = totalAmout;
-            return View();
-		}
+            ViewBag.Total = total;
 
 
-        // POST: Customers/Order
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CheckOut([FromForm] List<Cart> carts)
-        {
-            if (ModelState.IsValid)
-            {
-                //_context.Add(carts);
-                //await _context.SaveChangesAsync();
-                //return RedirectToAction(nameof(Index));
-                return View(carts);
-            }
+
+            ViewBag.Categories = _context.Category.ToList();
             return View(carts);
         }
-
 
         //POST: Customers/Login
         [HttpPost]
@@ -96,13 +74,14 @@ namespace SoccerManager.Controllers
         {
             if (ModelState.IsValid)
             {
-                
+                var hb = Convert.FromBase64String(obj.Password);
+                // PasswordHasher.VerifyPassword(userObj.Password, user.Password)
                 var user = _context.Customer.FirstOrDefault(x => x.Username == obj.Username);
-                if (user == null) return RedirectToAction("Login", "Customers");
-				if (!PasswordHasher.VerifyPassword(obj.Password, user.Password))
+                if (user == null) return Content("UserName not found!");
+                if (!PasswordHasher.VerifyPassword(obj.Password, user.Password))
                 {
-					return RedirectToAction("Login", "Customers");
-				}
+                    return Content("Password errors!");
+                }
                 HttpContext.Session.SetString("CusUserName", user.Username);
                 HttpContext.Session.SetString("CusFullName", user.Fullname);
                 HttpContext.Session.SetString("CustomerId", user.CustomerId.ToString());
@@ -113,6 +92,9 @@ namespace SoccerManager.Controllers
                                 .ToList().Count();
                 HttpContext.Session.SetString("CartCount", carts.ToString());
                 return RedirectToAction("Index", "Home");
+
+
+
             }
             return RedirectToAction("Login", "Customers");
         }
@@ -159,90 +141,8 @@ namespace SoccerManager.Controllers
             return View(customer);
         }
 
-		// GET: Customers/Details/5
-		public async Task<IActionResult> Profile(int? id)
-		{
-			if (HttpContext.Session.GetString("CustomerId") == null)
-			{
-				return RedirectToAction("Login", "Customers");
-			}
-			if (id == null || _context.Customer == null)
-			{
-				return NotFound();
-			}
-
-			var customer = await _context.Customer
-				.FirstOrDefaultAsync(m => m.CustomerId == id);
-			if (customer == null)
-			{
-				return NotFound();
-			}
-
-			return View(customer);
-		}
-
-
-		// POST: Customers/Profile/5
-		// To protect from overposting attacks, enable the specific properties you want to bind to.
-		// For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-		[HttpPost]
-		[ValidateAntiForgeryToken]
-		public async Task<IActionResult> Profile(int id, [Bind("CustomerId,Username,Password,Fullname,Email,Phone,Token")] Customer customer)
-		{
-			if (id != customer.CustomerId)
-			{
-				return NotFound();
-			}
-
-			if (ModelState.IsValid)
-			{
-				try
-				{
-					customer.Password = PasswordHasher.HassPassword(customer.Password);
-					_context.Update(customer);
-					await _context.SaveChangesAsync();
-				}
-				catch (DbUpdateConcurrencyException)
-				{
-					if (!CustomerExists(customer.CustomerId))
-					{
-						return NotFound();
-					}
-					else
-					{
-						throw;
-					}
-				}
-				return RedirectToAction(nameof(Index));
-			}
-			return RedirectToAction("Index", "Home");
-		}
-
-		// GET: Customers/Details/5
-		public async Task<IActionResult> AddressManage(int? id)
-		{
-			if (HttpContext.Session.GetString("CustomerId") == null)
-			{
-				return RedirectToAction("Login", "Customers");
-			}
-			if (id == null || _context.Customer == null)
-			{
-				return NotFound();
-			}
-
-			var customer = await _context.Customer
-				.FirstOrDefaultAsync(m => m.CustomerId == id);
-			if (customer == null)
-			{
-				return NotFound();
-			}
-
-			return View(customer);
-		}
-
-
-		// GET: Customers/Create
-		public IActionResult Create()
+        // GET: Customers/Create
+        public IActionResult Create()
         {
             return View();
         }
@@ -256,7 +156,6 @@ namespace SoccerManager.Controllers
         {
             if (ModelState.IsValid)
             {
-                customer.Password = PasswordHasher.HassPassword(customer.Password);
                 _context.Add(customer);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -340,10 +239,18 @@ namespace SoccerManager.Controllers
         {
             var Req = Request.Form;
 
-            if (Req != null)
+            if(Req != null)
             {
                 //get all user data
                 int paymentMethod = Int32.Parse(Req["paymentMethod"].ToString());
+
+                if (paymentMethod == 2)
+                {
+                    string cardName = Req["cardName"];
+                    string cardNumber = Req["cardNumber"];
+                    string expire = Req["expire"];
+                    int code = Int32.Parse(Req["code"].ToString());
+                }
 
                 int address = Int32.Parse(Req["address"].ToString());
                 int customerId = Int32.Parse(Req["customerId"].ToString());
@@ -364,36 +271,12 @@ namespace SoccerManager.Controllers
                     CardNumber = Req["cardNumber"].ToString() == null ? null : Req["cardNumber"].ToString(),
                     Expire = Req["expire"].ToString() == null ? null : Req["expire"].ToString(),
                     SecurityCode = Int32.Parse(Req["code"].ToString()) == null ? null : Int32.Parse(Req["code"].ToString()),
-                    PaymentStatus = paymentMethod == 1 ? 0 : 1,
-                    OrderDate = DateTime.Now
-                };
+                    PaymentStatus = paymentMethod == 1 ? "Chưa thanh toán" : "Đã thanh toán"
 
-                _context.Orders.Add(o);
-                await _context.SaveChangesAsync();
 
-                //get orderid
-                int orderId = o.OrderId;
+				};
 
-                //get cart content
-                var cartContent = _context.Cart.Where(c=>c.CustomerId == customerId).ToList();
 
-                //add cart content to order content then delete from cart
-                foreach (var cart in cartContent)
-                {
-                    OrderContent oc = new OrderContent()
-                    {
-                        OrderId = orderId,
-                        ProductId = cart.ProductId,
-                        Quantity = cart.Quantity,
-                        Price = cart.Quantity * _context.Products.Where(a => a.ProductId == cart.ProductId).Single().Price,
-                    };
-
-                    _context.OrderContent.Add(oc);
-                    _context.Cart.Remove(cart);
-
-                    await _context.SaveChangesAsync();
-
-                }
 
                 return RedirectToAction(nameof(Index));
 
