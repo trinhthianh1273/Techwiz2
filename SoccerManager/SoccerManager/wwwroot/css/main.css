@@ -129,7 +129,10 @@ input[type="color"],
 	border-radius: 0;
 	box-shadow: none;
 	border: 1px solid #e1e1e1;
+<<<<<<< HEAD
+=======
 	text-transform: capitalize;
+>>>>>>> main
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
@@ -2338,7 +2341,11 @@ address { font-style: italic; }
 	width:12.5%;
 	float:left;
 	text-align:center;
+<<<<<<< HEAD
+} */
+=======
 }
+>>>>>>> main
 .tg-pointstable-slider .tg-themebtnnext,
 .tg-pointstable-slider .tg-themebtnprev{ background:#373542;}
 /*=============================================
@@ -2357,7 +2364,7 @@ address { font-style: italic; }
 	position:relative;
 }
 .tg-postimg{
-	width:100%;
+	/*width:100%;*/
 	float:left;
 	margin:0 0 20px;
 	overflow:hidden;
