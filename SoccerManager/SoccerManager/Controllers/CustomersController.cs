@@ -218,6 +218,29 @@ namespace SoccerManager.Controllers
 			return RedirectToAction("Index", "Home");
 		}
 
+		// GET: Customers/Details/5
+		public async Task<IActionResult> AddressManage(int? id)
+		{
+			if (HttpContext.Session.GetString("CustomerId") == null)
+			{
+				return RedirectToAction("Login", "Customers");
+			}
+			if (id == null || _context.Customer == null)
+			{
+				return NotFound();
+			}
+
+			var customer = await _context.Customer
+				.FirstOrDefaultAsync(m => m.CustomerId == id);
+			if (customer == null)
+			{
+				return NotFound();
+			}
+
+			return View(customer);
+		}
+
+
 		// GET: Customers/Create
 		public IActionResult Create()
         {
