@@ -1,0 +1,20 @@
+.row-product{
+    display: flex;
+    flex: wrap;
+    padding: 10px 0 10px 0;
+    border-bottom: grey solid 2px;
+}
+
+mat-card-content{
+    margin-bottom: 5px;
+}
+mat-card-footer{
+    font-weight: bold;
+}
+.price-tag{
+    font-weight: bold;
+    font-size: larger;
+}
+.column-product{
+    width: 33%;
+}

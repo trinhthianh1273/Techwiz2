@@ -1,0 +1,79 @@
+﻿@model SoccerManager.Models.Player
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Player</h4>
+    <hr />
+
+    <div class="row col-12">
+        <div class="col-6">
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.FullName)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.FullName)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Dob)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Dob)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Pob)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Pob)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Height)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Height)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Position)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Position)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Number)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Number)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.CurrentTeamNavigation)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.CurrentTeamNavigation.FoundedPosition)
+                </dd>
+            </dl>
+        </div>
+        <div class="col-6">
+            @foreach (var item in Model.PlayerImage)
+            {
+                <div class="row">
+                    <div class="col-7">
+                        <img src="@Url.Content("~/images/" + item.ImageUrl)" style="width: 200px; margin: 10px 0;" />
+                    </div>
+
+                </div>
+            }
+
+        </div>
+    </div>
+
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.PlayerId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

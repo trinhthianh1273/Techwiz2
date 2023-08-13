@@ -1,0 +1,85 @@
+﻿@model IEnumerable<SoccerManager.Models.Customer>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page">
+    <!-- Navbar -->
+    <div class="page-wrapper">
+        <!-- Page header -->
+        <div class="page-header d-print-none">
+            <div class="container-xl">
+                <div class="row g-2 align-items-center">
+                    <div class="col">
+                        <div class="tg-section-heading">
+                            <h2 class="page-title">
+                                Customers Management
+                            </h2>
+                            <p>
+                                <a asp-action="Create">Create New</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Page body -->
+        <div class="page-body">
+            <div class="container-xl">
+                <div class="card">
+                    <div class="card-body">
+                        <div id="table-default" class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th><button class="table-sort" data-sort="sort-name">Full Name</button></th>
+                                        <th><button class="table-sort" data-sort="sort-city">Username</button></th>
+                                        <th><button class="table-sort" data-sort="sort-type">Email</button></th>
+                                        <th><button class="table-sort" data-sort="sort-score">Phone</button></th>
+                                        <th><button class="table-sort" data-sort="sort-score">Order Count</button></th>
+                                        <th><button class="table-sort" data-sort="sort-score">Item in Cart</button></th>
+                                        
+                                        <th><button class="table-sort">#</button></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="table-tbody">
+                                    @foreach (var item in Model)
+
+                                    {
+                                        <tr>
+                                            <td class="sort-name">@Html.DisplayFor(modelItem => item.Fullname)</td>
+                                            <td class="sort-city">@Html.DisplayFor(modelItem => item.Username)</td>
+                                            <td class="sort-type">@Html.DisplayFor(modelItem => item.Email)</td>
+                                            <td class="sort-score">@Html.DisplayFor(modelItem => item.Phone)</td>
+                                            @{
+                                                var oc = item.Orders != null ? item.Orders.Count() : 0;
+                                                var iic = item.Cart != null ? item.Cart.Sum(m => m.Quantity) : 0;
+                                            }
+                                            <td class="sort-name">@oc</td>
+                                            <td class="sort-name">@iic</td>
+
+                                            <td>
+                                                <a asp-action="Edit" asp-route-id="@item.CustomerId">
+                                                    <i class="fa fa-edit"></i>
+                                                </a>
+                                                <a asp-action="Details" asp-route-id="@item.CustomerId">
+                                                    <i class="fa fa-info"></i>
+                                                </a>
+                                                <a asp-action="Delete" asp-route-id="@item.CustomerId">
+                                                    <i class="fa fa-remove"></i>
+                                                </a>
+                                            </td>
+
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

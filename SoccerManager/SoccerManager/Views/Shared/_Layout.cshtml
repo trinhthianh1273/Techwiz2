@@ -1,0 +1,278 @@
+﻿@{
+    
+}
+
+@*@if (Context.Session.GetString("EmployeeId") == null)
+{
+    <script>
+
+        $(document).ready(function () {
+            $('#myModal').modal('show'); // Thay '#myModal' bằng id của popup của bạn
+        });
+    </script>
+    Context.Response.Redirect("Employees/Login");
+}*@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soccer BootStrap HTML5 CSS3 Theme</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/normalize.css">
+    <link rel="stylesheet" href="~/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/css/transitions.css">
+    <link rel="stylesheet" href="~/css/prettyPhoto.css">
+    <link rel="stylesheet" href="~/css/swiper.min.css">
+    <link rel="stylesheet" href="~/css/jquery-ui.css">
+    <link rel="stylesheet" href="~/css/animate.css">
+    <link rel="stylesheet" href="~/css/owl.theme.css">
+    <link rel="stylesheet" href="~/css/owl.carousel.css">
+     <link rel="stylesheet" href="~/css/customScrollbar.css"> 
+    <link rel="stylesheet" href="~/css/icomoon.css">
+    <link rel="stylesheet" href="~/css/main.css">
+    <link rel="stylesheet" href="~/css/color.css">
+    <link rel="stylesheet" href="~/css/responsive.css">
+
+    <link rel="stylesheet"
+        href="@Url.Content("https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta17/dist/css/tabler.min.css")">
+    <link rel="stylesheet"
+        href="@Url.Content("https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta17/dist/css/tabler-flags.min.css")">
+    <link rel="stylesheet"
+        href="@Url.Content("https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta17/dist/css/tabler-payments.min.css")">
+    <link rel="stylesheet"
+        href="@Url.Content("https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta17/dist/css/tabler-vendors.min.css")">
+
+    <script src="~/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    <script src="@Url.Content("https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta17/dist/js/tabler.min.js")"></script>
+
+</head>
+<body>
+    <div id="tg-wrapper" class="tg-wrapper tg-haslayout">
+        <header id="tg-header" class="tg-header tg-haslayout">
+            <div class="container">
+                <div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
+                    <div class="row">
+                        <div class="tg-topbar tg-haslayout">
+                            <nav id="tg-topaddnav" class="tg-topaddnav">
+                                <div class="tg-colhalf pull-right">
+                                    <nav class="tg-addnav">
+                                        <ul>             
+                                            <li>
+                                                <a id="tg-btn-search" href="javascript:void(0)">
+                                                    <i class="fa fa-search"></i>
+                                                  </a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <div class="tg-colhalf">
+                                    <ul class="tg-socialicons">
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-facebook"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-twitter"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-linkedin"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-google-plus"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-dribbble"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                        </nav>
+                    </div>
+                    <nav id="tg-nav" class="tg-nav brand-center">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                data-target="#tg-navigationm-mobile">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <strong class="tg-logo">
+                                <a asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/logo.png" alt="image description"></a>
+                            </strong>
+                        </div>
+                        <div id="tg-navigation" class="tg-navigation">
+                            <div class="tg-colhalf">
+                                <ul>
+                                    <li>
+                                        <a asp-area="" asp-controller="Dashboard" asp-action="Index">Admin</a>
+                                    </li>
+                                    <li>
+                                        <a asp-area="" asp-controller="Teams" asp-action="Index">Teams</a>
+                                    </li>
+                                    <li>
+                                        <a asp-area="" asp-controller="Orders" asp-action="Index">Orders</a>
+                                    </li>
+                                    <li>
+                                        <a asp-area="" asp-controller="Matches" asp-action="Index">Matches</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="tg-colhalf">
+                                <ul>
+                                    <li>
+                                        <a href="#">for soccer</a>
+                                        <ul class="tg-dropdown-menu">
+                                            <li><a asp-area="" asp-controller="Teams" asp-action="Index">Teams</a></li>
+                                            <li><a asp-area="" asp-controller="Players" asp-action="Index">Players</a></li>
+                                            <li><a asp-area="" asp-controller="Matches" asp-action="Index">Matches</a></li>
+                                            <li><a asp-area="" asp-controller="Competitions" asp-action="Index">Competitions</a></li>
+                                        </ul>
+                                    <li>
+                                        <a href="#">for order</a>
+                                        <ul class="tg-dropdown-menu">
+                                            <li><a asp-area="" asp-controller="Orders" asp-action="Index">Orders</a></li>
+                                            <li><a asp-area="" asp-controller="Teams" asp-action="Index">pro soccer media2</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a asp-area="" asp-controller="Feedback" asp-action="Index">Feedback</a></li>
+                                    <li>
+                                        <a href="#"><i class=" fa fa-navicon"></i></a>
+                                        <ul>
+                                            <li><a asp-area="" asp-controller="Home" asp-action="Logout">logout</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <div class="container">
+            @RenderBody()
+        </div>
+
+        <!-- Footer Start -->
+        <footer id="tg-footer" class="tg-footer tg-haslayout">
+            <div class="tg-haslayout tg-footerinfobox">
+                <div class="tg-bgboxone"></div>
+                <div class="tg-bgboxtwo"></div>
+                <div class="tg-footerinfo">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-4">
+                            </div>
+                            <div class="col-sm-4">
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="tg-footercol">
+                                    <ul class="tg-contactinfo">
+                                        <li>
+                                            <i class="fa fa-home"></i>
+                                            <address>Ha Noi, Viet Nam</address>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-envelope-o"></i>
+                                            <a href="info%40domain.html">info@domain.com</a>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-phone"></i>
+                                            <span>+44 123 456 788 - 9</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <div class="tg-modalbox modal fade" id="tg-register" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="tg-modal-content">
+                <div class="tg-formarea">
+                    <div class="tg-border-heading">
+                        <h3>Signup</h3>
+                    </div>
+                    <form class="tg-loginform" method="post">
+                        <fieldset>
+                            <div class="form-group">
+                                <input type="text" name="userName" class="form-control" placeholder="username">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" class="form-control" placeholder="email">
+                            </div>
+                            <div class="form-group">
+                                <div class="tg-note">
+                                    <i class="fa fa-exclamation-circle"></i>
+                                    <span>We will email you your password.</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button class="tg-btn tg-btn-lg" type="submit">Login Now</button>
+                            </div>
+                            <div class="tg-description">
+                                <p>Already have an account? <a href="#">Login</a></p>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="tg-logintype">
+                    <div class="tg-border-heading">
+                        <h3>Signup with</h3>
+                    </div>
+                    <ul>
+                        <li class="tg-facebook"><a href="#">facebook</a></li>
+                        <li class="tg-twitter"><a href="#">twitter</a></li>
+                        <li class="tg-googleplus"><a href="#">google+</a></li>
+                        <li class="tg-linkedin"><a href="#">linkedin</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Thông báo</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Bạn cần đăng nhập để tiếp tục.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/js/vendor/jquery-library.js"></script>
+    <script src="~/js/vendor/bootstrap.min.js"></script>
+     <script src="~/js/customScrollbar.min.js"></script> 
+    <script src="~/js/owl.carousel.js"></script>
+    <script src="~/js/isotope.pkgd.js"></script>
+    <script src="~/js/prettyPhoto.js"></script>
+    <script src="~/js/swiper.min.js"></script>
+    <script src="~/js/jquery-ui.js"></script>
+    <script src="~/js/countTo.js"></script>
+    <script src="~/js/appear.js"></script>
+    <script src="~/js/main.js"></script>
+</body>
+
+</html>

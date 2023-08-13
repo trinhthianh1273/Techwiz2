@@ -1,0 +1,6 @@
+.vs/
+SoccerManager/bin/
+SoccerManager/obj/
+SoccerManager/SoccerManager.csproj.user
+SoccerManager/SoccerManager.csproj
+SoccerManager/appsettings.json

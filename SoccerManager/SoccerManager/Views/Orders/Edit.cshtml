@@ -1,0 +1,225 @@
+﻿@model SoccerManager.DTO.Response.OrderRespone
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit Orders</h1>
+<hr />
+<div class="row">
+    <div class="col-6">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="OrderId" />
+            <div class="form-group row mb-2">
+                <div class="col-4">
+                    <label asp-for="OrderDate" class="control-label"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="OrderDate" class="form-control"/>
+                    <span asp-validation-for="OrderDate" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row mb-2">
+                <div class="col-4">
+                    <label class="control-label">Customer</label>
+                </div>
+                <div class="col-8">
+                    <select asp-for="CustomerId" class="form-control" asp-items="ViewBag.CustomerId"></select>
+                    <span asp-validation-for="CustomerId" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row mb-2">
+                <div class="col-4">
+                    <label class="control-label">Shipped Date</label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="ShippedDate" class="form-control" />
+                    @*<input type="date" asp-for="ShippedDate" class="form-control" />*@
+                    <span asp-validation-for="ShippedDate" class="text-danger"></span><span asp-validation-for="CustomerId" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row mb-2">
+                <div class="col-4">
+                    <label class="control-label">Address</label>
+                </div>
+                <div class="col-8">
+                    @*<label class="control-label">@Model.Address.Address1 - @Model.Address.ReceiverName</label>*@
+                    <select asp-for="AddressId" class="form-control" asp-items="ViewBag.AddressId"></select>
+                    <span asp-validation-for="AddressId" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row mb-2">
+                <div class="col-4">
+                    <label class="control-label">Product Amount</label>
+                </div>
+                <div class="col-8">
+                    <input value="@Model.TotalProduct" class="form-control" disabled />
+                    <span asp-validation-for="TotalProduct" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row mb-2">
+                <div class="col-4">
+                    <label class="control-label">TotalAmount</label>
+                </div>
+                <div class="col-8">
+                    <input value="@Model.TotalAmount" class="form-control" disabled />
+                    <span asp-validation-for="TotalAmount" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row mb-2">
+                <div class="col-4">
+                    <label asp-for="Status" class="control-label"></label>
+                </div>
+                <div class="col-8">
+                    <select asp-for="StatusId" class="form-control" asp-items="ViewBag.StatusId"></select>
+                    <span asp-validation-for="StatusId" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row mb-2">
+                <div class="col-4">
+                    <label class="control-label">Employee</label>
+                </div>
+                <div class="col-8">
+                    <select asp-for="EmployeeId" class="form-control" asp-items="ViewBag.EmployeeId"></select>
+                    <span asp-validation-for="EmployeeId" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row mb-2">
+                <div class="col-4">
+                    <label class="control-label">Payment Method</label>
+                </div>
+                <div class="col-8">
+                    <select asp-for="PaymentMethodId" class="form-control" asp-items="ViewBag.PaymentMethodId"></select>
+                    <span asp-validation-for="PaymentMethodId" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row mb-2">
+                <div class="col-4">
+                    <label class="control-label">Payment Status</label>
+                </div>
+                <div class="col-8">
+                    @{
+                        var ps = new Dictionary<int, string>
+                                {
+                                    { 0, "Wait..." },
+                                    { 1, "Done" }
+                                };
+                    }
+                    <select asp-for="PaymentMethodId" class="form-control">
+                        @foreach (var item in ps)
+                        {
+                            <option value="@item.Key">@item.Value</option>
+                        }
+                    </select>
+                    <span asp-validation-for="PaymentStatus" class="text-danger"></span>
+                </div>                
+            </div>
+            <div class="form-group row mb-2">
+                <div class="col-4">
+                    <label class="control-label">Payment Date</label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="PaymentDate" class="form-control" />
+                    <span asp-validation-for="PaymentDate" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row mb-2">
+                <div class="col-4">
+                    <label class="control-label">Card Name</label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="CardName" class="form-control" value=""/>
+                    <span asp-validation-for="CardName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row mb-2">
+                <div class="col-4">
+                    <label class="control-label">Card Number</label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="CardNumber" class="form-control" value="" />
+                    <span asp-validation-for="CardNumber" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row mb-2">
+                <div class="col-4">
+                    <label class="control-label">Expire</label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Expire" class="form-control" />
+                    <span asp-validation-for="Expire" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row mb-2">
+                <div class="col-4">
+                    <label class="control-label">Security Code</label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="SecurityCode" class="form-control" />
+                    <span asp-validation-for="SecurityCode" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group col-6">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+    <div class="row col-6">
+        @*<h3>Danh sách sản phẩm</h3>*@
+        <table class="table">
+                <thead class="sticky-top">
+                    <tr>
+                        <th scope="col">Image</th>
+                        <th scope="col">Code</th>
+                        <th scope="col">P.Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Quantity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @*@foreach (int i = 0; i < Model.OrderContent.Count; i++)
+                {
+                    <tr>
+                        <th>
+                            <img src="@Url.Content("~/images/ProductImage/" + item.Product.ProductImage.ElementAt(0).ImageUrl)"
+                                 style="width: 200px; height: 200px;" />
+                        </th>
+                        <td scope="col">@item.Product.ProductId</td>
+                        <td scope="col">@item.Product.ProductName</td>
+                        <td scope="col">@item.Price</td>
+                        <input />
+                        <td scope="col">@item.Quantity</td>
+                    </tr>
+                }*@
+
+                    @foreach (var item in Model.OrderContent)
+                    {
+                        <tr>
+                            <th>
+                                <img src="@Url.Content("~/images/ProductImage/" + item.Product.ProductImage.ElementAt(0).ImageUrl)"
+                                     style="width: 200px; height: 200px;" />
+                            </th>
+                            <td scope="col">@item.Product.ProductId</td>
+                            <td scope="col">@item.Product.ProductName</td>
+                            <td scope="col">@item.Price</td>
+                            <input />
+                            <td scope="col">@item.Quantity</td>
+                        </tr>
+                    }
+                    
+                </tbody>
+            </table>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@*@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}*@

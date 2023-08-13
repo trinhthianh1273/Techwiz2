@@ -1,0 +1,109 @@
+﻿@using X.PagedList.Mvc.Core;
+@using X.PagedList;
+@using X.PagedList.Web.Common;
+@model IEnumerable<SoccerManager.Models.Products>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    IPagedList<Products> PagedProducts = ViewBag.PagedProducts;
+}
+
+<div class="page">
+    <!-- Navbar -->
+    <div class="page-wrapper">
+        <!-- Page header -->
+        <div class="page-header d-print-none">
+            <div class="container-xl">
+                <div class="row g-2 align-items-center">
+                    <div class="col">
+                        <div class="tg-section-heading">
+                            <h2 class="page-title">
+                                Products Management
+                            </h2>
+                            <p>
+                                <a asp-action="Create">Create New</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Page body -->
+        <div class="page-body">
+            <div class="container-xl">
+                <div class="card">
+                    <div class="card-body">
+                        <div id="table-default" class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th><button class="table-sort" data-sort="sort-name">Product Name</button></th>
+                                        <th><button class="table-sort" data-sort="sort-city">Price</button></th>
+                                        <th><button class="table-sort" data-sort="sort-type">InStock</button></th>
+                                        <th><button class="table-sort" data-sort="sort-score">OnOrder</button></th>
+                                        <th>
+                                            <button class="table-sort" data-sort="sort-date">Category</button>
+                                        </th>
+                                        <th>
+                                            <button class="table-sort" data-sort="sort-quantity">Team</button>
+                                        </th>
+                                        <th><button class="table-sort" data-sort="sort-status">Player</button></th>
+                                        <th>
+                                            <button class="table-sort" data-sort="sort-status">Image</button>
+                                        </th>
+                                        <th><button class="table-sort">#</button></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="table-tbody">
+                                    @foreach (var item in PagedProducts)
+
+                                    {
+                                        <tr>
+                                            <td class="sort-name">@Html.DisplayFor(modelItem => item.ProductName)</td>
+                                            <td class="sort-city">@Html.DisplayFor(modelItem => item.Price)</td>
+                                            <td class="sort-type">@Html.DisplayFor(modelItem => item.InStock)</td>
+                                            <td class="sort-score">@Html.DisplayFor(modelItem => item.OnOrder)</td>
+                                            <td class="sort-date">@Html.DisplayFor(modelItem => item.Category.CategoryName)</td>
+                                            <td class="sort-quantity">@Html.DisplayFor(modelItem => item.Team.ShortName)</td>
+                                            <td class="sort-quantity">
+                                                @Html.DisplayFor(modelItem => item.Player.FullName)
+                                            </td>
+                                            <td class="sort-name">
+                                                @{
+                                                    if(item.ProductImage.Count() > 0)
+                                                    {
+                                                        <img src="@Url.Content("~/images/ProductImage/" + item.ProductImage.ElementAt(0).ImageUrl)" alt="Image" style="width: 100px">
+                                                    } else
+                                                    {
+                                                        <img src="https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg" alt="image description" style="width: 100px; height: 100px;">
+                                                    }
+                                                }
+                                                </td>
+                                            
+                                            <td>
+                                                <a asp-action="Edit" asp-route-id="@item.ProductId"><i
+                                                        class="fa fa-edit"></i></a>
+                                                <a asp-action="Details" asp-route-id="@item.ProductId">
+                                                    <i class="fa fa-info"></i></a>
+                                                <a asp-action="Delete" asp-route-id="@item.ProductId">
+                                                    <i class="fa fa-remove"></i></a>
+                                            </td>
+
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                            <ul class="tg-pagination">
+                                @Html.PagedListPager(PagedProducts , page => Url.Action("Index", new { page }), PagedListRenderOptions.ClassicPlusFirstAndLast)
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

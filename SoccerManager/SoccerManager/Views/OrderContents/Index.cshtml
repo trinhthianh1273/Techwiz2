@@ -1,0 +1,84 @@
+﻿@model IEnumerable<SoccerManager.Models.OrderContent>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page">
+    <!-- Navbar -->
+    <div class="page-wrapper">
+        <!-- Page header -->
+        <div class="page-header d-print-none">
+            <div class="container-xl">
+                <div class="row g-2 align-items-center">
+                    <div class="col">
+                        <div class="tg-section-heading">
+                            <h2 class="page-title">
+                                OrderContents Management
+                            </h2>
+                            <p>
+                                <a asp-action="Create">Create New</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Page body -->
+        <div class="page-body">
+            <div class="container-xl">
+                <div class="card">
+                    <div class="card-body">
+                        <div id="table-default" class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th><button class="table-sort" data-sort="sort-name">Order.No</button></th>
+                                        <th><button class="table-sort" data-sort="sort-name">Customer</button></th>
+                                        <th><button class="table-sort" data-sort="sort-city">Product</button></th>
+                                        <th><button class="table-sort" data-sort="sort-type">Price</button></th>
+                                        <th><button class="table-sort" data-sort="sort-score">Quantity</button></th>
+                                        @*<th><button class="table-sort" data-sort="sort-score">Image</button></th>*@
+                                        <th><button class="table-sort">#</button></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="table-tbody">
+                                    @foreach (var item in Model)
+
+                                    {
+                                        <tr>
+                                            <td class="sort-name">@Html.DisplayFor(modelItem => item.OrderId)</td>
+                                            <td class="sort-name">@Html.DisplayFor(modelItem => item.Order.Customer.Fullname)</td>
+                                            <td class="sort-city">@Html.DisplayFor(modelItem => item.Product.ProductName)</td>
+                                            <td class="sort-type">@Html.DisplayFor(modelItem => item.Price)</td>
+                                            <td class="sort-score">@Html.DisplayFor(modelItem => item.Quantity)</td>
+
+                                            @*<td class="sort-name">
+                                                <img src="@Url.Content("~/images/" + item.LogoUrl)" alt="Image" style="width: 100px">
+                                                </td>*@
+
+                                            <td>
+                                                <a asp-action="Edit" asp-route-id="@item.OrderContentId">
+                                                    <i class="fa fa-edit"></i>
+                                                </a>
+                                                <a asp-action="Details" asp-route-id="@item.OrderContentId">
+                                                    <i class="fa fa-info"></i>
+                                                </a>
+                                                <a asp-action="Delete" asp-route-id="@item.OrderContentId">
+                                                    <i class="fa fa-remove"></i>
+                                                </a>
+                                            </td>
+
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

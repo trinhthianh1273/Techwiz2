@@ -1,0 +1,233 @@
+﻿@model SoccerManager.DTO.Response.OrderRespone
+
+@{
+    ViewData["Title"] = "Details";
+    List<Products> products = Model.ListProduct;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <hr />
+    <div class="page-body">
+        <div class="container-xl">
+            <div class="card card-lg">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <p class="h3">Order Date</p>
+                            <p class="h3">Customer</p>
+                            <p class="h3">Address</p>
+                            <p class="h3">Product Amount</p>
+                            <p class="h3">Price Amount</p>
+                            <p class="h3">Employee</p>
+                        </div>
+                        <div class="col-6 text-end">
+                            <p>@Html.DisplayFor(model => model.OrderDate)</p>
+                            <p>@Html.DisplayFor(model => model.Customer.Fullname)</p>
+                            <p>@Html.DisplayFor(model => model.Address.Address1)</p>
+                            <p>@Html.DisplayFor(model => model.TotalProduct)</p>
+                            <p>@Html.DisplayFor(model => model.TotalAmount)</p>
+                            <address>
+                                Street Address<br>
+                                State, City<br>
+                                Region, Postal Code<br>
+                                ltd@example.com
+                            </address>
+                        </div>
+                        <div class="col-12 my-5">
+                            <h1>Invoice INV/001/15</h1>
+                        </div>
+                    </div>
+                    <table class="table table-transparent table-responsive">
+                        <thead>
+                            <tr>
+                                <th class="text-center" style="width: 1%"></th>
+                                <th>Product</th>
+                                <th class="text-center" style="width: 1%">Qnt</th>
+                                <th class="text-end" style="width: 1%">Unit</th>
+                                <th class="text-end" style="width: 1%">Amount</th>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <td class="text-center">1</td>
+                            <td>
+                                <p class="strong mb-1">Logo Creation</p>
+                                <div class="text-muted">Logo and business cards design</div>
+                            </td>
+                            <td class="text-center">
+                                1
+                            </td>
+                            <td class="text-end">$1.800,00</td>
+                            <td class="text-end">$1.800,00</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">2</td>
+                            <td>
+                                <p class="strong mb-1">Online Store Design &amp; Development</p>
+                                <div class="text-muted">Design/Development for all popular modern browsers</div>
+                            </td>
+                            <td class="text-center">
+                                1
+                            </td>
+                            <td class="text-end">$20.000,00</td>
+                            <td class="text-end">$20.000,00</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">3</td>
+                            <td>
+                                <p class="strong mb-1">App Design</p>
+                                <div class="text-muted">Promotional mobile application</div>
+                            </td>
+                            <td class="text-center">
+                                1
+                            </td>
+                            <td class="text-end">$3.200,00</td>
+                            <td class="text-end">$3.200,00</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" class="strong text-end">Subtotal</td>
+                            <td class="text-end">$25.000,00</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" class="strong text-end">Vat Rate</td>
+                            <td class="text-end">20%</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" class="strong text-end">Vat Due</td>
+                            <td class="text-end">$5.000,00</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" class="font-weight-bold text-uppercase text-end">Total Due</td>
+                            <td class="font-weight-bold text-end">$30.000,00</td>
+                        </tr>
+                    </table>
+                    <p class="text-muted text-center mt-5">Thank you very much for doing business with us. We look
+                        forward to working with
+                        you again!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <dl class="row col-6">
+        <dt class="col-sm-4">
+            Order Code
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.OrderId)
+        </dd>
+        <dt class="col-sm-4">
+            Order Date
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.OrderDate)
+        </dd>
+        <dt class="col-sm-4">
+            Customer
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Customer.Fullname)
+        </dd>
+        <dt class="col-sm-4">
+            Address
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Address.Address1)
+        </dd>
+        <dt class="col-sm-4">
+            Product Amount
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.TotalProduct)
+        </dd>
+        <dt class="col-sm-4">
+            Price Amount
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.TotalAmount)
+        </dd>
+        <dt class="col-sm-4">
+            Status
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Status.StatusName)
+        </dd>
+        <dt class="col-sm-4">
+            Employee
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Employee.Email)
+        </dd>
+        <dt class="col-sm-4">
+            Shipped Date
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.ShippedDate)
+        </dd>
+        <dt class="col-sm-4">
+            Payment Method
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.PaymentMethod.PaymentMethod1)
+        </dd>
+        <dt class="col-sm-4">
+            Payment Status
+        </dt>
+        <dd class="col-sm-8">
+            @{
+                string paymentStatusText = Model.PaymentStatus == 1 ? "Done" : "Wait...";
+            }
+            @paymentStatusText
+        </dd>
+        <dt class="col-sm-4">
+            Payment Date
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.PaymentDate)
+        </dd>
+        <dt class="col-sm-4">
+            Card Name
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.CardName)
+        </dd>
+        <dt class="col-sm-4">
+            Card Number
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.CardNumber)
+        </dd>
+        <dt class="col-sm-4">
+            Expire
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Expire)
+        </dd>
+        <dt class="col-sm-4">
+            Security Code
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.SecurityCode)
+        </dd>
+    </dl>
+    <div class="row col-6">
+        @foreach (var item in Model.OrderContent)
+        {
+            <div class="col-6">
+                @*@{
+            string url = @item.ProductImage.ElementAt(0).ImageUrl;
+            }*@
+                <img src="@Url.Content("~/images/ProductImage/" + item.Product.ProductImage.ElementAt(0).ImageUrl)"
+                    style="width: 100px; height: 100px;" />
+                <div class="row d-flex">
+                    <p class="col-auto">@item.Product.ProductName</p>
+                    <p class="col-auto">@item.Price</p>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.OrderId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

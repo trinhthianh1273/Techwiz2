@@ -1,0 +1,139 @@
+﻿@model SoccerManager.Models.Orders
+
+@{
+    ViewData["Title"] = "UpdateOrder";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<!--************************************
+		Main Start
+*************************************-->
+<main id="tg-main" class="tg-main tg-haslayout">
+
+
+	<div class="tg-main-section tg-haslayout">
+		<div class="container">
+			<div class="page">
+				<!-- Navbar -->
+				<div class="page-wrapper">
+					<!-- Page header -->
+					<div class="page-header d-print-none">
+					<div class="container-xl">
+						<div class="row g-2 align-items-center">
+						<div class="col">
+							<div class="tg-section-heading">
+								<h2 class="page-title">
+									Update Order
+										<div>
+											<a asp-action="ManageOrder">Back to List</a>
+										</div>
+
+								</h2>
+							</div>
+						</div>
+						</div>
+					</div>
+					</div>
+					<!-- Page body -->
+					<div class="page-body">
+						<div class="container-xl">
+							<div class="row row-cards">
+								<div class="col-12">
+									<form asp-action="UpdateOrder" method="post" class="card">
+										<input type="hidden" name="orderId" value="@Model.OrderId" />
+										<input type="hidden" asp-for="EmployeeId" />
+
+										<div class="card-body">
+											<div class="row g-5">
+												<div class="col-xl-4">
+													<div class="row">
+														<div class="col-md-6 col-xl-12">
+
+															<div class="mb-3">
+																<label class="control-label">Customer</label>
+																<input  class="form-control" value="@Model.Customer.Fullname" disabled/>
+																<input type="hidden" name="customerId"  class="form-control" value="@Model.Customer.CustomerId"/>
+															</div>
+
+															<div class="mb-3">
+																<label class="control-label">Order Date</label>
+																<input class="form-control" value="@Model.OrderDate" disabled />
+																<input type="hidden" name="orderDate" class="form-control" value="@Model.OrderDate" />
+															</div>
+
+															<div class="mb-3">
+																<label  class="control-label">Order Status</label>
+																<select name="status" class="form-control">
+
+																	@foreach (var status in ViewBag.Status)
+																	{
+																		<option value="@status.StatusId">@status.StatusName</option>
+																	}
+																</select>
+															</div>
+
+															<div class="mb-3">
+																<label class="control-label">Address</label>
+																<select name="address" class="form-control">
+																	@foreach (var addr in Model.Customer.Address)
+																	{
+																		<option value="@addr.AddressId">@addr.Address1</option>
+																	}
+																</select>
+															</div>
+
+															<div class="mb-3">
+																<label  class="control-label">Shipped Date</label>
+																<input type="date" name="shippedDate" value="@Model.ShippedDate"  class="form-control" />
+															</div>
+
+															<div class="mb-3">
+																<label  class="control-label form-label">Payment Status</label>
+																<select name="paymentStatus" id="PaymentStatus" class="form-select">
+																	<option value="0">Not Paid</option>
+																	<option value="1">Paid</option>
+																</select>
+															</div>
+
+															<div class="mb-3">
+																<label class="control-label">Payment Date</label>
+																<input  value="@Model.PaymentDate" class="form-control" disabled />
+																<input type="hidden" name="paymentDate" value="@Model.PaymentDate" class="form-control" />
+															</div>
+
+															<div class="mb-3">
+																<label  class="control-label"> Payment Method</label>
+																<select name="paymentMethod"  class="form-control">
+
+																	@foreach (var m in ViewBag.PaymentMethod)
+																	{
+																			<option value="@m.PaymentMethodId">@m.PaymentMethod1</option>
+																	}
+																</select>
+															</div>
+
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="card-footer text-end">
+											<div class="d-flex">
+												<input type="submit" value="Update" class="tg-btn ms-1" style="margin-right: 10pt; margin-top: 7pt;" />
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>			
+		</div>
+	</div>
+</main>
+<!--************************************
+		Main End
+*************************************-->

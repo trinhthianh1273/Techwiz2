@@ -1,0 +1,96 @@
+﻿@model IEnumerable<SoccerManager.DTO.Response.OrderRespone>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Order Managerment</h1>
+
+<a asp-action="Create" class="btn btn-info mb-2">Create New</a>
+
+<table class="table">
+    <thead class="sticky-top">
+        <tr>
+            <th scope="col">
+                Order Code
+            </th>
+            <th scope="col">
+                Order Date
+            </th>
+            <th scope="col">
+                Customer
+            </th>
+            <th scope="col">
+                Address
+            </th>
+            <th scope="col">
+                Product Amount
+            </th>
+            <th scope="col">
+                Price Amount
+            </th>
+            <th scope="col">
+                Status
+            </th>
+            <th scope="col">
+                Employee
+            </th>
+            <th scope="col">
+                Shipped Date
+            </th>
+            <th scope="col">
+                Payment Method
+            </th>
+            <th scope="col">
+                Payment Status
+            </th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Customer.Fullname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address.Address1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalProduct)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalAmount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status.StatusName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Employee.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ShippedDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PaymentMethod.PaymentMethod1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PaymentStatus)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.OrderId"><i class="fa fa-edit"></i></a> |
+                    <a asp-action="Details" asp-route-id="@item.OrderId"><i class="fa fa-info"></i></a> |
+                    <a asp-action="Delete" asp-route-id="@item.OrderId"><i class="fa fa-remove"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

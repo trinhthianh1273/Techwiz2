@@ -1,0 +1,88 @@
+﻿@model IEnumerable<SoccerManager.Models.Orders>
+
+@{
+    ViewData["Title"] = "OrderHistory";
+    Layout = "~/Views/Shared/_Main_Layout.cshtml";
+}
+
+
+<!--************************************
+		Main Start
+*************************************-->
+<main id="tg-main" class="tg-main tg-haslayout">
+	<div class="tg-main-section tg-haslayout">
+		<div class="container">
+			<div class="page">
+				<!-- Navbar -->
+				<div class="page-wrapper">
+					<!-- Page header -->
+					<div class="page-header d-print-none">
+						<div class="container-xl">
+							<div class="row g-2 align-items-center">
+								<div class="col">
+									<div class="tg-section-heading">
+										<h2 class="page-title">
+											Order History
+										</h2>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Page body -->
+					<div class="page-body">
+						<div class="container-xl">
+							<div class="card">
+								<div class="card-body">
+									<div id="table-default" class="table-responsive">
+										<table class="table">
+											<thead>
+												<tr>
+													<th><button class="table-sort" data-sort="sort-od">Order Date</button></th>
+													<th><button class="table-sort" data-sort="sort-c">Shipped Date</button></th>
+													<th><button class="table-sort" data-sort="sort-pd">Payment Date</button></th>
+													<th><button class="table-sort" data-sort="sort-pm">Payment Method</button></th>
+													<th><button class="table-sort" data-sort="sort-address">Address</button></th>
+													<th><button class="table-sort" data-sort="sort-p">Payment Status</button></th>
+													<th><button class="table-sort" data-sort="sort-q">Order Status</button></th>
+												</tr>
+											</thead>
+											<tbody class="table-tbody">
+                                                @foreach(var item in Model)
+                                                {
+                                                    <tr>
+                                                        <td class="sort-od">@item.OrderDate</td>
+                                                        <td class="sort-c">@item.ShippedDate</td>
+                                                        <td class="sort-pd">@item.PaymentDate</td>
+                                                        <td class="sort-pm">@item.PaymentMethod.PaymentMethod1</td>
+                                                        <td class="sort-address">@item.Address.Address1</td>
+
+                                                        @if (item.PaymentStatus == null || item.PaymentStatus == 0)
+                                                        {
+                                                            <td class="sort-p">Not Paid</td>
+                                                        }
+                                                        else
+                                                        {
+                                                            <td class="sort-p">Paid</td>
+
+                                                        }
+
+                                                        <td class="sort-q">@item.Status.StatusName</td>
+                                                    </tr>
+
+                                                }
+                                            </tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+<!--************************************
+		Main End
+*************************************-->

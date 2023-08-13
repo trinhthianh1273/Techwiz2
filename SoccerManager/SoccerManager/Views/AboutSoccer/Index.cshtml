@@ -1,0 +1,126 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Main_Layout.cshtml";
+}
+
+<div class="tg-banner tg-haslayout">
+	<div class="tg-imglayer">
+		<img src="~/images/bg-pattran.png" alt="image desctription">
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="tg-banner-content tg-haslayout">
+				<div class="tg-pagetitle">
+					<h1>Soccer Information</h1>
+				</div>
+				<ol class="tg-breadcrumb">
+					<!-- <li><a href="#"></a></li> -->
+					<li class="active">Soccer Information</li>
+				</ol>
+			</div>
+		</div>
+	</div>
+</div>
+<main id="tg-main" class="tg-main tg-haslayout">
+	<div class="tg-main-section tg-haslayout">
+		<div class="container">
+			<div class="row">
+				<div class="tg-section-name">
+					<h2>About soccer</h2>
+				</div>
+				<div class="col-sm-11 col-xs-11 pull-right">
+					<div class="tg-blogpost tg-blogpostlist">
+						<div class="row">
+							<div class="col-sm-6 col-xs-12">
+								<article class="tg-post">
+									<figure class="tg-postimg">
+										<a asp-area="" asp-controller="AboutSoccer" asp-action="SoccerInfoBasic">
+											<img src="~/images/blog/img-14.jpg" alt="image description">
+										</a>
+									</figure>
+									<div class="tg-posttitle"><h3><a asp-area="" asp-controller="AboutSoccer" asp-action="SoccerInfoBasic">Basic information about soccer</a></h3></div>
+									<div class="tg-description">
+										<p>Soccer, or football as it's known outside of North America, is the most popular sport in the world. So, how is it played, who plays it and many more questions are answered right here...</p>
+									</div>
+									<a class="tg-btn" asp-area="" asp-controller="AboutSoccer" asp-action="SoccerInfoBasic">Read more</a>
+								</article>
+							</div>
+							<div class="col-sm-6 col-xs-12">
+								<article class="tg-post">
+									<figure class="tg-postimg">
+										<a asp-area="" asp-controller="AboutSoccer" asp-action="SoccerVsFootball">
+											<img src="~/images/blog/img-16.jpg" alt="image description">
+										</a>
+									</figure>
+									<div class="tg-posttitle"><h3><a asp-area="" asp-controller="AboutSoccer" asp-action="SoccerVsFootball">The difference between soccer and football</a></h3></div>
+									<div class="tg-description">
+										<p>What is the difference between soccer and football? Depending on which side of the Atlantic you learned your English, the answer is either 'There isn’t one' or 'It's a completely different sport'.</p>
+									</div>
+									<a class="tg-btn" asp-area="" asp-controller="AboutSoccer" asp-action="SoccerVsFootball"><span>read more</span></a>
+								</article>
+							</div>
+							<div class="col-sm-6 col-xs-12">
+								<article class="tg-post">
+									<figure class="tg-postimg">
+										<a asp-area="" asp-controller="AboutSoccer" asp-action="SoccerRules">
+											<img src="~/images/blog/img-15.jpg" alt="image description">
+										</a>
+									</figure>
+									<div class="tg-posttitle"><h3><a asp-area="" asp-controller="AboutSoccer" asp-action="SoccerRules">The rules of soccer</a></h3></div>
+									<div class="tg-description">
+										<p>So how can one get involved in the first place? Soccer is so accessible that all you really need is a ball and space to play in. With a bit of improvisation, it does not actually have to be a field...</p>
+									</div>
+									<a class="tg-btn" asp-area="" asp-controller="AboutSoccer" asp-action="SoccerRules"><span>read more</span></a>
+								</article>
+							</div>
+							<div class="col-sm-6 col-xs-12">
+								<article class="tg-post">
+									<figure class="tg-postimg">
+										<a asp-area="" asp-controller="AboutSoccer" asp-action="SoccerHistory">
+											<img src="~/images/blog/img-15.jpg" alt="image description">
+										</a>
+									</figure>
+									<div class="tg-posttitle"><h3><a asp-area="" asp-controller="AboutSoccer" asp-action="SoccerHistory">The history of soccer</a></h3></div>
+									<div class="tg-description">
+										<p>Records trace the origins of the sport back more than 2,000 years ago to ancient China, Greece and Rome, where the 'ball' was made of rock or animal hide stuffed with hair...</p>
+									</div>
+									<a class="tg-btn" asp-area="" asp-controller="AboutSoccer" asp-action="SoccerHistory">Read more</a>
+								</article>
+							</div>
+							<div class="col-sm-6 col-xs-12">
+								<article class="tg-post">
+									<figure class="tg-postimg">
+										<a asp-area="" asp-controller="AboutSoccer" asp-action="SoccerField">
+											<img src="~/images/blog/img-16.jpg" alt="image description">
+										</a>
+									</figure>
+									<div class="tg-posttitle"><h3><a asp-area="" asp-controller="AboutSoccer" asp-action="SoccerField">Details about the soccer field</a></h3></div>
+									<div class="tg-description">
+										<p>Perhaps one of the most overlooked elements of soccer, the field is also one of the most important as a game would be impossible without it. So what goes into creating a pitch fit for the professional game?</p>
+									</div>
+									<a class="tg-btn" asp-area="" asp-controller="AboutSoccer" asp-action="SoccerField"><span>read more</span></a>
+								</article>
+							</div>
+							<div class="col-sm-6 col-xs-12">
+								<article class="tg-post">
+									<figure class="tg-postimg">
+										<a asp-area="" asp-controller="AboutSoccer" asp-action="SoccerStatics">
+											<img src="~/images/blog/img-16.jpg" alt="image description">
+										</a>
+									</figure>
+									<div class="tg-posttitle"><h3><a asp-area="" asp-controller="AboutSoccer" asp-action="SoccerStatics">Common soccer tatics</a></h3></div>
+									<div class="tg-description">
+										<p>The great thing about soccer is there are a million different ways to play it. It's the job of the manager to mould the way a team plays, and you only have to take one look at the elite end of the sport to see differences...</p>
+									</div>
+									<a class="tg-btn" asp-area="" asp-controller="AboutSoccer" asp-action="SoccerStatics"><span>read more</span></a>
+								</article>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+

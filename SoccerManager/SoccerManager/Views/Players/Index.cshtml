@@ -1,0 +1,103 @@
+﻿@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+@using X.PagedList.Web.Common;
+@model IEnumerable<SoccerManager.Models.Player>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    IPagedList<Player> PagedPlayers = ViewBag.PagedPlayers;
+}
+
+<div class="page">
+    <!-- Navbar -->
+    <div class="page-wrapper">
+        <!-- Page header -->
+        <div class="page-header d-print-none">
+            <div class="container-xl">
+                <div class="row g-2 align-items-center">
+                    <div class="col">
+                        <div class="tg-section-heading">
+                            <h2 class="page-title">
+                                Players Management
+                            </h2>
+                            <p>
+                                <a asp-action="Create">Create New</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Page body -->
+        <div class="page-body">
+            <div class="container-xl">
+                <div class="card">
+                    <div class="card-body">
+                        <div id="table-default" class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th><button class="table-sort" data-sort="sort-name">Full Name</button></th>
+                                        <th><button class="table-sort" data-sort="sort-city">Date of birth</button></th>
+                                        <th><button class="table-sort" data-sort="sort-type">Position of birth</button></th>
+                                        <th><button class="table-sort" data-sort="sort-score">Height</button></th>
+                                        <th><button class="table-sort" data-sort="sort-date">Position</button></th>
+                                        <th><button class="table-sort" data-sort="sort-date">Number</button></th>
+                                        <th><button class="table-sort" data-sort="sort-date">Current Team</button></th>
+                                        <th><button class="table-sort" data-sort="sort-date">Numbers of Scores</button></th>
+                                        <th>
+                                            <button class="table-sort" data-sort="sort-status">Image</button>
+                                        </th>
+                                        <th><button class="table-sort">#</button></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="table-tbody">
+                                    @foreach (var item in PagedPlayers)
+
+                                    {
+                                        <tr>
+                                            <td class="sort-name">@Html.DisplayFor(modelItem => item.FullName)</td>
+                                            <td class="sort-city">@Html.DisplayFor(modelItem => item.Dob)</td>
+                                            <td class="sort-type">@Html.DisplayFor(modelItem => item.Pob)</td>
+                                            <td class="sort-score">@Html.DisplayFor(modelItem => item.Height)</td>
+                                            <td class="sort-date">@Html.DisplayFor(modelItem => item.Position)</td>
+                                            <td class="sort-quantity">@Html.DisplayFor(modelItem => item.Number)</td>
+                                            <td class="sort-quantity">@Html.DisplayFor(modelItem => item.Scores)</td>
+                                            <td class="sort-name">
+                                                @{
+                                                    if (item.PlayerImage.Count() > 0)
+                                                    {
+                                                        <img src="@Url.Content("~/images/" + item.PlayerImage.ElementAt(0).ImageUrl)" alt="Image" style="width: 100px">
+                                                    } else
+                                                    {
+                                                        <img src="https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg" alt="image description" style="width: 100px; height: 100px;">
+                                                    }
+                                                }
+                                                </td>
+                                            
+                                            <td>
+                                                <a asp-action="Edit" asp-route-id="@item.PlayerId"><i
+                                                        class="fa fa-edit"></i></a>
+                                                <a asp-action="Details" asp-route-id="@item.PlayerId">
+                                                    <i class="fa fa-info"></i></a>
+                                                <a asp-action="Delete" asp-route-id="@item.PlayerId">
+                                                    <i class="fa fa-remove"></i></a>
+                                            </td>
+
+                                        </tr>
+                                    }
+                                </tbody>
+                                <ul class="tg-pagination">
+                                    @Html.PagedListPager(PagedPlayers, page => Url.Action("Index", new { page }), PagedListRenderOptions.ClassicPlusFirstAndLast)
+                                </ul>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,418 @@
+﻿@{
+	ViewData["Title"] = "Home Page";
+	Layout = "~/Views/Shared/_Main_Layout.cshtml";
+	List<Match> matches = ViewBag.Matches;
+	List<Match> EarlierMatches = matches.Where(match => match.EndTime <= DateTime.Now).ToList();
+	int selectedEarlierMatch = EarlierMatches[0].MatchId;
+
+	List<Match> UpcomingMatches = matches.Where(match => match.StartTime > DateTime.Now).ToList();
+
+	List<Player> Top10Players = ViewBag.Top10Players;
+
+	List<News> AllNews = ViewBag.News;
+
+	//List<Cart> Carts = ViewBag.Carts;
+}
+
+<div id="tg-wrapper" class="tg-wrapper tg-haslayout">
+	<main id="tg-main" class="tg-main tg-haslayout">
+		<section class="tg-main-section tg-haslayout">
+			<div class="container">
+				<div class="tg-section-name">
+					<h2>About soccer</h2>
+				</div>
+				<div class="col-sm-11 col-xs-11 pull-right">
+					<div class="row">
+						<div class="tg-aboutussection">
+							<div class="row">
+								<div class="col-md-6 col-sm-12 col-xs-12">
+									<figure>
+										<img src="data:image/jpeg;base64,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" alt="image description">
+									</figure>
+								</div>
+								<div class="col-md-6 col-sm-12 col-xs-12">
+									<div class="tg-contentbox">
+										<div class="tg-section-heading"><h2>Everything about football</h2></div>
+										<div class="tg-description">
+											<p>Football is the world’s most popular ball game in numbers of participants and spectators. Simple in its principal rules and essential equipment, the sport can be played almost anywhere.	</p>
+										</div>
+										<div class="tg-btnbox">
+											<a class="tg-btn" asp-area="" asp-controller="AboutSoccer" asp-action="Index"><span>read more</span></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class=" tg-haslayout tg-bgstyleone">
+			<div class="tg-bgboxone"></div>
+			<div class="tg-bgboxtwo"></div>
+			<a  asp-area="" asp-controller="Products" asp-action="Shopping">
+				<div class="tg-bgpattrant" style="background:url(https://cdn.tuoitre.vn/thumb_w/730/471584752817336320/2023/6/12/att00005aaa-read-only-16865363467171345937081.jpg); height: 550px;">
+			</div>
+			</a>
+			
+		</section>
+		<section class="tg-main-section tg-haslayout">
+			<div class="container">
+				<div class="tg-section-name">
+					<h2>earlier match</h2>
+				</div>
+				<div class="col-sm-11 col-xs-11 pull-right">
+					<div class="row">
+						<div class="tg-latestresult">
+							<div class="row">
+								<div class="col-md-8 col-sm-12 col-xs-12">
+									<div class="tab-content tg-tabscontent">
+										@foreach (var item in EarlierMatches)
+										{
+											string active = "";
+											if (item.MatchId == 2)
+											{
+												active = "active";
+											}
+											<div role="tabpanel" class="tab-pane @active" id="@item.MatchId">
+												<div class="tg-matchresult">
+													<div class="tg-box">
+														<div class="tg-score">
+															<h3>@item.HomeTeamScore - @item.GuestTeamScore</h3>
+															<div style="color: white; text-align: center;">
+																@item.StartTime
+															</div>
+														</div>
+														<div class="tg-teamscore">
+															<strong class="tg-team-logo">
+																<a asp-controller="Teams" asp-action="Details" asp-route-id="@item.HomeTeam.TeamId">
+																	<img src="@Url.Content("~/images/" + item.HomeTeam.LogoUrl)" alt="@item.HomeTeam.ShortName">
+																</a>
+															</strong>
+															<div class="tg-team-nameplusstatus">
+																<h4>
+																	<a asp-controller="Teams" asp-action="Details" asp-route-id="@item.HomeTeam.TeamId">
+																		@{
+																			if (@item.HomeTeamScore > @item.GuestTeamScore)
+																			{
+																				<span>@item.HomeTeam.ShortName ( Win )</span>
+																			}
+																			else if (@item.HomeTeamScore < @item.GuestTeamScore)
+																			{
+																				<span>@item.HomeTeam.ShortName ( Lose )</span>
+																			}
+																			else
+																			{
+																				<span>@item.HomeTeam.ShortName ( Tie )</span>
+																			}
+																		}
+																	</a>
+																</h4>
+															</div>
+															<ul class="tg-playernameplusgoadtime">
+																@{
+																	if (@item.HomeTeam.Player.Count > 0)
+																	{
+																		<li>@item.HomeTeam.Player.ElementAt(0).FullName</li>
+																	}
+																	else
+																	{
+																		<li>Player Not Found</li>
+																	}
+																}
+															</ul>
+														</div>
+														<div class="tg-teamscore">
+															<strong class="tg-team-logo">
+																<a asp-controller="Teams" asp-action="Details" asp-route-id="@item.GuestTeam.TeamId">
+																	<img src="@Url.Content("~/images/" + @item.GuestTeam.LogoUrl)" alt="@item.GuestTeam.ShortName">
+																</a>
+															</strong>
+															<div class="tg-team-nameplusstatus">
+																<h4>
+																	<a asp-controller="Teams" asp-action="Details" asp-route-id="@item.GuestTeam.TeamId">
+																		@{
+																			if (@item.GuestTeamScore > @item.HomeTeamScore)
+																			{
+																				<span>@item.GuestTeam.ShortName ( Win )</span>
+																			}
+																			else if (@item.GuestTeamScore < @item.HomeTeamScore)
+																			{
+																				<span>@item.GuestTeam.ShortName ( Lose )</span>
+																			}
+																			else
+																			{
+																				<span>@item.GuestTeam.ShortName ( Tie )</span>
+																			}
+																		}
+																	</a>
+																</h4>
+															</div>
+															<ul class="tg-playernameplusgoadtime">
+																@{
+																	if (@item.GuestTeam.Player.Count > 0)
+																	{
+																		<li>@item.GuestTeam.Player.ElementAt(0).FullName</li>
+																	}
+																	else
+																	{
+																		<li>Player Not Found</li>
+																	}
+																}
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+										}
+										</div>
+								</div>
+								<div class="col-md-4 col-sm-12 col-xs-12">
+									<div id="tg-matchscrollbar" class="tg-matchscrollbar tg-allmatchstatus">
+										<ul class="tg-matchtabnav" role="tablist">
+											@foreach (var item in EarlierMatches)
+											{
+												string active = "";
+												if (selectedEarlierMatch == item.MatchId)
+												{
+													active = "active";
+												}
+												selectedEarlierMatch = item.MatchId;
+
+												<li role="presentation" class="@active">
+
+													<a href="#@item.MatchId" aria-controls="@item.MatchName" role="tab" data-toggle="tab">
+														<div class="tg-match">
+															<div class="tg-box">
+																<strong class="tg-teamlogo">
+																	<img src="@Url.Content("~/images/" + @item.HomeTeam.LogoUrl)" alt="@item.HomeTeam.ShortName">
+																</strong>
+																@{
+																	if (@item.HomeTeamScore > @item.GuestTeamScore)
+																	{
+																		<h4>win</h4>
+																	}
+																	else if (@item.HomeTeamScore < @item.GuestTeamScore)
+																	{
+																		<h4>lose</h4>
+																	}
+																	else
+																	{
+																		<h4>tie</h4>
+																	}
+																}
+																
+															</div>
+															<div class="tg-box">
+																<h3>@item.HomeTeamScore - @item.GuestTeamScore</h3>
+																<h3>@item.StartTime</h3>
+															</div>
+															<div class="tg-box">
+																<strong class="tg-teamlogo">
+																	<img src="@Url.Content("~/images/" + @item.GuestTeam.LogoUrl)" alt="@item.GuestTeam.ShortName">
+																</strong>
+																@{
+																	if (@item.GuestTeamScore > @item.HomeTeamScore)
+																	{
+																		<h4>win</h4>
+																	}
+																	else if (@item.GuestTeamScore < @item.HomeTeamScore)
+																	{
+																		<h4>lose</h4>
+																	}
+																	else
+																	{
+																		<h4>tie</h4>
+																	}
+																}
+																
+															</div>
+														</div>
+													</a>
+												</li>
+											}
+											</ul>
+									</div>
+									<div class="tg-btnbox">
+										<a class="tg-btn" class="tg-btn" asp-area="" asp-controller="Matches" asp-action="EarlierMatch">view all</span></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="tg-bgdark tg-haslayout " style="display: flex; flex-direction: row; justify-content: flex-start; width: 100%;">
+
+			<div style="background:url(https://static-images.vnncdn.net/files/publish/2022/10/28/world-cup-2022-47.jpg) no-repeat;background-size: cover; height: 580px; width: 100%;">
+			</div>
+			@*<div style="background:url(images/shop/mu_kit.png) no-repeat;background-size: cover; height: 580px;width: 100%;">
+			</div>
+			<div style="background:url(images/shop/psg_kit.png) no-repeat;background-size: cover; height: 580px;width: 100%;">
+			</div>
+			<div style="background:url(images/shop/aston_kit.png) no-repeat;background-size: cover; height: 580px;width: 100%;">
+			</div>*@
+		</section>
+		<section class="tg-main-section tg-haslayout">
+			<div class="container">
+				<div class="tg-section-name">
+					<h2>upcoming match</h2>
+				</div>
+				<div class="col-sm-11 col-xs-11 pull-right">
+					<div class="row">
+						<div class="tg-latestresult">
+							<div class="row">
+								<div class="col-md-5 col-sm-12 col-xs-12">
+									<div class="tg-contentbox">
+										<div class="tg-section-heading"><h2>NOTABLE MATCHES TO WATCH</h2></div>
+										<div class="tg-description" style="text-align: justify;">
+											<p>Get ready for an exhilarating lineup of football showdowns that are set to ignite the pitch in the coming weeks. As the anticipation builds, fans around the world are eagerly gearing up to witness the clash of titans, tactical brilliance, and the sheer passion that only football can deliver. </p>
+										</div>
+										<div class="tg-btnbox">
+											<a class="tg-btn" asp-area="" asp-controller="Matches" asp-action="EarlierMatch"><span>view all</span></a>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-7 col-sm-12 col-xs-12">
+									<div id="tg-upcomingmatch-slider" class="tg-upcomingmatch-slider tg-upcomingmatch">
+										<div class="swiper-wrapper">
+											@foreach (Match item in UpcomingMatches)
+											{
+												<div class="swiper-slide">
+													<div class="tg-match">
+														<div class="tg-matchdetail">
+															<div class="tg-box">
+																<strong class="tg-teamlogo">
+																	<img src="@Url.Content("~/images/" + @item.HomeTeam.LogoUrl)" alt="@item.HomeTeam.ShortName">
+																</strong>
+																<h3>@item.HomeTeam.ShortName</h3>
+															</div>
+															<div class="tg-box">
+																<h3>vs</h3>
+															</div>
+															<div class="tg-box">
+																<strong class="tg-teamlogo">
+																	<img src="@Url.Content("~/images/" + @item.GuestTeam.LogoUrl)" alt="@item.GuestTeam.ShortName">
+																</strong>
+																<h3>@item.GuestTeam.ShortName</h3>
+															</div>
+														</div>
+														<div class="tg-matchhover">
+															<address>@item.StartTime - @item.Stadium</address>
+															<div class="tg-btnbox">
+																<a class="tg-btn" asp-area="" asp-controller="Matches" asp-action="Details" asp-route-id="@item.MatchId"><span>read more</span></a>
+															</div>
+														</div>
+													</div>
+												</div>
+											}
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class=" tg-haslayout tg-bgstyletwo">
+			<div class="tg-bgboxone"></div>
+			<div class="tg-bgboxtwo"></div>
+			<div class="tg-bgpattrant">
+				<div class="container">
+					<div class="row">
+						<div class="tg-pointstablewrapper">
+							<div class="col-sm-8 col-xs-12">
+								<div class="tg-pointstable">
+									<div class="tg-section-heading"><h2>top 10 scorers</h2></div>
+									<div id="tg-pointstable-slider" class="tg-pointstable-slider">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide">
+												<div class="tg-pointtable">
+													<div class="tg-box" style="font-weight: bold;">No.</div>
+													<div class="tg-box" style="font-weight: bold;">Player</div>
+													<div class="tg-box" style="font-weight: bold;">Goals</div>
+													<div class="tg-box" style="font-weight: bold;">Team</div>
+													<div class="tg-box" style="font-weight: bold;">Average</div>
+												</div>
+											</div>
+											@foreach(Player item in Top10Players)
+											{
+												<div class="swiper-slide">
+													<div class="tg-pointtable">
+														<div class="tg-box">@item.Number</div>
+														<div class="tg-box">@item.FullName</div>
+														<div class="tg-box">@item.Scores</div>
+														<div class="tg-box">@item.CurrentTeamNavigation.ShortName</div>
+														<div class="tg-box">0.96</div>
+													</div>
+												</div>
+											}
+											
+										</div>
+										<div class="tg-themebtnnext"><span class="fa fa-angle-down"></span></div>
+										<div class="tg-themebtnprev"><span class="fa fa-angle-up"></span></div>
+									</div>
+									<div class="tg-btnbox mb-3">
+										<a class="tg-btn" asp-area="" asp-controller="Players" asp-action="Index"><span>view all</span></a>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-4 col-xs-12 hidden-xs">
+								<figure>
+									@{
+										if(Top10Players.ElementAt(0).PlayerImage.Count() > 0)
+										{
+											<img src="@Url.Content("~/images/" + Top10Players.ElementAt(0).PlayerImage.ElementAt(0).ImageUrl)" alt="image description">
+										}
+									}
+								</figure>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="tg-main-section tg-haslayout">
+			<div class="container">
+				<div class="tg-section-name">
+					<h2>Latest blog / news</h2>
+				</div>
+				<div class="col-sm-11 col-xs-11 pull-right">
+					<div class="row">
+						<div class="tg-blogpost">
+							<div class="row">
+								@foreach (News item in AllNews)
+								{
+									<div class="col-sm-6 col-xs-12">
+										<article class="tg-post">
+											<figure class="tg-postimg">
+												<a>
+													<img src="@Url.Content("~/images/" + @item.ImageUrl)" alt="image description">
+												</a>
+												<figcaption>
+													<ul class="tg-postmetadata">
+														<li><a>@item.Employee.FullName</a></li>
+													</ul>
+												</figcaption>
+											</figure>
+											<div class="tg-posttitle"><h3><a>@item.Title</a></h3></div>
+											<div class="tg-description">
+												<p>@item.Summary</p>
+											</div>
+											<a class="tg-btn" href="ArticlesDetail/@item.NewsId">Read more</a>
+										</article>
+									</div>
+								}
+								
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+</div>

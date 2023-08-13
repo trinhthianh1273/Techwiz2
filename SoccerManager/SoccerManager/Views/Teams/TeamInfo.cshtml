@@ -1,0 +1,173 @@
+﻿@model SoccerManager.Models.Team
+
+@{
+    ViewData["Title"] = "TeamInfo";
+    Layout = "~/Views/Shared/_Main_Layout.cshtml";
+}
+
+<h2>TeamInfo</h2>
+
+
+
+<!--************************************
+		Main Start
+*************************************-->
+<main id="tg-main" class="tg-main tg-haslayout">
+	<!--************************************
+		Fixtures Start
+*************************************-->
+	<section class="tg-main-section tg-haslayout">
+		<div class="container">
+			<div class="tg-section-name">
+				<h2>Informations</h2>
+			</div>
+			<div class="col-sm-11 col-xs-11 pull-right">
+				<div class="row">
+					<div class="tg-latestresult">
+						<div class="row">
+							<div class="col-md-6 col-sm">
+								<div class="tg-contentbox">
+									<dl class="dl-horizontal">
+										<dt>
+											@Html.DisplayNameFor(model => model.FullName)
+										</dt>
+										<dd>
+											@Html.DisplayFor(model => model.FullName)
+										</dd>
+										<dt>
+											@Html.DisplayNameFor(model => model.ShortName)
+										</dt>
+										<dd>
+											@Html.DisplayFor(model => model.ShortName)
+										</dd>
+										<dt>
+											@Html.DisplayNameFor(model => model.Nickname)
+										</dt>
+										<dd>
+											@Html.DisplayFor(model => model.Nickname)
+										</dd>
+										<dt>
+											@Html.DisplayNameFor(model => model.FoundedYear)
+										</dt>
+										<dd>
+											@Html.DisplayFor(model => model.FoundedYear)
+										</dd>
+										<dt>
+											@Html.DisplayNameFor(model => model.FoundedPosition)
+										</dt>
+										<dd>
+											@Html.DisplayFor(model => model.FoundedPosition)
+										</dd>
+										<dt>
+											@Html.DisplayNameFor(model => model.Owner)
+										</dt>
+										<dd>
+											@Html.DisplayFor(model => model.Owner)
+										</dd>
+										<dt>
+											@Html.DisplayNameFor(model => model.Manager)
+										</dt>
+										<dd>
+											@Html.DisplayFor(model => model.Manager)
+										</dd>
+										<dt>
+											@Html.DisplayNameFor(model => model.Website)
+										</dt>
+										<dd>
+											@Html.DisplayFor(model => model.Website)
+										</dd>
+										<dt>
+											Logo
+										</dt>
+										<dd>
+											<img src="@Url.Content("~/images/" + Model.LogoUrl)" alt="" style="200px;">
+										</dd>
+									</dl>
+								</div>
+							</div>
+							<div class="col-md-6 col-sm ">
+								<div class="row">
+									@foreach (var item in ViewBag.Player)
+									{
+										<div class="col-md-5">
+											<figure class="child">
+												<a asp-controller="Players" asp-action="PlayerInfomation" asp-route-id="@item.PlayerId">
+
+													@if(item.PlayerImage.Count > 0)
+													{
+														foreach(var img in ViewBag.Images)
+														{
+															if(img.PlayerId == item.PlayerId)
+															{
+																<img src="@Url.Content("~/images/" + img.ImageUrl)"  alt="" style="display: block; margin: auto;">
+																break;
+															}
+														}
+													}
+													else
+													{
+														<img src="https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg" alt="">
+													}
+												</a>
+												<figcaption style="text-align: center">
+													<a asp-controller="Players" asp-action="PlayerInfomation" asp-route-id="@item.PlayerId">
+														@item.FullName
+													</a>
+												</figcaption>
+
+											</figure>
+										</div>
+
+									}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--************************************
+			Fixtures End
+	*************************************-->
+
+	<!--************************************
+			Statistics Start
+	*************************************-->
+	<section class="tg-main-section tg-haslayout tg-bgdark">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 col-xs-12">
+					<div class="tg-statistics">
+						<div class="tg-statistic tg-goals">
+							<span class="tg-icon icon-Icon1"></span>
+							<h2><span class="tg-statistic-count" data-from="0" data-to="2700" data-speed="8000" data-refresh-interval="50">2700</span></h2>
+							<h3>Goals</h3>
+						</div>
+						<div class="tg-statistic tg-activeplayers">
+							<span class="tg-icon icon-Icon2"></span>
+							<h2><span class="tg-statistic-count" data-from="0" data-to="1673" data-speed="8000" data-refresh-interval="50">1673</span></h2>
+							<h3>Active Players</h3>
+						</div>
+						<div class="tg-statistic tg-activeteams">
+							<span class="tg-icon icon-Icon3"></span>
+							<h2><span class="tg-statistic-count" data-from="0" data-to="236" data-speed="8000" data-refresh-interval="50">236</span></h2>
+							<h3>Active Teams</h3>
+						</div>
+						<div class="tg-statistic tg-earnedawards">
+							<span class="tg-icon icon-Icon4"></span>
+							<h2><span class="tg-statistic-count" data-from="0" data-to="197" data-speed="8000" data-refresh-interval="50">197</span></h2>
+							<h3>Earned Awards</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--************************************
+			Statistics End
+	*************************************-->
+</main>
+<!--************************************
+		Main End
+*************************************-->

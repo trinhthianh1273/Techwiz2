@@ -1,0 +1,114 @@
+﻿@model SoccerManager.Models.Feedback
+
+@{
+    ViewData["Title"] = "Contact";
+    Layout = "~/Views/Shared/_Main_Layout.cshtml";
+}
+
+<div class="tg-banner tg-haslayout">
+	<div class="tg-imglayer">
+		<img src="~/images/bg-pattran.png" alt="image desctription">
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="tg-banner-content tg-haslayout">
+				<div class="tg-pagetitle">
+					<h1>contact</h1>
+				</div>
+				<ol class="tg-breadcrumb">
+					<li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+					<li class="active"><a asp-area="" asp-controller="Home" asp-action="Contact"></a>contact</li>
+				</ol>
+			</div>
+		</div>
+	</div>
+</div>
+<main id="tg-main" class="tg-main tg-paddingbottom-zero tg-haslayout">
+	<section class="tg-main-section tg-paddingbottom-zero tg-haslayout">
+		<div class="container">
+			<div class="tg-section-name">
+				<h2>contact</h2>
+			</div>
+			<div class="col-sm-11 col-xs-11 pull-right">
+				<div class="row">
+					<div class="tg-contactus tg-haslayout">
+						<div class="row">
+							<div class="col-md-5 col-sm-12 col-xs-12">
+								<div class="tg-contactinfobox">
+									<div class="tg-section-heading"><h2>feel free to send us your queries, Suggestion &amp; Remarks</h2></div>
+									<div class="tg-description">
+										<p></p>
+									</div>
+									<ul class="tg-contactinfo">
+										<li>
+											<i class="fa fa-map-marker"></i>
+											<address>Ha Noi, Viet Nam</address>
+										</li>
+										<li>
+											<i class="fa fa-phone"></i>
+											<span>+44 123 456 788 - 9</span>
+										</li>
+										<li>
+											<i class="fa fa-envelope-o"></i>
+											<a href="info%40domain.html">info@domain.com</a>
+										</li>
+										<li>
+											<i class="fa fa-skype"></i>
+											<a href="info%40domain.html">Prosoccer772</a>
+										</li>
+										<li>
+											<i class="fa fa-facebook-f"></i>
+											<a href="info%40domain.html">facebook.com/prosoccer772</a>
+										</li>
+										<li>
+											<i class="fa fa-twitter"></i>
+											<a href="info%40domain.html">twitter.com/prosoccer772</a>
+										</li>
+										<li>
+											<i class="fa fa-laptop"></i>
+											<a href="info%40domain.html">www.domain.com</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-md-7 col-sm-12 col-xs-12">
+								<form asp-controller="Feedbacks" asp-action="SendFeedback" class="tg-commentform help-form" id="tg-commentform">
+									<fieldset>
+										<div class="form-group">
+											@{
+                                                var id = Context.Session.GetString("CustomerId");
+												
+											}
+											<input type="number" asp-for="CustomerId" value="@id" class="form-control" style="display: none"/>
+										</div>
+										<div class="form-group">
+											<div class="tg-select">
+												<select asp-for="Title">
+													<option value="">Message Type*</option>
+													<option value="Discussion">Discussion</option>
+													<option value="Help">Help</option>
+													<option value="Consutation">Consutation</option>
+												</select>
+											</div>
+										</div>
+										<div class="form-group">
+											<textarea required placeholder="Message*" asp-for="Content"></textarea>
+										</div>
+										<div class="form-group">
+											<button type="submit" class="tg-btn">send</button>
+										</div>
+									</fieldset>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</main>
+<hr />
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

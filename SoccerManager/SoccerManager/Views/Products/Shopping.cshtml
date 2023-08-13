@@ -1,0 +1,168 @@
+﻿@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+@using X.PagedList.Web.Common;
+
+@model SoccerManager.Models.Cart
+
+@{
+	ViewData["Title"] = "Shopping";
+	Layout = "~/Views/Shared/_Main_Layout.cshtml";
+	List<Team> teams = ViewBag.Teams;
+	List<Products> products = ViewBag.Products;
+	IPagedList<Products> PagedProducts = ViewBag.PagedProducts;
+}
+
+<div id="tg-wrapper" class="tg-wrapper tg-haslayout">
+	<main id="tg-main" class="tg-main tg-haslayout">
+		<div class="container">
+			<div class="row">
+				<div id="tg-twocolumns" class="tg-twocolumns tg-main-section tg-haslayout">
+					<div class="col-md-9 col-sm-8 col-xs-12 pull-right">
+
+						<div class="tg-shophead">
+							<div class="tg-formfilter">
+								<fieldset>
+									<div class="tg-select">
+										<select onchange="location = this.value;">
+											<option value="@Url.Action("Shopping", "Products")">sort by: All Category</option>
+											<option value="@Url.Action("Shopping", "Products", new { PriceDown = true })">Price Down</option>
+											<option value="@Url.Action("Shopping", "Products", new { PriceUp = true })">Price Up</option>
+										</select>
+									</div>
+									@*<div class="tg-select">
+										<select>
+											<option>Show: 9 Items Per Page</option>
+											<option>All Category</option>
+											<option>All Category</option>
+										</select>
+									</div>*@
+								</fieldset>
+							</div>
+						</div>
+
+						<div class="th-products">
+							<div class="row">
+								@foreach (Products item in PagedProducts)
+								{
+									<div class="col-md-4 col-sm-6 col-xs-6">
+										<div class="tg-product">
+											<figure class="tg-productimg">
+												@{
+													if (item.ProductImage.Count() > 0)
+													{
+														<img src="@Url.Content("~/images/ProductImage/" + item.ProductImage.ElementAt(0).ImageUrl)" alt="image description" style="width: 300px; height: 300px;">
+														//<img src="@Url.Content("~/images/" + item.ProductImage.ElementAt(0).ImageUrl)" alt="Image" style="width: 100px">
+													} else
+													{
+														<img src="https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg" alt="image description" style="width: 300px; height: 300px;">
+													}
+												}
+												
+												<figcaption>
+													@{
+														var id = Context.Session.GetString("CustomerId");
+														var name = Context.Session.GetString("CusFullName");
+
+														if (id is null)
+														{
+															<a class="tg-btncart" asp-area="" asp-controller="Customers" asp-action="Login"><i class="fa fa-shopping-cart"></i></a>
+														} else
+														{
+																<a class="tg-btncart" href="javascript:void(0);">
+																	
+																	<form asp-controller="Carts" asp-action="Create" method="post">
+																	<input asp-for="CustomerId" value="@id" class="form-control" style="display: none" />
+																	<input asp-for="ProductId" value="@item.ProductId" class="form-control" style="display: none" />
+																	<input asp-for="Quantity" value="1" class="form-control" style="display: none" />
+																		<div class="card-text p-1">
+																			<button type="submit">
+																				<i class="fa fa-shopping-cart"></i>
+																			</button>
+																		</div>
+																	</form>
+																</a>
+															
+															
+														}
+													}
+													
+												</figcaption>
+											</figure>
+											<div class="tg-productinfo">
+												<a class="tg-theme-tag" href="#">@Html.DisplayFor(modelItem => item.Category.CategoryName)</a>
+												<div class="tg-producttitle"><h2><a href="#">@Html.DisplayFor(modelItem => item.ProductName)</a></h2></div>
+												<div class="tg-productprice"><h3>$ @Html.DisplayFor(modelItem => item.Price)</h3></div>
+												<span class="tg-stars"><span></span></span>
+											</div>
+										</div>
+									</div>
+								}
+							</div>
+							<ul class="tg-pagination">
+								@Html.PagedListPager(PagedProducts, page => Url.Action("Shopping", new { page }), PagedListRenderOptions.ClassicPlusFirstAndLast)
+							</ul>
+						</div>
+
+					</div>
+					<div class="col-md-3 col-sm-4 col-xs-12">
+						<aside id="tg-sidebar" class="tg-sidebar">
+							<div class="tg-widget tg-search">
+								<form asp-action="Shopping" class="form-search">
+									<fieldset>
+										<input type="text" name="SearchString" placeholder="Search Here" class="form-control" />
+										
+										<button type="submit"><i class="fa fa-search"></i></button>
+									</fieldset>
+								</form>
+							</div>
+							<div class="tg-widget tg-catagories-widget">
+								<h3>catagories</h3>
+								<ul>
+									@{
+									 List<Category> cates = ViewBag.Categories;
+									}
+
+									@foreach (Category category in cates)
+									{
+										<li>
+											<a asp-area="" asp-controller="Products" asp-action="Shopping"
+										   asp-route-CategoryId="@category.CategoryId">
+										   <em>@category.CategoryName</em><i>@category.Products.Count()</i>
+									   </a>
+										</li>
+									}
+									
+								</ul>
+							</div>
+							@*<div class="tg-widget tg-price-widget">
+								<h3>filter by price</h3>
+								<div class="tg-price-range">
+									<div id="tg-slider-range" class="tg-slider-range"></div>
+									<p>
+										<label for="amount">Price:</label>
+										<input type="text" id="amount" readonly>
+									</p>
+									<a class="tg-btn" asp-area="" asp-controller="Products" asp-action="Shopping"
+									   asp-route-FromPrice="" asp-route-ToPrice="">Filter</a>
+								</div>
+							</div>*@
+							<div class="tg-widget tg-tags-widget">
+								<h3>popular tags</h3>
+								<ul>
+									@foreach(Team item in teams)
+									{
+										<li>
+											<a class="tg-btn" asp-area="" asp-controller="Products" asp-action="Shopping"
+										   asp-route-TeamId="@item.TeamId">@item.Nickname</a>
+										</li>
+									}
+									
+								</ul>
+							</div>
+						</aside>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+</div>
