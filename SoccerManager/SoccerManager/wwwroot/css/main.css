@@ -76,23 +76,6 @@ a:hover, a:focus, a:active {
 	outline: none;
 	text-decoration: none;
 }
-.product-name{
-	font-size: 30px;
-}
-.quantity{
-	text-align: center;
-}
-.navigate-shop{
-	padding: 3px;
-	margin: 5px;
-	border-radius: 4px;
-}
-.navigate-shop:hover{
-
-	color:#ffcc33;
-	background-color: #000;
-	margin: 0 0 3px 0;
-}
 ul { margin: 0; }
 figure {
 	margin-bottom: 6px;
@@ -146,7 +129,7 @@ input[type="color"],
 	border-radius: 0;
 	box-shadow: none;
 	border: 1px solid #e1e1e1;
-	/* text-transform: capitalize; */
+	text-transform: capitalize;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
@@ -1002,9 +985,9 @@ address { font-style: italic; }
 			Theme Style
 =============================================*/
 .tg-wrapper{
-	height:100%;
+	/*height:100%;*/
 	position:relative;
-	/* overflow-x:hidden; */
+	overflow-x:hidden;
 }
 /* =============================================
 			Search
@@ -1195,21 +1178,15 @@ address { font-style: italic; }
 			Header
 =============================================*/
 .tg-wrapper > .tg-navigationm-mobile{ display:none !important;}
-.tg-navigationm-mobile{
-	-webkit-transition: all 600ms ease-in-out;
-	-moz-transition: all 600ms ease-in-out;
-	-ms-transition: all 600ms ease-in-out;
-	-o-transition: all 600ms ease-in-out;
-	transition: all 600ms ease-in-out;
-}
 .tg-header{
+	background-color: #373542;
 	top:0;
 	left:0;
 	float:none;
 	width:100%;
 	clear:both;
-	z-index:1000;
-	position:absolute;
+	z-index:2000;
+	/* position:absolute; */
 	padding:20px 0 15px;
 }
 .tg-colhalf{
@@ -1802,9 +1779,6 @@ address { font-style: italic; }
 	position:relative;
 	background:url(../images/bg-pattran.png);
 }
-.article-img{
-	margin: 5px 0 5px 0;
-}
 .tg-upcomingmatch-counter{
 	width:100%;
 	float:left;
@@ -1875,13 +1849,6 @@ address { font-style: italic; }
 	background:#373542;
 	position:relative;
 }
-.tg-matchresult-1{
-	width:100%;
-	float:left;
-	z-index:2;
-	overflow:hidden;
-	position:relative;
-}
 .tg-matchresult:after{
 	top:0;
 	right:0;
@@ -1890,16 +1857,6 @@ address { font-style: italic; }
 	content:'';
 	z-index:-1;
 	position:absolute;
-}
-.tg-matchresult-1:after{
-	top:0;
-	right:0;
-	width:47%;
-	height:100%;
-	content:'';
-	z-index:-1;
-	position:absolute;
-	background: rgb(9, 165, 244);
 }
 .tg-matchresult:before{
 	top:0;
@@ -1910,23 +1867,12 @@ address { font-style: italic; }
 	border-bottom: 500px solid;
 	border-left: 70px solid transparent !important;
 }
-.tg-matchresult-1:before{
-	top:0;
-	right:47%;
-	content:'';
-	z-index:-1;
-	position:absolute;
-	border-bottom: 500px solid;
-	border-left: 70px solid transparent !important;
-	border-color:rgb(9, 165, 244);
-}
 .tg-box{
 	width:100%;
 	float:left;
 	position:relative;
 }
 .tg-matchresult .tg-box{background:url(../images/bg-pattran.png);}
-.tg-matchresult-1 .tg-box{background:url(../images/bg-pattran.png);}
 .tg-score{
 	top:50%;
 	left:50%;
@@ -2379,25 +2325,20 @@ address { font-style: italic; }
 	background:#f7f7f7;
 }
 .tg-pointtable .tg-box{
-	width:20%;
+	width:50%;
 	padding:15px;
-	text-align:center;
+	text-align:left;
 	font-size:16px;
 	line-height:25px;
 	text-transform:uppercase;
 	font-family: 'Oswald', Arial, Helvetica, sans-serif;
 }
 .tg-pointtable .tg-box:nth-child(2n+1){background:#fff;}
-/* .tg-pointtable .tg-box + .tg-box{
+.tg-pointtable .tg-box + .tg-box{
 	width:12.5%;
 	float:left;
 	text-align:center;
-} */
-/* .tg-pointtable .tg-box:nth-of-type(4){
-	width:12.5%;
-	float:left;
-	text-align:center;
-} */
+}
 .tg-pointstable-slider .tg-themebtnnext,
 .tg-pointstable-slider .tg-themebtnprev{ background:#373542;}
 /*=============================================
@@ -2509,7 +2450,7 @@ address { font-style: italic; }
 	width:100%;
 	float:left;
 	z-index:3;
-	padding:80px 0;
+	padding:40px 0;
 	position:relative;
 }
 .tg-footercol{
@@ -3617,7 +3558,7 @@ address { font-style: italic; }
 .tg-ticket:hover .tg-matchdate{ color:#373542;}
 .tg-ticket .tg-matchdetail{
 	width:350px;
-	padding:0 0 0 0;
+	padding:0 30px 0 0;
 }
 .tg-ticket .tg-theme-tag{float:left;}
 .tg-ticket:hover .tg-theme-tag{ color:#373542;}
@@ -3703,7 +3644,6 @@ address { font-style: italic; }
 	float:left;
 }
 .tg-resultdetail .tg-matchresult { margin:0 0 30px;}
-.tg-resultdetail .tg-matchresult-1 { margin:0 0 30px;}
 .tg-mathtextbox{
 	width:100%;
 	float:left;
