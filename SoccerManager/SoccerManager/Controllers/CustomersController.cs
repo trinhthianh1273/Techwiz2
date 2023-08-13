@@ -17,11 +17,6 @@ namespace SoccerManager.Controllers
         // GET: Customers
         public async Task<IActionResult> Index()
         {
-<<<<<<< HEAD
-            return _context.Customer != null ?
-                        View(await _context.Customer.ToListAsync()) :
-                        Problem("Entity set 'SoccerContext.Customer'  is null.");
-=======
             var customers = _context.Customer;
             foreach (var item in customers)
             {
@@ -31,7 +26,6 @@ namespace SoccerManager.Controllers
             }
 
             return View(customers);
->>>>>>> Develop
         }
 
         // GET: Customers/Login
@@ -45,15 +39,6 @@ namespace SoccerManager.Controllers
             return View(obj);
         }
 
-<<<<<<< HEAD
-        // GET: Customers/Cart
-        public IActionResult Cart()
-        {
-            double total = 0;
-            var carts = new List<Cart>();
-
-            if (HttpContext.Session.GetString("CustomerId") != null)
-=======
 		// GET: Customers/Cart
 		public IActionResult Cart()
 		{
@@ -64,35 +49,14 @@ namespace SoccerManager.Controllers
 			{
                 return RedirectToAction("Login", "Customers");
             } else
->>>>>>> Develop
+
             {
                 int customerId = Convert.ToInt16(HttpContext.Session.GetString("CustomerId"));
                 carts = _context.Cart
                                 .Where(c => c.CustomerId == customerId)
                                 .Include(c => c.Product)
                                 .ToList();
-<<<<<<< HEAD
-                ViewBag.Address = _context.Address.Where(a => a.CustomerId == customerId);
-                ViewBag.CustomerId = customerId;
 
-            }
-            foreach (var item in carts)
-            {
-                if (item.Product.Price != null)
-                {
-                    total += (double)item.Quantity * item.Product.Price.Value;
-
-                }
-            }
-            ViewBag.Total = total;
-
-
-
-            ViewBag.Categories = _context.Category.ToList();
-            return View(carts);
-        }
-
-=======
                 foreach(Cart item in carts)
                 {
                     item.Product.Category = _context.Category.Where(c => c.CategoryId == item.Product.CategoryId).Single();
@@ -124,7 +88,7 @@ namespace SoccerManager.Controllers
             return View(carts);
         }
 
->>>>>>> Develop
+
         //POST: Customers/Login
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -149,12 +113,6 @@ namespace SoccerManager.Controllers
                                 .ToList().Count();
                 HttpContext.Session.SetString("CartCount", carts.ToString());
                 return RedirectToAction("Index", "Home");
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> Develop
             }
             return RedirectToAction("Login", "Customers");
         }
@@ -259,6 +217,29 @@ namespace SoccerManager.Controllers
 			}
 			return RedirectToAction("Index", "Home");
 		}
+
+		// GET: Customers/Details/5
+		public async Task<IActionResult> AddressManage(int? id)
+		{
+			if (HttpContext.Session.GetString("CustomerId") == null)
+			{
+				return RedirectToAction("Login", "Customers");
+			}
+			if (id == null || _context.Customer == null)
+			{
+				return NotFound();
+			}
+
+			var customer = await _context.Customer
+				.FirstOrDefaultAsync(m => m.CustomerId == id);
+			if (customer == null)
+			{
+				return NotFound();
+			}
+
+			return View(customer);
+		}
+
 
 		// GET: Customers/Create
 		public IActionResult Create()
